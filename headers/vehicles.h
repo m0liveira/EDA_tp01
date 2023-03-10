@@ -10,4 +10,7 @@ typedef struct vehicleList {
     char model[20];
     char gpsTracker[50];
     struct entry* nextEntry;
-} vehicle;
+} Vehicle;
+
+int isUnique(Vehicle* startEntry, int id);
+Vehicle* addVehicles(Vehicle* startEntry, int id, float batteryCapacity, float currentBattery, float autonomy, float pricePerKm, char brand[], char model[], char gpsTracker[]);

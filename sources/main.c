@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "vehicles.h"
+#include "../headers/vehicles.h"
 
 void clearConsole(){
     system("cls||clear");
@@ -15,9 +15,8 @@ void mainMenu() {
 }
 
 int main() {
-    vehicle* vehicles = NULL;
-    char tipo[50];
-    int input = -1;
+    Vehicle* vehicles = NULL;
+    int input = -1, vehicleID = 1;
 
 	do {
         mainMenu();
