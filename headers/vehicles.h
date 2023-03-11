@@ -5,7 +5,7 @@ typedef struct vehicleList {
     float batteryCapacity;
     int currentBattery;
     float autonomy;
-    float pricePerKm;
+    float price;
     char brand[20];
     char model[20];
     char gpsTracker[50];
@@ -13,4 +13,4 @@ typedef struct vehicleList {
 } Vehicle;
 
 int isUnique(Vehicle* startEntry, int id);
-Vehicle* addVehicles(Vehicle* startEntry, int id, float currentBattery, float autonomy, float pricePerKm, char brand[], char model[]);
+Vehicle* addVehicles(Vehicle* startEntry, int id, float currentBattery, float autonomy, float price, char brand[], char model[]);
