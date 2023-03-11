@@ -14,3 +14,4 @@ typedef struct vehicleList {
 
 int isUnique(Vehicle* startEntry, int id);
 Vehicle* addVehicles(Vehicle* startEntry, int id, float currentBattery, float autonomy, float price, char brand[], char model[]);
+void ListVehicles(Vehicle* startEntry);

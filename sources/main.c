@@ -7,11 +7,12 @@ void clearConsole(){
 }
 
 void mainMenu(){
-    printf("1: Inserir transportes\n");
+    printf("Menu Fase 1");
+    printf("\n\n1: Inserir transportes\n");
     printf("2: Listar transportes\n");
     printf("3: Remover transportes\n");
-    printf("0: Sair\n");
-    printf("\nOpcao: ");
+    printf("0: Sair");
+    printf("\n\nOpcao: ");
 }
 
 Vehicle* addNewVehicle(Vehicle* vehicles, int id){
@@ -39,6 +40,8 @@ Vehicle* addNewVehicle(Vehicle* vehicles, int id){
     printf("Preco de aluguer (eur): ");
     scanf("%f", &price);
 
+    printf("\n");
+
     vehicles = addVehicles(vehicles, id, batteryCapacity, autonomy, price, brand, model);
 
     return vehicles;
@@ -56,7 +59,7 @@ int main(){
 
         switch (input){
         case 0:
-            printf("A sair\n");
+            printf("A sair!");
             break;
 
         case 1:
@@ -65,6 +68,7 @@ int main(){
             break;
 
         case 2:
+            ListVehicles(vehicles);
             break;
 
         case 3:
