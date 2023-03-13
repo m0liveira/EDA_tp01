@@ -12,6 +12,7 @@ typedef struct vehicleList {
     struct vehicleList* nextEntry;
 } Vehicle;
 
-int isUnique(Vehicle* startEntry, int id);
-Vehicle* addVehicles(Vehicle* startEntry, int id, float currentBattery, float autonomy, float price, char brand[], char model[]);
-void ListVehicles(Vehicle* startEntry);
+int isUnique(Vehicle *startEntry, int id);
+Vehicle *addVehicles(Vehicle *startEntry, int id, float currentBattery, float autonomy, float price, char brand[], char model[]);
+void listVehicles(Vehicle *startEntry);
+Vehicle *deleteVehicle(Vehicle *startEntry, int id);
