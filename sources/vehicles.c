@@ -2,7 +2,7 @@
 #include <string.h>
 #include "../headers/vehicles.h"
 
-int isUnique(Vehicle* startEntry, int id){
+int isUnique(Vehicle *startEntry, int id){
     while (startEntry != NULL){
         if (startEntry->id == id) return (0);
 
@@ -12,7 +12,7 @@ int isUnique(Vehicle* startEntry, int id){
     return (1);
 }
 
-Vehicle* addVehicles(Vehicle* startEntry, int id, float batteryCapacity, float autonomy, float price, char brand[], char model[]){
+Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, float autonomy, float price, char brand[], char model[]){
     if (!isUnique(startEntry, id)){
         printf("\nErro: Este ID ja foi registado!\n");
         return (startEntry);
@@ -34,15 +34,15 @@ Vehicle* addVehicles(Vehicle* startEntry, int id, float batteryCapacity, float a
     }
 }
 
-void ListVehicles(Vehicle* startEntry){
-    if (startEntry == NULL) {
+void listVehicles(Vehicle *startEntry){
+    if (startEntry == NULL){
         printf("Nao ha veiculos guardados\n\n");
         return;
     }
 
     printf("Lista de veiculos!\n\n");
 
-    while (startEntry != NULL) {
+    while (startEntry != NULL){
         printf("Id: %d", startEntry->id);
         printf("\nMarca: %s", startEntry->brand);
         printf("\nModelo: %s", startEntry->model);
@@ -54,4 +54,33 @@ void ListVehicles(Vehicle* startEntry){
 
         startEntry = startEntry->nextEntry;
     }
+}
+
+Vehicle *deleteVehicle(Vehicle *startEntry, int id){
+    Vehicle *previousEntry=startEntry, *currentEntry=startEntry, *aux;
+
+    if (currentEntry==NULL) {
+        printf("\nO veiculo indicado nao esta registado!\n\n");
+        return(NULL);
+    }
+    
+    if (currentEntry->id == id) {
+        aux = currentEntry->nextEntry;
+        free(currentEntry);
+        return(aux);
+    } 
+   
+    while ((currentEntry!=NULL)&&(currentEntry->id!=id)) {
+        previousEntry = currentEntry;
+        currentEntry = currentEntry->nextEntry;
+    }
+    
+    if (currentEntry!=NULL) {
+        previousEntry->nextEntry = currentEntry->nextEntry;
+        free(currentEntry);
+        return(startEntry);
+    }
+
+    printf("\nO veiculo indicado nao esta registado!\n\n");
+    return(startEntry);
 }

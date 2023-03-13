@@ -15,7 +15,7 @@ void mainMenu(){
     printf("\n\nOpcao: ");
 }
 
-Vehicle* addNewVehicle(Vehicle* vehicles, int id){
+Vehicle *addNewVehicle(Vehicle *vehicles, int id){
     float batteryCapacity, autonomy, price;
     char brand[20], model[20];
 
@@ -47,32 +47,44 @@ Vehicle* addNewVehicle(Vehicle* vehicles, int id){
     return vehicles;
 }
 
+int getId(char phrase[]){
+    int id = 0;
+
+    printf("%s", phrase);
+	scanf("%d", &id);
+
+    return id;
+}
+
 int main(){
-    Vehicle* vehicles = NULL;
+    Vehicle *vehicles = NULL;
     int input = -1, vehicleId = 1;
 
     do{
         mainMenu();
         scanf("%d", &input);
         fflush(stdin);
-        clearConsole();
 
         switch (input){
         case 0:
+            clearConsole();
             printf("A sair!");
             break;
 
         case 1:
+            clearConsole();
             vehicles = addNewVehicle(vehicles, vehicleId);
             vehicleId++;
             break;
 
         case 2:
-            ListVehicles(vehicles);
+            clearConsole();
+            listVehicles(vehicles);
             break;
 
         case 3:
-            printf("Transporte a remover\n");
+            clearConsole();
+	   		vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
             break;
 
         default:
