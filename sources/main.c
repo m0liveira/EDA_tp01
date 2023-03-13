@@ -64,23 +64,26 @@ int main(){
         mainMenu();
         scanf("%d", &input);
         fflush(stdin);
-        clearConsole();
 
         switch (input){
         case 0:
+            clearConsole();
             printf("A sair!");
             break;
 
         case 1:
+            clearConsole();
             vehicles = addNewVehicle(vehicles, vehicleId);
             vehicleId++;
             break;
 
         case 2:
+            clearConsole();
             listVehicles(vehicles);
             break;
 
         case 3:
+            clearConsole();
 	   		vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
             break;
 

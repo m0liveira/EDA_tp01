@@ -57,24 +57,30 @@ void listVehicles(Vehicle *startEntry){
 }
 
 Vehicle *deleteVehicle(Vehicle *startEntry, int id){
-    Vehicle *previousEntry = startEntry, *currentEntry = startEntry, *temp;
+    Vehicle *previousEntry=startEntry, *currentEntry=startEntry, *aux;
 
-    if (currentEntry == NULL) return (NULL);
-    else if (currentEntry->id == id) {
-        temp = currentEntry->nextEntry;
-        free(currentEntry);
-        return (temp);
-    } else {
-        while ((currentEntry != NULL) && (currentEntry->id != id)) {
-            previousEntry = currentEntry;
-            currentEntry = currentEntry->nextEntry;
-        }
-
-        if (currentEntry == NULL) return (currentEntry); 
-        else {
-            previousEntry->nextEntry = currentEntry->nextEntry;
-            free(currentEntry);
-            return (startEntry);
-        }
+    if (currentEntry==NULL) {
+        printf("\nO veiculo indicado nao esta registado!\n\n");
+        return(NULL);
     }
+    
+    if (currentEntry->id == id) {
+        aux = currentEntry->nextEntry;
+        free(currentEntry);
+        return(aux);
+    } 
+   
+    while ((currentEntry!=NULL)&&(currentEntry->id!=id)) {
+        previousEntry = currentEntry;
+        currentEntry = currentEntry->nextEntry;
+    }
+    
+    if (currentEntry!=NULL) {
+        previousEntry->nextEntry = currentEntry->nextEntry;
+        free(currentEntry);
+        return(startEntry);
+    }
+
+    printf("\nO veiculo indicado nao esta registado!\n\n");
+    return(startEntry);
 }
