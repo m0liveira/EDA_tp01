@@ -74,6 +74,7 @@ int main(){
         case 1:
             clearConsole();
             vehicles = addNewVehicle(vehicles, vehicleId);
+            saveVehiclesOnDatabase(vehicles);
             vehicleId++;
             break;
 
@@ -85,6 +86,7 @@ int main(){
         case 3:
             clearConsole();
 	   		vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
+            saveVehiclesOnDatabase(vehicles);
             break;
 
         default:
