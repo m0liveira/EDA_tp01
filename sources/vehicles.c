@@ -84,3 +84,26 @@ Vehicle *deleteVehicle(Vehicle *startEntry, int id){
     printf("\nO veiculo indicado nao esta registado!\n\n");
     return(startEntry);
 }
+
+Vehicle *editVehicle(Vehicle *startEntry, int id, int currentBattery, char gpsTracker[]){
+    Vehicle *previousEntry=startEntry, *currentEntry=startEntry;
+
+    if (currentEntry==NULL) {
+        printf("\nO veiculo indicado nao esta registado!\n\n");
+        return(NULL);
+    }
+
+    while ((currentEntry!=NULL)&&(currentEntry->id!=id)) {
+        previousEntry = currentEntry;
+        currentEntry = currentEntry->nextEntry;
+    }
+    
+    if (currentEntry!=NULL) {
+        currentEntry->currentBattery = currentBattery;
+        strcpy(currentEntry->gpsTracker, gpsTracker);
+        return(startEntry);
+    }
+
+    printf("\nO veiculo indicado nao esta registado!\n\n");
+    return(startEntry);
+}
