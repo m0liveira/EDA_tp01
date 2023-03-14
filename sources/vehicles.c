@@ -107,3 +107,23 @@ Vehicle *editVehicle(Vehicle *startEntry, int id, int currentBattery, char gpsTr
     printf("\nO veiculo indicado nao esta registado!\n\n");
     return(startEntry);
 }
+
+int saveVehiclesOnDatabase(Vehicle *startEntry){
+    Vehicle* aux = startEntry;
+    FILE* fp;
+
+    fp = fopen("../databases/vehicles_database.txt","w");
+
+    if (fp==NULL) return(0);
+
+    while (aux != NULL) {
+        fprintf(fp,"%d;%f;%d;%f;%f;%s;%s;%s\n", aux->id, aux->batteryCapacity, aux->currentBattery, aux->autonomy, aux->price, aux->brand, aux->model, aux->gpsTracker);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return(1);
+}
+
