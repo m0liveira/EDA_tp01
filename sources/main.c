@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "../headers/global.h"
 #include "../headers/vehicles.h"
+#include "../headers/users.h"
 
 void clearConsole(){
     system("cls||clear");
@@ -16,7 +17,15 @@ void mainMenu(){
     printf("\n\nOpcao: ");
 }
 
-Vehicle *addNewVehicle(Vehicle *vehicles, int id){
+void loginMenu(){
+    printf("Login Menu");
+    printf("\n\n1: Entrar\n");
+    printf("2: Criar conta\n");
+    printf("0: Sair");
+    printf("\n\nOpcao: ");
+}
+
+Vehicle *newVehicle(Vehicle *vehicles, int id){
     float batteryCapacity, autonomy, price;
     char brand[20], model[20];
 
@@ -48,6 +57,26 @@ Vehicle *addNewVehicle(Vehicle *vehicles, int id){
     return vehicles;
 }
 
+User *newUser(User *users, int id){
+    char name[30], password[30];
+
+    printf("Id: %d", id);
+
+    printf("\nNome: ");
+    scanf("%s", name);
+    fflush(stdin);
+
+    printf("Password: ");
+    scanf("%s", password);
+    fflush(stdin);
+
+    printf("\n");
+
+    users = addUser(users, id, name, password, "client");
+
+    return users;
+}
+
 int getId(char phrase[]){
     int id = 0;
 
@@ -59,42 +88,72 @@ int getId(char phrase[]){
 
 int main(){
     Vehicle *vehicles = NULL;
-    int input = -1, vehicleId = 1;
-
-    vehicles = getVehiclesFromDatabase();
-    vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+    User *users = NULL;
+    int input = -1, vehicleId = 1, userId = 1;
 
     do{
-        mainMenu();
+        loginMenu();
         scanf("%d", &input);
         fflush(stdin);
-
-        switch (input){
-        case 0:
-            clearConsole();
-            printf("A sair!");
+        
+        switch (input) {
+            case 0:
+                clearConsole();
+                printf("A sair!");
             break;
 
-        case 1:
-            clearConsole();
-            vehicles = addNewVehicle(vehicles, vehicleId);
-            saveVehiclesOnDatabase(vehicles);
-            vehicleId++;
+            case 1:
+                clearConsole();
+                input = -1;
+
+                vehicles = getVehiclesFromDatabase();
+                vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+
+                do {
+                    mainMenu();
+                    scanf("%d", &input);
+                    fflush(stdin);
+
+                    switch (input){
+                        case 0:
+                            clearConsole();
+                            printf("A sair!");
+                        break;
+
+                        case 1:
+                            clearConsole();
+                            vehicles = newVehicle(vehicles, vehicleId);
+                            saveVehiclesOnDatabase(vehicles);
+                            vehicleId++;
+                        break;
+
+                        case 2:
+                            clearConsole();
+                            listVehicles(vehicles);
+                        break;
+
+                        case 3:
+                            clearConsole();
+	   		                vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
+                            saveVehiclesOnDatabase(vehicles);
+                        break;
+
+                        default:
+                            printf("Opcao invalida!\n");
+                        break;
+                    }
+                } while (input != 0);
             break;
 
-        case 2:
-            clearConsole();
-            listVehicles(vehicles);
+            case 2:
+                clearConsole();
+                users = newUser(users, userId);
+                userId++;
             break;
 
-        case 3:
-            clearConsole();
-	   		vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
-            saveVehiclesOnDatabase(vehicles);
-            break;
-
-        default:
-            printf("Opcao invalida!\n");
+            default:
+                clearConsole();
+                printf("Opcao invalida!\n\n");
             break;
         }
     } while (input != 0);
