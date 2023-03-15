@@ -106,7 +106,15 @@ int main(){
                 clearConsole();
                 input = -1;
 
-                if (!loginUser(users, "paulo", "123")){
+                printf("Nome: ");
+                scanf("%s", session.name);
+                fflush(stdin);
+
+                printf("\nPassword: ");
+                scanf("%s", session.password);
+                fflush(stdin);
+
+                if (!loginUser(users, session.name, session.password)){
                     printf("\nDados incorretos\n\n");
                     break;
                 }

@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-typedef struct userList {
+typedef struct UserList {
     int id;
     char name[30];
     char password[30];
     char role[10];
-    struct userList *nextEntry;
+    struct UserList *nextEntry;
 } User;
 
 int isUserUnique(User *startEntry, int id);

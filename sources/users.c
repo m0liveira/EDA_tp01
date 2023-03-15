@@ -24,7 +24,7 @@ int isNameUnique(User *startEntry, char name[]){
 }
 
 User *addUser(User *startEntry, int id, char name[], char password[], char role[]){
-    User *newEntry = malloc(sizeof(struct userList));
+    User *newEntry = malloc(sizeof(struct UserList));
 
     if (!isUserUnique(startEntry, id)){
         printf("Erro: Este ID ja foi registado!\n\n");
@@ -49,7 +49,14 @@ User *addUser(User *startEntry, int id, char name[], char password[], char role[
 
 int loginUser(User *startEntry, char name[], char password[]){
     while (startEntry != NULL){
-        if (strcmp(startEntry->name, name) == 0 && strcmp(startEntry->password, password) == 0) return (1);
+        if (strcmp(startEntry->name, name) == 0 && strcmp(startEntry->password, password) == 0) {
+            session.id = startEntry->id;
+            strcpy(session.name, startEntry->name);
+            strcpy(session.password, startEntry->password);
+            strcpy(session.role, startEntry->role);
+
+            return (1);
+        }
 
         startEntry = startEntry->nextEntry;
     }
