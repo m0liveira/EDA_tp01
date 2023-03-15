@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef struct vehicleList {
+typedef struct VehicleList {
     int id;
     float batteryCapacity;
     int currentBattery;
@@ -9,7 +9,7 @@ typedef struct vehicleList {
     char brand[20];
     char model[20];
     char gpsTracker[50];
-    struct vehicleList* nextEntry;
+    struct VehicleList* nextEntry;
 } Vehicle;
 
 int isUnique(Vehicle *startEntry, int id);

@@ -19,7 +19,7 @@ Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, int cur
         return (startEntry);
     }
 
-    Vehicle *newEntry = malloc(sizeof(struct vehicleList));
+    Vehicle *newEntry = malloc(sizeof(struct VehicleList));
 
     if (newEntry != NULL){
         newEntry->id = id;

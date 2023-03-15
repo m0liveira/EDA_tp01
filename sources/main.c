@@ -106,6 +106,19 @@ int main(){
                 clearConsole();
                 input = -1;
 
+                printf("Nome: ");
+                scanf("%s", session.name);
+                fflush(stdin);
+
+                printf("\nPassword: ");
+                scanf("%s", session.password);
+                fflush(stdin);
+
+                if (!loginUser(users, session.name, session.password)){
+                    printf("\nDados incorretos\n\n");
+                    break;
+                }
+                
                 vehicles = getVehiclesFromDatabase();
                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
