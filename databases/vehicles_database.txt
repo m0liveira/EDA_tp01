@@ -1,2 +1,5 @@
-2;123.000000;100;123.000000;123.000000;asd;asd;https://w3w.co/origem.rias.pontos
-1;123.000000;100;123.000000;123.000000;adsa;adsa;https://w3w.co/origem.rias.pontos
+Id:5;BatteryCap:14000.00;CurrBattery:100;Autonomy:659900.00;Price:899.45;Brand:porsche;Model:911;GPS:origem.rias.pontos;
+Id:4;BatteryCap:11000.00;CurrBattery:100;Autonomy:400000.00;Price:538.52;Brand:mazda;Model:mx5;GPS:origem.rias.pontos;
+Id:3;BatteryCap:17000.00;CurrBattery:100;Autonomy:705000.00;Price:1085.99;Brand:audi;Model:r8;GPS:origem.rias.pontos;
+Id:2;BatteryCap:10000.00;CurrBattery:100;Autonomy:377450.00;Price:379.00;Brand:toyota;Model:celica;GPS:origem.rias.pontos;
+Id:1;BatteryCap:12000.00;CurrBattery:100;Autonomy:574000.00;Price:574.69;Brand:bmw;Model:serie1;GPS:origem.rias.pontos;

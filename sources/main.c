@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../headers/global.h"
 #include "../headers/vehicles.h"
 
 void clearConsole(){
@@ -42,7 +43,7 @@ Vehicle *addNewVehicle(Vehicle *vehicles, int id){
 
     printf("\n");
 
-    vehicles = addVehicles(vehicles, id, batteryCapacity, autonomy, price, brand, model);
+    vehicles = addVehicles(vehicles, id, batteryCapacity, 100, autonomy, price, brand, model, "origem.rias.pontos");
 
     return vehicles;
 }
@@ -59,6 +60,9 @@ int getId(char phrase[]){
 int main(){
     Vehicle *vehicles = NULL;
     int input = -1, vehicleId = 1;
+
+    vehicles = getVehiclesFromDatabase();
+    vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
     do{
         mainMenu();

@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include "../headers/global.h"
 #include "../headers/vehicles.h"
 
 int isUnique(Vehicle *startEntry, int id){
@@ -12,7 +13,7 @@ int isUnique(Vehicle *startEntry, int id){
     return (1);
 }
 
-Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, float autonomy, float price, char brand[], char model[]){
+Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[]){
     if (!isUnique(startEntry, id)){
         printf("\nErro: Este ID ja foi registado!\n");
         return (startEntry);
@@ -23,12 +24,12 @@ Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, float a
     if (newEntry != NULL){
         newEntry->id = id;
         newEntry->batteryCapacity = batteryCapacity;
-        newEntry->currentBattery = 100;
+        newEntry->currentBattery = currentBattery;
         newEntry->autonomy = autonomy;
         newEntry->price = price;
         strcpy(newEntry->brand, brand);
         strcpy(newEntry->model, model);
-        strcpy(newEntry->gpsTracker, "https://w3w.co/origem.rias.pontos");
+        strcpy(newEntry->gpsTracker, gpsTracker);
         newEntry->nextEntry = startEntry;
         return (newEntry);
     }
@@ -117,7 +118,7 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
     if (fp==NULL) return(0);
 
     while (aux != NULL) {
-        fprintf(fp,"%d;%f;%d;%f;%f;%s;%s;%s\n", aux->id, aux->batteryCapacity, aux->currentBattery, aux->autonomy, aux->price, aux->brand, aux->model, aux->gpsTracker);
+        fprintf(fp,"Id:%d;BatteryCap:%.2f;CurrBattery:%d;Autonomy:%.2f;Price:%.2f;Brand:%s;Model:%s;GPS:%s;\n", aux->id, aux->batteryCapacity, aux->currentBattery, aux->autonomy, aux->price, aux->brand, aux->model, aux->gpsTracker);
 
         aux = aux->nextEntry;
     }
@@ -127,3 +128,30 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
     return(1);
 }
 
+Vehicle *getVehiclesFromDatabase(){
+    Vehicle *vehicles = NULL, *stack = NULL;;
+    FILE *fp;
+    int id, currentBattery;
+    float batteryCapacity, autonomy, price;
+    char brand[20], model[20], gpsTracker[50];
+
+    fp = fopen("../databases/vehicles_database.txt","r");
+
+    if (fp == NULL) return vehicles;
+
+    if (isFileEmpty("../databases/vehicles_database.txt") == 1) return vehicles;
+
+    while (!feof(fp)) {
+        fscanf(fp,"Id:%d;BatteryCap:%f;CurrBattery:%d;Autonomy:%f;Price:%f;Brand:%[^;];Model:%[^;];GPS:%[^;\n];\n", &id, &batteryCapacity, &currentBattery, &autonomy, &price, brand, model, gpsTracker);
+        stack = addVehicles(stack, id, batteryCapacity, currentBattery, autonomy, price, brand, model, gpsTracker);
+    }
+
+    fclose(fp);
+
+    while (stack != NULL) {
+        vehicles = addVehicles(vehicles, stack->id, stack->batteryCapacity, stack->currentBattery, stack->autonomy, stack->price, stack->brand, stack->model, stack->gpsTracker);
+        stack = stack->nextEntry;
+    }
+    
+    return(vehicles);
+}
