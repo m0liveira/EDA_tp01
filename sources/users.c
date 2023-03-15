@@ -3,8 +3,23 @@
 #include "../headers/global.h"
 #include "../headers/users.h"
 
+int isUserUnique(User *startEntry, int id){
+    while (startEntry != NULL){
+        if (startEntry->id == id) return (0);
+
+        startEntry = startEntry->nextEntry;
+    }
+
+    return (1);
+}
+
 User *addUser(User *startEntry, int id, char name[], char password[], char role[]){
     User *newEntry = malloc(sizeof(struct userList));
+
+    if (!isUserUnique(startEntry, id)){
+        printf("\nErro: Este ID ja foi registado!\n");
+        return (startEntry);
+    }
 
     if (newEntry != NULL){
         newEntry->id = id;

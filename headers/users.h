@@ -8,4 +8,5 @@ typedef struct userList {
     struct userList *nextEntry;
 } User;
 
+int isUserUnique(User *startEntry, int id);
 User *addUser(User *startEntry, int id, char name[], char password[], char role[]);
