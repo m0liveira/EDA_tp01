@@ -27,12 +27,12 @@ User *addUser(User *startEntry, int id, char name[], char password[], char role[
     User *newEntry = malloc(sizeof(struct userList));
 
     if (!isUserUnique(startEntry, id)){
-        printf("\nErro: Este ID ja foi registado!\n");
+        printf("Erro: Este ID ja foi registado!\n\n");
         return (startEntry);
     }
 
     if (!isNameUnique(startEntry, name)){
-        printf("\nErro: Este nome (%s) ja foi registado!\n", name);
+        printf("Erro: Este nome (%s) ja foi registado!\n\n", name);
         return (startEntry);
     }
 
