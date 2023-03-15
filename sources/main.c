@@ -68,7 +68,15 @@ int main(){
 
     users = addUser(users, 1, "jorge", "pass123", "client");
     printf("\n\n%d, %s, %s, %s\n\n", users->id, users->name, users->password, users->role);
+    
     users = addUser(users, 1, "jorge", "pass123", "client");
+
+    users = addUser(users, 2, "jonas", "pass123", "client");
+    printf("\n\n%d, %s, %s, %s\n\n", users->id, users->name, users->password, users->role);
+
+    users = addUser(users, 3, "jorge", "pass123", "client");
+    printf("\n\n%d, %s, %s, %s\n\n", users->id, users->name, users->password, users->role);
+
 
     do{
         mainMenu();
