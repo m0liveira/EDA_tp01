@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "../headers/global.h"
 #include "../headers/vehicles.h"
+#include "../headers/users.h"
 
 void clearConsole(){
     system("cls||clear");
@@ -59,10 +60,15 @@ int getId(char phrase[]){
 
 int main(){
     Vehicle *vehicles = NULL;
+    User *users = NULL;
     int input = -1, vehicleId = 1;
 
     vehicles = getVehiclesFromDatabase();
     vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+
+    users = addUser(users, 1, "jorge", "pass123", "client");
+
+    printf("\n\n%d, %s, %s, %s\n\n", users->id, users->name, users->password, users->role);
 
     do{
         mainMenu();
