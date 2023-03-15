@@ -12,7 +12,7 @@ int isUnique(Vehicle *startEntry, int id){
     return (1);
 }
 
-Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, float autonomy, float price, char brand[], char model[]){
+Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[]){
     if (!isUnique(startEntry, id)){
         printf("\nErro: Este ID ja foi registado!\n");
         return (startEntry);
@@ -23,12 +23,12 @@ Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, float a
     if (newEntry != NULL){
         newEntry->id = id;
         newEntry->batteryCapacity = batteryCapacity;
-        newEntry->currentBattery = 100;
+        newEntry->currentBattery = currentBattery;
         newEntry->autonomy = autonomy;
         newEntry->price = price;
         strcpy(newEntry->brand, brand);
         strcpy(newEntry->model, model);
-        strcpy(newEntry->gpsTracker, "https://w3w.co/origem.rias.pontos");
+        strcpy(newEntry->gpsTracker, gpsTracker);
         newEntry->nextEntry = startEntry;
         return (newEntry);
     }
@@ -117,7 +117,7 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
     if (fp==NULL) return(0);
 
     while (aux != NULL) {
-        fprintf(fp,"%d;%f;%d;%f;%f;%s;%s;%s\n", aux->id, aux->batteryCapacity, aux->currentBattery, aux->autonomy, aux->price, aux->brand, aux->model, aux->gpsTracker);
+        fprintf(fp,"%d;%.2f;%d;%.2f;%.2f;%s;%s;%s\n", aux->id, aux->batteryCapacity, aux->currentBattery, aux->autonomy, aux->price, aux->brand, aux->model, aux->gpsTracker);
 
         aux = aux->nextEntry;
     }
@@ -127,3 +127,24 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
     return(1);
 }
 
+Vehicle *GetVehiclesFromDatabase(){
+    Vehicle *aux = NULL;
+    FILE *fp;
+    int id, currentBattery;
+    float batteryCapacity, autonomy, price;
+    char brand[20], model[20], gpsTracker[50];
+
+    fp = fopen("../databases/vehicles_database.txt","r");
+
+    if (fp!=NULL) {
+        while (!feof(fp)) {
+            fscanf(fp,"%d;%f;%d;%f;%f;%[^;];%[^;];%[^\n]\n", &id, &batteryCapacity, &currentBattery, &autonomy, &price, brand, model, gpsTracker);
+            // aux = addVehicles(aux, id, batteryCapacity, currentBattery, autonomy, price, brand, model, gpsTracker);
+            printf("\nid: %d, bateria: %.2f, atual: %d, autonomia: %.2f, preco: %.2f, brand: %s, model: %s, gps: %s\n\n", id, batteryCapacity, currentBattery, autonomy, price, brand, model, gpsTracker);
+        }
+
+        fclose(fp);
+    }
+
+    return(aux);
+}

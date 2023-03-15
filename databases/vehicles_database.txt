@@ -1,2 +1,3 @@
-2;123.000000;100;123.000000;123.000000;asd;asd;https://w3w.co/origem.rias.pontos
-1;123.000000;100;123.000000;123.000000;adsa;adsa;https://w3w.co/origem.rias.pontos
+3;10785.00;100;350000.00;365.00;mazda;mx5;origem.rias.pontos
+2;20500.00;100;102300016.00;1000.00;toyota;celica;origem.rias.pontos
+1;10230.00;100;100000.00;600.00;bmw;serie1;origem.rias.pontos

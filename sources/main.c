@@ -42,7 +42,7 @@ Vehicle *addNewVehicle(Vehicle *vehicles, int id){
 
     printf("\n");
 
-    vehicles = addVehicles(vehicles, id, batteryCapacity, autonomy, price, brand, model);
+    vehicles = addVehicles(vehicles, id, batteryCapacity, 100, autonomy, price, brand, model, "origem.rias.pontos");
 
     return vehicles;
 }
@@ -87,6 +87,10 @@ int main(){
             clearConsole();
 	   		vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
             saveVehiclesOnDatabase(vehicles);
+            break;
+
+        case 5:
+            vehicles = GetVehiclesFromDatabase();
             break;
 
         default:
