@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../headers/global.h"
 #include "../headers/vehicles.h"
 
 void clearConsole(){
@@ -54,23 +55,6 @@ int getId(char phrase[]){
 	scanf("%d", &id);
 
     return id;
-}
-
-int getLastIdFromDb(char dir[]){
-    FILE *fp;
-    int id, lastId = 0;
-
-    fp = fopen(dir, "r");
-
-    if (fp == NULL) exit(1);
-
-    while (fscanf(fp, "Id:%d;", &id) == 1) {
-        lastId = id;
-    }
-
-    fclose(fp);
-
-    return lastId + 1;
 }
 
 int main(){
