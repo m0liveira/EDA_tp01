@@ -106,6 +106,11 @@ int main(){
                 clearConsole();
                 input = -1;
 
+                if (!loginUser(users, "paulo", "123")){
+                    printf("\nDados incorretos\n\n");
+                    break;
+                }
+                
                 vehicles = getVehiclesFromDatabase();
                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 

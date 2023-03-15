@@ -46,3 +46,13 @@ User *addUser(User *startEntry, int id, char name[], char password[], char role[
         return (newEntry);
     }
 }
+
+int loginUser(User *startEntry, char name[], char password[]){
+    while (startEntry != NULL){
+        if (strcmp(startEntry->name, name) == 0 && strcmp(startEntry->password, password) == 0) return (1);
+
+        startEntry = startEntry->nextEntry;
+    }
+
+    return 0;
+}
