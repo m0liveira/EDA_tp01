@@ -118,7 +118,8 @@ int main(){
                     printf("\nDados incorretos\n\n");
                     break;
                 }
-                
+
+                clearConsole();
                 vehicles = getVehiclesFromDatabase();
                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
@@ -161,6 +162,7 @@ int main(){
             case 2:
                 clearConsole();
                 users = newUser(users, userId);
+                saveUsersOnDatabase(users);
                 userId++;
             break;
 

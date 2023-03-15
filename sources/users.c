@@ -63,3 +63,22 @@ int loginUser(User *startEntry, char name[], char password[]){
 
     return 0;
 }
+
+int saveUsersOnDatabase(User *startEntry){
+    User* aux = startEntry;
+    FILE* fp;
+
+    fp = fopen("../databases/users_database.txt","w");
+
+    if (fp==NULL) return(0);
+
+    while (aux != NULL) {
+        fprintf(fp,"Id:%d;Name:%s;Password:%s;Role:%s;\n", aux->id, aux->name, aux->password, aux->role);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return(1);
+}
