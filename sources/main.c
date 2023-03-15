@@ -56,9 +56,29 @@ int getId(char phrase[]){
     return id;
 }
 
+int getLastIdFromDb(char dir[]){
+    FILE *fp;
+    int id, lastId = 0;
+
+    fp = fopen(dir, "r");
+
+    if (fp == NULL) exit(1);
+
+    while (fscanf(fp, "Id:%d;", &id) == 1) {
+        lastId = id;
+    }
+
+    fclose(fp);
+
+    return lastId + 1;
+}
+
 int main(){
     Vehicle *vehicles = NULL;
     int input = -1, vehicleId = 1;
+
+    vehicles = getVehiclesFromDatabase();
+    vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
     do{
         mainMenu();
@@ -87,10 +107,6 @@ int main(){
             clearConsole();
 	   		vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
             saveVehiclesOnDatabase(vehicles);
-            break;
-
-        case 5:
-            vehicles = GetVehiclesFromDatabase();
             break;
 
         default:

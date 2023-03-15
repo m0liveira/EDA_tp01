@@ -18,4 +18,4 @@ void listVehicles(Vehicle *startEntry);
 Vehicle *deleteVehicle(Vehicle *startEntry, int id);
 Vehicle *editVehicle(Vehicle *startEntry, int id, int currentBattery, char gpsTracker[]);
 int saveVehiclesOnDatabase(Vehicle *startEntry);
-Vehicle *GetVehiclesFromDatabase();
+Vehicle *getVehiclesFromDatabase();

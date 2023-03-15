@@ -1,3 +1,4 @@
-3;10785.00;100;350000.00;365.00;mazda;mx5;origem.rias.pontos
-2;20500.00;100;102300016.00;1000.00;toyota;celica;origem.rias.pontos
-1;10230.00;100;100000.00;600.00;bmw;serie1;origem.rias.pontos
+Id:1;BatteryCap:10230.00;CurrBattery:100;Autonomy:100000.00;Price:600.00;Brand:bmw;Model:serie1;GPS:origem.rias.pontos;
+Id:2;BatteryCap:20500.00;CurrBattery:100;Autonomy:102300016.00;Price:1000.00;Brand:toyota;Model:celica;GPS:origem.rias.pontos;
+Id:3;BatteryCap:10785.00;CurrBattery:100;Autonomy:350000.00;Price:365.00;Brand:mazda;Model:mx5;GPS:origem.rias.pontos;
+Id:4;BatteryCap:15500.00;CurrBattery:100;Autonomy:12500.50;Price:566.99;Brand:renault;Model:clio;GPS:origem.rias.pontos;

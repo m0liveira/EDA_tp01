@@ -117,7 +117,7 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
     if (fp==NULL) return(0);
 
     while (aux != NULL) {
-        fprintf(fp,"%d;%.2f;%d;%.2f;%.2f;%s;%s;%s\n", aux->id, aux->batteryCapacity, aux->currentBattery, aux->autonomy, aux->price, aux->brand, aux->model, aux->gpsTracker);
+        fprintf(fp,"Id:%d;BatteryCap:%.2f;CurrBattery:%d;Autonomy:%.2f;Price:%.2f;Brand:%s;Model:%s;GPS:%s;\n", aux->id, aux->batteryCapacity, aux->currentBattery, aux->autonomy, aux->price, aux->brand, aux->model, aux->gpsTracker);
 
         aux = aux->nextEntry;
     }
@@ -127,7 +127,7 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
     return(1);
 }
 
-Vehicle *GetVehiclesFromDatabase(){
+Vehicle *getVehiclesFromDatabase(){
     Vehicle *aux = NULL;
     FILE *fp;
     int id, currentBattery;
@@ -138,9 +138,8 @@ Vehicle *GetVehiclesFromDatabase(){
 
     if (fp!=NULL) {
         while (!feof(fp)) {
-            fscanf(fp,"%d;%f;%d;%f;%f;%[^;];%[^;];%[^\n]\n", &id, &batteryCapacity, &currentBattery, &autonomy, &price, brand, model, gpsTracker);
-            // aux = addVehicles(aux, id, batteryCapacity, currentBattery, autonomy, price, brand, model, gpsTracker);
-            printf("\nid: %d, bateria: %.2f, atual: %d, autonomia: %.2f, preco: %.2f, brand: %s, model: %s, gps: %s\n\n", id, batteryCapacity, currentBattery, autonomy, price, brand, model, gpsTracker);
+            fscanf(fp,"Id:%d;BatteryCap:%f;CurrBattery:%d;Autonomy:%f;Price:%f;Brand:%[^;];Model:%[^;];GPS:%[^;\n];\n", &id, &batteryCapacity, &currentBattery, &autonomy, &price, brand, model, gpsTracker);
+            aux = addVehicles(aux, id, batteryCapacity, currentBattery, autonomy, price, brand, model, gpsTracker);
         }
 
         fclose(fp);
