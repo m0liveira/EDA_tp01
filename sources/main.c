@@ -91,6 +91,9 @@ int main(){
     User *users = NULL;
     int input = -1, vehicleId = 1, userId = 1;
 
+    users = getUsersFromDatabase();
+    userId = getLastIdFromDb("../databases/users_database.txt");
+
     do{
         loginMenu();
         scanf("%d", &input);
