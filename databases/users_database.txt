@@ -1,2 +1,2 @@
-Id:2;Name:sara;Password:1234;Role:client;
-Id:1;Name:jorge;Password:123;Role:client;
+Id:2;Name:jamal;Password:4321;Nif:987654321;Balance:0.00;Role:client;
+Id:1;Name:mateus;Password:1234;Nif:123456789;Balance:0.00;Role:client;
