@@ -4,6 +4,7 @@
         "string.h": "c",
         "vehicles.h": "c",
         "stdio.h": "c",
-        "global.h": "c"
+        "global.h": "c",
+        "users.h": "c"
     }
 }

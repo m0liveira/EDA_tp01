@@ -82,3 +82,30 @@ int saveUsersOnDatabase(User *startEntry){
 
     return(1);
 }
+
+User *getUsersFromDatabase(){
+    User *users = NULL, *stack = NULL;;
+    FILE *fp;
+    int id;
+    char name[30], password[30], role[10];
+
+    fp = fopen("../databases/users_database.txt","r");
+
+    if (fp == NULL) return users;
+
+    if (isFileEmpty("../databases/users_database.txt") == 1) return users;
+
+    while (!feof(fp)) {
+        fscanf(fp,"Id:%d;Name:%[^;];Password:%[^;];Role:%[^;\n];\n", &id, name, password, role);
+        stack = addUser(stack, id, name, password, role);
+    }
+
+    fclose(fp);
+
+    while (stack != NULL) {
+        users = addUser(users, stack->id, stack->name, stack->password, stack->role);
+        stack = stack->nextEntry;
+    }
+    
+    return(users);
+}

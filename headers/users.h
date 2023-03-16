@@ -13,3 +13,4 @@ int isNameUnique(User *startEntry, char name[]);
 User *addUser(User *startEntry, int id, char name[], char password[], char role[]);
 int loginUser(User *startEntry, char name[], char password[]);
 int saveUsersOnDatabase(User *startEntry);
+User *getUsersFromDatabase();
