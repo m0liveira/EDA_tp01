@@ -93,6 +93,16 @@ Rent *getRentsFromDatabase(){
     return(rents);
 }
 
+int rentExists(Rent *startEntry, int id){
+    while (startEntry != NULL){
+        if (startEntry->id == id) return 1;
+
+        startEntry = startEntry->nextEntry;
+    }
+
+    return 0;
+}
+
 Rent *updateRent(Rent *startEntry, int id){
     Rent *previousEntry = startEntry, *currentEntry = startEntry;
 
@@ -106,7 +116,7 @@ Rent *updateRent(Rent *startEntry, int id){
         currentEntry = currentEntry->nextEntry;
     }
     
-    if (currentEntry != NULL) {
+    if (currentEntry != NULL && session.id == currentEntry->clientId && strcmp(currentEntry->status, "active") == 0) {
         strcpy(currentEntry->status, "returned");
         return(startEntry);
     }

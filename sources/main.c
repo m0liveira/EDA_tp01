@@ -156,7 +156,7 @@ int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
     Rent *rents = NULL;
-    int input = -1, vehicleId = 1, userId = 1, rentId = 1;
+    int input = -1, vehicleId = 1, userId = 1, rentId = 1, updateRentId = 0;
     char location[50];
 
     users = getUsersFromDatabase();
@@ -221,6 +221,20 @@ int main(){
                             case 2:
                                 clearConsole();
                                 listUserActiveRents(rents);
+
+                                printf("\nId do aluguer a concluir: ");
+                                scanf("%d", &updateRentId);
+                                fflush(stdin);
+
+                                if (rentExists(rents, updateRentId)){
+                                    updateRent(rents, updateRentId);
+                                    saveRentOnDatabase(rents);
+                                    rentId = getLastIdFromDb("../databases/rents_database.txt");
+                                }else{
+                                    printf("Erro: Este aluguer nao existe!\n\n");
+                                }
+
+
                             break;
 
                             case 3:
