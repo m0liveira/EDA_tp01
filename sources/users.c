@@ -118,7 +118,7 @@ User *deleteUser(User *startEntry, int id){
     User *previousEntry = startEntry, *currentEntry = startEntry, *aux;
 
     if (currentEntry == NULL) {
-        printf("\nO veiculo indicado nao esta registado!\n\n");
+        printf("\nO utilizador indicado nao esta registado!\n\n");
         return(NULL);
     }
     
@@ -139,6 +139,29 @@ User *deleteUser(User *startEntry, int id){
         return(startEntry);
     }
 
-    printf("\nO veiculo indicado nao esta registado!\n\n");
+    printf("\nO utilizador indicado nao esta registado!\n\n");
+    return(startEntry);
+}
+
+User *editUser(User *startEntry, int id){
+    User *previousEntry = startEntry, *currentEntry = startEntry;
+
+    if (currentEntry==NULL) {
+        printf("\nO utilizador indicado nao esta registado!\n\n");
+        return(NULL);
+    }
+
+    while ((currentEntry != NULL) && (currentEntry->id != id)) {
+        previousEntry = currentEntry;
+        currentEntry = currentEntry->nextEntry;
+    }
+    
+    if (currentEntry != NULL) {
+        currentEntry->balance = session.balance;
+        strcpy(currentEntry->password, session.password);
+        return(startEntry);
+    }
+
+    printf("\nO utilizador indicado nao esta registado!\n\n");
     return(startEntry);
 }

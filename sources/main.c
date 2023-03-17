@@ -105,6 +105,15 @@ int getId(char phrase[]){
     return id;
 }
 
+void depositBalance(){
+    float balance = 0;
+    printf("Quanto saldo quer depositar: ");
+    scanf("%f", &balance);
+    fflush(stdin);
+
+    session.balance += balance;
+}
+
 int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
@@ -159,7 +168,7 @@ int main(){
 
                             case 1:
                                 clearConsole();
-                                
+
                             break;
 
                             case 2:
@@ -169,7 +178,9 @@ int main(){
 
                             case 3:
                                 clearConsole();
-	   		                    
+                                depositBalance();
+                                users = editUser(users, session.id);
+                                saveUsersOnDatabase(users);
                             break;
 
                             case 4:

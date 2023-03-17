@@ -17,3 +17,4 @@ int loginUser(User *startEntry, char name[], char password[]);
 int saveUsersOnDatabase(User *startEntry);
 User *getUsersFromDatabase();
 User *deleteUser(User *startEntry, int id);
+User *editUser(User *startEntry, int id);
