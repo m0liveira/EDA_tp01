@@ -155,3 +155,44 @@ Vehicle *getVehiclesFromDatabase(){
     
     return(vehicles);
 }
+
+void listVehiclesByAutnonomy(Vehicle *startEntry) {
+    if (startEntry == NULL) {
+        printf("Nao ha veiculos guardados\n\n");
+        return;
+    }
+
+    int count = 0;
+    Vehicle **array = NULL;
+    Vehicle *current = startEntry;
+    while (current != NULL) {
+        count++;
+        array = realloc(array, count * sizeof(Vehicle *));
+        array[count - 1] = current;
+        current = current->nextEntry;
+    }
+
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (array[i]->autonomy < array[j]->autonomy) {
+                Vehicle *temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < count; i++) {
+        Vehicle *vehicle = array[i];
+        printf("Id: %d\n", vehicle->id);
+        printf("Marca: %s\n", vehicle->brand);
+        printf("Modelo: %s\n", vehicle->model);
+        printf("Capacidade de bateria (Ah): %.2f\n", vehicle->batteryCapacity);
+        printf("Bateria atual (%%): %d%%\n", vehicle->currentBattery);
+        printf("Autonomia (Km): %.2f\n", vehicle->autonomy);
+        printf("Preco de aluguer (eur): %.2f euros\n", vehicle->price);
+        printf("Localizacao do veiculo: %s\n\n", vehicle->gpsTracker);
+    }
+
+    free(array);
+}

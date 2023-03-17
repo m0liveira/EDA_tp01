@@ -25,7 +25,8 @@ void mainMenu(){
     
     printf("\n\n1: Inserir transportes\n");
     printf("2: Listar transportes\n");
-    printf("3: Remover transportes\n");
+    printf("3: Listar transportes por autonomia (decrescente)\n");
+    printf("4: Remover transportes\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -225,6 +226,11 @@ int main(){
                             break;
 
                             case 3:
+                                clearConsole();
+	   		                    listVehiclesByAutnonomy(vehicles);
+                            break;
+
+                            case 4:
                                 clearConsole();
 	   		                    vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
                                 saveVehiclesOnDatabase(vehicles);
