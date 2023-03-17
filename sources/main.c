@@ -155,6 +155,23 @@ void depositBalance(){
     session.balance += balance;
 }
 
+void getProfits(Rent *startEntry, Vehicle *entrys){
+    float income = 0.00;
+
+    if (startEntry == NULL){
+        printf("Nao ha veiculos guardados\n\n");
+        return;
+    }
+
+    while (startEntry != NULL){
+        getVehicleByID(entrys, startEntry->vehicleId);
+        income += car.price;
+        startEntry = startEntry->nextEntry;
+    }
+
+    printf("Ganhos de aluguer: %.2f euros\n\n", income);
+}
+
 int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
@@ -337,12 +354,12 @@ int main(){
 
                             case 7:
                                 clearConsole();
-	   		                    
+                                listRents(rents);
                             break;
 
                             case 8:
                                 clearConsole();
-	   		                    
+                                getProfits(rents, vehicles);
                             break;
 
                             default:

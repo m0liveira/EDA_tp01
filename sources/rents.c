@@ -3,6 +3,7 @@
 #include "../headers/global.h"
 #include "../headers/rents.h"
 #include "../headers/users.h"
+#include "../headers/vehicles.h"
 
 int isRentUnique(Rent *startEntry, int id){
     while (startEntry != NULL){

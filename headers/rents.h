@@ -17,3 +17,4 @@ Rent *updateRent(Rent *startEntry, int id);
 void listUserRents(Rent *startEntry);
 void listUserActiveRents(Rent *startEntry);
 int rentExists(Rent *startEntry, int id);
+void listRents(Rent *startEntry);
