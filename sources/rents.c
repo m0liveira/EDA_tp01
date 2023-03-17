@@ -92,3 +92,59 @@ Rent *getRentsFromDatabase(){
     
     return(rents);
 }
+
+Rent *updateRent(Rent *startEntry, int id){
+    Rent *previousEntry = startEntry, *currentEntry = startEntry;
+
+    if (currentEntry==NULL) {
+        printf("\nO aluguer indicado nao existe!\n\n");
+        return(NULL);
+    }
+
+    while ((currentEntry != NULL) && (currentEntry->id != id)) {
+        previousEntry = currentEntry;
+        currentEntry = currentEntry->nextEntry;
+    }
+    
+    if (currentEntry != NULL) {
+        strcpy(currentEntry->status, "returned");
+        return(startEntry);
+    }
+
+    printf("\nO aluguer indicado nao existe!\n\n");
+    return(startEntry);
+}
+
+void listUserRents(Rent *startEntry){
+    if (startEntry == NULL){
+        printf("Nao ha veiculos guardados\n\n");
+        return;
+    }
+
+    printf("Lista de alugueres!\n\n");
+
+    while (startEntry != NULL){
+        if (session.id == startEntry->clientId) {
+            printf("Id: %d, id do veiculo: %d -> status: %s\n\n", startEntry->id, startEntry->vehicleId, startEntry->status);
+        }
+        
+        startEntry = startEntry->nextEntry;
+    }
+}
+
+void listUserActiveRents(Rent *startEntry){
+    if (startEntry == NULL){
+        printf("Nao ha veiculos guardados\n\n");
+        return;
+    }
+
+    printf("Lista de alugueres ativos!\n\n");
+
+    while (startEntry != NULL){
+        if (session.id == startEntry->clientId && strcmp(startEntry->status, "active") == 0) {
+            printf("Id: %d, id do veiculo: %d -> status: %s\n\n", startEntry->id, startEntry->vehicleId, startEntry->status);
+        }
+        
+        startEntry = startEntry->nextEntry;
+    }
+}

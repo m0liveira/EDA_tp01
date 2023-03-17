@@ -15,10 +15,12 @@ void mainMenu(){
 
     if (strcmp(session.role, "client") == 0) {
         printf("\n\n1: Alugar transporte\n");
-        printf("2: Consultar saldo\n");
-        printf("3: Carregar saldo\n");
-        printf("4: Alterar palavra-passe\n");
-        printf("5: Apagar conta\n");
+        printf("2: Entregar veiculo\n");
+        printf("3: Consultar alugueres\n");
+        printf("4: Consultar saldo\n");
+        printf("5: Carregar saldo\n");
+        printf("6: Alterar palavra-passe\n");
+        printf("7: Apagar conta\n");
         printf("0: Sair");
         printf("\n\nOpcao: "); 
         return;
@@ -218,17 +220,27 @@ int main(){
 
                             case 2:
                                 clearConsole();
-                                printf("Saldo: %.2f euros\n\n", session.balance);
+                                listUserActiveRents(rents);
                             break;
 
                             case 3:
+                                clearConsole();
+                                listUserRents(rents);
+                            break;
+
+                            case 4:
+                                clearConsole();
+                                printf("Saldo: %.2f euros\n\n", session.balance);
+                            break;
+
+                            case 5:
                                 clearConsole();
                                 depositBalance();
                                 users = editUser(users, session.id);
                                 saveUsersOnDatabase(users);
                             break;
 
-                            case 4:
+                            case 6:
                                 clearConsole();
 	   		                    printf("Nova palavra-passe: ");
                                 scanf("%s", &session.password);
@@ -237,7 +249,7 @@ int main(){
                                 saveUsersOnDatabase(users);
                             break;
 
-                            case 5:
+                            case 7:
                                 clearConsole();
 	   		                    users = deleteUser(users, session.id);
                                 saveUsersOnDatabase(users);

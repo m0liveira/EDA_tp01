@@ -13,3 +13,6 @@ int isRented(Rent *startEntry, int vehicleId);
 Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[]);
 int saveRentOnDatabase(Rent *startEntry);
 Rent *getRentsFromDatabase();
+Rent *updateRent(Rent *startEntry, int id);
+void listUserRents(Rent *startEntry);
+void listUserActiveRents(Rent *startEntry);
