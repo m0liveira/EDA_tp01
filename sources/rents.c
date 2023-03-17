@@ -13,13 +13,26 @@ int isRentUnique(Rent *startEntry, int id){
     return (1);
 }
 
+int isRented(Rent *startEntry, int id){
+    while (startEntry != NULL){
+        if (startEntry->id == id) return (0);
 
+        startEntry = startEntry->nextEntry;
+    }
+
+    return (1);
+}
 
 Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[]){
     Rent *newEntry = malloc(sizeof(struct RentList));
 
     if (!isRentUnique(startEntry, id)){
-        printf("Erro: Este ID ja foi registado!\n");
+        printf("Erro: Este ID ja foi registado!\n\n");
+        return (startEntry);
+    }
+
+    if (!isRented(startEntry, vehicleId)){
+        printf("Erro: Este veiculo ja foi alugado por outro cliente!\n\n");
         return (startEntry);
     }
 
@@ -29,6 +42,8 @@ Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status
         newEntry->vehicleId = vehicleId;
         strcpy(newEntry->status, status);
         newEntry->nextEntry = startEntry;
+
+        printf("Veiculo alugado!\n\n");
 
         return (newEntry);
     }

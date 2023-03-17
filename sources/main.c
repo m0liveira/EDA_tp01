@@ -109,6 +109,8 @@ Rent *newRent(Rent *rents, int id){
     scanf("%d", &vehicleId);
     fflush(stdin);
 
+    clearConsole();
+
     rents = addRent(rents, id, session.id, vehicleId, "rented");
 
     return rents;
