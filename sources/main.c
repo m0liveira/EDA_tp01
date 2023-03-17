@@ -174,6 +174,7 @@ int main(){
                 vehicles = getVehiclesFromDatabase();
                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
+                rents = getRentsFromDatabase();
                 rentId = getLastIdFromDb("../databases/rents_database.txt");
 
                 do {

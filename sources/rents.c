@@ -13,6 +13,8 @@ int isRentUnique(Rent *startEntry, int id){
     return (1);
 }
 
+
+
 Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[]){
     Rent *newEntry = malloc(sizeof(struct RentList));
 
@@ -49,4 +51,30 @@ int saveRentOnDatabase(Rent *startEntry){
     fclose(fp);
 
     return(1);
+}
+
+Rent *getRentsFromDatabase(){
+    Rent *rents = NULL, *stack = NULL;;
+    FILE *fp;
+    int id, clientId, vehicleId;
+    char status[10];
+
+    fp = fopen("../databases/rents_database.txt","r");
+
+    if (fp == NULL) return rents;
+
+    if (isFileEmpty("../databases/rents_database.txt") == 1) return rents;
+
+    while (fscanf(fp, "Id:%d;ClientID:%d;VehicleID:%d;Status:%[^;\n];\n", &id, &clientId, &vehicleId, status) == 4) {
+        stack = addRent(stack, id, clientId, vehicleId, status);
+    }
+
+    fclose(fp);
+
+    while (stack != NULL) {
+        rents = addRent(rents, stack->id, stack->clientId, stack->vehicleId, stack->status);
+        stack = stack->nextEntry;
+    }
+    
+    return(rents);
 }

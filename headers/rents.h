@@ -11,3 +11,4 @@ typedef struct RentList {
 int isRentUnique(Rent *startEntry, int id);
 Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[]);
 int saveRentOnDatabase(Rent *startEntry);
+Rent *getRentsFromDatabase();
