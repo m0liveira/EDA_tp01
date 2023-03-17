@@ -26,7 +26,8 @@ void mainMenu(){
     printf("\n\n1: Inserir transportes\n");
     printf("2: Listar transportes\n");
     printf("3: Listar transportes por autonomia (decrescente)\n");
-    printf("4: Remover transportes\n");
+    printf("4: Listar transportes numa area\n");
+    printf("5: Remover transportes\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -119,7 +120,8 @@ int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
     int input = -1, vehicleId = 1, userId = 1;
-    
+    char location[50];
+
     users = getUsersFromDatabase();
     userId = getLastIdFromDb("../databases/users_database.txt");
 
@@ -231,6 +233,15 @@ int main(){
                             break;
 
                             case 4:
+                                clearConsole();
+                                printf("Area: ");
+                                scanf("%s", location);
+                                fflush(stdin);
+                                clearConsole();
+	   		                    listVehiclesByGPS(vehicles, location);
+                            break;
+
+                            case 5:
                                 clearConsole();
 	   		                    vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
                                 saveVehiclesOnDatabase(vehicles);

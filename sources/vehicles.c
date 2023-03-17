@@ -182,6 +182,8 @@ void listVehiclesByAutnonomy(Vehicle *startEntry) {
         }
     }
 
+    printf("Lista de veiculos por autonomia!\n\n");
+
     for (int i = 0; i < count; i++) {
         Vehicle *vehicle = array[i];
         printf("Id: %d\n", vehicle->id);
@@ -195,4 +197,28 @@ void listVehiclesByAutnonomy(Vehicle *startEntry) {
     }
 
     free(array);
+}
+
+void listVehiclesByGPS(Vehicle *startEntry, char location[]){
+    if (startEntry == NULL){
+        printf("Nao ha veiculos guardados\n\n");
+        return;
+    }
+
+    printf("Lista de veiculos na area %s!\n\n", location);
+
+    while (startEntry != NULL){
+        if (strcmp(startEntry->gpsTracker, location) == 0) {
+            printf("Id: %d", startEntry->id);
+            printf("\nMarca: %s", startEntry->brand);
+            printf("\nModelo: %s", startEntry->model);
+            printf("\nCapacidade de bateria (Ah): %.2f", startEntry->batteryCapacity);
+            printf("\nBateria atual (%%): %d%%", startEntry->currentBattery);
+            printf("\nAutonomia (Km): %.2f", startEntry->autonomy);
+            printf("\nPreco de aluguer (eur): %.2f euros", startEntry->price);
+            printf("\nLocalizacao do veiculo: %s\n\n", startEntry->gpsTracker);
+        }
+        
+        startEntry = startEntry->nextEntry;
+    }
 }
