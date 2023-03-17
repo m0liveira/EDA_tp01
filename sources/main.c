@@ -109,9 +109,14 @@ Rent *newRent(Rent *rents, Vehicle *vehicles, int id){
     scanf("%d", &vehicleId);
     fflush(stdin);
 
-    getVehicleByID(vehicles, vehicleId);
-
     clearConsole();
+
+    if (!vehicleExists(vehicles, vehicleId)){
+        printf("Erro: Este veiculo nao existe!\n\n");
+        return (rents);
+    }
+
+    getVehicleByID(vehicles, vehicleId);
 
     if (car.price > session.balance) {
         printf("saldo insuficiente! Necessita de %.2f euros para alugar este veiculo\n\n", car.price - session.balance);

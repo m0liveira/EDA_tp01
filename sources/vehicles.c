@@ -241,3 +241,13 @@ void getVehicleByID(Vehicle *startEntry, int id){
         startEntry = startEntry->nextEntry;
     }
 }
+
+int vehicleExists(Vehicle *startEntry, int id){
+    while (startEntry != NULL){
+        if (startEntry->id == id) return 1;
+
+        startEntry = startEntry->nextEntry;
+    }
+
+    return 0;
+}
