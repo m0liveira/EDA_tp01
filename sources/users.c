@@ -113,3 +113,32 @@ User *getUsersFromDatabase(){
     
     return(users);
 }
+
+User *deleteUser(User *startEntry, int id){
+    User *previousEntry = startEntry, *currentEntry = startEntry, *aux;
+
+    if (currentEntry == NULL) {
+        printf("\nO veiculo indicado nao esta registado!\n\n");
+        return(NULL);
+    }
+    
+    if (currentEntry->id == id) {
+        aux = currentEntry->nextEntry;
+        free(currentEntry);
+        return(aux);
+    } 
+   
+    while ((currentEntry != NULL) && (currentEntry->id != id)) {
+        previousEntry = currentEntry;
+        currentEntry = currentEntry->nextEntry;
+    }
+    
+    if (currentEntry != NULL) {
+        previousEntry->nextEntry = currentEntry->nextEntry;
+        free(currentEntry);
+        return(startEntry);
+    }
+
+    printf("\nO veiculo indicado nao esta registado!\n\n");
+    return(startEntry);
+}

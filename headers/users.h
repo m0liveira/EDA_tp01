@@ -16,3 +16,4 @@ User *addUser(User *startEntry, int id, int nif, float balance, char name[], cha
 int loginUser(User *startEntry, char name[], char password[]);
 int saveUsersOnDatabase(User *startEntry);
 User *getUsersFromDatabase();
+User *deleteUser(User *startEntry, int id);

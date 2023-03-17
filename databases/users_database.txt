@@ -1,2 +1,2 @@
-Id:2;Name:jamal;Password:4321;Nif:987654321;Balance:0.00;Role:client;
-Id:1;Name:mateus;Password:1234;Nif:123456789;Balance:0.00;Role:client;
+Id:2;Name:123;Password:123;Nif:987654321;Balance:0.00;Role:client;
+Id:1;Name:admin;Password:admin;Nif:0;Balance:0.00;Role:admin;
