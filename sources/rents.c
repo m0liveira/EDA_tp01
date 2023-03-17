@@ -117,6 +117,7 @@ Rent *updateRent(Rent *startEntry, int id){
     }
     
     if (currentEntry != NULL && session.id == currentEntry->clientId && strcmp(currentEntry->status, "active") == 0) {
+        car.id = currentEntry->vehicleId;
         strcpy(currentEntry->status, "returned");
         return(startEntry);
     }
