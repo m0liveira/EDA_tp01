@@ -1,0 +1,2 @@
+Id:2;ClientID:2;VehicleID:5;Status:active;
+Id:1;ClientID:2;VehicleID:1;Status:returned;

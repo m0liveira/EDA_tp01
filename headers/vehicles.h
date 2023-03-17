@@ -21,3 +21,6 @@ int saveVehiclesOnDatabase(Vehicle *startEntry);
 Vehicle *getVehiclesFromDatabase();
 void listVehiclesByAutnonomy(Vehicle *startEntry);
 void listVehiclesByGPS(Vehicle *startEntry, char location[]);
+void getVehicleByID(Vehicle *startEntry, int id);
+int vehicleExists(Vehicle *startEntry, int id);
+Vehicle *rechargeVehicles(Vehicle *startEntry);

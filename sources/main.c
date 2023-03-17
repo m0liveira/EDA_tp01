@@ -4,6 +4,7 @@
 #include "../headers/global.h"
 #include "../headers/vehicles.h"
 #include "../headers/users.h"
+#include "../headers/rents.h"
 
 void clearConsole(){
     system("cls||clear");
@@ -14,20 +15,25 @@ void mainMenu(){
 
     if (strcmp(session.role, "client") == 0) {
         printf("\n\n1: Alugar transporte\n");
-        printf("2: Consultar saldo\n");
-        printf("3: Carregar saldo\n");
-        printf("4: Alterar palavra-passe\n");
-        printf("5: Apagar conta\n");
+        printf("2: Entregar veiculo\n");
+        printf("3: Consultar alugueres\n");
+        printf("4: Consultar saldo\n");
+        printf("5: Carregar saldo\n");
+        printf("6: Alterar palavra-passe\n");
+        printf("7: Apagar conta\n");
         printf("0: Sair");
         printf("\n\nOpcao: "); 
         return;
     };
     
-    printf("\n\n1: Inserir transportes\n");
-    printf("2: Listar transportes\n");
-    printf("3: Listar transportes por autonomia (decrescente)\n");
-    printf("4: Listar transportes numa area\n");
-    printf("5: Remover transportes\n");
+    printf("\n\n1: Inserir veiculos\n");
+    printf("2: Listar veiculos\n");
+    printf("3: Listar veiculos por autonomia (decrescente)\n");
+    printf("4: Listar veiculos numa area\n");
+    printf("5: Recarregar veiculos\n");
+    printf("6: Remover veiculos\n");
+    printf("7: Listar alugueres\n");
+    printf("8: Listar ganhos\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -98,6 +104,39 @@ User *newUser(User *users, int id){
     return users;
 }
 
+Rent *newRent(Rent *rents, Vehicle *vehicles, User *users, int id){
+    int vehicleId = 0;
+
+    printf("\n\nId: %d", id);
+    printf("\nId do cliente: %d", session.id);
+    printf("\nNome do cliente: %s", session.name);
+    printf("\nId do veiculo a alugar: ");
+    scanf("%d", &vehicleId);
+    fflush(stdin);
+
+    clearConsole();
+
+    if (!vehicleExists(vehicles, vehicleId)){
+        printf("Erro: Este veiculo nao existe!\n\n");
+        return (rents);
+    }
+
+    getVehicleByID(vehicles, vehicleId);
+
+    if (car.price > session.balance) {
+        printf("saldo insuficiente! Necessita de %.2f euros para alugar este veiculo\n\n", car.price - session.balance);
+        return rents;
+    }
+
+    rents = addRent(rents, id, session.id, vehicleId, "active");
+
+    session.balance -= car.price;
+    users = editUser(users, session.id);
+    saveUsersOnDatabase(users);
+
+    return rents;
+}
+
 int getId(char phrase[]){
     int id = 0;
 
@@ -116,10 +155,28 @@ void depositBalance(){
     session.balance += balance;
 }
 
+void getProfits(Rent *startEntry, Vehicle *entrys){
+    float income = 0.00;
+
+    if (startEntry == NULL){
+        printf("Nao ha veiculos guardados\n\n");
+        return;
+    }
+
+    while (startEntry != NULL){
+        getVehicleByID(entrys, startEntry->vehicleId);
+        income += car.price;
+        startEntry = startEntry->nextEntry;
+    }
+
+    printf("Ganhos de aluguer: %.2f euros\n\n", income);
+}
+
 int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
-    int input = -1, vehicleId = 1, userId = 1;
+    Rent *rents = NULL;
+    int input = -1, vehicleId = 1, userId = 1, rentId = 1, updateRentId = 0, vehicleBattery = 0;
     char location[50];
 
     users = getUsersFromDatabase();
@@ -157,6 +214,9 @@ int main(){
                 vehicles = getVehiclesFromDatabase();
                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
+                rents = getRentsFromDatabase();
+                rentId = getLastIdFromDb("../databases/rents_database.txt");
+
                 do {
                     mainMenu();
                     scanf("%d", &input);
@@ -171,22 +231,60 @@ int main(){
 
                             case 1:
                                 clearConsole();
+                                listVehicles(vehicles);
 
+                                rents = newRent(rents, vehicles, users, rentId);
+                                saveRentOnDatabase(rents);
+                                rentId = getLastIdFromDb("../databases/rents_database.txt");
                             break;
 
                             case 2:
                                 clearConsole();
-                                printf("Saldo: %.2f euros\n\n", session.balance);
+                                listUserActiveRents(rents);
+
+                                printf("\nId do aluguer a concluir: ");
+                                scanf("%d", &updateRentId);
+                                fflush(stdin);
+
+                                printf("\nBateria do veiculo: ");
+                                scanf("%d", &vehicleBattery);
+                                fflush(stdin);
+
+                                printf("Stand onde o veiculo foi deixado: ");
+                                scanf("%s", location);
+                                fflush(stdin);
+
+                                if (rentExists(rents, updateRentId)){
+                                    updateRent(rents, updateRentId);
+                                    saveRentOnDatabase(rents);
+                                    rentId = getLastIdFromDb("../databases/rents_database.txt");
+
+                                    vehicles = editVehicle(vehicles, car.id, vehicleBattery, location);
+                                    saveVehiclesOnDatabase(vehicles);
+                                    vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+                                }else{
+                                    printf("Erro: Este aluguer nao existe!\n\n");
+                                }
                             break;
 
                             case 3:
+                                clearConsole();
+                                listUserRents(rents);
+                            break;
+
+                            case 4:
+                                clearConsole();
+                                printf("Saldo: %.2f euros\n\n", session.balance);
+                            break;
+
+                            case 5:
                                 clearConsole();
                                 depositBalance();
                                 users = editUser(users, session.id);
                                 saveUsersOnDatabase(users);
                             break;
 
-                            case 4:
+                            case 6:
                                 clearConsole();
 	   		                    printf("Nova palavra-passe: ");
                                 scanf("%s", &session.password);
@@ -195,7 +293,7 @@ int main(){
                                 saveUsersOnDatabase(users);
                             break;
 
-                            case 5:
+                            case 7:
                                 clearConsole();
 	   		                    users = deleteUser(users, session.id);
                                 saveUsersOnDatabase(users);
@@ -243,8 +341,25 @@ int main(){
 
                             case 5:
                                 clearConsole();
+	   		                    vehicles = rechargeVehicles(vehicles);
+                                saveVehiclesOnDatabase(vehicles);
+                                vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+                            break;
+
+                            case 6:
+                                clearConsole();
 	   		                    vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
                                 saveVehiclesOnDatabase(vehicles);
+                            break;
+
+                            case 7:
+                                clearConsole();
+                                listRents(rents);
+                            break;
+
+                            case 8:
+                                clearConsole();
+                                getProfits(rents, vehicles);
                             break;
 
                             default:
