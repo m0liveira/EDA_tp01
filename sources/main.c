@@ -105,11 +105,20 @@ int getId(char phrase[]){
     return id;
 }
 
+void depositBalance(){
+    float balance = 0;
+    printf("Quanto saldo quer depositar: ");
+    scanf("%f", &balance);
+    fflush(stdin);
+
+    session.balance += balance;
+}
+
 int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
     int input = -1, vehicleId = 1, userId = 1;
-
+    
     users = getUsersFromDatabase();
     userId = getLastIdFromDb("../databases/users_database.txt");
 
@@ -159,22 +168,28 @@ int main(){
 
                             case 1:
                                 clearConsole();
-                                
+
                             break;
 
                             case 2:
                                 clearConsole();
-                                
+                                printf("Saldo: %.2f euros\n\n", session.balance);
                             break;
 
                             case 3:
                                 clearConsole();
-	   		                    
+                                depositBalance();
+                                users = editUser(users, session.id);
+                                saveUsersOnDatabase(users);
                             break;
 
                             case 4:
                                 clearConsole();
-	   		                    
+	   		                    printf("Nova palavra-passe: ");
+                                scanf("%s", &session.password);
+                                fflush(stdin);
+                                users = editUser(users, session.id);
+                                saveUsersOnDatabase(users);
                             break;
 
                             case 5:
