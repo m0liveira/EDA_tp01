@@ -99,7 +99,7 @@ User *newUser(User *users, int id){
     return users;
 }
 
-Rent *newRent(Rent *rents, Vehicle *vehicles, int id){
+Rent *newRent(Rent *rents, Vehicle *vehicles, User *users, int id){
     int vehicleId = 0;
 
     printf("\n\nId: %d", id);
@@ -124,6 +124,10 @@ Rent *newRent(Rent *rents, Vehicle *vehicles, int id){
     }
 
     rents = addRent(rents, id, session.id, vehicleId, "active");
+
+    session.balance -= car.price;
+    users = editUser(users, session.id);
+    saveUsersOnDatabase(users);
 
     return rents;
 }
@@ -206,7 +210,8 @@ int main(){
                             case 1:
                                 clearConsole();
                                 listVehicles(vehicles);
-                                rents = newRent(rents, vehicles, rentId);
+
+                                rents = newRent(rents, vehicles, users, rentId);
                                 saveRentOnDatabase(rents);
                                 rentId = getLastIdFromDb("../databases/rents_database.txt");
                             break;
