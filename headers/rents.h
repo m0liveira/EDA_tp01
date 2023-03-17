@@ -9,6 +9,7 @@ typedef struct RentList {
 } Rent;
 
 int isRentUnique(Rent *startEntry, int id);
+int isRented(Rent *startEntry, int vehicleId);
 Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[]);
 int saveRentOnDatabase(Rent *startEntry);
 Rent *getRentsFromDatabase();

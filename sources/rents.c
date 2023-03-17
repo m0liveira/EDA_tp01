@@ -2,6 +2,7 @@
 #include <string.h>
 #include "../headers/global.h"
 #include "../headers/rents.h"
+#include "../headers/users.h"
 
 int isRentUnique(Rent *startEntry, int id){
     while (startEntry != NULL){
@@ -13,9 +14,9 @@ int isRentUnique(Rent *startEntry, int id){
     return (1);
 }
 
-int isRented(Rent *startEntry, int id){
+int isRented(Rent *startEntry, int vehicleId){
     while (startEntry != NULL){
-        if (startEntry->id == id) return (0);
+        if (startEntry->vehicleId == vehicleId && strcmp(startEntry->status, "active") == 0) return (0);
 
         startEntry = startEntry->nextEntry;
     }
@@ -42,8 +43,6 @@ Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status
         newEntry->vehicleId = vehicleId;
         strcpy(newEntry->status, status);
         newEntry->nextEntry = startEntry;
-
-        printf("Veiculo alugado!\n\n");
 
         return (newEntry);
     }

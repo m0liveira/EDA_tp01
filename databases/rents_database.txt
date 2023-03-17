@@ -1,1 +1,1 @@
-Id:1;ClientID:2;VehicleID:1;Status:rented;
+Id:1;ClientID:2;VehicleID:1;Status:returned;

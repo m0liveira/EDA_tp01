@@ -9,5 +9,16 @@ struct Session {
     char role[10];
 } session;
 
+struct Car {
+    int id;
+    float batteryCapacity;
+    int currentBattery;
+    float autonomy;
+    float price;
+    char brand[20];
+    char model[20];
+    char gpsTracker[50];
+} car;
+
 int isFileEmpty(char dir[]);
 int getLastIdFromDb(char dir[]);

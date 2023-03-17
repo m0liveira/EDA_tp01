@@ -222,3 +222,22 @@ void listVehiclesByGPS(Vehicle *startEntry, char location[]){
         startEntry = startEntry->nextEntry;
     }
 }
+
+void getVehicleByID(Vehicle *startEntry, int id){
+    while (startEntry != NULL){
+        if (startEntry->id == id) {
+            car.id = startEntry->id;
+            car.batteryCapacity = startEntry->batteryCapacity;
+            car.currentBattery = startEntry->currentBattery;
+            car.autonomy = startEntry->autonomy;
+            car.price = startEntry->price;
+            strcpy(car.brand, startEntry->brand);
+            strcpy(car.model, startEntry->model);
+            strcpy(car.gpsTracker, startEntry->gpsTracker);
+
+            return;
+        };
+
+        startEntry = startEntry->nextEntry;
+    }
+}

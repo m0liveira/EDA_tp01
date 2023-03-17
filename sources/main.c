@@ -99,7 +99,7 @@ User *newUser(User *users, int id){
     return users;
 }
 
-Rent *newRent(Rent *rents, int id){
+Rent *newRent(Rent *rents, Vehicle *vehicles, int id){
     int vehicleId = 0;
 
     printf("\n\nId: %d", id);
@@ -109,9 +109,16 @@ Rent *newRent(Rent *rents, int id){
     scanf("%d", &vehicleId);
     fflush(stdin);
 
+    getVehicleByID(vehicles, vehicleId);
+
     clearConsole();
 
-    rents = addRent(rents, id, session.id, vehicleId, "rented");
+    if (car.price > session.balance) {
+        printf("saldo insuficiente! Necessita de %.2f euros para alugar este veiculo\n\n", car.price - session.balance);
+        return rents;
+    }
+
+    rents = addRent(rents, id, session.id, vehicleId, "active");
 
     return rents;
 }
@@ -194,7 +201,7 @@ int main(){
                             case 1:
                                 clearConsole();
                                 listVehicles(vehicles);
-                                rents = newRent(rents, rentId);
+                                rents = newRent(rents, vehicles, rentId);
                                 saveRentOnDatabase(rents);
                                 rentId = getLastIdFromDb("../databases/rents_database.txt");
                             break;
