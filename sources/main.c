@@ -164,7 +164,7 @@ int main(){
 
                             case 2:
                                 clearConsole();
-                                
+                                printf("Saldo: %.2f euros\n\n", session.balance);
                             break;
 
                             case 3:
