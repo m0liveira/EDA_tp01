@@ -118,7 +118,7 @@ int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
     int input = -1, vehicleId = 1, userId = 1;
-
+    
     users = getUsersFromDatabase();
     userId = getLastIdFromDb("../databases/users_database.txt");
 
@@ -185,7 +185,11 @@ int main(){
 
                             case 4:
                                 clearConsole();
-	   		                    
+	   		                    printf("Nova palavra-passe: ");
+                                scanf("%s", &session.password);
+                                fflush(stdin);
+                                users = editUser(users, session.id);
+                                saveUsersOnDatabase(users);
                             break;
 
                             case 5:
