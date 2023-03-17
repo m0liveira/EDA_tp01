@@ -4,6 +4,7 @@
 #include "../headers/global.h"
 #include "../headers/vehicles.h"
 #include "../headers/users.h"
+#include "../headers/rents.h"
 
 void clearConsole(){
     system("cls||clear");
@@ -98,6 +99,21 @@ User *newUser(User *users, int id){
     return users;
 }
 
+Rent *newRent(Rent *rents, int id){
+    int vehicleId = 0;
+
+    printf("\n\nId: %d", id);
+    printf("\nId do cliente: %d", session.id);
+    printf("\nNome do cliente: %s", session.name);
+    printf("\nId do veiculo a alugar: ");
+    scanf("%d", &vehicleId);
+    fflush(stdin);
+
+    rents = addRent(rents, id, session.id, vehicleId, "rented");
+
+    return rents;
+}
+
 int getId(char phrase[]){
     int id = 0;
 
@@ -119,7 +135,8 @@ void depositBalance(){
 int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
-    int input = -1, vehicleId = 1, userId = 1;
+    Rent *rents = NULL;
+    int input = -1, vehicleId = 1, userId = 1, rentId = 1;
     char location[50];
 
     users = getUsersFromDatabase();
@@ -157,6 +174,8 @@ int main(){
                 vehicles = getVehiclesFromDatabase();
                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
+                rentId = getLastIdFromDb("../databases/rents_database.txt");
+
                 do {
                     mainMenu();
                     scanf("%d", &input);
@@ -171,7 +190,10 @@ int main(){
 
                             case 1:
                                 clearConsole();
-
+                                listVehicles(vehicles);
+                                rents = newRent(rents, rentId);
+                                saveRentOnDatabase(rents);
+                                rentId = getLastIdFromDb("../databases/rents_database.txt");
                             break;
 
                             case 2:

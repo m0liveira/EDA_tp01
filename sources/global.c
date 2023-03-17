@@ -5,10 +5,7 @@
 int isFileEmpty(char dir[]){
     FILE *fp = fopen(dir, "r");
 
-    if (fp == NULL) {
-        printf("File does not exist or cannot be opened.\n");
-        return 1;
-    }
+    if (fp == NULL) return 1;
 
     fseek(fp, 0, SEEK_END);
 
@@ -28,10 +25,7 @@ int getLastIdFromDb(char dir[]){
 
     fp = fopen(dir, "r");
 
-    if (fp == NULL) {
-        printf("Failed to open file.\n");
-        return 1;
-    }
+    if (fp == NULL) return 1;
 
     if (isFileEmpty(dir) == 1) return 1;
 
