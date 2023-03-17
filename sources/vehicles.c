@@ -251,3 +251,20 @@ int vehicleExists(Vehicle *startEntry, int id){
 
     return 0;
 }
+
+Vehicle *rechargeVehicles(Vehicle *startEntry){
+    Vehicle *currentEntry = startEntry;
+
+    if (currentEntry == NULL) {
+        printf("\nNao ha veiculos registados!\n\n");
+        return NULL;
+    }
+
+    while (currentEntry != NULL) {
+        currentEntry->currentBattery = 100;
+        currentEntry = currentEntry->nextEntry;
+    }
+    
+    printf("Todos os veiculos foram recarregados!\n\n");
+    return startEntry;
+}

@@ -159,3 +159,18 @@ void listUserActiveRents(Rent *startEntry){
         startEntry = startEntry->nextEntry;
     }
 }
+
+void listRents(Rent *startEntry){
+    if (startEntry == NULL){
+        printf("Nao ha veiculos guardados\n\n");
+        return;
+    }
+
+    printf("Lista de alugueres!\n\n");
+
+    while (startEntry != NULL){
+        printf("ID: %d | ID do cliente: %d | ID do veiculo: %d -> status: %s\n\n", startEntry->id, startEntry->clientId, startEntry->vehicleId, startEntry->status);
+        
+        startEntry = startEntry->nextEntry;
+    }
+}

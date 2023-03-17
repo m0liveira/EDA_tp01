@@ -26,11 +26,14 @@ void mainMenu(){
         return;
     };
     
-    printf("\n\n1: Inserir transportes\n");
-    printf("2: Listar transportes\n");
-    printf("3: Listar transportes por autonomia (decrescente)\n");
-    printf("4: Listar transportes numa area\n");
-    printf("5: Remover transportes\n");
+    printf("\n\n1: Inserir veiculos\n");
+    printf("2: Listar veiculos\n");
+    printf("3: Listar veiculos por autonomia (decrescente)\n");
+    printf("4: Listar veiculos numa area\n");
+    printf("5: Recarregar veiculos\n");
+    printf("6: Remover veiculos\n");
+    printf("7: Listar alugueres\n");
+    printf("8: Listar ganhos\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -239,7 +242,7 @@ int main(){
                                     saveRentOnDatabase(rents);
                                     rentId = getLastIdFromDb("../databases/rents_database.txt");
 
-                                    editVehicle(vehicles, car.id, vehicleBattery, location);
+                                    vehicles = editVehicle(vehicles, car.id, vehicleBattery, location);
                                     saveVehiclesOnDatabase(vehicles);
                                     vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
                                 }else{
@@ -321,8 +324,25 @@ int main(){
 
                             case 5:
                                 clearConsole();
+	   		                    vehicles = rechargeVehicles(vehicles);
+                                saveVehiclesOnDatabase(vehicles);
+                                vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+                            break;
+
+                            case 6:
+                                clearConsole();
 	   		                    vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
                                 saveVehiclesOnDatabase(vehicles);
+                            break;
+
+                            case 7:
+                                clearConsole();
+	   		                    
+                            break;
+
+                            case 8:
+                                clearConsole();
+	   		                    
                             break;
 
                             default:
