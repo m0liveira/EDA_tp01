@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../headers/global.h"
 #include "../headers/vehicles.h"
 #include "../headers/users.h"
@@ -10,6 +11,18 @@ void clearConsole(){
 
 void mainMenu(){
     printf("Menu Fase 1");
+
+    if (strcmp(session.role, "client") == 0) {
+        printf("\n\n1: Alugar transporte\n");
+        printf("2: Consultar saldo\n");
+        printf("3: Carregar saldo\n");
+        printf("4: Alterar palavra-passe\n");
+        printf("5: Apagar conta\n");
+        printf("0: Sair");
+        printf("\n\nOpcao: "); 
+        return;
+    };
+    
     printf("\n\n1: Inserir transportes\n");
     printf("2: Listar transportes\n");
     printf("3: Remover transportes\n");
@@ -58,6 +71,7 @@ Vehicle *newVehicle(Vehicle *vehicles, int id){
 }
 
 User *newUser(User *users, int id){
+    int nif = 0;
     char name[30], password[30];
 
     printf("Id: %d", id);
@@ -70,9 +84,14 @@ User *newUser(User *users, int id){
     scanf("%s", password);
     fflush(stdin);
 
+    printf("Nif: ");
+    scanf("%d", &nif);
+
+    printf("Saldo: %.2f euros", 0);
+
     printf("\n");
 
-    users = addUser(users, id, name, password, "client");
+    users = addUser(users, id, nif, 0, name, password, "client");
 
     return users;
 }
@@ -131,33 +150,76 @@ int main(){
                     scanf("%d", &input);
                     fflush(stdin);
 
-                    switch (input){
-                        case 0:
-                            clearConsole();
-                            printf("A sair!");
-                        break;
+                    if (strcmp(session.role, "client") == 0) {
+                        switch (input){
+                            case 0:
+                                clearConsole();
+                                printf("A sair!");
+                            break;
 
-                        case 1:
-                            clearConsole();
-                            vehicles = newVehicle(vehicles, vehicleId);
-                            saveVehiclesOnDatabase(vehicles);
-                            vehicleId++;
-                        break;
+                            case 1:
+                                clearConsole();
+                                
+                            break;
 
-                        case 2:
-                            clearConsole();
-                            listVehicles(vehicles);
-                        break;
+                            case 2:
+                                clearConsole();
+                                
+                            break;
 
-                        case 3:
-                            clearConsole();
-	   		                vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
-                            saveVehiclesOnDatabase(vehicles);
-                        break;
+                            case 3:
+                                clearConsole();
+	   		                    
+                            break;
 
-                        default:
-                            printf("Opcao invalida!\n");
-                        break;
+                            case 4:
+                                clearConsole();
+	   		                    
+                            break;
+
+                            case 5:
+                                clearConsole();
+	   		                    users = deleteUser(users, session.id);
+                                saveUsersOnDatabase(users);
+                                printf("A encerrar programa...");
+                                input = 0;
+                            break;
+
+                            default:
+                                clearConsole();
+                                printf("Opcao invalida!\n");
+                            break;
+                        }
+                    } else {
+                        switch (input){
+                            case 0:
+                                clearConsole();
+                                printf("A sair!");
+                            break;
+
+                            case 1:
+                                clearConsole();
+                                vehicles = newVehicle(vehicles, vehicleId);
+                                saveVehiclesOnDatabase(vehicles);
+                                vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+                            break;
+
+                            case 2:
+                                clearConsole();
+                                listVehicles(vehicles);
+                            break;
+
+                            case 3:
+                                clearConsole();
+	   		                    vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
+                                saveVehiclesOnDatabase(vehicles);
+                            break;
+
+                            default:
+                                clearConsole();
+                                printf("Opcao invalida!\n");
+                            break;
+                        }
                     }
                 } while (input != 0);
             break;
@@ -166,7 +228,7 @@ int main(){
                 clearConsole();
                 users = newUser(users, userId);
                 saveUsersOnDatabase(users);
-                userId++;
+                userId = getLastIdFromDb("../databases/users_database.txt");
             break;
 
             default:
