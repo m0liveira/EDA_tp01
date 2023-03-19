@@ -1,0 +1,63 @@
+\doxysection{sources/global.c File Reference}
+\label{global_8c}\index{sources/global.c@{sources/global.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../headers/global.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ is\+File\+Empty} (char dir[$\,$])
+\begin{DoxyCompactList}\small\item\em Check File. \end{DoxyCompactList}\item 
+int \textbf{ get\+Last\+Id\+From\+Db} (char dir[$\,$])
+\begin{DoxyCompactList}\small\item\em Get last ID from database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{global_8c_adcfc6b65c0eeff972a28d8c602285961}} 
+\index{global.c@{global.c}!getLastIdFromDb@{getLastIdFromDb}}
+\index{getLastIdFromDb@{getLastIdFromDb}!global.c@{global.c}}
+\doxysubsubsection{getLastIdFromDb()}
+{\footnotesize\ttfamily int get\+Last\+Id\+From\+Db (\begin{DoxyParamCaption}\item[{char}]{dir[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Get last ID from database. 
+
+Gets the last ID saved in a specified database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & dir[] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next ID counting from the last ID at the database 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 40} of file \textbf{ global.\+c}.
+
+\mbox{\label{global_8c_ae7f7fdd55d053ad019b98ea0bd1001f6}} 
+\index{global.c@{global.c}!isFileEmpty@{isFileEmpty}}
+\index{isFileEmpty@{isFileEmpty}!global.c@{global.c}}
+\doxysubsubsection{isFileEmpty()}
+{\footnotesize\ttfamily int is\+File\+Empty (\begin{DoxyParamCaption}\item[{char}]{dir[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Check File. 
+
+Checks if a specified file is empty.
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & dir[] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 14} of file \textbf{ global.\+c}.
+

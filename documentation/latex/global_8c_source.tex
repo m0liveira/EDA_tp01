@@ -1,0 +1,45 @@
+\doxysection{global.\+c}
+\label{global_8c_source}\index{sources/global.c@{sources/global.c}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../headers/global.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{int}\ isFileEmpty(\textcolor{keywordtype}{char}\ dir[])\{}
+\DoxyCodeLine{00015\ \ \ \ \ FILE\ *fp\ =\ fopen(dir,\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ fseek(fp,\ 0,\ SEEK\_END);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (ftell(fp)\ ==\ 0)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00025\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ getLastIdFromDb(\textcolor{keywordtype}{char}\ dir[])\{}
+\DoxyCodeLine{00041\ \ \ \ \ FILE\ *fp;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ 1,\ lastId\ =\ 0;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ fp\ =\ fopen(dir,\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (isFileEmpty(dir)\ ==\ 1)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{while}\ (fscanf(fp,\ \textcolor{stringliteral}{"{}Id:\%d;"{}},\ \&\textcolor{keywordtype}{id})\ ==\ 1)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ >\ lastId)\ lastId\ =\ id;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{return}\ lastId\ +\ 1;}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}

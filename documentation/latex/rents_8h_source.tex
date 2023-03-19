@@ -1,0 +1,26 @@
+\doxysection{rents.\+h}
+\label{rents_8h_source}\index{headers/rents.h@{headers/rents.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }RentList\ \{}
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordtype}{int}\ clientId;}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{int}\ vehicleId;}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{char}\ status[10];}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{struct\ }RentList\ *nextEntry;}
+\DoxyCodeLine{00009\ \}\ Rent;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{int}\ isRentUnique(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{int}\ isRented(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ vehicleId);}
+\DoxyCodeLine{00013\ Rent\ *addRent(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ clientId,\ \textcolor{keywordtype}{int}\ vehicleId,\ \textcolor{keywordtype}{char}\ status[]);}
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{int}\ saveRentOnDatabase(Rent\ *startEntry);}
+\DoxyCodeLine{00015\ Rent\ *getRentsFromDatabase();}
+\DoxyCodeLine{00016\ Rent\ *updateRent(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ listUserRents(Rent\ *startEntry);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ listUserActiveRents(Rent\ *startEntry);}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{int}\ rentExists(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ listRents(Rent\ *startEntry);}
+
+\end{DoxyCode}

@@ -1,0 +1,32 @@
+\doxysection{vehicles.\+h}
+\label{vehicles_8h_source}\index{headers/vehicles.h@{headers/vehicles.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }VehicleList\ \{}
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordtype}{float}\ batteryCapacity;}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{int}\ currentBattery;}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{float}\ autonomy;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{float}\ price;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{char}\ brand[20];}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{char}\ model[20];}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{char}\ gpsTracker[50];}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }VehicleList*\ nextEntry;}
+\DoxyCodeLine{00013\ \}\ Vehicle;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{int}\ isUnique(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00016\ Vehicle\ *addVehicles(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{float}\ batteryCapacity,\ \textcolor{keywordtype}{int}\ currentBattery,\ \textcolor{keywordtype}{float}\ autonomy,\ \textcolor{keywordtype}{float}\ price,\ \textcolor{keywordtype}{char}\ brand[],\ \textcolor{keywordtype}{char}\ model[],\ \textcolor{keywordtype}{char}\ gpsTracker[]);}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ listVehicles(Vehicle\ *startEntry);}
+\DoxyCodeLine{00018\ Vehicle\ *deleteVehicle(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00019\ Vehicle\ *editVehicle(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ currentBattery,\ \textcolor{keywordtype}{char}\ gpsTracker[]);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{int}\ saveVehiclesOnDatabase(Vehicle\ *startEntry);}
+\DoxyCodeLine{00021\ Vehicle\ *getVehiclesFromDatabase();}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ listVehiclesByAutnonomy(Vehicle\ *startEntry);}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ listVehiclesByGPS(Vehicle\ *startEntry,\ \textcolor{keywordtype}{char}\ location[]);}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ getVehicleByID(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{int}\ vehicleExists(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00026\ Vehicle\ *rechargeVehicles(Vehicle\ *startEntry);}
+
+\end{DoxyCode}

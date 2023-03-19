@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['addrent_0',['addRent',['../rents_8h.html#a44ec9a69cef8fe255e7ff26eb2a458e8',1,'addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[]):&#160;rents.c'],['../rents_8c.html#a44ec9a69cef8fe255e7ff26eb2a458e8',1,'addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[]):&#160;rents.c']]],
+  ['adduser_1',['addUser',['../users_8h.html#aae43e4ec2bd4a34eaaa402c89d8eccd1',1,'addUser(User *startEntry, int id, int nif, float balance, char name[], char password[], char role[]):&#160;users.c'],['../users_8c.html#aae43e4ec2bd4a34eaaa402c89d8eccd1',1,'addUser(User *startEntry, int id, int nif, float balance, char name[], char password[], char role[]):&#160;users.c']]],
+  ['addvehicles_2',['addVehicles',['../vehicles_8h.html#a95c50728b4b1feefc4267c588c6f4122',1,'addVehicles(Vehicle *startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[]):&#160;vehicles.c'],['../vehicles_8c.html#a95c50728b4b1feefc4267c588c6f4122',1,'addVehicles(Vehicle *startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[]):&#160;vehicles.c']]],
+  ['autonomy_3',['autonomy',['../struct_car.html#a83cda76233a2b02dcc2b3707fa58e4e8',1,'Car::autonomy()'],['../struct_vehicle_list.html#a83cda76233a2b02dcc2b3707fa58e4e8',1,'VehicleList::autonomy()']]]
+];

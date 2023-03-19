@@ -5,6 +5,15 @@
 #include "../headers/users.h"
 #include "../headers/vehicles.h"
 
+/*!
+    * @brief Check rent ID
+    *
+    * Checks if the ID is dupped
+    *
+    * @param Rent *startEntry @param int id
+    * @return 1 or 0 as true or false
+*/
+
 int isRentUnique(Rent *startEntry, int id){
     while (startEntry != NULL){
         if (startEntry->id == id) return (0);
@@ -15,6 +24,15 @@ int isRentUnique(Rent *startEntry, int id){
     return (1);
 }
 
+/*!
+    * @brief Check rented vehicles
+    *
+    * Checks if the selected vehicle is already rented
+    *
+    * @param Rent *startEntry @param int vehicleId
+    * @return 1 or 0 as true or false
+*/
+
 int isRented(Rent *startEntry, int vehicleId){
     while (startEntry != NULL){
         if (startEntry->vehicleId == vehicleId && strcmp(startEntry->status, "active") == 0) return (0);
@@ -24,6 +42,15 @@ int isRented(Rent *startEntry, int vehicleId){
 
     return (1);
 }
+
+/*!
+    * @brief Add rent
+    *
+    * Adds a new rent entry into a linked list
+    *
+    * @param Rent *startEntry @param int id @param int clientId @param int vehicleId @param char status[]
+    * @return Added rent
+*/
 
 Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[]){
     Rent *newEntry = malloc(sizeof(struct RentList));
@@ -49,6 +76,15 @@ Rent *addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status
     }
 }
 
+/*!
+    * @brief Save rent on database
+    *
+    * Saves rent entrys into a database
+    *
+    * @param Rent *startEntry
+    * @return 1 or 0 as true or false
+*/
+
 int saveRentOnDatabase(Rent *startEntry){
     Rent* aux = startEntry;
     FILE* fp;
@@ -67,6 +103,14 @@ int saveRentOnDatabase(Rent *startEntry){
 
     return(1);
 }
+
+/*!
+    * @brief Get rents
+    *
+    * Gets all rents from a database
+    *
+    * @return rents
+*/
 
 Rent *getRentsFromDatabase(){
     Rent *rents = NULL, *stack = NULL;;
@@ -94,6 +138,15 @@ Rent *getRentsFromDatabase(){
     return(rents);
 }
 
+/*!
+    * @brief Rent exist
+    *
+    * Checks if a specified rent exists at the linked list
+    *
+    * @param Rent *startEntry @param int id
+    * @return 1 or 0 as true or false
+*/
+
 int rentExists(Rent *startEntry, int id){
     while (startEntry != NULL){
         if (startEntry->id == id) return 1;
@@ -103,6 +156,15 @@ int rentExists(Rent *startEntry, int id){
 
     return 0;
 }
+
+/*!
+    * @brief Update rent
+    *
+    * Updates a specified rent entry from the linked list
+    *
+    * @param Rent *startEntry @param int id
+    * @return rents
+*/
 
 Rent *updateRent(Rent *startEntry, int id){
     Rent *previousEntry = startEntry, *currentEntry = startEntry;
@@ -127,6 +189,14 @@ Rent *updateRent(Rent *startEntry, int id){
     return(startEntry);
 }
 
+/*!
+    * @brief List user rents
+    *
+    * Outputs all user rents
+    *
+    * @param Rent *startEntry
+*/
+
 void listUserRents(Rent *startEntry){
     if (startEntry == NULL){
         printf("Nao ha veiculos guardados\n\n");
@@ -144,6 +214,14 @@ void listUserRents(Rent *startEntry){
     }
 }
 
+/*!
+    * @brief List user active rents
+    *
+    * Outputs any active rent that a user has
+    *
+    * @param Rent *startEntry
+*/
+
 void listUserActiveRents(Rent *startEntry){
     if (startEntry == NULL){
         printf("Nao ha veiculos guardados\n\n");
@@ -160,6 +238,14 @@ void listUserActiveRents(Rent *startEntry){
         startEntry = startEntry->nextEntry;
     }
 }
+
+/*!
+    * @brief List rents
+    *
+    * Outputs all time rents for the admins
+    *
+    * @param Rent *startEntry
+*/
 
 void listRents(Rent *startEntry){
     if (startEntry == NULL){

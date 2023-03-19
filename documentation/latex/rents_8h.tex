@@ -1,0 +1,290 @@
+\doxysection{headers/rents.h File Reference}
+\label{rents_8h}\index{headers/rents.h@{headers/rents.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Rent\+List}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ Rent\+List} \textbf{ Rent}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ is\+Rent\+Unique} (\textbf{ Rent} $\ast$start\+Entry, int id)
+\begin{DoxyCompactList}\small\item\em Check rent ID. \end{DoxyCompactList}\item 
+int \textbf{ is\+Rented} (\textbf{ Rent} $\ast$start\+Entry, int vehicle\+Id)
+\begin{DoxyCompactList}\small\item\em Check rented vehicles. \end{DoxyCompactList}\item 
+\textbf{ Rent} $\ast$ \textbf{ add\+Rent} (\textbf{ Rent} $\ast$start\+Entry, int id, int client\+Id, int vehicle\+Id, char status[$\,$])
+\begin{DoxyCompactList}\small\item\em Add rent. \end{DoxyCompactList}\item 
+int \textbf{ save\+Rent\+On\+Database} (\textbf{ Rent} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em Save rent on database. \end{DoxyCompactList}\item 
+\textbf{ Rent} $\ast$ \textbf{ get\+Rents\+From\+Database} ()
+\begin{DoxyCompactList}\small\item\em Get rents. \end{DoxyCompactList}\item 
+\textbf{ Rent} $\ast$ \textbf{ update\+Rent} (\textbf{ Rent} $\ast$start\+Entry, int id)
+\begin{DoxyCompactList}\small\item\em Update rent. \end{DoxyCompactList}\item 
+void \textbf{ list\+User\+Rents} (\textbf{ Rent} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em List user rents. \end{DoxyCompactList}\item 
+void \textbf{ list\+User\+Active\+Rents} (\textbf{ Rent} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em List user active rents. \end{DoxyCompactList}\item 
+int \textbf{ rent\+Exists} (\textbf{ Rent} $\ast$start\+Entry, int id)
+\begin{DoxyCompactList}\small\item\em Rent exist. \end{DoxyCompactList}\item 
+void \textbf{ list\+Rents} (\textbf{ Rent} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em List rents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{rents_8h_ae036e116f3c1cfdb51890cd66988476c}} 
+\index{rents.h@{rents.h}!Rent@{Rent}}
+\index{Rent@{Rent}!rents.h@{rents.h}}
+\doxysubsubsection{Rent}
+{\footnotesize\ttfamily typedef struct \textbf{ Rent\+List} \textbf{ Rent}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{rents_8h_a44ec9a69cef8fe255e7ff26eb2a458e8}} 
+\index{rents.h@{rents.h}!addRent@{addRent}}
+\index{addRent@{addRent}!rents.h@{rents.h}}
+\doxysubsubsection{addRent()}
+{\footnotesize\ttfamily \textbf{ Rent} $\ast$ add\+Rent (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry,  }\item[{int}]{id,  }\item[{int}]{client\+Id,  }\item[{int}]{vehicle\+Id,  }\item[{char}]{status[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Add rent. 
+
+Adds a new rent entry into a linked list
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry\\
+\hline
+{\em int} & id\\
+\hline
+{\em int} & client\+Id\\
+\hline
+{\em int} & vehicle\+Id\\
+\hline
+{\em char} & status[] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Added rent 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 55} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_ac50819ca4416fb1ecbbd960a8522f950}} 
+\index{rents.h@{rents.h}!getRentsFromDatabase@{getRentsFromDatabase}}
+\index{getRentsFromDatabase@{getRentsFromDatabase}!rents.h@{rents.h}}
+\doxysubsubsection{getRentsFromDatabase()}
+{\footnotesize\ttfamily \textbf{ Rent} $\ast$ get\+Rents\+From\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get rents. 
+
+Gets all rents from a database
+
+\begin{DoxyReturn}{Returns}
+rents 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 115} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_aa0f7ee7426e7e1587fd610380785b522}} 
+\index{rents.h@{rents.h}!isRented@{isRented}}
+\index{isRented@{isRented}!rents.h@{rents.h}}
+\doxysubsubsection{isRented()}
+{\footnotesize\ttfamily int is\+Rented (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry,  }\item[{int}]{vehicle\+Id }\end{DoxyParamCaption})}
+
+
+
+Check rented vehicles. 
+
+Checks if the selected vehicle is already rented
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry\\
+\hline
+{\em int} & vehicle\+Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 36} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_a1b4ab5e40e6d73cd60cf1857822ab89e}} 
+\index{rents.h@{rents.h}!isRentUnique@{isRentUnique}}
+\index{isRentUnique@{isRentUnique}!rents.h@{rents.h}}
+\doxysubsubsection{isRentUnique()}
+{\footnotesize\ttfamily int is\+Rent\+Unique (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Check rent ID. 
+
+Checks if the ID is dupped
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry\\
+\hline
+{\em int} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 17} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_a2c88dddd80c4dd1dc09a8587ed7d70b2}} 
+\index{rents.h@{rents.h}!listRents@{listRents}}
+\index{listRents@{listRents}!rents.h@{rents.h}}
+\doxysubsubsection{listRents()}
+{\footnotesize\ttfamily void list\+Rents (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+List rents. 
+
+Outputs all time rents for the admins
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 250} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_a7b496d5af10b399af35bc10541d75924}} 
+\index{rents.h@{rents.h}!listUserActiveRents@{listUserActiveRents}}
+\index{listUserActiveRents@{listUserActiveRents}!rents.h@{rents.h}}
+\doxysubsubsection{listUserActiveRents()}
+{\footnotesize\ttfamily void list\+User\+Active\+Rents (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+List user active rents. 
+
+Outputs any active rent that a user has
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 225} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_a5e60f8b2348388851786fc506c8ccf65}} 
+\index{rents.h@{rents.h}!listUserRents@{listUserRents}}
+\index{listUserRents@{listUserRents}!rents.h@{rents.h}}
+\doxysubsubsection{listUserRents()}
+{\footnotesize\ttfamily void list\+User\+Rents (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+List user rents. 
+
+Outputs all user rents
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 200} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_ab42f258f4be641f945c7ed83c4a24686}} 
+\index{rents.h@{rents.h}!rentExists@{rentExists}}
+\index{rentExists@{rentExists}!rents.h@{rents.h}}
+\doxysubsubsection{rentExists()}
+{\footnotesize\ttfamily int rent\+Exists (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Rent exist. 
+
+Checks if a specified rent exists at the linked list
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry\\
+\hline
+{\em int} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 150} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_a45e5a92a42235f4a8ffeace2ddb7e4e0}} 
+\index{rents.h@{rents.h}!saveRentOnDatabase@{saveRentOnDatabase}}
+\index{saveRentOnDatabase@{saveRentOnDatabase}!rents.h@{rents.h}}
+\doxysubsubsection{saveRentOnDatabase()}
+{\footnotesize\ttfamily int save\+Rent\+On\+Database (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+Save rent on database. 
+
+Saves rent entrys into a database
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 88} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8h_a17d20033ee11b7425b3361017f403896}} 
+\index{rents.h@{rents.h}!updateRent@{updateRent}}
+\index{updateRent@{updateRent}!rents.h@{rents.h}}
+\doxysubsubsection{updateRent()}
+{\footnotesize\ttfamily \textbf{ Rent} $\ast$ update\+Rent (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Update rent. 
+
+Updates a specified rent entry from the linked list
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry\\
+\hline
+{\em int} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rents 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 169} of file \textbf{ rents.\+c}.
+

@@ -2,6 +2,15 @@
 #include <string.h>
 #include "../headers/global.h"
 
+/*!
+    * @brief Check File
+    *
+    * Checks if a specified file is empty.
+    * 
+    * @param char dir[]
+    * @return 1 or 0 as true or false
+*/
+
 int isFileEmpty(char dir[]){
     FILE *fp = fopen(dir, "r");
 
@@ -18,6 +27,15 @@ int isFileEmpty(char dir[]){
         return 0;
     };
 }
+
+/*!
+    * @brief Get last ID from database
+    *
+    * Gets the last ID saved in a specified database.
+    *
+    * @param char dir[]
+    * @return Next ID counting from the last ID at the database
+*/
 
 int getLastIdFromDb(char dir[]){
     FILE *fp;

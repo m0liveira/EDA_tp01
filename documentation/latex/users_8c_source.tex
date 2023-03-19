@@ -1,0 +1,173 @@
+\doxysection{users.\+c}
+\label{users_8c_source}\index{sources/users.c@{sources/users.c}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../headers/global.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../headers/users.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{int}\ isUserUnique(User\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>id\ ==\ \textcolor{keywordtype}{id})\ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ (1);}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{int}\ isNameUnique(User\ *startEntry,\ \textcolor{keywordtype}{char}\ name[])\{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(startEntry-\/>name,\ name)\ ==\ 0)\ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ (1);}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00053\ User\ *addUser(User\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ nif,\ \textcolor{keywordtype}{float}\ balance,\ \textcolor{keywordtype}{char}\ name[],\ \textcolor{keywordtype}{char}\ password[],\ \textcolor{keywordtype}{char}\ role[])\{}
+\DoxyCodeLine{00054\ \ \ \ \ User\ *newEntry\ =\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ UserList));}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isUserUnique(startEntry,\ \textcolor{keywordtype}{id}))\{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro:\ Este\ ID\ ja\ foi\ registado!\(\backslash\)n"{}});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (startEntry);}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isNameUnique(startEntry,\ name))\{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro:\ Este\ nome\ (\%s)\ ja\ foi\ registado!\(\backslash\)n"{}},\ name);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (startEntry);}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (newEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ newEntry-\/>id\ =\ id;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ newEntry-\/>nif\ =\ nif;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ newEntry-\/>balance\ =\ balance;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ strcpy(newEntry-\/>name,\ name);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ strcpy(newEntry-\/>password,\ password);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ strcpy(newEntry-\/>role,\ role);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ newEntry-\/>nextEntry\ =\ startEntry;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (newEntry);}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{int}\ loginUser(User\ *startEntry,\ \textcolor{keywordtype}{char}\ name[],\ \textcolor{keywordtype}{char}\ password[])\{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(startEntry-\/>name,\ name)\ ==\ 0\ \&\&\ strcmp(startEntry-\/>password,\ password)\ ==\ 0)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ session.id\ =\ startEntry-\/>id;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ session.nif\ =\ startEntry-\/>nif;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ session.balance\ =\ startEntry-\/>balance;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(session.name,\ startEntry-\/>name);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(session.password,\ startEntry-\/>password);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(session.role,\ startEntry-\/>role);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (1);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{int}\ saveUsersOnDatabase(User\ *startEntry)\{}
+\DoxyCodeLine{00117\ \ \ \ \ User*\ aux\ =\ startEntry;}
+\DoxyCodeLine{00118\ \ \ \ \ FILE*\ fp;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/users\_database.txt"{}},\textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp==NULL)\ \textcolor{keywordflow}{return}(0);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ fprintf(fp,\textcolor{stringliteral}{"{}Id:\%d;Name:\%s;Password:\%s;Nif:\%d;Balance:\%.2f;Role:\%s;\(\backslash\)n"{}},\ aux-\/>id,\ aux-\/>name,\ aux-\/>password,\ aux-\/>nif,\ aux-\/>balance,\ aux-\/>role);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>nextEntry;}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}(1);}
+\DoxyCodeLine{00133\ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00143\ User\ *getUsersFromDatabase()\{}
+\DoxyCodeLine{00144\ \ \ \ \ User\ *users\ =\ NULL,\ *stack\ =\ NULL;;}
+\DoxyCodeLine{00145\ \ \ \ \ FILE\ *fp;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{int}\ id,\ nif;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{float}\ balance;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{char}\ name[30],\ password[30],\ role[10];}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/users\_database.txt"{}},\textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ users;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (isFileEmpty(\textcolor{stringliteral}{"{}../databases/users\_database.txt"{}})\ ==\ 1)\ \textcolor{keywordflow}{return}\ users;}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{while}\ (fscanf(fp,\ \textcolor{stringliteral}{"{}Id:\%d;Name:\%[\string^;];Password:\%[\string^;];Nif:\%d;Balance:\%f;Role:\%[\string^;\(\backslash\)n];\(\backslash\)n"{}},\ \&\textcolor{keywordtype}{id},\ name,\ password,\ \&nif,\ \&balance,\ role)\ ==\ 6)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ stack\ =\ addUser(stack,\ \textcolor{keywordtype}{id},\ nif,\ balance,\ name,\ password,\ role);}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{while}\ (stack\ !=\ NULL)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ users\ =\ addUser(users,\ stack-\/>id,\ stack-\/>nif,\ stack-\/>balance,\ stack-\/>name,\ stack-\/>password,\ stack-\/>role);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ stack\ =\ stack-\/>nextEntry;}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{return}(users);}
+\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00179\ User\ *deleteUser(User\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00180\ \ \ \ \ User\ *previousEntry\ =\ startEntry,\ *currentEntry\ =\ startEntry,\ *aux;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry\ ==\ NULL)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ utilizador\ indicado\ nao\ esta\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(NULL);}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry-\/>id\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ aux\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ free(currentEntry);}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(aux);}
+\DoxyCodeLine{00191\ \ \ \ \ \}\ }
+\DoxyCodeLine{00192\ \ \ \ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{while}\ ((currentEntry\ !=\ NULL)\ \&\&\ (currentEntry-\/>id\ !=\ \textcolor{keywordtype}{id}))\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ previousEntry\ =\ currentEntry;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ currentEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ previousEntry-\/>nextEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ free(currentEntry);}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ utilizador\ indicado\ nao\ esta\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00206\ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00217\ User\ *editUser(User\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00218\ \ \ \ \ User\ *previousEntry\ =\ startEntry,\ *currentEntry\ =\ startEntry;}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry==NULL)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ utilizador\ indicado\ nao\ esta\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(NULL);}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{while}\ ((currentEntry\ !=\ NULL)\ \&\&\ (currentEntry-\/>id\ !=\ \textcolor{keywordtype}{id}))\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ previousEntry\ =\ currentEntry;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ currentEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ currentEntry-\/>balance\ =\ session.balance;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ strcpy(currentEntry-\/>password,\ session.password);}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00234\ \ \ \ \ \}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ utilizador\ indicado\ nao\ esta\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00238\ \}}
+
+\end{DoxyCode}

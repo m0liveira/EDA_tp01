@@ -1,0 +1,90 @@
+\doxysection{headers/global.h File Reference}
+\label{global_8h}\index{headers/global.h@{headers/global.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Session}
+\item 
+struct \textbf{ Car}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ is\+File\+Empty} (char dir[$\,$])
+\begin{DoxyCompactList}\small\item\em Check File. \end{DoxyCompactList}\item 
+int \textbf{ get\+Last\+Id\+From\+Db} (char dir[$\,$])
+\begin{DoxyCompactList}\small\item\em Get last ID from database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Session} \textbf{ session}
+\item 
+struct \textbf{ Car} \textbf{ car}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{global_8h_adcfc6b65c0eeff972a28d8c602285961}} 
+\index{global.h@{global.h}!getLastIdFromDb@{getLastIdFromDb}}
+\index{getLastIdFromDb@{getLastIdFromDb}!global.h@{global.h}}
+\doxysubsubsection{getLastIdFromDb()}
+{\footnotesize\ttfamily int get\+Last\+Id\+From\+Db (\begin{DoxyParamCaption}\item[{char}]{dir[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Get last ID from database. 
+
+Gets the last ID saved in a specified database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & dir[] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next ID counting from the last ID at the database 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 40} of file \textbf{ global.\+c}.
+
+\mbox{\label{global_8h_ae7f7fdd55d053ad019b98ea0bd1001f6}} 
+\index{global.h@{global.h}!isFileEmpty@{isFileEmpty}}
+\index{isFileEmpty@{isFileEmpty}!global.h@{global.h}}
+\doxysubsubsection{isFileEmpty()}
+{\footnotesize\ttfamily int is\+File\+Empty (\begin{DoxyParamCaption}\item[{char}]{dir[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Check File. 
+
+Checks if a specified file is empty.
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & dir[] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 14} of file \textbf{ global.\+c}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{global_8h_a3e96a5e238530b20be201de161da2059}} 
+\index{global.h@{global.h}!car@{car}}
+\index{car@{car}!global.h@{global.h}}
+\doxysubsubsection{car}
+{\footnotesize\ttfamily struct \textbf{ Car} car}
+
+\mbox{\label{global_8h_ab725550f6491851805c821cade824e32}} 
+\index{global.h@{global.h}!session@{session}}
+\index{session@{session}!global.h@{global.h}}
+\doxysubsubsection{session}
+{\footnotesize\ttfamily struct \textbf{ Session} session}
+

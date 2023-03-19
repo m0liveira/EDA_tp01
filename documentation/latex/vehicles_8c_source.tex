@@ -1,0 +1,276 @@
+\doxysection{vehicles.\+c}
+\label{vehicles_8c_source}\index{sources/vehicles.c@{sources/vehicles.c}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../headers/global.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../headers/vehicles.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{int}\ isUnique(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>id\ ==\ \textcolor{keywordtype}{id})\ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ (1);}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00034\ Vehicle\ *addVehicles(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{float}\ batteryCapacity,\ \textcolor{keywordtype}{int}\ currentBattery,\ \textcolor{keywordtype}{float}\ autonomy,\ \textcolor{keywordtype}{float}\ price,\ \textcolor{keywordtype}{char}\ brand[],\ \textcolor{keywordtype}{char}\ model[],\ \textcolor{keywordtype}{char}\ gpsTracker[])\{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isUnique(startEntry,\ \textcolor{keywordtype}{id}))\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nErro:\ Este\ ID\ ja\ foi\ registado!\(\backslash\)n"{}});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (startEntry);}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ Vehicle\ *newEntry\ =\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ VehicleList));}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (newEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ newEntry-\/>id\ =\ id;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ newEntry-\/>batteryCapacity\ =\ batteryCapacity;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ newEntry-\/>currentBattery\ =\ currentBattery;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ newEntry-\/>autonomy\ =\ autonomy;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ newEntry-\/>price\ =\ price;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ strcpy(newEntry-\/>brand,\ brand);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ strcpy(newEntry-\/>model,\ model);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ strcpy(newEntry-\/>gpsTracker,\ gpsTracker);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ newEntry-\/>nextEntry\ =\ startEntry;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (newEntry);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ listVehicles(Vehicle\ *startEntry)\{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ veiculos\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lista\ de\ veiculos!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id:\ \%d"{}},\ startEntry-\/>id);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nMarca:\ \%s"{}},\ startEntry-\/>brand);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nModelo:\ \%s"{}},\ startEntry-\/>model);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nCapacidade\ de\ bateria\ (Ah):\ \%.2f"{}},\ startEntry-\/>batteryCapacity);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nBateria\ atual\ (\%\%):\ \%d\%\%"{}},\ startEntry-\/>currentBattery);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nAutonomia\ (Km):\ \%.2f"{}},\ startEntry-\/>autonomy);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nPreco\ de\ aluguer\ (eur):\ \%.2f\ euros"{}},\ startEntry-\/>price);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nLocalizacao\ do\ veiculo:\ \%s\(\backslash\)n\(\backslash\)n"{}},\ startEntry-\/>gpsTracker);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00095\ Vehicle\ *deleteVehicle(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00096\ \ \ \ \ Vehicle\ *previousEntry=startEntry,\ *currentEntry=startEntry,\ *aux;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry==NULL)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ veiculo\ indicado\ nao\ esta\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(NULL);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry-\/>id\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ aux\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ free(currentEntry);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(aux);}
+\DoxyCodeLine{00107\ \ \ \ \ \}\ }
+\DoxyCodeLine{00108\ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{while}\ ((currentEntry!=NULL)\&\&(currentEntry-\/>id!=\textcolor{keywordtype}{id}))\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ previousEntry\ =\ currentEntry;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ currentEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry!=NULL)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ previousEntry-\/>nextEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ free(currentEntry);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ veiculo\ indicado\ nao\ esta\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00133\ Vehicle\ *editVehicle(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ currentBattery,\ \textcolor{keywordtype}{char}\ gpsTracker[])\{}
+\DoxyCodeLine{00134\ \ \ \ \ Vehicle\ *previousEntry=startEntry,\ *currentEntry=startEntry;}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry==NULL)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ veiculo\ indicado\ nao\ esta\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(NULL);}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{while}\ ((currentEntry!=NULL)\&\&(currentEntry-\/>id!=\textcolor{keywordtype}{id}))\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ previousEntry\ =\ currentEntry;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ currentEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry!=NULL)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ currentEntry-\/>currentBattery\ =\ currentBattery;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ strcpy(currentEntry-\/>gpsTracker,\ gpsTracker);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ veiculo\ indicado\ nao\ esta\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00154\ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{int}\ saveVehiclesOnDatabase(Vehicle\ *startEntry)\{}
+\DoxyCodeLine{00166\ \ \ \ \ Vehicle*\ aux\ =\ startEntry;}
+\DoxyCodeLine{00167\ \ \ \ \ FILE*\ fp;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/vehicles\_database.txt"{}},\textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp==NULL)\ \textcolor{keywordflow}{return}(0);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ fprintf(fp,\textcolor{stringliteral}{"{}Id:\%d;BatteryCap:\%.2f;CurrBattery:\%d;Autonomy:\%.2f;Price:\%.2f;Brand:\%s;Model:\%s;GPS:\%s;\(\backslash\)n"{}},\ aux-\/>id,\ aux-\/>batteryCapacity,\ aux-\/>currentBattery,\ aux-\/>autonomy,\ aux-\/>price,\ aux-\/>brand,\ aux-\/>model,\ aux-\/>gpsTracker);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>nextEntry;}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{return}(1);}
+\DoxyCodeLine{00182\ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00192\ Vehicle\ *getVehiclesFromDatabase()\{}
+\DoxyCodeLine{00193\ \ \ \ \ Vehicle\ *vehicles\ =\ NULL,\ *stack\ =\ NULL;;}
+\DoxyCodeLine{00194\ \ \ \ \ FILE\ *fp;}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{int}\ id,\ currentBattery;}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{float}\ batteryCapacity,\ autonomy,\ price;}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{char}\ brand[20],\ model[20],\ gpsTracker[50];}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/vehicles\_database.txt"{}},\textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ vehicles;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{if}\ (isFileEmpty(\textcolor{stringliteral}{"{}../databases/vehicles\_database.txt"{}})\ ==\ 1)\ \textcolor{keywordflow}{return}\ vehicles;}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordflow}{while}\ (!feof(fp))\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ fscanf(fp,\textcolor{stringliteral}{"{}Id:\%d;BatteryCap:\%f;CurrBattery:\%d;Autonomy:\%f;Price:\%f;Brand:\%[\string^;];Model:\%[\string^;];GPS:\%[\string^;\(\backslash\)n];\(\backslash\)n"{}},\ \&\textcolor{keywordtype}{id},\ \&batteryCapacity,\ \&currentBattery,\ \&autonomy,\ \&price,\ brand,\ model,\ gpsTracker);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ stack\ =\ addVehicles(stack,\ \textcolor{keywordtype}{id},\ batteryCapacity,\ currentBattery,\ autonomy,\ price,\ brand,\ model,\ gpsTracker);}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{while}\ (stack\ !=\ NULL)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ vehicles\ =\ addVehicles(vehicles,\ stack-\/>id,\ stack-\/>batteryCapacity,\ stack-\/>currentBattery,\ stack-\/>autonomy,\ stack-\/>price,\ stack-\/>brand,\ stack-\/>model,\ stack-\/>gpsTracker);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ stack\ =\ stack-\/>nextEntry;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{return}(vehicles);}
+\DoxyCodeLine{00218\ \}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00228\ \textcolor{keywordtype}{void}\ listVehiclesByAutnonomy(Vehicle\ *startEntry)\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ veiculos\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{00235\ \ \ \ \ Vehicle\ **array\ =\ NULL;}
+\DoxyCodeLine{00236\ \ \ \ \ Vehicle\ *current\ =\ startEntry;}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{while}\ (current\ !=\ NULL)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ array\ =\ realloc(array,\ count\ *\ \textcolor{keyword}{sizeof}(Vehicle\ *));}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ array[count\ -\/\ 1]\ =\ current;}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ current\ =\ current-\/>nextEntry;}
+\DoxyCodeLine{00242\ \ \ \ \ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ count;\ j++)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (array[i]-\/>autonomy\ <\ array[j]-\/>autonomy)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vehicle\ *temp\ =\ array[i];}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ array[i]\ =\ array[j];}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ array[j]\ =\ temp;}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lista\ de\ veiculos\ por\ autonomia!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ i++)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ Vehicle\ *vehicle\ =\ array[i];}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id:\ \%d\(\backslash\)n"{}},\ vehicle-\/>id);}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Marca:\ \%s\(\backslash\)n"{}},\ vehicle-\/>brand);}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Modelo:\ \%s\(\backslash\)n"{}},\ vehicle-\/>model);}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Capacidade\ de\ bateria\ (Ah):\ \%.2f\(\backslash\)n"{}},\ vehicle-\/>batteryCapacity);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Bateria\ atual\ (\%\%):\ \%d\%\%\(\backslash\)n"{}},\ vehicle-\/>currentBattery);}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Autonomia\ (Km):\ \%.2f\(\backslash\)n"{}},\ vehicle-\/>autonomy);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Preco\ de\ aluguer\ (eur):\ \%.2f\ euros\(\backslash\)n"{}},\ vehicle-\/>price);}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Localizacao\ do\ veiculo:\ \%s\(\backslash\)n\(\backslash\)n"{}},\ vehicle-\/>gpsTracker);}
+\DoxyCodeLine{00266\ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ free(array);}
+\DoxyCodeLine{00269\ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00279\ \textcolor{keywordtype}{void}\ listVehiclesByGPS(Vehicle\ *startEntry,\ \textcolor{keywordtype}{char}\ location[])\{}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ veiculos\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lista\ de\ veiculos\ na\ area\ \%s!\(\backslash\)n\(\backslash\)n"{}},\ location);}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(startEntry-\/>gpsTracker,\ location)\ ==\ 0)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id:\ \%d"{}},\ startEntry-\/>id);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nMarca:\ \%s"{}},\ startEntry-\/>brand);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nModelo:\ \%s"{}},\ startEntry-\/>model);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nCapacidade\ de\ bateria\ (Ah):\ \%.2f"{}},\ startEntry-\/>batteryCapacity);}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nBateria\ atual\ (\%\%):\ \%d\%\%"{}},\ startEntry-\/>currentBattery);}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nAutonomia\ (Km):\ \%.2f"{}},\ startEntry-\/>autonomy);}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nPreco\ de\ aluguer\ (eur):\ \%.2f\ euros"{}},\ startEntry-\/>price);}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nLocalizacao\ do\ veiculo:\ \%s\(\backslash\)n\(\backslash\)n"{}},\ startEntry-\/>gpsTracker);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00311\ \textcolor{keywordtype}{void}\ getVehicleByID(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>id\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ car.id\ =\ startEntry-\/>id;}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ car.batteryCapacity\ =\ startEntry-\/>batteryCapacity;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ car.currentBattery\ =\ startEntry-\/>currentBattery;}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ car.autonomy\ =\ startEntry-\/>autonomy;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ car.price\ =\ startEntry-\/>price;}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(car.brand,\ startEntry-\/>brand);}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(car.model,\ startEntry-\/>model);}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(car.gpsTracker,\ startEntry-\/>gpsTracker);}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00327\ \ \ \ \ \}}
+\DoxyCodeLine{00328\ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00339\ \textcolor{keywordtype}{int}\ vehicleExists(Vehicle\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>id\ ==\ \textcolor{keywordtype}{id})\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00344\ \ \ \ \ \}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00347\ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00358\ Vehicle\ *rechargeVehicles(Vehicle\ *startEntry)\{}
+\DoxyCodeLine{00359\ \ \ \ \ Vehicle\ *currentEntry\ =\ startEntry;}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry\ ==\ NULL)\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nNao\ ha\ veiculos\ registados!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00364\ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordflow}{while}\ (currentEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ currentEntry-\/>currentBattery\ =\ 100;}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ currentEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00369\ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ }
+\DoxyCodeLine{00371\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Todos\ os\ veiculos\ foram\ recarregados!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{return}\ startEntry;}
+\DoxyCodeLine{00373\ \}}
+
+\end{DoxyCode}

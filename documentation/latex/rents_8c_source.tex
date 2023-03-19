@@ -1,0 +1,183 @@
+\doxysection{rents.\+c}
+\label{rents_8c_source}\index{sources/rents.c@{sources/rents.c}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../headers/global.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../headers/rents.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../headers/users.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../headers/vehicles.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{int}\ isRentUnique(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>id\ ==\ \textcolor{keywordtype}{id})\ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{return}\ (1);}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{int}\ isRented(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ vehicleId)\{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>vehicleId\ ==\ vehicleId\ \&\&\ strcmp(startEntry-\/>status,\ \textcolor{stringliteral}{"{}active"{}})\ ==\ 0)\ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ (1);}
+\DoxyCodeLine{00044\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00055\ Rent\ *addRent(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ clientId,\ \textcolor{keywordtype}{int}\ vehicleId,\ \textcolor{keywordtype}{char}\ status[])\{}
+\DoxyCodeLine{00056\ \ \ \ \ Rent\ *newEntry\ =\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ RentList));}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isRentUnique(startEntry,\ \textcolor{keywordtype}{id}))\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro:\ Este\ ID\ ja\ foi\ registado!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (startEntry);}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isRented(startEntry,\ vehicleId))\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro:\ Este\ veiculo\ ja\ foi\ alugado\ por\ outro\ cliente!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (startEntry);}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (newEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ newEntry-\/>id\ =\ id;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ newEntry-\/>clientId\ =\ clientId;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ newEntry-\/>vehicleId\ =\ vehicleId;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ strcpy(newEntry-\/>status,\ status);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ newEntry-\/>nextEntry\ =\ startEntry;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (newEntry);}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{int}\ saveRentOnDatabase(Rent\ *startEntry)\{}
+\DoxyCodeLine{00089\ \ \ \ \ Rent*\ aux\ =\ startEntry;}
+\DoxyCodeLine{00090\ \ \ \ \ FILE*\ fp;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/rents\_database.txt"{}},\textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp==NULL)\ \textcolor{keywordflow}{return}(0);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ fprintf(fp,\textcolor{stringliteral}{"{}Id:\%d;ClientID:\%d;VehicleID:\%d;Status:\%s;\(\backslash\)n"{}},\ aux-\/>id,\ aux-\/>clientId,\ aux-\/>vehicleId,\ aux-\/>status);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>nextEntry;}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}(1);}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00115\ Rent\ *getRentsFromDatabase()\{}
+\DoxyCodeLine{00116\ \ \ \ \ Rent\ *rents\ =\ NULL,\ *stack\ =\ NULL;;}
+\DoxyCodeLine{00117\ \ \ \ \ FILE\ *fp;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{int}\ id,\ clientId,\ vehicleId;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{char}\ status[10];}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/rents\_database.txt"{}},\textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ rents;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (isFileEmpty(\textcolor{stringliteral}{"{}../databases/rents\_database.txt"{}})\ ==\ 1)\ \textcolor{keywordflow}{return}\ rents;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{while}\ (fscanf(fp,\ \textcolor{stringliteral}{"{}Id:\%d;ClientID:\%d;VehicleID:\%d;Status:\%[\string^;\(\backslash\)n];\(\backslash\)n"{}},\ \&\textcolor{keywordtype}{id},\ \&clientId,\ \&vehicleId,\ status)\ ==\ 4)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ stack\ =\ addRent(stack,\ \textcolor{keywordtype}{id},\ clientId,\ vehicleId,\ status);}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{while}\ (stack\ !=\ NULL)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ rents\ =\ addRent(rents,\ stack-\/>id,\ stack-\/>clientId,\ stack-\/>vehicleId,\ stack-\/>status);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ stack\ =\ stack-\/>nextEntry;}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{return}(rents);}
+\DoxyCodeLine{00139\ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{int}\ rentExists(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>id\ ==\ \textcolor{keywordtype}{id})\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00169\ Rent\ *updateRent(Rent\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00170\ \ \ \ \ Rent\ *previousEntry\ =\ startEntry,\ *currentEntry\ =\ startEntry;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry==NULL)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ aluguer\ indicado\ nao\ existe!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(NULL);}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{while}\ ((currentEntry\ !=\ NULL)\ \&\&\ (currentEntry-\/>id\ !=\ \textcolor{keywordtype}{id}))\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ previousEntry\ =\ currentEntry;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ currentEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEntry\ !=\ NULL\ \&\&\ session.id\ ==\ currentEntry-\/>clientId\ \&\&\ strcmp(currentEntry-\/>status,\ \textcolor{stringliteral}{"{}active"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ car.id\ =\ currentEntry-\/>vehicleId;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ strcpy(currentEntry-\/>status,\ \textcolor{stringliteral}{"{}returned"{}});}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nO\ aluguer\ indicado\ nao\ existe!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordflow}{return}(startEntry);}
+\DoxyCodeLine{00190\ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00200\ \textcolor{keywordtype}{void}\ listUserRents(Rent\ *startEntry)\{}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ veiculos\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lista\ de\ alugueres!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (session.id\ ==\ startEntry-\/>clientId)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id:\ \%d,\ id\ do\ veiculo:\ \%d\ -\/>\ status:\ \%s\(\backslash\)n\(\backslash\)n"{}},\ startEntry-\/>id,\ startEntry-\/>vehicleId,\ startEntry-\/>status);}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00214\ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00225\ \textcolor{keywordtype}{void}\ listUserActiveRents(Rent\ *startEntry)\{}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ veiculos\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lista\ de\ alugueres\ ativos!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (session.id\ ==\ startEntry-\/>clientId\ \&\&\ strcmp(startEntry-\/>status,\ \textcolor{stringliteral}{"{}active"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id:\ \%d,\ id\ do\ veiculo:\ \%d\ -\/>\ status:\ \%s\(\backslash\)n\(\backslash\)n"{}},\ startEntry-\/>id,\ startEntry-\/>vehicleId,\ startEntry-\/>status);}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00239\ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00250\ \textcolor{keywordtype}{void}\ listRents(Rent\ *startEntry)\{}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ veiculos\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00254\ \ \ \ \ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Lista\ de\ alugueres!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ID:\ \%d\ |\ ID\ do\ cliente:\ \%d\ |\ ID\ do\ veiculo:\ \%d\ -\/>\ status:\ \%s\(\backslash\)n\(\backslash\)n"{}},\ startEntry-\/>id,\ startEntry-\/>clientId,\ startEntry-\/>vehicleId,\ startEntry-\/>status);}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ \}}
+
+\end{DoxyCode}

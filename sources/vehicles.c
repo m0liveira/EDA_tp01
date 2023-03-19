@@ -3,6 +3,15 @@
 #include "../headers/global.h"
 #include "../headers/vehicles.h"
 
+/*!
+    * @brief Check vehicle ID
+    *
+    * Checks if the ID is dupped
+    *
+    * @param Vehicle *startEntry @param int id
+    * @return 1 or 0 as true or false
+*/
+
 int isUnique(Vehicle *startEntry, int id){
     while (startEntry != NULL){
         if (startEntry->id == id) return (0);
@@ -12,6 +21,15 @@ int isUnique(Vehicle *startEntry, int id){
 
     return (1);
 }
+
+/*!
+    * @brief Add vehicle
+    *
+    * Adds a new vehicle entry into a linked list
+    *
+    * @param Vehicle *startEntry @param int id @param float batteryCapacity @param int currentBattery @param float autonomy @param float price @param char brand[] @param char model[] @param char gpsTracker[]
+    * @return Added vehicle
+*/
 
 Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[]){
     if (!isUnique(startEntry, id)){
@@ -35,6 +53,14 @@ Vehicle *addVehicles(Vehicle *startEntry, int id, float batteryCapacity, int cur
     }
 }
 
+/*!
+    * @brief List vehicles
+    *
+    * Outputs all vehicles
+    *
+    * @param Vehicle *startEntry
+*/
+
 void listVehicles(Vehicle *startEntry){
     if (startEntry == NULL){
         printf("Nao ha veiculos guardados\n\n");
@@ -56,6 +82,15 @@ void listVehicles(Vehicle *startEntry){
         startEntry = startEntry->nextEntry;
     }
 }
+
+/*!
+    * @brief Delete vehicle
+    *
+    * Deletes a vehicle entry from the linked list
+    *
+    * @param Vehicle *startEntry @param int id
+    * @return vehicles
+*/
 
 Vehicle *deleteVehicle(Vehicle *startEntry, int id){
     Vehicle *previousEntry=startEntry, *currentEntry=startEntry, *aux;
@@ -86,6 +121,15 @@ Vehicle *deleteVehicle(Vehicle *startEntry, int id){
     return(startEntry);
 }
 
+/*!
+    * @brief Update vehicle
+    *
+    * Updates a specified vehicle entry from the linked list
+    *
+    * @param Vehicle *startEntry @param int id @param int currentBattery @param char gpsTracker[]
+    * @return vehicles
+*/
+
 Vehicle *editVehicle(Vehicle *startEntry, int id, int currentBattery, char gpsTracker[]){
     Vehicle *previousEntry=startEntry, *currentEntry=startEntry;
 
@@ -109,6 +153,15 @@ Vehicle *editVehicle(Vehicle *startEntry, int id, int currentBattery, char gpsTr
     return(startEntry);
 }
 
+/*!
+    * @brief Save vehicle on database
+    *
+    * Saves vehicles entrys into a database
+    *
+    * @param Vehicle *startEntry
+    * @return 1 or 0 as true or false
+*/
+
 int saveVehiclesOnDatabase(Vehicle *startEntry){
     Vehicle* aux = startEntry;
     FILE* fp;
@@ -127,6 +180,14 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
 
     return(1);
 }
+
+/*!
+    * @brief Get vehicles
+    *
+    * Gets all vehicles from a database
+    *
+    * @return vehicles
+*/
 
 Vehicle *getVehiclesFromDatabase(){
     Vehicle *vehicles = NULL, *stack = NULL;;
@@ -155,6 +216,14 @@ Vehicle *getVehiclesFromDatabase(){
     
     return(vehicles);
 }
+
+/*!
+    * @brief List vehicles by autonomy
+    *
+    * Outputs vehicles sorted by autonomy
+    *
+    * @param Vehicle *startEntry
+*/
 
 void listVehiclesByAutnonomy(Vehicle *startEntry) {
     if (startEntry == NULL) {
@@ -199,6 +268,14 @@ void listVehiclesByAutnonomy(Vehicle *startEntry) {
     free(array);
 }
 
+/*!
+    * @brief List vehicles by GPS
+    *
+    * Outputs vehicles in a specific GPS location
+    *
+    * @param Vehicle *startEntry @param char location[]
+*/
+
 void listVehiclesByGPS(Vehicle *startEntry, char location[]){
     if (startEntry == NULL){
         printf("Nao ha veiculos guardados\n\n");
@@ -223,6 +300,14 @@ void listVehiclesByGPS(Vehicle *startEntry, char location[]){
     }
 }
 
+/*!
+    * @brief Get vehicle by ID
+    *
+    * Stores a specific vehicle data in a struct
+    *
+    * @param Vehicle *startEntry @param int id
+*/
+
 void getVehicleByID(Vehicle *startEntry, int id){
     while (startEntry != NULL){
         if (startEntry->id == id) {
@@ -242,6 +327,15 @@ void getVehicleByID(Vehicle *startEntry, int id){
     }
 }
 
+/*!
+    * @brief Vehicle exist
+    *
+    * Checks if a specified vehicle exists at the linked list
+    *
+    * @param Vehicle *startEntry @param int id
+    * @return 1 or 0 as true or false
+*/
+
 int vehicleExists(Vehicle *startEntry, int id){
     while (startEntry != NULL){
         if (startEntry->id == id) return 1;
@@ -251,6 +345,15 @@ int vehicleExists(Vehicle *startEntry, int id){
 
     return 0;
 }
+
+/*!
+    * @brief Recharge vehicles
+    *
+    * Recharges all vehicles stored in the linked list
+    *
+    * @param Vehicle *startEntry
+    * @return vehicles
+*/
 
 Vehicle *rechargeVehicles(Vehicle *startEntry){
     Vehicle *currentEntry = startEntry;

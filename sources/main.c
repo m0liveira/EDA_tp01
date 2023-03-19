@@ -6,9 +6,21 @@
 #include "../headers/users.h"
 #include "../headers/rents.h"
 
+/*!
+    * @brief Clear console
+    *
+    * Clears the console outputs.
+*/
+
 void clearConsole(){
     system("cls||clear");
 }
+
+/*!
+    * @brief Main menu
+    *
+    * Outputs a different menu for each user role.
+*/
 
 void mainMenu(){
     printf("Menu Fase 1");
@@ -38,6 +50,12 @@ void mainMenu(){
     printf("\n\nOpcao: ");
 }
 
+/*!
+    * @brief Login menu
+    *
+    * Outputs a menu so the user can login into the app and create an account.
+*/
+
 void loginMenu(){
     printf("Login Menu");
     printf("\n\n1: Entrar\n");
@@ -45,6 +63,15 @@ void loginMenu(){
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
+
+/*!
+    * @brief New vehicle.
+    *
+    * Outputs and ask for input for the admin to add a new vehicle
+    *
+    * @param Vehicle *vehicles @param int id
+    * @return Added vehicle
+*/
 
 Vehicle *newVehicle(Vehicle *vehicles, int id){
     float batteryCapacity, autonomy, price;
@@ -78,6 +105,15 @@ Vehicle *newVehicle(Vehicle *vehicles, int id){
     return vehicles;
 }
 
+/*!
+    * @brief New user.
+    *
+    * Outputs and ask for input for the user to create an account
+    *
+    * @param User *users @param int id
+    * @return Added user
+*/
+
 User *newUser(User *users, int id){
     int nif = 0;
     char name[30], password[30];
@@ -103,6 +139,16 @@ User *newUser(User *users, int id){
 
     return users;
 }
+
+/*!
+    * @brief New rent.
+    *
+    * Outputs and ask for input for the user to rent a vehicle
+    * Deducts the cost of the vehicle from the user balance
+    * 
+    * @param Vehicle *vehicles @param int id
+    * @return Added vehicle
+*/
 
 Rent *newRent(Rent *rents, Vehicle *vehicles, User *users, int id){
     int vehicleId = 0;
@@ -137,6 +183,15 @@ Rent *newRent(Rent *rents, Vehicle *vehicles, User *users, int id){
     return rents;
 }
 
+/*!
+    * @brief Get ID.
+    *
+    * Gets an ID
+    *
+    * @param char phrase[]
+    * @return ID
+*/
+
 int getId(char phrase[]){
     int id = 0;
 
@@ -146,6 +201,12 @@ int getId(char phrase[]){
     return id;
 }
 
+/*!
+    * @brief Deposit balance.
+    *
+    * Ask for input for the user to add balance
+*/
+
 void depositBalance(){
     float balance = 0;
     printf("Quanto saldo quer depositar: ");
@@ -154,6 +215,14 @@ void depositBalance(){
 
     session.balance += balance;
 }
+
+/*!
+    * @brief Get profit
+    *
+    * Outputs the income made from the vehicles renting
+    *
+    * @param Rent *startEntry @param Vehicle *entrys
+*/
 
 void getProfits(Rent *startEntry, Vehicle *entrys){
     float income = 0.00;

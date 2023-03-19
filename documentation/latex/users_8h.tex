@@ -1,0 +1,255 @@
+\doxysection{headers/users.h File Reference}
+\label{users_8h}\index{headers/users.h@{headers/users.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ User\+List}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ User\+List} \textbf{ User}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ is\+User\+Unique} (\textbf{ User} $\ast$start\+Entry, int id)
+\begin{DoxyCompactList}\small\item\em Check user ID. \end{DoxyCompactList}\item 
+int \textbf{ is\+Name\+Unique} (\textbf{ User} $\ast$start\+Entry, char name[$\,$])
+\begin{DoxyCompactList}\small\item\em Check user name. \end{DoxyCompactList}\item 
+\textbf{ User} $\ast$ \textbf{ add\+User} (\textbf{ User} $\ast$start\+Entry, int id, int nif, float balance, char name[$\,$], char password[$\,$], char role[$\,$])
+\begin{DoxyCompactList}\small\item\em Add user. \end{DoxyCompactList}\item 
+int \textbf{ login\+User} (\textbf{ User} $\ast$start\+Entry, char name[$\,$], char password[$\,$])
+\begin{DoxyCompactList}\small\item\em User login. \end{DoxyCompactList}\item 
+int \textbf{ save\+Users\+On\+Database} (\textbf{ User} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em Save user on database. \end{DoxyCompactList}\item 
+\textbf{ User} $\ast$ \textbf{ get\+Users\+From\+Database} ()
+\begin{DoxyCompactList}\small\item\em Get Users. \end{DoxyCompactList}\item 
+\textbf{ User} $\ast$ \textbf{ delete\+User} (\textbf{ User} $\ast$start\+Entry, int id)
+\begin{DoxyCompactList}\small\item\em Delete user. \end{DoxyCompactList}\item 
+\textbf{ User} $\ast$ \textbf{ edit\+User} (\textbf{ User} $\ast$start\+Entry, int id)
+\begin{DoxyCompactList}\small\item\em Update user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{users_8h_a5400f33cf0c5c9de937367162462fb55}} 
+\index{users.h@{users.h}!User@{User}}
+\index{User@{User}!users.h@{users.h}}
+\doxysubsubsection{User}
+{\footnotesize\ttfamily typedef struct \textbf{ User\+List} \textbf{ User}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{users_8h_aae43e4ec2bd4a34eaaa402c89d8eccd1}} 
+\index{users.h@{users.h}!addUser@{addUser}}
+\index{addUser@{addUser}!users.h@{users.h}}
+\doxysubsubsection{addUser()}
+{\footnotesize\ttfamily \textbf{ User} $\ast$ add\+User (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{start\+Entry,  }\item[{int}]{id,  }\item[{int}]{nif,  }\item[{float}]{balance,  }\item[{char}]{name[$\,$],  }\item[{char}]{password[$\,$],  }\item[{char}]{role[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Add user. 
+
+Adds a new user entry into a linked list
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & $\ast$start\+Entry\\
+\hline
+{\em int} & id\\
+\hline
+{\em int} & nif\\
+\hline
+{\em float} & balance\\
+\hline
+{\em char} & name[]\\
+\hline
+{\em char} & password[]\\
+\hline
+{\em char} & role[] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Added user 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 53} of file \textbf{ users.\+c}.
+
+\mbox{\label{users_8h_aa7b4e161f2c6c59d4849ce653efd30e5}} 
+\index{users.h@{users.h}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!users.h@{users.h}}
+\doxysubsubsection{deleteUser()}
+{\footnotesize\ttfamily \textbf{ User} $\ast$ delete\+User (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{start\+Entry,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Delete user. 
+
+Deletes an user entry from the linked list
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & $\ast$start\+Entry\\
+\hline
+{\em int} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+users 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 179} of file \textbf{ users.\+c}.
+
+\mbox{\label{users_8h_ab54a616a3193a2efad78e80b31028430}} 
+\index{users.h@{users.h}!editUser@{editUser}}
+\index{editUser@{editUser}!users.h@{users.h}}
+\doxysubsubsection{editUser()}
+{\footnotesize\ttfamily \textbf{ User} $\ast$ edit\+User (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{start\+Entry,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Update user. 
+
+Updates a specified user entry from the linked list
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & $\ast$start\+Entry\\
+\hline
+{\em int} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+users 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 217} of file \textbf{ users.\+c}.
+
+\mbox{\label{users_8h_a36ad2b37dc9902e37bb2f143f923bffe}} 
+\index{users.h@{users.h}!getUsersFromDatabase@{getUsersFromDatabase}}
+\index{getUsersFromDatabase@{getUsersFromDatabase}!users.h@{users.h}}
+\doxysubsubsection{getUsersFromDatabase()}
+{\footnotesize\ttfamily \textbf{ User} $\ast$ get\+Users\+From\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get Users. 
+
+Gets all users from a database
+
+\begin{DoxyReturn}{Returns}
+users 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 143} of file \textbf{ users.\+c}.
+
+\mbox{\label{users_8h_ace2066eafefcb27752a21a5da56efecc}} 
+\index{users.h@{users.h}!isNameUnique@{isNameUnique}}
+\index{isNameUnique@{isNameUnique}!users.h@{users.h}}
+\doxysubsubsection{isNameUnique()}
+{\footnotesize\ttfamily int is\+Name\+Unique (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{start\+Entry,  }\item[{char}]{name[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Check user name. 
+
+Checks if the user name is dupped
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & $\ast$start\+Entry\\
+\hline
+{\em char} & name[] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 34} of file \textbf{ users.\+c}.
+
+\mbox{\label{users_8h_a3eff6244efefa29ff980a2bd706b8e9b}} 
+\index{users.h@{users.h}!isUserUnique@{isUserUnique}}
+\index{isUserUnique@{isUserUnique}!users.h@{users.h}}
+\doxysubsubsection{isUserUnique()}
+{\footnotesize\ttfamily int is\+User\+Unique (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{start\+Entry,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Check user ID. 
+
+Checks if the ID is dupped
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & $\ast$start\+Entry\\
+\hline
+{\em int} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 15} of file \textbf{ users.\+c}.
+
+\mbox{\label{users_8h_a9724304f5304c5e18783d58daf1e2ff8}} 
+\index{users.h@{users.h}!loginUser@{loginUser}}
+\index{loginUser@{loginUser}!users.h@{users.h}}
+\doxysubsubsection{loginUser()}
+{\footnotesize\ttfamily int login\+User (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{start\+Entry,  }\item[{char}]{name[$\,$],  }\item[{char}]{password[$\,$] }\end{DoxyParamCaption})}
+
+
+
+User login. 
+
+Logins a user into the program
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & $\ast$start\+Entry\\
+\hline
+{\em char} & name[]\\
+\hline
+{\em char} & password[] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 88} of file \textbf{ users.\+c}.
+
+\mbox{\label{users_8h_aa658b85d23db66ac2a2873cc9ee1e3de}} 
+\index{users.h@{users.h}!saveUsersOnDatabase@{saveUsersOnDatabase}}
+\index{saveUsersOnDatabase@{saveUsersOnDatabase}!users.h@{users.h}}
+\doxysubsubsection{saveUsersOnDatabase()}
+{\footnotesize\ttfamily int save\+Users\+On\+Database (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+Save user on database. 
+
+Saves user entrys into a database
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 116} of file \textbf{ users.\+c}.
+

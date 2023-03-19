@@ -1,0 +1,26 @@
+\doxysection{users.\+h}
+\label{users_8h_source}\index{headers/users.h@{headers/users.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }UserList\ \{}
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordtype}{int}\ nif;}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{float}\ balance;}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{char}\ name[30];}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{char}\ password[30];}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{char}\ role[10];}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{struct\ }UserList\ *nextEntry;}
+\DoxyCodeLine{00011\ \}\ User;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{int}\ isUserUnique(User\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{int}\ isNameUnique(User\ *startEntry,\ \textcolor{keywordtype}{char}\ name[]);}
+\DoxyCodeLine{00015\ User\ *addUser(User\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ nif,\ \textcolor{keywordtype}{float}\ balance,\ \textcolor{keywordtype}{char}\ name[],\ \textcolor{keywordtype}{char}\ password[],\ \textcolor{keywordtype}{char}\ role[]);}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{int}\ loginUser(User\ *startEntry,\ \textcolor{keywordtype}{char}\ name[],\ \textcolor{keywordtype}{char}\ password[]);}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{int}\ saveUsersOnDatabase(User\ *startEntry);}
+\DoxyCodeLine{00018\ User\ *getUsersFromDatabase();}
+\DoxyCodeLine{00019\ User\ *deleteUser(User\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00020\ User\ *editUser(User\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+
+\end{DoxyCode}
