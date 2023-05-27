@@ -134,38 +134,50 @@ Edge *AddEdge(Graph *graph, Edge *startEntry, int startVertex, int endVertex) {
     }
 }
 
+/*!
+    * @brief Checks edges
+    *
+    * Checks if an edge exists
+    *
+    * @param Graph *graph @param Edge *edge @param int vertexA @param int vertexB
+    * @return 1 or 0 as true or false
+*/
+
 int isEdgePresent(Graph *graph, Edge *edge, int vertexA, int vertexB) {
     while (edge != NULL) {
         if ((edge->vertexA == vertexA && edge->vertexB == vertexB) ||
             (edge->vertexA == vertexB && edge->vertexB == vertexA)) {
-            // Edge between the vertices found
             return 1;
         }
 
         edge = edge->nextEntry;
     }
 
-    // No edge between the vertices found
     return 0;
 }
 
+/*!
+    * @brief Generates Graphs
+    *
+    * Generates a random graph dynamically from the number of existent vertices
+    *
+    * @param Graph *graph @param Edge *edge @param int numVertices @param int numEdges
+    * @return edges
+*/
 
 Edge *generateRandomGraph(Graph *graph, Edge *edge, int numVertices, int numEdges) {
     if (numVertices <= 0 || numEdges <= 0) return edge;
 
     if (numEdges > numVertices * (numVertices - 1) / 2) return edge;
 
-    // Create an array to hold all the vertices
     int *vertices = malloc(numVertices * sizeof(int));
 
     if (vertices == NULL) return edge;
 
-    // Initialize the array with vertices starting from 1
     for (int i = 0; i < numVertices; i++) {
         vertices[i] = i + 1;
     }
 
-    // Shuffle the array to randomize the order of vertices
     for (int i = numVertices - 1; i > 0; i--) {
         int j = rand() % (i + 1);
         int temp = vertices[i];
@@ -175,7 +187,6 @@ Edge *generateRandomGraph(Graph *graph, Edge *edge, int numVertices, int numEdge
 
     int remainingEdges = numEdges;
 
-    // Connect each vertex to at least one other vertex
     for (int i = 0; i < numVertices - 1 && numEdges > 0; i++) {
         int j = (i + 1) % numVertices;
         edge = AddEdge(graph, edge, vertices[i], vertices[j]);
@@ -186,7 +197,6 @@ Edge *generateRandomGraph(Graph *graph, Edge *edge, int numVertices, int numEdge
         int randomVertexA = vertices[rand() % numVertices];
         int randomVertexB = vertices[rand() % numVertices];
 
-        // Check if the random vertices are the same or an edge between them already exists
         if (randomVertexA != randomVertexB && !isEdgePresent(graph, edge, randomVertexA, randomVertexB)) {
             edge = AddEdge(graph, edge, randomVertexA, randomVertexB);
             remainingEdges--;
