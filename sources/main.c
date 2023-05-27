@@ -248,6 +248,7 @@ int main(){
     User *users = NULL;
     Rent *rents = NULL;
     Graph *graphs = NULL;
+    Edge *edges = NULL;
     int input = -1, vehicleId = 1, userId = 1, rentId = 1, updateRentId = 0, vehicleBattery = 0;
     char location[50];
 
@@ -452,6 +453,7 @@ int main(){
 
             case 3: {
                 int counter = 1;
+
                 clearConsole();
                 vehicles = getVehiclesFromDatabase();
                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
@@ -462,8 +464,12 @@ int main(){
                     vehicles = vehicles->nextEntry;
                     counter++;
                 }
+                
+                edges = AddEdge(graphs, edges, 1, 4);
+                edges = AddEdge(graphs, edges, 2, 3);
+                edges = AddEdge(graphs, edges, 2, 1);
 
-                listVertexes(graphs);
+                listGraph(graphs, edges);
             } break;
 
             default:

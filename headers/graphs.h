@@ -13,8 +13,10 @@ typedef struct AuxList {
 } Aux;
 
 typedef struct EdgeList {
-    int vertex;
-    float position;
+    int id;
+    int vertexA;
+    int vertexB;
+    float distance;
     struct EdgeList* nextEntry;
 } Edge;
 
@@ -27,4 +29,7 @@ typedef struct GraphList {
 
 int isGraphUnique(Graph *startEntry, int id);
 Graph *addVertex(Graph *startEntry, int id, Aux vehicle);
-void listVertices(Graph *startEntry);
+float generateRandomDistance();
+int doesVertexExist(Graph *graph, int vertex);
+Edge *AddEdge(Graph *graph, Edge *startEntry, int startVertex, int endVertex);
+void listGraph(Graph *startEntry, Edge *startEdge);
