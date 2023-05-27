@@ -497,6 +497,7 @@ int main(){
                 while (vehicles != NULL) {
                     Aux *car = (Aux *)vehicles;
                     graphs = addVertex(graphs, counter, *car);
+                    saveVerticesOnDatabase(graphs);
                     vehicles = vehicles->nextEntry;
                     counter++;
                 }

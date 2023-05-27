@@ -245,3 +245,31 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
         startEntry = startEntry->nextEntry;
     }
 }
+
+/*!
+    * @brief Save vertices on database
+    *
+    * Saves vertices entrys into a database
+    *
+    * @param Graph *startEntry
+    * @return 1 or 0 as true or false
+*/
+
+int saveVerticesOnDatabase(Graph *startEntry){
+    Graph* aux = startEntry;
+    FILE* fp;
+
+    fp = fopen("../databases/vertices_database.txt","w");
+
+    if (fp==NULL) return 0;
+
+    while (aux != NULL) {
+        fprintf(fp,"Vertex:%d;Id:%d;BatteryCap:%.2f;CurrBattery:%d;Autonomy:%.2f;Price:%.2f;Brand:%s;Model:%s;GPS:%s;\n", aux->vertex, aux->vehicle.id, aux->vehicle.batteryCapacity, aux->vehicle.currentBattery, aux->vehicle.autonomy, aux->vehicle.price, aux->vehicle.brand, aux->vehicle.model, aux->vehicle.gpsTracker);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return 1;
+}

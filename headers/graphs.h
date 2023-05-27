@@ -23,7 +23,6 @@ typedef struct EdgeList {
 typedef struct GraphList {
     int vertex;
     Aux vehicle;
-    Edge edge;
     struct GraphList* nextEntry;
 } Graph;
 
@@ -35,3 +34,4 @@ Edge *AddEdge(Graph *graph, Edge *startEntry, int startVertex, int endVertex);
 int isEdgePresent(Graph *graph, Edge *edge, int vertexA, int vertexB);
 Edge *generateRandomGraph(Graph *graph, Edge *edge, int numVertices, int numEdges);
 void listGraph(Graph *startEntry, Edge *startEdge);
+int saveVerticesOnDatabase(Graph *startEntry);
