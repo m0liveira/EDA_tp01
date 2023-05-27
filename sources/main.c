@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "../headers/global.h"
 #include "../headers/vehicles.h"
 #include "../headers/users.h"
@@ -243,6 +244,39 @@ void getProfits(Rent *startEntry, Vehicle *entrys){
     printf("Ganhos de aluguer: %.2f euros\n\n", income);
 }
 
+/*!
+    * @brief Get linked lists length.
+    *
+    * Gets the lenght of a linked list
+    *
+    * @param Graph *graph
+    * @return length
+*/
+
+int getLinkedListLength(Graph *graph) {
+    int length = 0;
+
+    while (graph != NULL) {
+        length++;
+        graph = graph->nextEntry;
+    }
+
+    return length;
+}
+
+/*!
+    * @brief Generate random number.
+    *
+    * Generates a random number betwwen two values
+    *
+    * @param int min @param int max
+    * @return number
+*/
+
+int generateRandomNumber(int min, int max) {
+    return min + rand() % (max - min + 1);
+}
+
 int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
@@ -454,6 +488,8 @@ int main(){
             case 3: {
                 int counter = 1;
 
+                srand(time(NULL));
+                
                 clearConsole();
                 vehicles = getVehiclesFromDatabase();
                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
@@ -464,10 +500,16 @@ int main(){
                     vehicles = vehicles->nextEntry;
                     counter++;
                 }
+
+                int numVertices = getLinkedListLength(graphs);
                 
-                edges = AddEdge(graphs, edges, 1, 4);
-                edges = AddEdge(graphs, edges, 2, 3);
-                edges = AddEdge(graphs, edges, 2, 1);
+                int maxPossibleEdges = numVertices * (numVertices - 1) / 2;
+
+                int rnd = generateRandomNumber(numVertices - 1, maxPossibleEdges);
+
+                printf("vertices: %d\narestas max: %d\nrandom number: %d\n\n", numVertices, maxPossibleEdges, rnd);
+
+                edges = generateRandomGraph(graphs, edges, numVertices, rnd);
 
                 listGraph(graphs, edges);
             } break;
