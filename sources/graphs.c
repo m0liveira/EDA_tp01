@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "../headers/global.h"
 #include "../headers/graphs.h"
@@ -272,4 +273,68 @@ int saveVerticesOnDatabase(Graph *startEntry){
     fclose(fp);
 
     return 1;
+}
+
+/*!
+    * @brief Get vertices
+    *
+    * Gets all vertices from a database
+    *
+    * @return vertices
+*/
+
+Graph *getVerticesFromDatabase() {
+    Graph *vertices = NULL, *stack = NULL;
+    Aux *car = NULL;
+    FILE *fp;
+    int vertex, id, currentBattery;
+    float batteryCapacity, autonomy, price;
+    char brand[20], model[20], gpsTracker[50];
+
+    fp = fopen("../databases/vertices_database.txt", "r");
+
+    if (fp == NULL) return vertices;
+
+    if (isFileEmpty("../databases/vertices_database.txt") == 1) return vertices;
+
+    while (!feof(fp)) {
+        car = malloc(sizeof(Aux));
+
+        if (car == NULL) {
+            while (stack != NULL) {
+                Graph *next = stack->nextEntry;
+                free(stack);
+                stack = next;
+            }
+
+            fclose(fp);
+
+            return vertices;
+        }
+
+        if (fscanf(fp, "Vertex:%d;Id:%d;BatteryCap:%f;CurrBattery:%d;Autonomy:%f;Price:%f;Brand:%[^;];Model:%[^;];GPS:%[^;\n];\n", &vertex, &id, &batteryCapacity, &currentBattery, &autonomy, &price, brand, model, gpsTracker) == 9) {
+            car->id = id;
+            car->batteryCapacity = batteryCapacity;
+            car->currentBattery = currentBattery;
+            car->autonomy = autonomy;
+            car->price = price;
+            strcpy(car->brand, brand);
+            strcpy(car->model, model);
+            strcpy(car->gpsTracker, gpsTracker);
+
+            stack = addVertex(stack, vertex, *car);
+        } else {
+            free(car);
+            break;
+        }
+    }
+
+    fclose(fp);
+
+    while (stack != NULL) {
+        vertices = addVertex(vertices, stack->vertex, stack->vehicle);
+        stack = stack->nextEntry;
+    }
+
+    return vertices;
 }

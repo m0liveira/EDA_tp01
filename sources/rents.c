@@ -113,7 +113,7 @@ int saveRentOnDatabase(Rent *startEntry){
 */
 
 Rent *getRentsFromDatabase(){
-    Rent *rents = NULL, *stack = NULL;;
+    Rent *rents = NULL, *stack = NULL;
     FILE *fp;
     int id, clientId, vehicleId;
     char status[10];

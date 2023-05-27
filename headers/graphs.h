@@ -9,7 +9,6 @@ typedef struct AuxList {
     char brand[20];
     char model[20];
     char gpsTracker[50];
-    struct AuxList* nextEntry;
 } Aux;
 
 typedef struct EdgeList {
@@ -35,3 +34,4 @@ int isEdgePresent(Graph *graph, Edge *edge, int vertexA, int vertexB);
 Edge *generateRandomGraph(Graph *graph, Edge *edge, int numVertices, int numEdges);
 void listGraph(Graph *startEntry, Edge *startEdge);
 int saveVerticesOnDatabase(Graph *startEntry);
+Graph *getVerticesFromDatabase();

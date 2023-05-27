@@ -48,6 +48,6 @@ To see documentation go either to the folder:
 - [x] Create random and dynamic graphs
 - [x] List graphs
 - [x] Save vertices to database
-- [ ] Get vertices from database
+- [x] Get vertices from database
 - [ ] List vehicles in a given radius from the client
 - [ ] Calculate the shortest route to retrieve all vehicles with a battery lower than 50%

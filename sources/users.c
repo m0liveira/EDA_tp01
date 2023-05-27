@@ -141,7 +141,7 @@ int saveUsersOnDatabase(User *startEntry){
 */
 
 User *getUsersFromDatabase(){
-    User *users = NULL, *stack = NULL;;
+    User *users = NULL, *stack = NULL;
     FILE *fp;
     int id, nif;
     float balance;

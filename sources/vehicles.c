@@ -190,7 +190,7 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
 */
 
 Vehicle *getVehiclesFromDatabase(){
-    Vehicle *vehicles = NULL, *stack = NULL;;
+    Vehicle *vehicles = NULL, *stack = NULL;
     FILE *fp;
     int id, currentBattery;
     float batteryCapacity, autonomy, price;
