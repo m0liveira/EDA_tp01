@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "../headers/global.h"
 #include "../headers/vehicles.h"
 #include "../headers/users.h"
 #include "../headers/rents.h"
+#include "../headers/graphs.h"
 
 /*!
     * @brief Clear console
@@ -60,6 +62,7 @@ void loginMenu(){
     printf("Login Menu");
     printf("\n\n1: Entrar\n");
     printf("2: Criar conta\n");
+    printf("3: testes\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -241,10 +244,45 @@ void getProfits(Rent *startEntry, Vehicle *entrys){
     printf("Ganhos de aluguer: %.2f euros\n\n", income);
 }
 
+/*!
+    * @brief Get linked lists length.
+    *
+    * Gets the lenght of a linked list
+    *
+    * @param Graph *graph
+    * @return length
+*/
+
+int getLinkedListLength(Graph *graph) {
+    int length = 0;
+
+    while (graph != NULL) {
+        length++;
+        graph = graph->nextEntry;
+    }
+
+    return length;
+}
+
+/*!
+    * @brief Generate random number.
+    *
+    * Generates a random number betwwen two values
+    *
+    * @param int min @param int max
+    * @return number
+*/
+
+int generateRandomNumber(int min, int max) {
+    return min + rand() % (max - min + 1);
+}
+
 int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
     Rent *rents = NULL;
+    Graph *graphs = NULL;
+    Edge *edges = NULL;
     int input = -1, vehicleId = 1, userId = 1, rentId = 1, updateRentId = 0, vehicleBattery = 0;
     char location[50];
 
@@ -446,6 +484,35 @@ int main(){
                 saveUsersOnDatabase(users);
                 userId = getLastIdFromDb("../databases/users_database.txt");
             break;
+
+            case 3: {
+                int counter = 1;
+
+                srand(time(NULL));
+                
+                clearConsole();
+                vehicles = getVehiclesFromDatabase();
+                vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+
+                while (vehicles != NULL) {
+                    Aux *car = (Aux *)vehicles;
+                    graphs = addVertex(graphs, counter, *car);
+                    vehicles = vehicles->nextEntry;
+                    counter++;
+                }
+
+                int numVertices = getLinkedListLength(graphs);
+                
+                int maxPossibleEdges = numVertices * (numVertices - 1) / 2;
+
+                int rnd = generateRandomNumber(numVertices - 1, maxPossibleEdges);
+
+                printf("vertices: %d\narestas max: %d\nrandom number: %d\n\n", numVertices, maxPossibleEdges, rnd);
+
+                edges = generateRandomGraph(graphs, edges, numVertices, rnd);
+
+                listGraph(graphs, edges);
+            } break;
 
             default:
                 clearConsole();
