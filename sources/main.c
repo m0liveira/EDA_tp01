@@ -5,6 +5,7 @@
 #include "../headers/vehicles.h"
 #include "../headers/users.h"
 #include "../headers/rents.h"
+#include "../headers/graphs.h"
 
 /*!
     * @brief Clear console
@@ -60,6 +61,7 @@ void loginMenu(){
     printf("Login Menu");
     printf("\n\n1: Entrar\n");
     printf("2: Criar conta\n");
+    printf("3: testes\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -245,6 +247,7 @@ int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
     Rent *rents = NULL;
+    Graph *graphs = NULL;
     int input = -1, vehicleId = 1, userId = 1, rentId = 1, updateRentId = 0, vehicleBattery = 0;
     char location[50];
 
@@ -446,6 +449,22 @@ int main(){
                 saveUsersOnDatabase(users);
                 userId = getLastIdFromDb("../databases/users_database.txt");
             break;
+
+            case 3: {
+                int counter = 1;
+                clearConsole();
+                vehicles = getVehiclesFromDatabase();
+                vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+
+                while (vehicles != NULL) {
+                    Aux *car = (Aux *)vehicles;
+                    graphs = addVertex(graphs, counter, *car);
+                    vehicles = vehicles->nextEntry;
+                    counter++;
+                }
+
+                listVertexes(graphs);
+            } break;
 
             default:
                 clearConsole();
