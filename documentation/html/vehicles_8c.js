@@ -10,6 +10,7 @@ var vehicles_8c =
     [ "listVehiclesByAutnonomy", "vehicles_8c.html#a97e391b18841c2f4a9cd3fd39807d16a", null ],
     [ "listVehiclesByGPS", "vehicles_8c.html#a9687b1204b533bfc36593703b2fd1785", null ],
     [ "rechargeVehicles", "vehicles_8c.html#a88357fa8f47cb44df355643537f88141", null ],
+    [ "saveVehiclesOnBinaryDatabase", "vehicles_8c.html#a5dae4b1b97ace920cd7262c20c3a9a41", null ],
     [ "saveVehiclesOnDatabase", "vehicles_8c.html#a32c74cac04f5218a5d7eb479fb262f5b", null ],
     [ "vehicleExists", "vehicles_8c.html#ad531955832370c9ea477a920316b6442", null ]
 ];

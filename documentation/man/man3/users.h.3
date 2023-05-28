@@ -1,0 +1,255 @@
+.TH "headers/users.h" 3 "Sun May 28 2023" "Version 2" "Estruturas de Dados Avançadas - trabalho prático" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+headers/users.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBUserList\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBUserList\fP \fBUser\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBisUserUnique\fP (\fBUser\fP *startEntry, int id)"
+.br
+.RI "Check user ID\&. "
+.ti -1c
+.RI "int \fBisNameUnique\fP (\fBUser\fP *startEntry, char name[])"
+.br
+.RI "Check user name\&. "
+.ti -1c
+.RI "\fBUser\fP * \fBaddUser\fP (\fBUser\fP *startEntry, int id, int nif, float balance, char name[], char password[], char role[])"
+.br
+.RI "Add user\&. "
+.ti -1c
+.RI "int \fBloginUser\fP (\fBUser\fP *startEntry, char name[], char password[])"
+.br
+.RI "User login\&. "
+.ti -1c
+.RI "int \fBsaveUsersOnDatabase\fP (\fBUser\fP *startEntry)"
+.br
+.RI "Save user on database\&. "
+.ti -1c
+.RI "int \fBsaveUsersOnBinaryDatabase\fP (\fBUser\fP *startEntry)"
+.br
+.RI "Save user on a binary database\&. "
+.ti -1c
+.RI "\fBUser\fP * \fBgetUsersFromDatabase\fP ()"
+.br
+.RI "Get Users\&. "
+.ti -1c
+.RI "\fBUser\fP * \fBdeleteUser\fP (\fBUser\fP *startEntry, int id)"
+.br
+.RI "Delete user\&. "
+.ti -1c
+.RI "\fBUser\fP * \fBeditUser\fP (\fBUser\fP *startEntry, int id)"
+.br
+.RI "Update user\&. "
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBUserList\fP \fBUser\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBUser\fP * addUser (\fBUser\fP * startEntry, int id, int nif, float balance, char name[], char password[], char role[])"
+
+.PP
+Add user\&. Adds a new user entry into a linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *startEntry
+.br
+\fIint\fP id
+.br
+\fIint\fP nif
+.br
+\fIfloat\fP balance
+.br
+\fIchar\fP name[]
+.br
+\fIchar\fP password[]
+.br
+\fIchar\fP role[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Added user 
+.RE
+.PP
+
+.PP
+Definition at line \fB53\fP of file \fBusers\&.c\fP\&.
+.SS "\fBUser\fP * deleteUser (\fBUser\fP * startEntry, int id)"
+
+.PP
+Delete user\&. Deletes an user entry from the linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+users 
+.RE
+.PP
+
+.PP
+Definition at line \fB212\fP of file \fBusers\&.c\fP\&.
+.SS "\fBUser\fP * editUser (\fBUser\fP * startEntry, int id)"
+
+.PP
+Update user\&. Updates a specified user entry from the linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+users 
+.RE
+.PP
+
+.PP
+Definition at line \fB250\fP of file \fBusers\&.c\fP\&.
+.SS "\fBUser\fP * getUsersFromDatabase ()"
+
+.PP
+Get Users\&. Gets all users from a database
+.PP
+\fBReturns\fP
+.RS 4
+users 
+.RE
+.PP
+
+.PP
+Definition at line \fB176\fP of file \fBusers\&.c\fP\&.
+.SS "int isNameUnique (\fBUser\fP * startEntry, char name[])"
+
+.PP
+Check user name\&. Checks if the user name is dupped
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *startEntry
+.br
+\fIchar\fP name[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB34\fP of file \fBusers\&.c\fP\&.
+.SS "int isUserUnique (\fBUser\fP * startEntry, int id)"
+
+.PP
+Check user ID\&. Checks if the ID is dupped
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB15\fP of file \fBusers\&.c\fP\&.
+.SS "int loginUser (\fBUser\fP * startEntry, char name[], char password[])"
+
+.PP
+User login\&. Logins a user into the program
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *startEntry
+.br
+\fIchar\fP name[]
+.br
+\fIchar\fP password[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB88\fP of file \fBusers\&.c\fP\&.
+.SS "int saveUsersOnBinaryDatabase (\fBUser\fP * startEntry)"
+
+.PP
+Save user on a binary database\&. Saves user entrys into a binary database
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB144\fP of file \fBusers\&.c\fP\&.
+.SS "int saveUsersOnDatabase (\fBUser\fP * startEntry)"
+
+.PP
+Save user on database\&. Saves user entrys into a database
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB116\fP of file \fBusers\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Estruturas de Dados Avançadas - trabalho prático from the source code\&.

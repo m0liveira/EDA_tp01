@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.6" xml:lang="en-US">
+  <compound refid="struct_aux_list" kind="struct"><name>AuxList</name>
+    <member refid="struct_aux_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kind="variable"><name>id</name></member>
+    <member refid="struct_aux_list_1a43a6e4be8d45c1a00a55a11d095c0399" kind="variable"><name>batteryCapacity</name></member>
+    <member refid="struct_aux_list_1aa0fb27feb593e8a6f2c20fa92b2466cf" kind="variable"><name>currentBattery</name></member>
+    <member refid="struct_aux_list_1a83cda76233a2b02dcc2b3707fa58e4e8" kind="variable"><name>autonomy</name></member>
+    <member refid="struct_aux_list_1a500426aec97889b7572f25ae45c06a8d" kind="variable"><name>price</name></member>
+    <member refid="struct_aux_list_1a19d9312fa6559481585c37eec00fdccf" kind="variable"><name>brand</name></member>
+    <member refid="struct_aux_list_1a407e8645b05b8866c6aae96539051b4d" kind="variable"><name>model</name></member>
+    <member refid="struct_aux_list_1a28e6925eca319a182388b4d560d9026b" kind="variable"><name>gpsTracker</name></member>
+    <member refid="struct_aux_list_1ae0cb185ade32e7edefa337ba3cc1fbcf" kind="variable"><name>nextEntry</name></member>
+  </compound>
+  <compound refid="struct_car" kind="struct"><name>Car</name>
+    <member refid="struct_car_1a7441ef0865bcb3db9b8064dd7375c1ea" kind="variable"><name>id</name></member>
+    <member refid="struct_car_1a43a6e4be8d45c1a00a55a11d095c0399" kind="variable"><name>batteryCapacity</name></member>
+    <member refid="struct_car_1aa0fb27feb593e8a6f2c20fa92b2466cf" kind="variable"><name>currentBattery</name></member>
+    <member refid="struct_car_1a83cda76233a2b02dcc2b3707fa58e4e8" kind="variable"><name>autonomy</name></member>
+    <member refid="struct_car_1a500426aec97889b7572f25ae45c06a8d" kind="variable"><name>price</name></member>
+    <member refid="struct_car_1a19d9312fa6559481585c37eec00fdccf" kind="variable"><name>brand</name></member>
+    <member refid="struct_car_1a407e8645b05b8866c6aae96539051b4d" kind="variable"><name>model</name></member>
+    <member refid="struct_car_1a28e6925eca319a182388b4d560d9026b" kind="variable"><name>gpsTracker</name></member>
+  </compound>
+  <compound refid="struct_edge_list" kind="struct"><name>EdgeList</name>
+    <member refid="struct_edge_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kind="variable"><name>id</name></member>
+    <member refid="struct_edge_list_1aff105884864d9eb93769b4323f180562" kind="variable"><name>vertexA</name></member>
+    <member refid="struct_edge_list_1a8af3b87d94b267ef0e237180b1ab5c8b" kind="variable"><name>vertexB</name></member>
+    <member refid="struct_edge_list_1a06f14a9abd47b91465f895d5259cdc1b" kind="variable"><name>distance</name></member>
+    <member refid="struct_edge_list_1a1b8105521e3a6a5e9f85c915e3746581" kind="variable"><name>nextEntry</name></member>
+  </compound>
+  <compound refid="struct_graph_list" kind="struct"><name>GraphList</name>
+    <member refid="struct_graph_list_1a7b6a73a9ea2850e455702ad082701c9d" kind="variable"><name>vertex</name></member>
+    <member refid="struct_graph_list_1a5095800e7feb0f0af9903d03529c8b72" kind="variable"><name>vehicle</name></member>
+    <member refid="struct_graph_list_1a4d8765cd8f9ea719658270501587af37" kind="variable"><name>edge</name></member>
+    <member refid="struct_graph_list_1adb45c91a9338152d0e202d886d30d001" kind="variable"><name>nextEntry</name></member>
+  </compound>
+  <compound refid="struct_rent_list" kind="struct"><name>RentList</name>
+    <member refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kind="variable"><name>id</name></member>
+    <member refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kind="variable"><name>clientId</name></member>
+    <member refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kind="variable"><name>vehicleId</name></member>
+    <member refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kind="variable"><name>status</name></member>
+    <member refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kind="variable"><name>nextEntry</name></member>
+  </compound>
+  <compound refid="struct_session" kind="struct"><name>Session</name>
+    <member refid="struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea" kind="variable"><name>id</name></member>
+    <member refid="struct_session_1ad68c6985dce5a3d709f854778dedee19" kind="variable"><name>nif</name></member>
+    <member refid="struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87" kind="variable"><name>balance</name></member>
+    <member refid="struct_session_1a72b952e44981373d9737a72616bb317f" kind="variable"><name>name</name></member>
+    <member refid="struct_session_1ae2f06144744aa77e5443babb0f993ec6" kind="variable"><name>password</name></member>
+    <member refid="struct_session_1a8877f22b3d1c2d2dc9f729b8b82291b3" kind="variable"><name>role</name></member>
+  </compound>
+  <compound refid="struct_user_list" kind="struct"><name>UserList</name>
+    <member refid="struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kind="variable"><name>id</name></member>
+    <member refid="struct_user_list_1ad68c6985dce5a3d709f854778dedee19" kind="variable"><name>nif</name></member>
+    <member refid="struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87" kind="variable"><name>balance</name></member>
+    <member refid="struct_user_list_1a72b952e44981373d9737a72616bb317f" kind="variable"><name>name</name></member>
+    <member refid="struct_user_list_1ae2f06144744aa77e5443babb0f993ec6" kind="variable"><name>password</name></member>
+    <member refid="struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3" kind="variable"><name>role</name></member>
+    <member refid="struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522" kind="variable"><name>nextEntry</name></member>
+  </compound>
+  <compound refid="struct_vehicle_list" kind="struct"><name>VehicleList</name>
+    <member refid="struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kind="variable"><name>id</name></member>
+    <member refid="struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399" kind="variable"><name>batteryCapacity</name></member>
+    <member refid="struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf" kind="variable"><name>currentBattery</name></member>
+    <member refid="struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8" kind="variable"><name>autonomy</name></member>
+    <member refid="struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d" kind="variable"><name>price</name></member>
+    <member refid="struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf" kind="variable"><name>brand</name></member>
+    <member refid="struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d" kind="variable"><name>model</name></member>
+    <member refid="struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b" kind="variable"><name>gpsTracker</name></member>
+    <member refid="struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9" kind="variable"><name>nextEntry</name></member>
+  </compound>
+  <compound refid="global_8h" kind="file"><name>global.h</name>
+    <member refid="global_8h_1ab725550f6491851805c821cade824e32" kind="variable"><name>session</name></member>
+    <member refid="global_8h_1a3e96a5e238530b20be201de161da2059" kind="variable"><name>car</name></member>
+    <member refid="global_8h_1ae7f7fdd55d053ad019b98ea0bd1001f6" kind="function"><name>isFileEmpty</name></member>
+    <member refid="global_8h_1adcfc6b65c0eeff972a28d8c602285961" kind="function"><name>getLastIdFromDb</name></member>
+    <member refid="global_8h_1a7081b188a1c030ef2747fb1cf160706e" kind="function"><name>getLastVerticeFromDb</name></member>
+  </compound>
+  <compound refid="graphs_8h" kind="file"><name>graphs.h</name>
+    <member refid="graphs_8h_1ae9ab6ee0d1c8faaa44a414ee96431039" kind="typedef"><name>Aux</name></member>
+    <member refid="graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16" kind="typedef"><name>Edge</name></member>
+    <member refid="graphs_8h_1af8faa00bf97d63050ab962a459d43e1c" kind="typedef"><name>Graph</name></member>
+    <member refid="graphs_8h_1af94b6595ac77246b48a3f03fe146a6d3" kind="function"><name>isGraphUnique</name></member>
+    <member refid="graphs_8h_1ae350462ced1dc7ba74592037e3c9d88d" kind="function"><name>addVertex</name></member>
+    <member refid="graphs_8h_1a638753f6469282e3b39c8286813cfd34" kind="function"><name>generateRandomDistance</name></member>
+    <member refid="graphs_8h_1adc3948acb11d8597092ee47d0a6e8f7c" kind="function"><name>doesVertexExist</name></member>
+    <member refid="graphs_8h_1af72fe49941374d635aff9d7526fc7565" kind="function"><name>AddEdge</name></member>
+    <member refid="graphs_8h_1a3c2e0335cdd5b4448a77337f76c11022" kind="function"><name>isEdgePresent</name></member>
+    <member refid="graphs_8h_1a0cb364c7e705c406ebe537678438911a" kind="function"><name>generateRandomGraph</name></member>
+    <member refid="graphs_8h_1a3ab9e14d9194e69df48f70def6d45370" kind="function"><name>listGraph</name></member>
+    <member refid="graphs_8h_1aae6d29c48d0d248e16014ef35b50a5ea" kind="function"><name>listZones</name></member>
+    <member refid="graphs_8h_1a17abe0cb34456a08730810427bdcf20d" kind="function"><name>listVehiclesByZone</name></member>
+    <member refid="graphs_8h_1aa65bd12637311f31250ec4d793db7574" kind="function"><name>saveVerticesOnDatabase</name></member>
+    <member refid="graphs_8h_1a860928daf7c19aa0b0a0ba64e780f8aa" kind="function"><name>saveVerticesOnBinaryDatabase</name></member>
+    <member refid="graphs_8h_1a7b16e36ae5b60ab0f6e1c6e8feaaf381" kind="function"><name>getVerticesFromDatabase</name></member>
+    <member refid="graphs_8h_1a2ed81c359a9efd1ca6a593c2bf5c164a" kind="function"><name>getShortestPath</name></member>
+  </compound>
+  <compound refid="rents_8h" kind="file"><name>rents.h</name>
+    <member refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kind="typedef"><name>Rent</name></member>
+    <member refid="rents_8h_1a1b4ab5e40e6d73cd60cf1857822ab89e" kind="function"><name>isRentUnique</name></member>
+    <member refid="rents_8h_1aa0f7ee7426e7e1587fd610380785b522" kind="function"><name>isRented</name></member>
+    <member refid="rents_8h_1a44ec9a69cef8fe255e7ff26eb2a458e8" kind="function"><name>addRent</name></member>
+    <member refid="rents_8h_1a45e5a92a42235f4a8ffeace2ddb7e4e0" kind="function"><name>saveRentOnDatabase</name></member>
+    <member refid="rents_8h_1ab420f75e53a50864f431f82565c03925" kind="function"><name>saveRentOnBinaryDatabase</name></member>
+    <member refid="rents_8h_1ac50819ca4416fb1ecbbd960a8522f950" kind="function"><name>getRentsFromDatabase</name></member>
+    <member refid="rents_8h_1a17d20033ee11b7425b3361017f403896" kind="function"><name>updateRent</name></member>
+    <member refid="rents_8h_1a5e60f8b2348388851786fc506c8ccf65" kind="function"><name>listUserRents</name></member>
+    <member refid="rents_8h_1a7b496d5af10b399af35bc10541d75924" kind="function"><name>listUserActiveRents</name></member>
+    <member refid="rents_8h_1ab42f258f4be641f945c7ed83c4a24686" kind="function"><name>rentExists</name></member>
+    <member refid="rents_8h_1a2c88dddd80c4dd1dc09a8587ed7d70b2" kind="function"><name>listRents</name></member>
+  </compound>
+  <compound refid="users_8h" kind="file"><name>users.h</name>
+    <member refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kind="typedef"><name>User</name></member>
+    <member refid="users_8h_1a3eff6244efefa29ff980a2bd706b8e9b" kind="function"><name>isUserUnique</name></member>
+    <member refid="users_8h_1ace2066eafefcb27752a21a5da56efecc" kind="function"><name>isNameUnique</name></member>
+    <member refid="users_8h_1aae43e4ec2bd4a34eaaa402c89d8eccd1" kind="function"><name>addUser</name></member>
+    <member refid="users_8h_1a9724304f5304c5e18783d58daf1e2ff8" kind="function"><name>loginUser</name></member>
+    <member refid="users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de" kind="function"><name>saveUsersOnDatabase</name></member>
+    <member refid="users_8h_1aa3190709fa215b59580f1e98d4d90fb0" kind="function"><name>saveUsersOnBinaryDatabase</name></member>
+    <member refid="users_8h_1a36ad2b37dc9902e37bb2f143f923bffe" kind="function"><name>getUsersFromDatabase</name></member>
+    <member refid="users_8h_1aa7b4e161f2c6c59d4849ce653efd30e5" kind="function"><name>deleteUser</name></member>
+    <member refid="users_8h_1ab54a616a3193a2efad78e80b31028430" kind="function"><name>editUser</name></member>
+  </compound>
+  <compound refid="vehicles_8h" kind="file"><name>vehicles.h</name>
+    <member refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kind="typedef"><name>Vehicle</name></member>
+    <member refid="vehicles_8h_1aeed9c0434f4d057d662880ad78fd82f0" kind="function"><name>isUnique</name></member>
+    <member refid="vehicles_8h_1a95c50728b4b1feefc4267c588c6f4122" kind="function"><name>addVehicles</name></member>
+    <member refid="vehicles_8h_1a174dc3757d7fd308d7824673d9a3849d" kind="function"><name>listVehicles</name></member>
+    <member refid="vehicles_8h_1a939e86a429faf7c0c7bf1647c19dd517" kind="function"><name>deleteVehicle</name></member>
+    <member refid="vehicles_8h_1ab7ce1ccb88e5738a39431b0b7cd64f8d" kind="function"><name>editVehicle</name></member>
+    <member refid="vehicles_8h_1a32c74cac04f5218a5d7eb479fb262f5b" kind="function"><name>saveVehiclesOnDatabase</name></member>
+    <member refid="vehicles_8h_1a5dae4b1b97ace920cd7262c20c3a9a41" kind="function"><name>saveVehiclesOnBinaryDatabase</name></member>
+    <member refid="vehicles_8h_1a369c63f2109ee2575ac9d4417b3c40ea" kind="function"><name>getVehiclesFromDatabase</name></member>
+    <member refid="vehicles_8h_1a97e391b18841c2f4a9cd3fd39807d16a" kind="function"><name>listVehiclesByAutnonomy</name></member>
+    <member refid="vehicles_8h_1a9687b1204b533bfc36593703b2fd1785" kind="function"><name>listVehiclesByGPS</name></member>
+    <member refid="vehicles_8h_1a8c8d5c19871b6a26547394e61e49264f" kind="function"><name>getVehicleByID</name></member>
+    <member refid="vehicles_8h_1ad531955832370c9ea477a920316b6442" kind="function"><name>vehicleExists</name></member>
+    <member refid="vehicles_8h_1a88357fa8f47cb44df355643537f88141" kind="function"><name>rechargeVehicles</name></member>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="global_8c" kind="file"><name>global.c</name>
+    <member refid="global_8c_1ae7f7fdd55d053ad019b98ea0bd1001f6" kind="function"><name>isFileEmpty</name></member>
+    <member refid="global_8c_1adcfc6b65c0eeff972a28d8c602285961" kind="function"><name>getLastIdFromDb</name></member>
+    <member refid="global_8c_1a7081b188a1c030ef2747fb1cf160706e" kind="function"><name>getLastVerticeFromDb</name></member>
+  </compound>
+  <compound refid="graphs_8c" kind="file"><name>graphs.c</name>
+    <member refid="graphs_8c_1a0fdb7b933ef091574ff57d1f36dd4167" kind="define"><name>MAX_VERTICES</name></member>
+    <member refid="graphs_8c_1af94b6595ac77246b48a3f03fe146a6d3" kind="function"><name>isGraphUnique</name></member>
+    <member refid="graphs_8c_1ae350462ced1dc7ba74592037e3c9d88d" kind="function"><name>addVertex</name></member>
+    <member refid="graphs_8c_1a638753f6469282e3b39c8286813cfd34" kind="function"><name>generateRandomDistance</name></member>
+    <member refid="graphs_8c_1adc3948acb11d8597092ee47d0a6e8f7c" kind="function"><name>doesVertexExist</name></member>
+    <member refid="graphs_8c_1af72fe49941374d635aff9d7526fc7565" kind="function"><name>AddEdge</name></member>
+    <member refid="graphs_8c_1a3c2e0335cdd5b4448a77337f76c11022" kind="function"><name>isEdgePresent</name></member>
+    <member refid="graphs_8c_1a0cb364c7e705c406ebe537678438911a" kind="function"><name>generateRandomGraph</name></member>
+    <member refid="graphs_8c_1a3ab9e14d9194e69df48f70def6d45370" kind="function"><name>listGraph</name></member>
+    <member refid="graphs_8c_1aae6d29c48d0d248e16014ef35b50a5ea" kind="function"><name>listZones</name></member>
+    <member refid="graphs_8c_1a17abe0cb34456a08730810427bdcf20d" kind="function"><name>listVehiclesByZone</name></member>
+    <member refid="graphs_8c_1aa65bd12637311f31250ec4d793db7574" kind="function"><name>saveVerticesOnDatabase</name></member>
+    <member refid="graphs_8c_1a860928daf7c19aa0b0a0ba64e780f8aa" kind="function"><name>saveVerticesOnBinaryDatabase</name></member>
+    <member refid="graphs_8c_1a7b16e36ae5b60ab0f6e1c6e8feaaf381" kind="function"><name>getVerticesFromDatabase</name></member>
+    <member refid="graphs_8c_1a3e6dbda9bc77b899aa56bd72d5fd5b10" kind="function"><name>printPath</name></member>
+    <member refid="graphs_8c_1a2567f00cf862f6b328838a2adebec53e" kind="function"><name>getShortestPath</name></member>
+  </compound>
+  <compound refid="main_8c" kind="file"><name>main.c</name>
+    <member refid="main_8c_1aff6c831918692405e75fc55c43424304" kind="function"><name>clearConsole</name></member>
+    <member refid="main_8c_1ab3002fe8e0074c9e2ecb5b835e5e819f" kind="function"><name>mainMenu</name></member>
+    <member refid="main_8c_1aa4b05059bd16c14911cab100f55a0aed" kind="function"><name>loginMenu</name></member>
+    <member refid="main_8c_1a36aef823407f8b3eee622a17b91720fb" kind="function"><name>newVehicle</name></member>
+    <member refid="main_8c_1a9742f8c7cea9a697ed24eb781050ccba" kind="function"><name>newUser</name></member>
+    <member refid="main_8c_1ab54416b48a45ef4a84272086eb5e5095" kind="function"><name>newRent</name></member>
+    <member refid="main_8c_1ac516657fe58fb5a62c4e645fdce6267e" kind="function"><name>getId</name></member>
+    <member refid="main_8c_1a01f266ac9f0352cc537f05c04587dda2" kind="function"><name>depositBalance</name></member>
+    <member refid="main_8c_1abf47c7ca2632d1ada529631841f944b2" kind="function"><name>getProfits</name></member>
+    <member refid="main_8c_1a4052b7dc485f97b116d075ff197db010" kind="function"><name>getLinkedListLength</name></member>
+    <member refid="main_8c_1a8738fde2cefb820cd40c39cd0862ad2c" kind="function"><name>generateRandomNumber</name></member>
+    <member refid="main_8c_1a87f94611394406cd61017570b650d9d3" kind="function"><name>buildGraph</name></member>
+    <member refid="main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="rents_8c" kind="file"><name>rents.c</name>
+    <member refid="rents_8c_1a1b4ab5e40e6d73cd60cf1857822ab89e" kind="function"><name>isRentUnique</name></member>
+    <member refid="rents_8c_1aa0f7ee7426e7e1587fd610380785b522" kind="function"><name>isRented</name></member>
+    <member refid="rents_8c_1a44ec9a69cef8fe255e7ff26eb2a458e8" kind="function"><name>addRent</name></member>
+    <member refid="rents_8c_1a45e5a92a42235f4a8ffeace2ddb7e4e0" kind="function"><name>saveRentOnDatabase</name></member>
+    <member refid="rents_8c_1ab420f75e53a50864f431f82565c03925" kind="function"><name>saveRentOnBinaryDatabase</name></member>
+    <member refid="rents_8c_1ac50819ca4416fb1ecbbd960a8522f950" kind="function"><name>getRentsFromDatabase</name></member>
+    <member refid="rents_8c_1ab42f258f4be641f945c7ed83c4a24686" kind="function"><name>rentExists</name></member>
+    <member refid="rents_8c_1a17d20033ee11b7425b3361017f403896" kind="function"><name>updateRent</name></member>
+    <member refid="rents_8c_1a5e60f8b2348388851786fc506c8ccf65" kind="function"><name>listUserRents</name></member>
+    <member refid="rents_8c_1a7b496d5af10b399af35bc10541d75924" kind="function"><name>listUserActiveRents</name></member>
+    <member refid="rents_8c_1a2c88dddd80c4dd1dc09a8587ed7d70b2" kind="function"><name>listRents</name></member>
+  </compound>
+  <compound refid="users_8c" kind="file"><name>users.c</name>
+    <member refid="users_8c_1a3eff6244efefa29ff980a2bd706b8e9b" kind="function"><name>isUserUnique</name></member>
+    <member refid="users_8c_1ace2066eafefcb27752a21a5da56efecc" kind="function"><name>isNameUnique</name></member>
+    <member refid="users_8c_1aae43e4ec2bd4a34eaaa402c89d8eccd1" kind="function"><name>addUser</name></member>
+    <member refid="users_8c_1a9724304f5304c5e18783d58daf1e2ff8" kind="function"><name>loginUser</name></member>
+    <member refid="users_8c_1aa658b85d23db66ac2a2873cc9ee1e3de" kind="function"><name>saveUsersOnDatabase</name></member>
+    <member refid="users_8c_1aa3190709fa215b59580f1e98d4d90fb0" kind="function"><name>saveUsersOnBinaryDatabase</name></member>
+    <member refid="users_8c_1a36ad2b37dc9902e37bb2f143f923bffe" kind="function"><name>getUsersFromDatabase</name></member>
+    <member refid="users_8c_1aa7b4e161f2c6c59d4849ce653efd30e5" kind="function"><name>deleteUser</name></member>
+    <member refid="users_8c_1ab54a616a3193a2efad78e80b31028430" kind="function"><name>editUser</name></member>
+  </compound>
+  <compound refid="vehicles_8c" kind="file"><name>vehicles.c</name>
+    <member refid="vehicles_8c_1aeed9c0434f4d057d662880ad78fd82f0" kind="function"><name>isUnique</name></member>
+    <member refid="vehicles_8c_1a95c50728b4b1feefc4267c588c6f4122" kind="function"><name>addVehicles</name></member>
+    <member refid="vehicles_8c_1a174dc3757d7fd308d7824673d9a3849d" kind="function"><name>listVehicles</name></member>
+    <member refid="vehicles_8c_1a939e86a429faf7c0c7bf1647c19dd517" kind="function"><name>deleteVehicle</name></member>
+    <member refid="vehicles_8c_1ab7ce1ccb88e5738a39431b0b7cd64f8d" kind="function"><name>editVehicle</name></member>
+    <member refid="vehicles_8c_1a32c74cac04f5218a5d7eb479fb262f5b" kind="function"><name>saveVehiclesOnDatabase</name></member>
+    <member refid="vehicles_8c_1a5dae4b1b97ace920cd7262c20c3a9a41" kind="function"><name>saveVehiclesOnBinaryDatabase</name></member>
+    <member refid="vehicles_8c_1a369c63f2109ee2575ac9d4417b3c40ea" kind="function"><name>getVehiclesFromDatabase</name></member>
+    <member refid="vehicles_8c_1a97e391b18841c2f4a9cd3fd39807d16a" kind="function"><name>listVehiclesByAutnonomy</name></member>
+    <member refid="vehicles_8c_1a9687b1204b533bfc36593703b2fd1785" kind="function"><name>listVehiclesByGPS</name></member>
+    <member refid="vehicles_8c_1a8c8d5c19871b6a26547394e61e49264f" kind="function"><name>getVehicleByID</name></member>
+    <member refid="vehicles_8c_1ad531955832370c9ea477a920316b6442" kind="function"><name>vehicleExists</name></member>
+    <member refid="vehicles_8c_1a88357fa8f47cb44df355643537f88141" kind="function"><name>rechargeVehicles</name></member>
+  </compound>
+  <compound refid="md__r_e_a_d_m_e" kind="page"><name>md_README</name>
+  </compound>
+  <compound refid="dir_7f57b1e41c5acd0e859ae5f3a2b075a9" kind="dir"><name>headers</name>
+  </compound>
+  <compound refid="dir_08d237fc27d4ecd563f71c5d52f2fecc" kind="dir"><name>sources</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,690 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="rents_8c" kind="file" language="C++">
+    <compoundname>rents.c</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="global_8h" local="yes">../headers/global.h</includes>
+    <includes refid="rents_8h" local="yes">../headers/rents.h</includes>
+    <includes refid="users_8h" local="yes">../headers/users.h</includes>
+    <includes refid="vehicles_8h" local="yes">../headers/vehicles.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>../headers/global.h</label>
+        <link refid="global_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>../headers/rents.h</label>
+        <link refid="rents_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>../headers/users.h</label>
+        <link refid="users_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../headers/vehicles.h</label>
+        <link refid="vehicles_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sources/rents.c</label>
+        <link refid="rents_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>stdio.h</label>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="rents_8c_1a1b4ab5e40e6d73cd60cf1857822ab89e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isRentUnique</definition>
+        <argsstring>(Rent *startEntry, int id)</argsstring>
+        <name>isRentUnique</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Check rent ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the ID is dupped</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="17" column="5" bodyfile="sources/rents.c" bodystart="17" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1aa0f7ee7426e7e1587fd610380785b522" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isRented</definition>
+        <argsstring>(Rent *startEntry, int vehicleId)</argsstring>
+        <name>isRented</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>vehicleId</declname>
+        </param>
+        <briefdescription>
+<para>Check rented vehicles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the selected vehicle is already rented</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vehicleId </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="36" column="5" bodyfile="sources/rents.c" bodystart="36" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1a44ec9a69cef8fe255e7ff26eb2a458e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+        <definition>Rent * addRent</definition>
+        <argsstring>(Rent *startEntry, int id, int clientId, int vehicleId, char status[])</argsstring>
+        <name>addRent</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>clientId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>vehicleId</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>status</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Add rent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a new rent entry into a linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>clientId</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vehicleId</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>status[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Added rent </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="55" column="6" bodyfile="sources/rents.c" bodystart="55" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1a45e5a92a42235f4a8ffeace2ddb7e4e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveRentOnDatabase</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>saveRentOnDatabase</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Save rent on database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves rent entrys into a database</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="88" column="5" bodyfile="sources/rents.c" bodystart="88" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1ab420f75e53a50864f431f82565c03925" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveRentOnBinaryDatabase</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>saveRentOnBinaryDatabase</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Save rent on binary database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves rent entrys into a binary database</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="116" column="5" bodyfile="sources/rents.c" bodystart="116" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1ac50819ca4416fb1ecbbd960a8522f950" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+        <definition>Rent * getRentsFromDatabase</definition>
+        <argsstring>()</argsstring>
+        <name>getRentsFromDatabase</name>
+        <briefdescription>
+<para>Get rents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all rents from a database</para>
+<para><simplesect kind="return"><para>rents </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="146" column="6" bodyfile="sources/rents.c" bodystart="146" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1ab42f258f4be641f945c7ed83c4a24686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rentExists</definition>
+        <argsstring>(Rent *startEntry, int id)</argsstring>
+        <name>rentExists</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Rent exist. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if a specified rent exists at the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="181" column="5" bodyfile="sources/rents.c" bodystart="181" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1a17d20033ee11b7425b3361017f403896" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+        <definition>Rent * updateRent</definition>
+        <argsstring>(Rent *startEntry, int id)</argsstring>
+        <name>updateRent</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Update rent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates a specified rent entry from the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>rents </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="200" column="6" bodyfile="sources/rents.c" bodystart="200" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1a5e60f8b2348388851786fc506c8ccf65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listUserRents</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>listUserRents</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>List user rents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs all user rents</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="231" column="6" bodyfile="sources/rents.c" bodystart="231" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1a7b496d5af10b399af35bc10541d75924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listUserActiveRents</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>listUserActiveRents</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>List user active rents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs any active rent that a user has</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="256" column="6" bodyfile="sources/rents.c" bodystart="256" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8c_1a2c88dddd80c4dd1dc09a8587ed7d70b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listRents</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>listRents</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>List rents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs all time rents for the admins</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/rents.c" line="281" column="6" bodyfile="sources/rents.c" bodystart="281" bodyend="294"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../headers/global.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../headers/rents.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../headers/users.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../headers/vehicles.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="rents_8h_1a1b4ab5e40e6d73cd60cf1857822ab89e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8c_1a1b4ab5e40e6d73cd60cf1857822ab89e" kindref="member">isRentUnique</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(startEntry<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(startEntry-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref><sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(0);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startEntry<sp/>=<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(1);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="rents_8h_1aa0f7ee7426e7e1587fd610380785b522" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8c_1aa0f7ee7426e7e1587fd610380785b522" kindref="member">isRented</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vehicleId){</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(startEntry<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(startEntry-&gt;<ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref><sp/>==<sp/>vehicleId<sp/>&amp;&amp;<sp/>strcmp(startEntry-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(0);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startEntry<sp/>=<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(1);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="rents_8h_1a44ec9a69cef8fe255e7ff26eb2a458e8" refkind="member"><highlight class="normal"><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*<ref refid="rents_8c_1a44ec9a69cef8fe255e7ff26eb2a458e8" kindref="member">addRent</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>clientId,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vehicleId,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>status[]){</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*newEntry<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list" kindref="compound">RentList</ref>));</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="rents_8c_1a1b4ab5e40e6d73cd60cf1857822ab89e" kindref="member">isRentUnique</ref>(startEntry,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)){</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Erro:<sp/>Este<sp/>ID<sp/>ja<sp/>foi<sp/>registado!\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(startEntry);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="rents_8c_1aa0f7ee7426e7e1587fd610380785b522" kindref="member">isRented</ref>(startEntry,<sp/>vehicleId)){</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Erro:<sp/>Este<sp/>veiculo<sp/>ja<sp/>foi<sp/>alugado<sp/>por<sp/>outro<sp/>cliente!\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(startEntry);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newEntry<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newEntry-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref><sp/>=<sp/>id;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newEntry-&gt;<ref refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kindref="member">clientId</ref><sp/>=<sp/>clientId;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newEntry-&gt;<ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref><sp/>=<sp/>vehicleId;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcpy(newEntry-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>,<sp/>status);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newEntry-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref><sp/>=<sp/>startEntry;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(newEntry);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="rents_8h_1a45e5a92a42235f4a8ffeace2ddb7e4e0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8c_1a45e5a92a42235f4a8ffeace2ddb7e4e0" kindref="member">saveRentOnDatabase</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry){</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_rent_list" kindref="compound">Rent</ref>*<sp/>aux<sp/>=<sp/>startEntry;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE*<sp/>fp;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>fp<sp/>=<sp/>fopen(</highlight><highlight class="stringliteral">&quot;../databases/rents_database.txt&quot;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fp==NULL)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(0);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(aux<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(fp,</highlight><highlight class="stringliteral">&quot;Id:%d;ClientID:%d;VehicleID:%d;Status:%s;\n&quot;</highlight><highlight class="normal">,<sp/>aux-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>,<sp/>aux-&gt;<ref refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kindref="member">clientId</ref>,<sp/>aux-&gt;<ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref>,<sp/>aux-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux<sp/>=<sp/>aux-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(fp);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(1);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="rents_8h_1ab420f75e53a50864f431f82565c03925" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8c_1ab420f75e53a50864f431f82565c03925" kindref="member">saveRentOnBinaryDatabase</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_rent_list" kindref="compound">Rent</ref>*<sp/>aux<sp/>=<sp/>startEntry;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE*<sp/>fp;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>fp<sp/>=<sp/>fopen(</highlight><highlight class="stringliteral">&quot;../databases/rents_database.bin&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;wb&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fp<sp/>==<sp/>NULL)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(aux<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fwrite(&amp;aux-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">),<sp/>1,<sp/>fp);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fwrite(&amp;aux-&gt;<ref refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kindref="member">clientId</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">),<sp/>1,<sp/>fp);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fwrite(&amp;aux-&gt;<ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">),<sp/>1,<sp/>fp);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fwrite(aux-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">),<sp/>strlen(aux-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>)<sp/>+<sp/>1,<sp/>fp);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux<sp/>=<sp/>aux-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(fp);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="rents_8h_1ac50819ca4416fb1ecbbd960a8522f950" refkind="member"><highlight class="normal"><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*<ref refid="rents_8c_1ac50819ca4416fb1ecbbd960a8522f950" kindref="member">getRentsFromDatabase</ref>(){</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*rents<sp/>=<sp/>NULL,<sp/>*stack<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*fp;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>id,<sp/>clientId,<sp/>vehicleId;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>status[10];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>fp<sp/>=<sp/>fopen(</highlight><highlight class="stringliteral">&quot;../databases/rents_database.txt&quot;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fp<sp/>==<sp/>NULL)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rents;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="global_8h_1ae7f7fdd55d053ad019b98ea0bd1001f6" kindref="member">isFileEmpty</ref>(</highlight><highlight class="stringliteral">&quot;../databases/rents_database.txt&quot;</highlight><highlight class="normal">)<sp/>==<sp/>1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rents;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(fscanf(fp,<sp/></highlight><highlight class="stringliteral">&quot;Id:%d;ClientID:%d;VehicleID:%d;Status:%[^;\n];\n&quot;</highlight><highlight class="normal">,<sp/>&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>&amp;clientId,<sp/>&amp;vehicleId,<sp/>status)<sp/>==<sp/>4)<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack<sp/>=<sp/><ref refid="rents_8c_1a44ec9a69cef8fe255e7ff26eb2a458e8" kindref="member">addRent</ref>(stack,<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>clientId,<sp/>vehicleId,<sp/>status);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(fp);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(stack<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rents<sp/>=<sp/><ref refid="rents_8c_1a44ec9a69cef8fe255e7ff26eb2a458e8" kindref="member">addRent</ref>(rents,<sp/>stack-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>,<sp/>stack-&gt;clientId,<sp/>stack-&gt;vehicleId,<sp/>stack-&gt;status);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack<sp/>=<sp/>stack-&gt;nextEntry;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(rents);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="rents_8h_1ab42f258f4be641f945c7ed83c4a24686" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8c_1ab42f258f4be641f945c7ed83c4a24686" kindref="member">rentExists</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(startEntry<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(startEntry-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref><sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startEntry<sp/>=<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200" refid="rents_8h_1a17d20033ee11b7425b3361017f403896" refkind="member"><highlight class="normal"><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*<ref refid="rents_8c_1a17d20033ee11b7425b3361017f403896" kindref="member">updateRent</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*previousEntry<sp/>=<sp/>startEntry,<sp/>*currentEntry<sp/>=<sp/>startEntry;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentEntry==NULL)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\nO<sp/>aluguer<sp/>indicado<sp/>nao<sp/>existe!\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(NULL);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((currentEntry<sp/>!=<sp/>NULL)<sp/>&amp;&amp;<sp/>(currentEntry-&gt;id<sp/>!=<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>previousEntry<sp/>=<sp/>currentEntry;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentEntry<sp/>=<sp/>currentEntry-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentEntry<sp/>!=<sp/>NULL<sp/>&amp;&amp;<sp/><ref refid="global_8h_1ab725550f6491851805c821cade824e32" kindref="member">session</ref>.<ref refid="struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref><sp/>==<sp/>currentEntry-&gt;clientId<sp/>&amp;&amp;<sp/>strcmp(currentEntry-&gt;status,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="global_8h_1a3e96a5e238530b20be201de161da2059" kindref="member">car</ref>.<ref refid="struct_car_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref><sp/>=<sp/>currentEntry-&gt;vehicleId;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcpy(currentEntry-&gt;status,<sp/></highlight><highlight class="stringliteral">&quot;returned&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(startEntry);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\nO<sp/>aluguer<sp/>indicado<sp/>nao<sp/>existe!\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(startEntry);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231" refid="rents_8h_1a5e60f8b2348388851786fc506c8ccf65" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rents_8c_1a5e60f8b2348388851786fc506c8ccf65" kindref="member">listUserRents</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry){</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(startEntry<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Nao<sp/>ha<sp/>veiculos<sp/>guardados\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Lista<sp/>de<sp/>alugueres!\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(startEntry<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="global_8h_1ab725550f6491851805c821cade824e32" kindref="member">session</ref>.<ref refid="struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref><sp/>==<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kindref="member">clientId</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Id:<sp/>%d,<sp/>id<sp/>do<sp/>veiculo:<sp/>%d<sp/>-&gt;<sp/>status:<sp/>%s\n\n&quot;</highlight><highlight class="normal">,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref>,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startEntry<sp/>=<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="rents_8h_1a7b496d5af10b399af35bc10541d75924" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rents_8c_1a7b496d5af10b399af35bc10541d75924" kindref="member">listUserActiveRents</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry){</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(startEntry<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Nao<sp/>ha<sp/>veiculos<sp/>guardados\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Lista<sp/>de<sp/>alugueres<sp/>ativos!\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(startEntry<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="global_8h_1ab725550f6491851805c821cade824e32" kindref="member">session</ref>.<ref refid="struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref><sp/>==<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kindref="member">clientId</ref><sp/>&amp;&amp;<sp/>strcmp(startEntry-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>,<sp/></highlight><highlight class="stringliteral">&quot;active&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Id:<sp/>%d,<sp/>id<sp/>do<sp/>veiculo:<sp/>%d<sp/>-&gt;<sp/>status:<sp/>%s\n\n&quot;</highlight><highlight class="normal">,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref>,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startEntry<sp/>=<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281" refid="rents_8h_1a2c88dddd80c4dd1dc09a8587ed7d70b2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rents_8c_1a2c88dddd80c4dd1dc09a8587ed7d70b2" kindref="member">listRents</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry){</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(startEntry<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Nao<sp/>ha<sp/>veiculos<sp/>guardados\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Lista<sp/>de<sp/>alugueres!\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(startEntry<sp/>!=<sp/>NULL){</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;ID:<sp/>%d<sp/>|<sp/>ID<sp/>do<sp/>cliente:<sp/>%d<sp/>|<sp/>ID<sp/>do<sp/>veiculo:<sp/>%d<sp/>-&gt;<sp/>status:<sp/>%s\n\n&quot;</highlight><highlight class="normal">,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kindref="member">clientId</ref>,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref>,<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startEntry<sp/>=<sp/>startEntry-&gt;<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/rents.c"/>
+  </compounddef>
+</doxygen>

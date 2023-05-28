@@ -5,8 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>EDA_tp_f01: headers/rents.h Source File</title>
+<title>Estruturas de Dados Avançadas - trabalho prático: headers/rents.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
@@ -16,20 +17,39 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">EDA_tp_f01<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">Estruturas de Dados Avançadas - trabalho prático<span id="projectnumber">&#160;2</span>
    </div>
-   <div id="projectbrief">primeira fase do trabalho pratico para a disciplina de Estruturas de Dados Avançadas</div>
+   <div id="projectbrief">Trabalho prático para a cadeira de Estruturas de Dados Avançadas</div>
   </td>
  </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td></tr>
  </tbody>
 </table>
 </div>
@@ -40,19 +60,7 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
     <div id="nav-tree-contents">
       <div id="nav-sync" class="sync"></div>
@@ -107,22 +115,24 @@ $(document).ready(function(){initNavTree('rents_8h_source.html',''); initResizab
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">int</span> <a class="code hl_function" href="rents_8h.html#aa0f7ee7426e7e1587fd610380785b522">isRented</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry, <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_rent_list.html#a1abc35da9e85cec6d537ec8e7cb06bdf">vehicleId</a>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><a class="code hl_struct" href="struct_rent_list.html">Rent</a> *<a class="code hl_function" href="rents_8h.html#a44ec9a69cef8fe255e7ff26eb2a458e8">addRent</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_rent_list.html#a835ae48cfee11c9ce3a4bc4727993119">clientId</a>, <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_rent_list.html#a1abc35da9e85cec6d537ec8e7cb06bdf">vehicleId</a>, <span class="keywordtype">char</span> <a class="code hl_variable" href="struct_rent_list.html#a437bf11ad5f99fb4b8d1530bb2158f66">status</a>[]);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keywordtype">int</span> <a class="code hl_function" href="rents_8h.html#a45e5a92a42235f4a8ffeace2ddb7e4e0">saveRentOnDatabase</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><a class="code hl_struct" href="struct_rent_list.html">Rent</a> *<a class="code hl_function" href="rents_8h.html#ac50819ca4416fb1ecbbd960a8522f950">getRentsFromDatabase</a>();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><a class="code hl_struct" href="struct_rent_list.html">Rent</a> *<a class="code hl_function" href="rents_8h.html#a17d20033ee11b7425b3361017f403896">updateRent</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span> <a class="code hl_function" href="rents_8h.html#a5e60f8b2348388851786fc506c8ccf65">listUserRents</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> <a class="code hl_function" href="rents_8h.html#a7b496d5af10b399af35bc10541d75924">listUserActiveRents</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">int</span> <a class="code hl_function" href="rents_8h.html#ab42f258f4be641f945c7ed83c4a24686">rentExists</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="rents_8h.html#a2c88dddd80c4dd1dc09a8587ed7d70b2">listRents</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry);</div>
-<div class="ttc" id="arents_8h_html_a17d20033ee11b7425b3361017f403896"><div class="ttname"><a href="rents_8h.html#a17d20033ee11b7425b3361017f403896">updateRent</a></div><div class="ttdeci">Rent * updateRent(Rent *startEntry, int id)</div><div class="ttdoc">Update rent.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00169">rents.c:169</a></div></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">int</span> <a class="code hl_function" href="rents_8h.html#ab420f75e53a50864f431f82565c03925">saveRentOnBinaryDatabase</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><a class="code hl_struct" href="struct_rent_list.html">Rent</a> *<a class="code hl_function" href="rents_8h.html#ac50819ca4416fb1ecbbd960a8522f950">getRentsFromDatabase</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><a class="code hl_struct" href="struct_rent_list.html">Rent</a> *<a class="code hl_function" href="rents_8h.html#a17d20033ee11b7425b3361017f403896">updateRent</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> <a class="code hl_function" href="rents_8h.html#a5e60f8b2348388851786fc506c8ccf65">listUserRents</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> <a class="code hl_function" href="rents_8h.html#a7b496d5af10b399af35bc10541d75924">listUserActiveRents</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">int</span> <a class="code hl_function" href="rents_8h.html#ab42f258f4be641f945c7ed83c4a24686">rentExists</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="rents_8h.html#a2c88dddd80c4dd1dc09a8587ed7d70b2">listRents</a>(<a class="code hl_struct" href="struct_rent_list.html">Rent</a> *startEntry);</div>
+<div class="ttc" id="arents_8h_html_a17d20033ee11b7425b3361017f403896"><div class="ttname"><a href="rents_8h.html#a17d20033ee11b7425b3361017f403896">updateRent</a></div><div class="ttdeci">Rent * updateRent(Rent *startEntry, int id)</div><div class="ttdoc">Update rent.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00200">rents.c:200</a></div></div>
 <div class="ttc" id="arents_8h_html_a1b4ab5e40e6d73cd60cf1857822ab89e"><div class="ttname"><a href="rents_8h.html#a1b4ab5e40e6d73cd60cf1857822ab89e">isRentUnique</a></div><div class="ttdeci">int isRentUnique(Rent *startEntry, int id)</div><div class="ttdoc">Check rent ID.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00017">rents.c:17</a></div></div>
-<div class="ttc" id="arents_8h_html_a2c88dddd80c4dd1dc09a8587ed7d70b2"><div class="ttname"><a href="rents_8h.html#a2c88dddd80c4dd1dc09a8587ed7d70b2">listRents</a></div><div class="ttdeci">void listRents(Rent *startEntry)</div><div class="ttdoc">List rents.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00250">rents.c:250</a></div></div>
+<div class="ttc" id="arents_8h_html_a2c88dddd80c4dd1dc09a8587ed7d70b2"><div class="ttname"><a href="rents_8h.html#a2c88dddd80c4dd1dc09a8587ed7d70b2">listRents</a></div><div class="ttdeci">void listRents(Rent *startEntry)</div><div class="ttdoc">List rents.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00281">rents.c:281</a></div></div>
 <div class="ttc" id="arents_8h_html_a44ec9a69cef8fe255e7ff26eb2a458e8"><div class="ttname"><a href="rents_8h.html#a44ec9a69cef8fe255e7ff26eb2a458e8">addRent</a></div><div class="ttdeci">Rent * addRent(Rent *startEntry, int id, int clientId, int vehicleId, char status[])</div><div class="ttdoc">Add rent.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00055">rents.c:55</a></div></div>
 <div class="ttc" id="arents_8h_html_a45e5a92a42235f4a8ffeace2ddb7e4e0"><div class="ttname"><a href="rents_8h.html#a45e5a92a42235f4a8ffeace2ddb7e4e0">saveRentOnDatabase</a></div><div class="ttdeci">int saveRentOnDatabase(Rent *startEntry)</div><div class="ttdoc">Save rent on database.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00088">rents.c:88</a></div></div>
-<div class="ttc" id="arents_8h_html_a5e60f8b2348388851786fc506c8ccf65"><div class="ttname"><a href="rents_8h.html#a5e60f8b2348388851786fc506c8ccf65">listUserRents</a></div><div class="ttdeci">void listUserRents(Rent *startEntry)</div><div class="ttdoc">List user rents.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00200">rents.c:200</a></div></div>
-<div class="ttc" id="arents_8h_html_a7b496d5af10b399af35bc10541d75924"><div class="ttname"><a href="rents_8h.html#a7b496d5af10b399af35bc10541d75924">listUserActiveRents</a></div><div class="ttdeci">void listUserActiveRents(Rent *startEntry)</div><div class="ttdoc">List user active rents.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00225">rents.c:225</a></div></div>
+<div class="ttc" id="arents_8h_html_a5e60f8b2348388851786fc506c8ccf65"><div class="ttname"><a href="rents_8h.html#a5e60f8b2348388851786fc506c8ccf65">listUserRents</a></div><div class="ttdeci">void listUserRents(Rent *startEntry)</div><div class="ttdoc">List user rents.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00231">rents.c:231</a></div></div>
+<div class="ttc" id="arents_8h_html_a7b496d5af10b399af35bc10541d75924"><div class="ttname"><a href="rents_8h.html#a7b496d5af10b399af35bc10541d75924">listUserActiveRents</a></div><div class="ttdeci">void listUserActiveRents(Rent *startEntry)</div><div class="ttdoc">List user active rents.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00256">rents.c:256</a></div></div>
 <div class="ttc" id="arents_8h_html_aa0f7ee7426e7e1587fd610380785b522"><div class="ttname"><a href="rents_8h.html#aa0f7ee7426e7e1587fd610380785b522">isRented</a></div><div class="ttdeci">int isRented(Rent *startEntry, int vehicleId)</div><div class="ttdoc">Check rented vehicles.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00036">rents.c:36</a></div></div>
-<div class="ttc" id="arents_8h_html_ab42f258f4be641f945c7ed83c4a24686"><div class="ttname"><a href="rents_8h.html#ab42f258f4be641f945c7ed83c4a24686">rentExists</a></div><div class="ttdeci">int rentExists(Rent *startEntry, int id)</div><div class="ttdoc">Rent exist.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00150">rents.c:150</a></div></div>
-<div class="ttc" id="arents_8h_html_ac50819ca4416fb1ecbbd960a8522f950"><div class="ttname"><a href="rents_8h.html#ac50819ca4416fb1ecbbd960a8522f950">getRentsFromDatabase</a></div><div class="ttdeci">Rent * getRentsFromDatabase()</div><div class="ttdoc">Get rents.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00115">rents.c:115</a></div></div>
+<div class="ttc" id="arents_8h_html_ab420f75e53a50864f431f82565c03925"><div class="ttname"><a href="rents_8h.html#ab420f75e53a50864f431f82565c03925">saveRentOnBinaryDatabase</a></div><div class="ttdeci">int saveRentOnBinaryDatabase(Rent *startEntry)</div><div class="ttdoc">Save rent on binary database.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00116">rents.c:116</a></div></div>
+<div class="ttc" id="arents_8h_html_ab42f258f4be641f945c7ed83c4a24686"><div class="ttname"><a href="rents_8h.html#ab42f258f4be641f945c7ed83c4a24686">rentExists</a></div><div class="ttdeci">int rentExists(Rent *startEntry, int id)</div><div class="ttdoc">Rent exist.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00181">rents.c:181</a></div></div>
+<div class="ttc" id="arents_8h_html_ac50819ca4416fb1ecbbd960a8522f950"><div class="ttname"><a href="rents_8h.html#ac50819ca4416fb1ecbbd960a8522f950">getRentsFromDatabase</a></div><div class="ttdeci">Rent * getRentsFromDatabase()</div><div class="ttdoc">Get rents.</div><div class="ttdef"><b>Definition:</b> <a href="rents_8c_source.html#l00146">rents.c:146</a></div></div>
 <div class="ttc" id="arents_8h_html_ae036e116f3c1cfdb51890cd66988476c"><div class="ttname"><a href="rents_8h.html#ae036e116f3c1cfdb51890cd66988476c">Rent</a></div><div class="ttdeci">struct RentList Rent</div></div>
 <div class="ttc" id="astruct_rent_list_html"><div class="ttname"><a href="struct_rent_list.html">RentList</a></div><div class="ttdef"><b>Definition:</b> <a href="rents_8h_source.html#l00003">rents.h:3</a></div></div>
 <div class="ttc" id="astruct_rent_list_html_a0c963cab07613dac8d174a2e3b802a1c"><div class="ttname"><a href="struct_rent_list.html#a0c963cab07613dac8d174a2e3b802a1c">RentList::nextEntry</a></div><div class="ttdeci">struct RentList * nextEntry</div><div class="ttdef"><b>Definition:</b> <a href="rents_8h_source.html#l00008">rents.h:8</a></div></div>

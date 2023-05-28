@@ -24,13 +24,14 @@
 */
 var NAVTREE =
 [
-  [ "EDA_tp_f01", "index.html", [
+  [ "Estruturas de Dados Avançadas - trabalho prático", "index.html", [
     [ "EDA_tp01", "md__r_e_a_d_m_e.html", [
       [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "Roadmap", "md__r_e_a_d_m_e.html#autotoc_md2", [
         [ "Vehicles roadmap", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
         [ "Users roadmap", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
-        [ "Rents roadmap", "md__r_e_a_d_m_e.html#autotoc_md5", null ]
+        [ "Rents roadmap", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
+        [ "Graphs roadmap", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
       ] ]
     ] ],
     [ "Data Structures", "annotated.html", [
@@ -47,7 +48,8 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ]
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]

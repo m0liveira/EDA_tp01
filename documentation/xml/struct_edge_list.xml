@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="struct_edge_list" kind="struct" language="C++" prot="public">
+    <compoundname>EdgeList</compoundname>
+    <includes refid="graphs_8h" local="no">graphs.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_edge_list_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>EdgeList::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="16" column="9" bodyfile="headers/graphs.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_edge_list_1aff105884864d9eb93769b4323f180562" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int vertexA</definition>
+        <argsstring></argsstring>
+        <name>vertexA</name>
+        <qualifiedname>EdgeList::vertexA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="17" column="9" bodyfile="headers/graphs.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_edge_list_1a8af3b87d94b267ef0e237180b1ab5c8b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int vertexB</definition>
+        <argsstring></argsstring>
+        <name>vertexB</name>
+        <qualifiedname>EdgeList::vertexB</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="18" column="9" bodyfile="headers/graphs.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_edge_list_1a06f14a9abd47b91465f895d5259cdc1b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <qualifiedname>EdgeList::distance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="19" column="11" bodyfile="headers/graphs.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_edge_list_1a1b8105521e3a6a5e9f85c915e3746581" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_edge_list" kindref="compound">EdgeList</ref> *</type>
+        <definition>struct EdgeList* nextEntry</definition>
+        <argsstring></argsstring>
+        <name>nextEntry</name>
+        <qualifiedname>EdgeList::nextEntry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="20" column="20" bodyfile="headers/graphs.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>EdgeList</label>
+        <link refid="struct_edge_list"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>nextEntry</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="headers/graphs.h" line="15" column="1" bodyfile="headers/graphs.h" bodystart="15" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_edge_list_1a06f14a9abd47b91465f895d5259cdc1b" prot="public" virt="non-virtual"><scope>EdgeList</scope><name>distance</name></member>
+      <member refid="struct_edge_list_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="public" virt="non-virtual"><scope>EdgeList</scope><name>id</name></member>
+      <member refid="struct_edge_list_1a1b8105521e3a6a5e9f85c915e3746581" prot="public" virt="non-virtual"><scope>EdgeList</scope><name>nextEntry</name></member>
+      <member refid="struct_edge_list_1aff105884864d9eb93769b4323f180562" prot="public" virt="non-virtual"><scope>EdgeList</scope><name>vertexA</name></member>
+      <member refid="struct_edge_list_1a8af3b87d94b267ef0e237180b1ab5c8b" prot="public" virt="non-virtual"><scope>EdgeList</scope><name>vertexB</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -7,5 +7,6 @@ var users_8c =
     [ "isNameUnique", "users_8c.html#ace2066eafefcb27752a21a5da56efecc", null ],
     [ "isUserUnique", "users_8c.html#a3eff6244efefa29ff980a2bd706b8e9b", null ],
     [ "loginUser", "users_8c.html#a9724304f5304c5e18783d58daf1e2ff8", null ],
+    [ "saveUsersOnBinaryDatabase", "users_8c.html#aa3190709fa215b59580f1e98d4d90fb0", null ],
     [ "saveUsersOnDatabase", "users_8c.html#aa658b85d23db66ac2a2873cc9ee1e3de", null ]
 ];

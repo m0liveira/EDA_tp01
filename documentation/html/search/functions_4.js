@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['getid_0',['getId',['../main_8c.html#ac516657fe58fb5a62c4e645fdce6267e',1,'main.c']]],
-  ['getlastidfromdb_1',['getLastIdFromDb',['../global_8h.html#adcfc6b65c0eeff972a28d8c602285961',1,'getLastIdFromDb(char dir[]):&#160;global.c'],['../global_8c.html#adcfc6b65c0eeff972a28d8c602285961',1,'getLastIdFromDb(char dir[]):&#160;global.c']]],
-  ['getprofits_2',['getProfits',['../main_8c.html#abf47c7ca2632d1ada529631841f944b2',1,'main.c']]],
-  ['getrentsfromdatabase_3',['getRentsFromDatabase',['../rents_8h.html#ac50819ca4416fb1ecbbd960a8522f950',1,'getRentsFromDatabase():&#160;rents.c'],['../rents_8c.html#ac50819ca4416fb1ecbbd960a8522f950',1,'getRentsFromDatabase():&#160;rents.c']]],
-  ['getusersfromdatabase_4',['getUsersFromDatabase',['../users_8h.html#a36ad2b37dc9902e37bb2f143f923bffe',1,'getUsersFromDatabase():&#160;users.c'],['../users_8c.html#a36ad2b37dc9902e37bb2f143f923bffe',1,'getUsersFromDatabase():&#160;users.c']]],
-  ['getvehiclebyid_5',['getVehicleByID',['../vehicles_8h.html#a8c8d5c19871b6a26547394e61e49264f',1,'getVehicleByID(Vehicle *startEntry, int id):&#160;vehicles.c'],['../vehicles_8c.html#a8c8d5c19871b6a26547394e61e49264f',1,'getVehicleByID(Vehicle *startEntry, int id):&#160;vehicles.c']]],
-  ['getvehiclesfromdatabase_6',['getVehiclesFromDatabase',['../vehicles_8h.html#a369c63f2109ee2575ac9d4417b3c40ea',1,'getVehiclesFromDatabase():&#160;vehicles.c'],['../vehicles_8c.html#a369c63f2109ee2575ac9d4417b3c40ea',1,'getVehiclesFromDatabase():&#160;vehicles.c']]]
+  ['edituser_0',['editUser',['../users_8h.html#ab54a616a3193a2efad78e80b31028430',1,'editUser(User *startEntry, int id):&#160;users.c'],['../users_8c.html#ab54a616a3193a2efad78e80b31028430',1,'editUser(User *startEntry, int id):&#160;users.c']]],
+  ['editvehicle_1',['editVehicle',['../vehicles_8h.html#ab7ce1ccb88e5738a39431b0b7cd64f8d',1,'editVehicle(Vehicle *startEntry, int id, int currentBattery, char gpsTracker[]):&#160;vehicles.c'],['../vehicles_8c.html#ab7ce1ccb88e5738a39431b0b7cd64f8d',1,'editVehicle(Vehicle *startEntry, int id, int currentBattery, char gpsTracker[]):&#160;vehicles.c']]]
 ];

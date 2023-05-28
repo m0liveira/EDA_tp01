@@ -24,6 +24,8 @@ int \textbf{ login\+User} (\textbf{ User} $\ast$start\+Entry, char name[$\,$], c
 \begin{DoxyCompactList}\small\item\em User login. \end{DoxyCompactList}\item 
 int \textbf{ save\+Users\+On\+Database} (\textbf{ User} $\ast$start\+Entry)
 \begin{DoxyCompactList}\small\item\em Save user on database. \end{DoxyCompactList}\item 
+int \textbf{ save\+Users\+On\+Binary\+Database} (\textbf{ User} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em Save user on a binary database. \end{DoxyCompactList}\item 
 \textbf{ User} $\ast$ \textbf{ get\+Users\+From\+Database} ()
 \begin{DoxyCompactList}\small\item\em Get Users. \end{DoxyCompactList}\item 
 \textbf{ User} $\ast$ \textbf{ delete\+User} (\textbf{ User} $\ast$start\+Entry, int id)
@@ -102,7 +104,7 @@ users
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 179} of file \textbf{ users.\+c}.
+Definition at line \textbf{ 212} of file \textbf{ users.\+c}.
 
 \mbox{\label{users_8h_ab54a616a3193a2efad78e80b31028430}} 
 \index{users.h@{users.h}!editUser@{editUser}}
@@ -128,7 +130,7 @@ users
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 217} of file \textbf{ users.\+c}.
+Definition at line \textbf{ 250} of file \textbf{ users.\+c}.
 
 \mbox{\label{users_8h_a36ad2b37dc9902e37bb2f143f923bffe}} 
 \index{users.h@{users.h}!getUsersFromDatabase@{getUsersFromDatabase}}
@@ -147,7 +149,7 @@ users
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 143} of file \textbf{ users.\+c}.
+Definition at line \textbf{ 176} of file \textbf{ users.\+c}.
 
 \mbox{\label{users_8h_ace2066eafefcb27752a21a5da56efecc}} 
 \index{users.h@{users.h}!isNameUnique@{isNameUnique}}
@@ -228,6 +230,30 @@ Logins a user into the program
 
 
 Definition at line \textbf{ 88} of file \textbf{ users.\+c}.
+
+\mbox{\label{users_8h_aa3190709fa215b59580f1e98d4d90fb0}} 
+\index{users.h@{users.h}!saveUsersOnBinaryDatabase@{saveUsersOnBinaryDatabase}}
+\index{saveUsersOnBinaryDatabase@{saveUsersOnBinaryDatabase}!users.h@{users.h}}
+\doxysubsubsection{saveUsersOnBinaryDatabase()}
+{\footnotesize\ttfamily int save\+Users\+On\+Binary\+Database (\begin{DoxyParamCaption}\item[{\textbf{ User} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+Save user on a binary database. 
+
+Saves user entrys into a binary database
+
+
+\begin{DoxyParams}{Parameters}
+{\em User} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 144} of file \textbf{ users.\+c}.
 
 \mbox{\label{users_8h_aa658b85d23db66ac2a2873cc9ee1e3de}} 
 \index{users.h@{users.h}!saveUsersOnDatabase@{saveUsersOnDatabase}}

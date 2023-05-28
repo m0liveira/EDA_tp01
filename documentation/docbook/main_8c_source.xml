@@ -1,0 +1,480 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8c_source" xml:lang="en-US">
+<title>main.c</title>
+<indexterm><primary>sources/main.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_main_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;string.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;time.h&gt;</emphasis>
+<anchor xml:id="_main_8c_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;../headers/global.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;../headers/vehicles.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;../headers/users.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;../headers/rents.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;../headers/graphs.h&quot;</emphasis>
+<anchor xml:id="_main_8c_source_1l00010"/>00010 
+<anchor xml:id="_main_8c_source_1l00017"/><link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">00017</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>(){
+<anchor xml:id="_main_8c_source_1l00018"/>00018 &#32;&#32;&#32;&#32;system(<emphasis role="stringliteral">&quot;cls||clear&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00019"/>00019 }
+<anchor xml:id="_main_8c_source_1l00020"/>00020 
+<anchor xml:id="_main_8c_source_1l00027"/><link linkend="_main_8c_1ab3002fe8e0074c9e2ecb5b835e5e819f">00027</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1ab3002fe8e0074c9e2ecb5b835e5e819f">mainMenu</link>(){
+<anchor xml:id="_main_8c_source_1l00028"/>00028 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Menu&#32;Fase&#32;1&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00029"/>00029 
+<anchor xml:id="_main_8c_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp(<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link>,&#32;<emphasis role="stringliteral">&quot;client&quot;</emphasis>)&#32;==&#32;0)&#32;{
+<anchor xml:id="_main_8c_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n\n1:&#32;Alugar&#32;veiculo\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;2:&#32;Entregar&#32;veiculo\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;3:&#32;Consultar&#32;alugueres\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;4:&#32;Consultar&#32;veiculos&#32;numa&#32;area\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;5:&#32;Consultar&#32;saldo\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;6:&#32;Carregar&#32;saldo\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;7:&#32;Alterar&#32;palavra-passe\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;8:&#32;Apagar&#32;conta\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;0:&#32;Sair&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n\nOpcao:&#32;&quot;</emphasis>);&#32;
+<anchor xml:id="_main_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_main_8c_source_1l00042"/>00042 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_main_8c_source_1l00043"/>00043 &#32;&#32;&#32;&#32;
+<anchor xml:id="_main_8c_source_1l00044"/>00044 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n\n1:&#32;Inserir&#32;veiculos\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00045"/>00045 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;2:&#32;Listar&#32;veiculos\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00046"/>00046 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;3:&#32;Listar&#32;veiculos&#32;por&#32;autonomia&#32;(decrescente)\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00047"/>00047 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;4:&#32;Listar&#32;veiculos&#32;numa&#32;area\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00048"/>00048 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;5:&#32;Recarregar&#32;veiculos\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00049"/>00049 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;6:&#32;Remover&#32;veiculos\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00050"/>00050 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;7:&#32;Listar&#32;alugueres\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00051"/>00051 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;8:&#32;Listar&#32;ganhos\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;9:&#32;calcular&#32;percurso&#32;mais&#32;rapido&#32;para&#32;recolha&#32;de&#32;veiculos\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;0:&#32;Sair&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00054"/>00054 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n\nOpcao:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00055"/>00055 }
+<anchor xml:id="_main_8c_source_1l00056"/>00056 
+<anchor xml:id="_main_8c_source_1l00063"/><link linkend="_main_8c_1aa4b05059bd16c14911cab100f55a0aed">00063</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1aa4b05059bd16c14911cab100f55a0aed">loginMenu</link>(){
+<anchor xml:id="_main_8c_source_1l00064"/>00064 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Login&#32;Menu&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n\n1:&#32;Entrar\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;2:&#32;Criar&#32;conta\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;0:&#32;Sair&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n\nOpcao:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00069"/>00069 }
+<anchor xml:id="_main_8c_source_1l00070"/>00070 
+<anchor xml:id="_main_8c_source_1l00080"/><link linkend="_main_8c_1a36aef823407f8b3eee622a17b91720fb">00080</link> <link linkend="_struct_vehicle_list">Vehicle</link>&#32;*<link linkend="_main_8c_1a36aef823407f8b3eee622a17b91720fb">newVehicle</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*vehicles,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_main_8c_source_1l00081"/>00081 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;batteryCapacity,&#32;autonomy,&#32;price;
+<anchor xml:id="_main_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;brand[20],&#32;model[20];
+<anchor xml:id="_main_8c_source_1l00083"/>00083 
+<anchor xml:id="_main_8c_source_1l00084"/>00084 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Id:&#32;%d&quot;</emphasis>,&#32;<emphasis role="keywordtype">id</emphasis>);
+<anchor xml:id="_main_8c_source_1l00085"/>00085 
+<anchor xml:id="_main_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nMarca:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;brand);
+<anchor xml:id="_main_8c_source_1l00088"/>00088 &#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00089"/>00089 
+<anchor xml:id="_main_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Modelo:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;model);
+<anchor xml:id="_main_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00093"/>00093 
+<anchor xml:id="_main_8c_source_1l00094"/>00094 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Capacidade&#32;da&#32;bateria&#32;(Ah):&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%f&quot;</emphasis>,&#32;&amp;batteryCapacity);
+<anchor xml:id="_main_8c_source_1l00096"/>00096 
+<anchor xml:id="_main_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Bateria&#32;atual&#32;(%%):&#32;100%%&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00098"/>00098 
+<anchor xml:id="_main_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nAutonomia&#32;(Km):&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%f&quot;</emphasis>,&#32;&amp;autonomy);
+<anchor xml:id="_main_8c_source_1l00101"/>00101 
+<anchor xml:id="_main_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Preco&#32;de&#32;aluguer&#32;(eur):&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%f&quot;</emphasis>,&#32;&amp;price);
+<anchor xml:id="_main_8c_source_1l00104"/>00104 
+<anchor xml:id="_main_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00106"/>00106 
+<anchor xml:id="_main_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;vehicles&#32;=&#32;<link linkend="_vehicles_8h_1a95c50728b4b1feefc4267c588c6f4122">addVehicles</link>(vehicles,&#32;<emphasis role="keywordtype">id</emphasis>,&#32;batteryCapacity,&#32;100,&#32;autonomy,&#32;price,&#32;brand,&#32;model,&#32;<emphasis role="stringliteral">&quot;origem.rias.pontos&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00108"/>00108 
+<anchor xml:id="_main_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;vehicles;
+<anchor xml:id="_main_8c_source_1l00110"/>00110 }
+<anchor xml:id="_main_8c_source_1l00111"/>00111 
+<anchor xml:id="_main_8c_source_1l00121"/><link linkend="_main_8c_1a9742f8c7cea9a697ed24eb781050ccba">00121</link> <link linkend="_struct_user_list">User</link>&#32;*<link linkend="_main_8c_1a9742f8c7cea9a697ed24eb781050ccba">newUser</link>(<link linkend="_struct_user_list">User</link>&#32;*users,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_main_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;nif&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00123"/>00123 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;name[30],&#32;password[30];
+<anchor xml:id="_main_8c_source_1l00124"/>00124 
+<anchor xml:id="_main_8c_source_1l00125"/>00125 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Id:&#32;%d&quot;</emphasis>,&#32;<emphasis role="keywordtype">id</emphasis>);
+<anchor xml:id="_main_8c_source_1l00126"/>00126 
+<anchor xml:id="_main_8c_source_1l00127"/>00127 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nNome:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;name);
+<anchor xml:id="_main_8c_source_1l00129"/>00129 &#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00130"/>00130 
+<anchor xml:id="_main_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Password:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;password);
+<anchor xml:id="_main_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00134"/>00134 
+<anchor xml:id="_main_8c_source_1l00135"/>00135 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Nif:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;&amp;nif);
+<anchor xml:id="_main_8c_source_1l00137"/>00137 
+<anchor xml:id="_main_8c_source_1l00138"/>00138 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Saldo:&#32;%.2f&#32;euros&quot;</emphasis>,&#32;0);
+<anchor xml:id="_main_8c_source_1l00139"/>00139 
+<anchor xml:id="_main_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00141"/>00141 
+<anchor xml:id="_main_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;users&#32;=&#32;<link linkend="_users_8h_1aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</link>(users,&#32;<emphasis role="keywordtype">id</emphasis>,&#32;nif,&#32;0,&#32;name,&#32;password,&#32;<emphasis role="stringliteral">&quot;client&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00143"/>00143 
+<anchor xml:id="_main_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;users;
+<anchor xml:id="_main_8c_source_1l00145"/>00145 }
+<anchor xml:id="_main_8c_source_1l00146"/>00146 
+<anchor xml:id="_main_8c_source_1l00157"/><link linkend="_main_8c_1ab54416b48a45ef4a84272086eb5e5095">00157</link> <link linkend="_struct_rent_list">Rent</link>&#32;*<link linkend="_main_8c_1ab54416b48a45ef4a84272086eb5e5095">newRent</link>(<link linkend="_struct_rent_list">Rent</link>&#32;*rents,&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*vehicles,&#32;<link linkend="_struct_user_list">User</link>&#32;*users,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_main_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;vehicleId&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00159"/>00159 
+<anchor xml:id="_main_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\n\nId:&#32;%d&quot;</emphasis>,&#32;<emphasis role="keywordtype">id</emphasis>);
+<anchor xml:id="_main_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nId&#32;do&#32;cliente:&#32;%d&quot;</emphasis>,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>);
+<anchor xml:id="_main_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nNome&#32;do&#32;cliente:&#32;%s&quot;</emphasis>,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a72b952e44981373d9737a72616bb317f">name</link>);
+<anchor xml:id="_main_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nId&#32;do&#32;veiculo&#32;a&#32;alugar:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;&amp;vehicleId);
+<anchor xml:id="_main_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00166"/>00166 
+<anchor xml:id="_main_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00168"/>00168 
+<anchor xml:id="_main_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_vehicles_8h_1ad531955832370c9ea477a920316b6442">vehicleExists</link>(vehicles,&#32;vehicleId)){
+<anchor xml:id="_main_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Erro:&#32;Este&#32;veiculo&#32;nao&#32;existe!\n\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(rents);
+<anchor xml:id="_main_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00173"/>00173 
+<anchor xml:id="_main_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a8c8d5c19871b6a26547394e61e49264f">getVehicleByID</link>(vehicles,&#32;vehicleId);
+<anchor xml:id="_main_8c_source_1l00175"/>00175 
+<anchor xml:id="_main_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a500426aec97889b7572f25ae45c06a8d">price</link>&#32;&gt;&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>)&#32;{
+<anchor xml:id="_main_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;saldo&#32;insuficiente!&#32;Necessita&#32;de&#32;%.2f&#32;euros&#32;para&#32;alugar&#32;este&#32;veiculo\n\n&quot;</emphasis>,&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a500426aec97889b7572f25ae45c06a8d">price</link>&#32;-&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>);
+<anchor xml:id="_main_8c_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;rents;
+<anchor xml:id="_main_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00180"/>00180 
+<anchor xml:id="_main_8c_source_1l00181"/>00181 &#32;&#32;&#32;&#32;rents&#32;=&#32;<link linkend="_rents_8h_1a44ec9a69cef8fe255e7ff26eb2a458e8">addRent</link>(rents,&#32;<emphasis role="keywordtype">id</emphasis>,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>,&#32;vehicleId,&#32;<emphasis role="stringliteral">&quot;active&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00182"/>00182 
+<anchor xml:id="_main_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>&#32;-=&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a500426aec97889b7572f25ae45c06a8d">price</link>;
+<anchor xml:id="_main_8c_source_1l00184"/>00184 &#32;&#32;&#32;&#32;users&#32;=&#32;<link linkend="_users_8h_1ab54a616a3193a2efad78e80b31028430">editUser</link>(users,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>);
+<anchor xml:id="_main_8c_source_1l00185"/>00185 &#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de">saveUsersOnDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00186"/>00186 &#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00187"/>00187 
+<anchor xml:id="_main_8c_source_1l00188"/>00188 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;rents;
+<anchor xml:id="_main_8c_source_1l00189"/>00189 }
+<anchor xml:id="_main_8c_source_1l00190"/>00190 
+<anchor xml:id="_main_8c_source_1l00200"/><link linkend="_main_8c_1ac516657fe58fb5a62c4e645fdce6267e">00200</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1ac516657fe58fb5a62c4e645fdce6267e">getId</link>(<emphasis role="keywordtype">char</emphasis>&#32;phrase[]){
+<anchor xml:id="_main_8c_source_1l00201"/>00201 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00202"/>00202 
+<anchor xml:id="_main_8c_source_1l00203"/>00203 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;phrase);
+<anchor xml:id="_main_8c_source_1l00204"/>00204 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;&amp;<emphasis role="keywordtype">id</emphasis>);
+<anchor xml:id="_main_8c_source_1l00205"/>00205 
+<anchor xml:id="_main_8c_source_1l00206"/>00206 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;id;
+<anchor xml:id="_main_8c_source_1l00207"/>00207 }
+<anchor xml:id="_main_8c_source_1l00208"/>00208 
+<anchor xml:id="_main_8c_source_1l00215"/><link linkend="_main_8c_1a01f266ac9f0352cc537f05c04587dda2">00215</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1a01f266ac9f0352cc537f05c04587dda2">depositBalance</link>(){
+<anchor xml:id="_main_8c_source_1l00216"/>00216 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;balance&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00217"/>00217 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Quanto&#32;saldo&#32;quer&#32;depositar:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00218"/>00218 &#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%f&quot;</emphasis>,&#32;&amp;balance);
+<anchor xml:id="_main_8c_source_1l00219"/>00219 &#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00220"/>00220 
+<anchor xml:id="_main_8c_source_1l00221"/>00221 &#32;&#32;&#32;&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>&#32;+=&#32;balance;
+<anchor xml:id="_main_8c_source_1l00222"/>00222 }
+<anchor xml:id="_main_8c_source_1l00223"/>00223 
+<anchor xml:id="_main_8c_source_1l00232"/><link linkend="_main_8c_1abf47c7ca2632d1ada529631841f944b2">00232</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8c_1abf47c7ca2632d1ada529631841f944b2">getProfits</link>(<link linkend="_struct_rent_list">Rent</link>&#32;*startEntry,&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*entrys){
+<anchor xml:id="_main_8c_source_1l00233"/>00233 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;income&#32;=&#32;0.00;
+<anchor xml:id="_main_8c_source_1l00234"/>00234 
+<anchor xml:id="_main_8c_source_1l00235"/>00235 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(startEntry&#32;==&#32;NULL){
+<anchor xml:id="_main_8c_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Nao&#32;ha&#32;veiculos&#32;guardados\n\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_main_8c_source_1l00238"/>00238 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00239"/>00239 
+<anchor xml:id="_main_8c_source_1l00240"/>00240 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_main_8c_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a8c8d5c19871b6a26547394e61e49264f">getVehicleByID</link>(entrys,&#32;startEntry-&gt;<link linkend="_struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf">vehicleId</link>);
+<anchor xml:id="_main_8c_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;income&#32;+=&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a500426aec97889b7572f25ae45c06a8d">price</link>;
+<anchor xml:id="_main_8c_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c">nextEntry</link>;
+<anchor xml:id="_main_8c_source_1l00244"/>00244 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00245"/>00245 
+<anchor xml:id="_main_8c_source_1l00246"/>00246 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Ganhos&#32;de&#32;aluguer:&#32;%.2f&#32;euros\n\n&quot;</emphasis>,&#32;income);
+<anchor xml:id="_main_8c_source_1l00247"/>00247 }
+<anchor xml:id="_main_8c_source_1l00248"/>00248 
+<anchor xml:id="_main_8c_source_1l00258"/><link linkend="_main_8c_1a4052b7dc485f97b116d075ff197db010">00258</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1a4052b7dc485f97b116d075ff197db010">getLinkedListLength</link>(<link linkend="_struct_graph_list">Graph</link>&#32;*graph)&#32;{
+<anchor xml:id="_main_8c_source_1l00259"/>00259 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;length&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00260"/>00260 
+<anchor xml:id="_main_8c_source_1l00261"/>00261 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(graph&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_main_8c_source_1l00262"/>00262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;length++;
+<anchor xml:id="_main_8c_source_1l00263"/>00263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;graph&#32;=&#32;graph-&gt;<link linkend="_struct_graph_list_1adb45c91a9338152d0e202d886d30d001">nextEntry</link>;
+<anchor xml:id="_main_8c_source_1l00264"/>00264 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00265"/>00265 
+<anchor xml:id="_main_8c_source_1l00266"/>00266 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;length;
+<anchor xml:id="_main_8c_source_1l00267"/>00267 }
+<anchor xml:id="_main_8c_source_1l00268"/>00268 
+<anchor xml:id="_main_8c_source_1l00278"/><link linkend="_main_8c_1a8738fde2cefb820cd40c39cd0862ad2c">00278</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1a8738fde2cefb820cd40c39cd0862ad2c">generateRandomNumber</link>(<emphasis role="keywordtype">int</emphasis>&#32;min,&#32;<emphasis role="keywordtype">int</emphasis>&#32;max)&#32;{
+<anchor xml:id="_main_8c_source_1l00279"/>00279 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;min&#32;+&#32;rand()&#32;%&#32;(max&#32;-&#32;min&#32;+&#32;1);
+<anchor xml:id="_main_8c_source_1l00280"/>00280 }
+<anchor xml:id="_main_8c_source_1l00281"/>00281 
+<anchor xml:id="_main_8c_source_1l00290"/><link linkend="_main_8c_1a87f94611394406cd61017570b650d9d3">00290</link> <link linkend="_struct_edge_list">Edge</link>&#32;*<link linkend="_main_8c_1a87f94611394406cd61017570b650d9d3">buildGraph</link>(<link linkend="_struct_graph_list">Graph</link>&#32;*graphs,&#32;<link linkend="_struct_edge_list">Edge</link>&#32;*edges){
+<anchor xml:id="_main_8c_source_1l00291"/>00291 &#32;&#32;&#32;&#32;srand(time(NULL));
+<anchor xml:id="_main_8c_source_1l00292"/>00292 
+<anchor xml:id="_main_8c_source_1l00293"/>00293 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;numVertices&#32;=&#32;<link linkend="_main_8c_1a4052b7dc485f97b116d075ff197db010">getLinkedListLength</link>(graphs);
+<anchor xml:id="_main_8c_source_1l00294"/>00294 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;maxPossibleEdges&#32;=&#32;numVertices&#32;*&#32;(numVertices&#32;-&#32;1)&#32;/&#32;2;
+<anchor xml:id="_main_8c_source_1l00295"/>00295 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;rnd&#32;=&#32;<link linkend="_main_8c_1a8738fde2cefb820cd40c39cd0862ad2c">generateRandomNumber</link>(numVertices&#32;-&#32;1,&#32;maxPossibleEdges);
+<anchor xml:id="_main_8c_source_1l00296"/>00296 
+<anchor xml:id="_main_8c_source_1l00297"/>00297 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;edges&#32;=&#32;<link linkend="_graphs_8h_1a0cb364c7e705c406ebe537678438911a">generateRandomGraph</link>(graphs,&#32;edges,&#32;numVertices,&#32;rnd);
+<anchor xml:id="_main_8c_source_1l00298"/>00298 }
+<anchor xml:id="_main_8c_source_1l00299"/>00299 
+<anchor xml:id="_main_8c_source_1l00300"/><link linkend="_main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4">00300</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4">main</link>(){
+<anchor xml:id="_main_8c_source_1l00301"/>00301 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*vehicles&#32;=&#32;NULL;
+<anchor xml:id="_main_8c_source_1l00302"/>00302 &#32;&#32;&#32;&#32;<link linkend="_struct_user_list">User</link>&#32;*users&#32;=&#32;NULL;
+<anchor xml:id="_main_8c_source_1l00303"/>00303 &#32;&#32;&#32;&#32;<link linkend="_struct_rent_list">Rent</link>&#32;*rents&#32;=&#32;NULL;
+<anchor xml:id="_main_8c_source_1l00304"/>00304 &#32;&#32;&#32;&#32;<link linkend="_struct_graph_list">Graph</link>&#32;*graphs&#32;=&#32;NULL;
+<anchor xml:id="_main_8c_source_1l00305"/>00305 &#32;&#32;&#32;&#32;<link linkend="_struct_edge_list">Edge</link>&#32;*edges&#32;=&#32;NULL;
+<anchor xml:id="_main_8c_source_1l00306"/>00306 &#32;&#32;&#32;&#32;<link linkend="_struct_aux_list">Aux</link>&#32;*aux&#32;=&#32;NULL;
+<anchor xml:id="_main_8c_source_1l00307"/>00307 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;input&#32;=&#32;-1,&#32;verticesId&#32;=&#32;1,&#32;vehicleId&#32;=&#32;1,&#32;userId&#32;=&#32;1,&#32;rentId&#32;=&#32;1,&#32;updateRentId&#32;=&#32;0,&#32;vehicleBattery&#32;=&#32;0,&#32;zone&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00308"/>00308 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;location[50];
+<anchor xml:id="_main_8c_source_1l00309"/>00309 
+<anchor xml:id="_main_8c_source_1l00310"/>00310 &#32;&#32;&#32;&#32;users&#32;=&#32;<link linkend="_users_8h_1a36ad2b37dc9902e37bb2f143f923bffe">getUsersFromDatabase</link>();
+<anchor xml:id="_main_8c_source_1l00311"/>00311 &#32;&#32;&#32;&#32;userId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/users_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00312"/>00312 
+<anchor xml:id="_main_8c_source_1l00313"/>00313 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>{
+<anchor xml:id="_main_8c_source_1l00314"/>00314 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aa4b05059bd16c14911cab100f55a0aed">loginMenu</link>();
+<anchor xml:id="_main_8c_source_1l00315"/>00315 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;&amp;input);
+<anchor xml:id="_main_8c_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00317"/>00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_main_8c_source_1l00318"/>00318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(input)&#32;{
+<anchor xml:id="_main_8c_source_1l00319"/>00319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:
+<anchor xml:id="_main_8c_source_1l00320"/>00320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00321"/>00321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;A&#32;sair!&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00322"/>00322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00323"/>00323 
+<anchor xml:id="_main_8c_source_1l00324"/>00324 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:
+<anchor xml:id="_main_8c_source_1l00325"/>00325 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00326"/>00326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;input&#32;=&#32;-1;
+<anchor xml:id="_main_8c_source_1l00327"/>00327 
+<anchor xml:id="_main_8c_source_1l00328"/>00328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Nome:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00329"/>00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a72b952e44981373d9737a72616bb317f">name</link>);
+<anchor xml:id="_main_8c_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00331"/>00331 
+<anchor xml:id="_main_8c_source_1l00332"/>00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nPassword:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00333"/>00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1ae2f06144744aa77e5443babb0f993ec6">password</link>);
+<anchor xml:id="_main_8c_source_1l00334"/>00334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00335"/>00335 
+<anchor xml:id="_main_8c_source_1l00336"/>00336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_users_8h_1a9724304f5304c5e18783d58daf1e2ff8">loginUser</link>(users,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a72b952e44981373d9737a72616bb317f">name</link>,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1ae2f06144744aa77e5443babb0f993ec6">password</link>)){
+<anchor xml:id="_main_8c_source_1l00337"/>00337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nDados&#32;incorretos\n\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00338"/>00338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00339"/>00339 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00340"/>00340 
+<anchor xml:id="_main_8c_source_1l00341"/>00341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00342"/>00342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicles&#32;=&#32;<link linkend="_vehicles_8h_1a369c63f2109ee2575ac9d4417b3c40ea">getVehiclesFromDatabase</link>();
+<anchor xml:id="_main_8c_source_1l00343"/>00343 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicleId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/vehicles_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00344"/>00344 
+<anchor xml:id="_main_8c_source_1l00345"/>00345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rents&#32;=&#32;<link linkend="_rents_8h_1ac50819ca4416fb1ecbbd960a8522f950">getRentsFromDatabase</link>();
+<anchor xml:id="_main_8c_source_1l00346"/>00346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rentId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/rents_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00347"/>00347 
+<anchor xml:id="_main_8c_source_1l00348"/>00348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;graphs&#32;=&#32;<link linkend="_graphs_8h_1a7b16e36ae5b60ab0f6e1c6e8feaaf381">getVerticesFromDatabase</link>();
+<anchor xml:id="_main_8c_source_1l00349"/>00349 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;verticesId&#32;=&#32;<link linkend="_global_8h_1a7081b188a1c030ef2747fb1cf160706e">getLastVerticeFromDb</link>(<emphasis role="stringliteral">&quot;../databases/vertices_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00350"/>00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;edges&#32;=&#32;<link linkend="_main_8c_1a87f94611394406cd61017570b650d9d3">buildGraph</link>(graphs,&#32;edges);
+<anchor xml:id="_main_8c_source_1l00351"/>00351 
+<anchor xml:id="_main_8c_source_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{
+<anchor xml:id="_main_8c_source_1l00353"/>00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1ab3002fe8e0074c9e2ecb5b835e5e819f">mainMenu</link>();
+<anchor xml:id="_main_8c_source_1l00354"/>00354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;&amp;input);
+<anchor xml:id="_main_8c_source_1l00355"/>00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00356"/>00356 
+<anchor xml:id="_main_8c_source_1l00357"/>00357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp(<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link>,&#32;<emphasis role="stringliteral">&quot;client&quot;</emphasis>)&#32;==&#32;0)&#32;{
+<anchor xml:id="_main_8c_source_1l00358"/>00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(input){
+<anchor xml:id="_main_8c_source_1l00359"/>00359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:
+<anchor xml:id="_main_8c_source_1l00360"/>00360 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00361"/>00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;A&#32;sair!&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00362"/>00362 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00363"/>00363 
+<anchor xml:id="_main_8c_source_1l00364"/>00364 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:
+<anchor xml:id="_main_8c_source_1l00365"/>00365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00366"/>00366 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a174dc3757d7fd308d7824673d9a3849d">listVehicles</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00367"/>00367 
+<anchor xml:id="_main_8c_source_1l00368"/>00368 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rents&#32;=&#32;<link linkend="_main_8c_1ab54416b48a45ef4a84272086eb5e5095">newRent</link>(rents,&#32;vehicles,&#32;users,&#32;rentId);
+<anchor xml:id="_main_8c_source_1l00369"/>00369 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_rents_8h_1a45e5a92a42235f4a8ffeace2ddb7e4e0">saveRentOnDatabase</link>(rents);
+<anchor xml:id="_main_8c_source_1l00370"/>00370 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_rents_8h_1ab420f75e53a50864f431f82565c03925">saveRentOnBinaryDatabase</link>(rents);
+<anchor xml:id="_main_8c_source_1l00371"/>00371 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rentId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/rents_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00372"/>00372 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00373"/>00373 
+<anchor xml:id="_main_8c_source_1l00374"/>00374 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="_main_8c_source_1l00375"/>00375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00376"/>00376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_rents_8h_1a7b496d5af10b399af35bc10541d75924">listUserActiveRents</link>(rents);
+<anchor xml:id="_main_8c_source_1l00377"/>00377 
+<anchor xml:id="_main_8c_source_1l00378"/>00378 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nId&#32;do&#32;aluguer&#32;a&#32;concluir:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00379"/>00379 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;&amp;updateRentId);
+<anchor xml:id="_main_8c_source_1l00380"/>00380 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00381"/>00381 
+<anchor xml:id="_main_8c_source_1l00382"/>00382 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nBateria&#32;do&#32;veiculo:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00383"/>00383 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;&amp;vehicleBattery);
+<anchor xml:id="_main_8c_source_1l00384"/>00384 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00385"/>00385 
+<anchor xml:id="_main_8c_source_1l00386"/>00386 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Stand&#32;onde&#32;o&#32;veiculo&#32;foi&#32;deixado:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00387"/>00387 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;location);
+<anchor xml:id="_main_8c_source_1l00388"/>00388 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00389"/>00389 
+<anchor xml:id="_main_8c_source_1l00390"/>00390 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_rents_8h_1ab42f258f4be641f945c7ed83c4a24686">rentExists</link>(rents,&#32;updateRentId)){
+<anchor xml:id="_main_8c_source_1l00391"/>00391 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_rents_8h_1a17d20033ee11b7425b3361017f403896">updateRent</link>(rents,&#32;updateRentId);
+<anchor xml:id="_main_8c_source_1l00392"/>00392 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_rents_8h_1a45e5a92a42235f4a8ffeace2ddb7e4e0">saveRentOnDatabase</link>(rents);
+<anchor xml:id="_main_8c_source_1l00393"/>00393 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_rents_8h_1ab420f75e53a50864f431f82565c03925">saveRentOnBinaryDatabase</link>(rents);
+<anchor xml:id="_main_8c_source_1l00394"/>00394 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rentId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/rents_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00395"/>00395 
+<anchor xml:id="_main_8c_source_1l00396"/>00396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicles&#32;=&#32;<link linkend="_vehicles_8h_1ab7ce1ccb88e5738a39431b0b7cd64f8d">editVehicle</link>(vehicles,&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>,&#32;vehicleBattery,&#32;location);
+<anchor xml:id="_main_8c_source_1l00397"/>00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a32c74cac04f5218a5d7eb479fb262f5b">saveVehiclesOnDatabase</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00398"/>00398 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a5dae4b1b97ace920cd7262c20c3a9a41">saveVehiclesOnBinaryDatabase</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00399"/>00399 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicleId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/vehicles_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00400"/>00400 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}<emphasis role="keywordflow">else</emphasis>{
+<anchor xml:id="_main_8c_source_1l00401"/>00401 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Erro:&#32;Este&#32;aluguer&#32;nao&#32;existe!\n\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00402"/>00402 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00403"/>00403 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00404"/>00404 
+<anchor xml:id="_main_8c_source_1l00405"/>00405 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;3:
+<anchor xml:id="_main_8c_source_1l00406"/>00406 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00407"/>00407 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_rents_8h_1a5e60f8b2348388851786fc506c8ccf65">listUserRents</link>(rents);
+<anchor xml:id="_main_8c_source_1l00408"/>00408 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00409"/>00409 
+<anchor xml:id="_main_8c_source_1l00410"/>00410 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;4:
+<anchor xml:id="_main_8c_source_1l00411"/>00411 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00412"/>00412 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_graphs_8h_1aae6d29c48d0d248e16014ef35b50a5ea">listZones</link>(graphs);
+<anchor xml:id="_main_8c_source_1l00413"/>00413 
+<anchor xml:id="_main_8c_source_1l00414"/>00414 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nPesquisar&#32;num&#32;raio&#32;de&#32;(zonas):&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00415"/>00415 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;&amp;zone);
+<anchor xml:id="_main_8c_source_1l00416"/>00416 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00417"/>00417 
+<anchor xml:id="_main_8c_source_1l00418"/>00418 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00419"/>00419 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_graphs_8h_1a17abe0cb34456a08730810427bdcf20d">listVehiclesByZone</link>(graphs,&#32;zone);
+<anchor xml:id="_main_8c_source_1l00420"/>00420 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00421"/>00421 
+<anchor xml:id="_main_8c_source_1l00422"/>00422 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;5:
+<anchor xml:id="_main_8c_source_1l00423"/>00423 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00424"/>00424 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Saldo:&#32;%.2f&#32;euros\n\n&quot;</emphasis>,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>);
+<anchor xml:id="_main_8c_source_1l00425"/>00425 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00426"/>00426 
+<anchor xml:id="_main_8c_source_1l00427"/>00427 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;6:
+<anchor xml:id="_main_8c_source_1l00428"/>00428 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00429"/>00429 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1a01f266ac9f0352cc537f05c04587dda2">depositBalance</link>();
+<anchor xml:id="_main_8c_source_1l00430"/>00430 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;users&#32;=&#32;<link linkend="_users_8h_1ab54a616a3193a2efad78e80b31028430">editUser</link>(users,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>);
+<anchor xml:id="_main_8c_source_1l00431"/>00431 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de">saveUsersOnDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00432"/>00432 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00433"/>00433 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00434"/>00434 
+<anchor xml:id="_main_8c_source_1l00435"/>00435 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;7:
+<anchor xml:id="_main_8c_source_1l00436"/>00436 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00437"/>00437 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Nova&#32;palavra-passe:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00438"/>00438 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;&amp;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1ae2f06144744aa77e5443babb0f993ec6">password</link>);
+<anchor xml:id="_main_8c_source_1l00439"/>00439 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00440"/>00440 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;users&#32;=&#32;<link linkend="_users_8h_1ab54a616a3193a2efad78e80b31028430">editUser</link>(users,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>);
+<anchor xml:id="_main_8c_source_1l00441"/>00441 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de">saveUsersOnDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00442"/>00442 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00443"/>00443 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00444"/>00444 
+<anchor xml:id="_main_8c_source_1l00445"/>00445 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;8:
+<anchor xml:id="_main_8c_source_1l00446"/>00446 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00447"/>00447 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;users&#32;=&#32;<link linkend="_users_8h_1aa7b4e161f2c6c59d4849ce653efd30e5">deleteUser</link>(users,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>);
+<anchor xml:id="_main_8c_source_1l00448"/>00448 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de">saveUsersOnDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00449"/>00449 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00450"/>00450 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;A&#32;encerrar&#32;programa...&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00451"/>00451 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;input&#32;=&#32;0;
+<anchor xml:id="_main_8c_source_1l00452"/>00452 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00453"/>00453 
+<anchor xml:id="_main_8c_source_1l00454"/>00454 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_main_8c_source_1l00455"/>00455 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00456"/>00456 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Opcao&#32;invalida!\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00457"/>00457 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00458"/>00458 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00459"/>00459 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_main_8c_source_1l00460"/>00460 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(input){
+<anchor xml:id="_main_8c_source_1l00461"/>00461 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:
+<anchor xml:id="_main_8c_source_1l00462"/>00462 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00463"/>00463 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;A&#32;sair!&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00464"/>00464 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00465"/>00465 
+<anchor xml:id="_main_8c_source_1l00466"/>00466 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:
+<anchor xml:id="_main_8c_source_1l00467"/>00467 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00468"/>00468 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicles&#32;=&#32;<link linkend="_main_8c_1a36aef823407f8b3eee622a17b91720fb">newVehicle</link>(vehicles,&#32;vehicleId);
+<anchor xml:id="_main_8c_source_1l00469"/>00469 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a32c74cac04f5218a5d7eb479fb262f5b">saveVehiclesOnDatabase</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00470"/>00470 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a5dae4b1b97ace920cd7262c20c3a9a41">saveVehiclesOnBinaryDatabase</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00471"/>00471 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicleId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/vehicles_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00472"/>00472 
+<anchor xml:id="_main_8c_source_1l00473"/>00473 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux&#32;=&#32;malloc(<emphasis role="keyword">sizeof</emphasis>(<link linkend="_struct_aux_list">Aux</link>));
+<anchor xml:id="_main_8c_source_1l00474"/>00474 
+<anchor xml:id="_main_8c_source_1l00475"/>00475 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux-&gt;<link linkend="_struct_aux_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;=&#32;vehicles-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>;
+<anchor xml:id="_main_8c_source_1l00476"/>00476 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux-&gt;<link linkend="_struct_aux_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>&#32;=&#32;vehicles-&gt;<link linkend="_struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>;
+<anchor xml:id="_main_8c_source_1l00477"/>00477 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux-&gt;<link linkend="_struct_aux_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>&#32;=&#32;vehicles-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>;
+<anchor xml:id="_main_8c_source_1l00478"/>00478 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux-&gt;<link linkend="_struct_aux_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>&#32;=&#32;vehicles-&gt;<link linkend="_struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>;
+<anchor xml:id="_main_8c_source_1l00479"/>00479 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux-&gt;<link linkend="_struct_aux_list_1a500426aec97889b7572f25ae45c06a8d">price</link>&#32;=&#32;vehicles-&gt;<link linkend="_struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d">price</link>;
+<anchor xml:id="_main_8c_source_1l00480"/>00480 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(aux-&gt;<link linkend="_struct_aux_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>,&#32;vehicles-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>);
+<anchor xml:id="_main_8c_source_1l00481"/>00481 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(aux-&gt;<link linkend="_struct_aux_list_1a407e8645b05b8866c6aae96539051b4d">model</link>,&#32;vehicles-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>);
+<anchor xml:id="_main_8c_source_1l00482"/>00482 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(aux-&gt;<link linkend="_struct_aux_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>,&#32;vehicles-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>);
+<anchor xml:id="_main_8c_source_1l00483"/>00483 
+<anchor xml:id="_main_8c_source_1l00484"/>00484 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;graphs&#32;=&#32;<link linkend="_graphs_8h_1ae350462ced1dc7ba74592037e3c9d88d">addVertex</link>(graphs,&#32;verticesId,&#32;*aux);
+<anchor xml:id="_main_8c_source_1l00485"/>00485 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_graphs_8h_1aa65bd12637311f31250ec4d793db7574">saveVerticesOnDatabase</link>(graphs);
+<anchor xml:id="_main_8c_source_1l00486"/>00486 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_graphs_8h_1a860928daf7c19aa0b0a0ba64e780f8aa">saveVerticesOnBinaryDatabase</link>(graphs);
+<anchor xml:id="_main_8c_source_1l00487"/>00487 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;verticesId&#32;=&#32;<link linkend="_global_8h_1a7081b188a1c030ef2747fb1cf160706e">getLastVerticeFromDb</link>(<emphasis role="stringliteral">&quot;../databases/vertices_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00488"/>00488 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00489"/>00489 
+<anchor xml:id="_main_8c_source_1l00490"/>00490 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="_main_8c_source_1l00491"/>00491 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00492"/>00492 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a174dc3757d7fd308d7824673d9a3849d">listVehicles</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00493"/>00493 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00494"/>00494 
+<anchor xml:id="_main_8c_source_1l00495"/>00495 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;3:
+<anchor xml:id="_main_8c_source_1l00496"/>00496 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00497"/>00497 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a97e391b18841c2f4a9cd3fd39807d16a">listVehiclesByAutnonomy</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00498"/>00498 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00499"/>00499 
+<anchor xml:id="_main_8c_source_1l00500"/>00500 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;4:
+<anchor xml:id="_main_8c_source_1l00501"/>00501 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00502"/>00502 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Area:&#32;&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00503"/>00503 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;scanf(<emphasis role="stringliteral">&quot;%s&quot;</emphasis>,&#32;location);
+<anchor xml:id="_main_8c_source_1l00504"/>00504 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdin);
+<anchor xml:id="_main_8c_source_1l00505"/>00505 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00506"/>00506 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a9687b1204b533bfc36593703b2fd1785">listVehiclesByGPS</link>(vehicles,&#32;location);
+<anchor xml:id="_main_8c_source_1l00507"/>00507 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00508"/>00508 
+<anchor xml:id="_main_8c_source_1l00509"/>00509 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;5:
+<anchor xml:id="_main_8c_source_1l00510"/>00510 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00511"/>00511 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicles&#32;=&#32;<link linkend="_vehicles_8h_1a88357fa8f47cb44df355643537f88141">rechargeVehicles</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00512"/>00512 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a32c74cac04f5218a5d7eb479fb262f5b">saveVehiclesOnDatabase</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00513"/>00513 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a5dae4b1b97ace920cd7262c20c3a9a41">saveVehiclesOnBinaryDatabase</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00514"/>00514 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicleId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/vehicles_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00515"/>00515 
+<anchor xml:id="_main_8c_source_1l00516"/>00516 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;graphs&#32;=&#32;<link linkend="_graphs_8h_1ae350462ced1dc7ba74592037e3c9d88d">addVertex</link>(graphs,&#32;verticesId,&#32;*aux);
+<anchor xml:id="_main_8c_source_1l00517"/>00517 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_graphs_8h_1aa65bd12637311f31250ec4d793db7574">saveVerticesOnDatabase</link>(graphs);
+<anchor xml:id="_main_8c_source_1l00518"/>00518 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_graphs_8h_1a860928daf7c19aa0b0a0ba64e780f8aa">saveVerticesOnBinaryDatabase</link>(graphs);
+<anchor xml:id="_main_8c_source_1l00519"/>00519 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;verticesId&#32;=&#32;<link linkend="_global_8h_1a7081b188a1c030ef2747fb1cf160706e">getLastVerticeFromDb</link>(<emphasis role="stringliteral">&quot;../databases/vertices_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00520"/>00520 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00521"/>00521 
+<anchor xml:id="_main_8c_source_1l00522"/>00522 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;6:
+<anchor xml:id="_main_8c_source_1l00523"/>00523 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00524"/>00524 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicles&#32;=&#32;<link linkend="_vehicles_8h_1a939e86a429faf7c0c7bf1647c19dd517">deleteVehicle</link>(vehicles,&#32;<link linkend="_main_8c_1ac516657fe58fb5a62c4e645fdce6267e">getId</link>(<emphasis role="stringliteral">&quot;Codigo&#32;do&#32;veiculo&#32;a&#32;remover:&#32;&quot;</emphasis>));
+<anchor xml:id="_main_8c_source_1l00525"/>00525 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a32c74cac04f5218a5d7eb479fb262f5b">saveVehiclesOnDatabase</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00526"/>00526 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_vehicles_8h_1a5dae4b1b97ace920cd7262c20c3a9a41">saveVehiclesOnBinaryDatabase</link>(vehicles);
+<anchor xml:id="_main_8c_source_1l00527"/>00527 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00528"/>00528 
+<anchor xml:id="_main_8c_source_1l00529"/>00529 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;7:
+<anchor xml:id="_main_8c_source_1l00530"/>00530 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00531"/>00531 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_rents_8h_1a2c88dddd80c4dd1dc09a8587ed7d70b2">listRents</link>(rents);
+<anchor xml:id="_main_8c_source_1l00532"/>00532 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00533"/>00533 
+<anchor xml:id="_main_8c_source_1l00534"/>00534 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;8:
+<anchor xml:id="_main_8c_source_1l00535"/>00535 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00536"/>00536 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1abf47c7ca2632d1ada529631841f944b2">getProfits</link>(rents,&#32;vehicles);
+<anchor xml:id="_main_8c_source_1l00537"/>00537 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00538"/>00538 
+<anchor xml:id="_main_8c_source_1l00539"/>00539 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;9:
+<anchor xml:id="_main_8c_source_1l00540"/>00540 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00541"/>00541 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_graphs_8h_1a3ab9e14d9194e69df48f70def6d45370">listGraph</link>(graphs,&#32;edges);
+<anchor xml:id="_main_8c_source_1l00542"/>00542 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_graphs_8h_1a2ed81c359a9efd1ca6a593c2bf5c164a">getShortestPath</link>(graphs,&#32;edges,&#32;graphs-&gt;<link linkend="_struct_graph_list_1a7b6a73a9ea2850e455702ad082701c9d">vertex</link>,&#32;<link linkend="_main_8c_1a4052b7dc485f97b116d075ff197db010">getLinkedListLength</link>(graphs));
+<anchor xml:id="_main_8c_source_1l00543"/>00543 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00544"/>00544 
+<anchor xml:id="_main_8c_source_1l00545"/>00545 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_main_8c_source_1l00546"/>00546 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00547"/>00547 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Opcao&#32;invalida!\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00548"/>00548 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00549"/>00549 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00550"/>00550 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00551"/>00551 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(input&#32;!=&#32;0);
+<anchor xml:id="_main_8c_source_1l00552"/>00552 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00553"/>00553 
+<anchor xml:id="_main_8c_source_1l00554"/>00554 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="_main_8c_source_1l00555"/>00555 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00556"/>00556 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;users&#32;=&#32;<link linkend="_main_8c_1a9742f8c7cea9a697ed24eb781050ccba">newUser</link>(users,&#32;userId);
+<anchor xml:id="_main_8c_source_1l00557"/>00557 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de">saveUsersOnDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00558"/>00558 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_users_8h_1aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</link>(users);
+<anchor xml:id="_main_8c_source_1l00559"/>00559 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;userId&#32;=&#32;<link linkend="_global_8h_1adcfc6b65c0eeff972a28d8c602285961">getLastIdFromDb</link>(<emphasis role="stringliteral">&quot;../databases/users_database.txt&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00560"/>00560 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00561"/>00561 
+<anchor xml:id="_main_8c_source_1l00562"/>00562 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_main_8c_source_1l00563"/>00563 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link>();
+<anchor xml:id="_main_8c_source_1l00564"/>00564 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Opcao&#32;invalida!\n\n&quot;</emphasis>);
+<anchor xml:id="_main_8c_source_1l00565"/>00565 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_main_8c_source_1l00566"/>00566 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_main_8c_source_1l00567"/>00567 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(input&#32;!=&#32;0);
+<anchor xml:id="_main_8c_source_1l00568"/>00568 
+<anchor xml:id="_main_8c_source_1l00569"/>00569 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_main_8c_source_1l00570"/>00570 }
+</programlisting></section>

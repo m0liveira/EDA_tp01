@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>Estruturas de Dados Avançadas - trabalho prático</title>
+    </info>
+<chapter>
+    <title>Data Structure Documentation</title>
+    <xi:include href="struct_aux_list.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_car.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_edge_list.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_graph_list.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_rent_list.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_session.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_user_list.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_vehicle_list.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="global_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="global_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="graphs_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="graphs_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="rents_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="rents_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="users_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="users_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="vehicles_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="vehicles_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_r_e_a_d_m_e_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="global_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="global_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="graphs_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="graphs_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="main_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="main_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="rents_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="rents_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="users_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="users_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="vehicles_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="vehicles_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

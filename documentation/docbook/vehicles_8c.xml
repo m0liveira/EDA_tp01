@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_vehicles_8c" xml:lang="en-US">
+<title>sources/vehicles.c File Reference</title>
+<indexterm><primary>sources/vehicles.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &quot;../headers/global.h&quot;<?linebreak?>#include &quot;../headers/vehicles.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_vehicles_8c_1aeed9c0434f4d057d662880ad78fd82f0">isUnique</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry, int id)</para>
+
+<para>Check vehicle ID. </para>
+</listitem>
+            <listitem><para><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * <link linkend="_vehicles_8c_1a95c50728b4b1feefc4267c588c6f4122">addVehicles</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[])</para>
+
+<para>Add vehicle. </para>
+</listitem>
+            <listitem><para>void <link linkend="_vehicles_8c_1a174dc3757d7fd308d7824673d9a3849d">listVehicles</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry)</para>
+
+<para>List vehicles. </para>
+</listitem>
+            <listitem><para><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * <link linkend="_vehicles_8c_1a939e86a429faf7c0c7bf1647c19dd517">deleteVehicle</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry, int id)</para>
+
+<para>Delete vehicle. </para>
+</listitem>
+            <listitem><para><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * <link linkend="_vehicles_8c_1ab7ce1ccb88e5738a39431b0b7cd64f8d">editVehicle</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry, int id, int currentBattery, char gpsTracker[])</para>
+
+<para>Update vehicle. </para>
+</listitem>
+            <listitem><para>int <link linkend="_vehicles_8c_1a32c74cac04f5218a5d7eb479fb262f5b">saveVehiclesOnDatabase</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry)</para>
+
+<para>Save vehicle on database. </para>
+</listitem>
+            <listitem><para>int <link linkend="_vehicles_8c_1a5dae4b1b97ace920cd7262c20c3a9a41">saveVehiclesOnBinaryDatabase</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry)</para>
+
+<para>Save vehicle on binary database. </para>
+</listitem>
+            <listitem><para><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * <link linkend="_vehicles_8c_1a369c63f2109ee2575ac9d4417b3c40ea">getVehiclesFromDatabase</link> ()</para>
+
+<para>Get vehicles. </para>
+</listitem>
+            <listitem><para>void <link linkend="_vehicles_8c_1a97e391b18841c2f4a9cd3fd39807d16a">listVehiclesByAutnonomy</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry)</para>
+
+<para>List vehicles by autonomy. </para>
+</listitem>
+            <listitem><para>void <link linkend="_vehicles_8c_1a9687b1204b533bfc36593703b2fd1785">listVehiclesByGPS</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry, char location[])</para>
+
+<para>List vehicles by GPS. </para>
+</listitem>
+            <listitem><para>void <link linkend="_vehicles_8c_1a8c8d5c19871b6a26547394e61e49264f">getVehicleByID</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry, int id)</para>
+
+<para>Get vehicle by ID. </para>
+</listitem>
+            <listitem><para>int <link linkend="_vehicles_8c_1ad531955832370c9ea477a920316b6442">vehicleExists</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry, int id)</para>
+
+<para>Vehicle exist. </para>
+</listitem>
+            <listitem><para><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * <link linkend="_vehicles_8c_1a88357fa8f47cb44df355643537f88141">rechargeVehicles</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *startEntry)</para>
+
+<para>Recharge vehicles. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_vehicles_8c_1a95c50728b4b1feefc4267c588c6f4122"/><section>
+    <title>addVehicles()</title>
+<indexterm><primary>addVehicles</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>addVehicles</secondary></indexterm>
+<para><computeroutput><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * addVehicles (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[])</computeroutput></para><para>
+
+<para>Add vehicle. </para>
+</para>
+
+<para>Adds a new vehicle entry into a linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id</para>
+</entry>
+                            </row>
+                            <row>
+<entry>float</entry><entry>
+<para>batteryCapacity</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>currentBattery</para>
+</entry>
+                            </row>
+                            <row>
+<entry>float</entry><entry>
+<para>autonomy</para>
+</entry>
+                            </row>
+                            <row>
+<entry>float</entry><entry>
+<para>price</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>brand[]</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>model[]</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>gpsTracker[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Added vehicle </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00034">34</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a939e86a429faf7c0c7bf1647c19dd517"/><section>
+    <title>deleteVehicle()</title>
+<indexterm><primary>deleteVehicle</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>deleteVehicle</secondary></indexterm>
+<para><computeroutput><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * deleteVehicle (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Delete vehicle. </para>
+</para>
+
+<para>Deletes a vehicle entry from the linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>vehicles </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00095">95</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1ab7ce1ccb88e5738a39431b0b7cd64f8d"/><section>
+    <title>editVehicle()</title>
+<indexterm><primary>editVehicle</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>editVehicle</secondary></indexterm>
+<para><computeroutput><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * editVehicle (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry, int id, int currentBattery, char gpsTracker[])</computeroutput></para><para>
+
+<para>Update vehicle. </para>
+</para>
+
+<para>Updates a specified vehicle entry from the linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>currentBattery</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>gpsTracker[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>vehicles </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00133">133</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a8c8d5c19871b6a26547394e61e49264f"/><section>
+    <title>getVehicleByID()</title>
+<indexterm><primary>getVehicleByID</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>getVehicleByID</secondary></indexterm>
+<para><computeroutput>void getVehicleByID (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Get vehicle by ID. </para>
+</para>
+
+<para>Stores a specific vehicle data in a struct</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00346">346</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a369c63f2109ee2575ac9d4417b3c40ea"/><section>
+    <title>getVehiclesFromDatabase()</title>
+<indexterm><primary>getVehiclesFromDatabase</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>getVehiclesFromDatabase</secondary></indexterm>
+<para><computeroutput><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * getVehiclesFromDatabase ( )</computeroutput></para><para>
+
+<para>Get vehicles. </para>
+</para>
+
+<para>Gets all vehicles from a database</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>vehicles </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00227">227</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1aeed9c0434f4d057d662880ad78fd82f0"/><section>
+    <title>isUnique()</title>
+<indexterm><primary>isUnique</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>isUnique</secondary></indexterm>
+<para><computeroutput>int isUnique (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Check vehicle ID. </para>
+</para>
+
+<para>Checks if the ID is dupped</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00015">15</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a174dc3757d7fd308d7824673d9a3849d"/><section>
+    <title>listVehicles()</title>
+<indexterm><primary>listVehicles</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>listVehicles</secondary></indexterm>
+<para><computeroutput>void listVehicles (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry)</computeroutput></para><para>
+
+<para>List vehicles. </para>
+</para>
+
+<para>Outputs all vehicles</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00064">64</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a97e391b18841c2f4a9cd3fd39807d16a"/><section>
+    <title>listVehiclesByAutnonomy()</title>
+<indexterm><primary>listVehiclesByAutnonomy</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>listVehiclesByAutnonomy</secondary></indexterm>
+<para><computeroutput>void listVehiclesByAutnonomy (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry)</computeroutput></para><para>
+
+<para>List vehicles by autonomy. </para>
+</para>
+
+<para>Outputs vehicles sorted by autonomy</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00263">263</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a9687b1204b533bfc36593703b2fd1785"/><section>
+    <title>listVehiclesByGPS()</title>
+<indexterm><primary>listVehiclesByGPS</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>listVehiclesByGPS</secondary></indexterm>
+<para><computeroutput>void listVehiclesByGPS (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry, char location[])</computeroutput></para><para>
+
+<para>List vehicles by GPS. </para>
+</para>
+
+<para>Outputs vehicles in a specific GPS location</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>location[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00314">314</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a88357fa8f47cb44df355643537f88141"/><section>
+    <title>rechargeVehicles()</title>
+<indexterm><primary>rechargeVehicles</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>rechargeVehicles</secondary></indexterm>
+<para><computeroutput><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * rechargeVehicles (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry)</computeroutput></para><para>
+
+<para>Recharge vehicles. </para>
+</para>
+
+<para>Recharges all vehicles stored in the linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>vehicles </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00393">393</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a5dae4b1b97ace920cd7262c20c3a9a41"/><section>
+    <title>saveVehiclesOnBinaryDatabase()</title>
+<indexterm><primary>saveVehiclesOnBinaryDatabase</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>saveVehiclesOnBinaryDatabase</secondary></indexterm>
+<para><computeroutput>int saveVehiclesOnBinaryDatabase (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry)</computeroutput></para><para>
+
+<para>Save vehicle on binary database. </para>
+</para>
+
+<para>Saves vehicles entrys into a binary database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00193">193</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1a32c74cac04f5218a5d7eb479fb262f5b"/><section>
+    <title>saveVehiclesOnDatabase()</title>
+<indexterm><primary>saveVehiclesOnDatabase</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>saveVehiclesOnDatabase</secondary></indexterm>
+<para><computeroutput>int saveVehiclesOnDatabase (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry)</computeroutput></para><para>
+
+<para>Save vehicle on database. </para>
+</para>
+
+<para>Saves vehicles entrys into a database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00165">165</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+<anchor xml:id="_vehicles_8c_1ad531955832370c9ea477a920316b6442"/><section>
+    <title>vehicleExists()</title>
+<indexterm><primary>vehicleExists</primary><secondary>vehicles.c</secondary></indexterm>
+<indexterm><primary>vehicles.c</primary><secondary>vehicleExists</secondary></indexterm>
+<para><computeroutput>int vehicleExists (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Vehicle exist. </para>
+</para>
+
+<para>Checks if a specified vehicle exists at the linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_vehicles_8c_source_1l00374">374</link> of file <link linkend="_vehicles_8c_source">vehicles.c</link>.</para>
+</section>
+</section>
+</section>

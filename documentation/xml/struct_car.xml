@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="struct_car" kind="struct" language="C++" prot="public">
+    <compoundname>Car</compoundname>
+    <includes refid="global_8h" local="no">global.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_car_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>Car::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="13" column="9" bodyfile="headers/global.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_car_1a43a6e4be8d45c1a00a55a11d095c0399" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float batteryCapacity</definition>
+        <argsstring></argsstring>
+        <name>batteryCapacity</name>
+        <qualifiedname>Car::batteryCapacity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="14" column="11" bodyfile="headers/global.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_car_1aa0fb27feb593e8a6f2c20fa92b2466cf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int currentBattery</definition>
+        <argsstring></argsstring>
+        <name>currentBattery</name>
+        <qualifiedname>Car::currentBattery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="15" column="9" bodyfile="headers/global.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_car_1a83cda76233a2b02dcc2b3707fa58e4e8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float autonomy</definition>
+        <argsstring></argsstring>
+        <name>autonomy</name>
+        <qualifiedname>Car::autonomy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="16" column="11" bodyfile="headers/global.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_car_1a500426aec97889b7572f25ae45c06a8d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float price</definition>
+        <argsstring></argsstring>
+        <name>price</name>
+        <qualifiedname>Car::price</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="17" column="11" bodyfile="headers/global.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_car_1a19d9312fa6559481585c37eec00fdccf" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char brand[20]</definition>
+        <argsstring>[20]</argsstring>
+        <name>brand</name>
+        <qualifiedname>Car::brand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="18" column="10" bodyfile="headers/global.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_car_1a407e8645b05b8866c6aae96539051b4d" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char model[20]</definition>
+        <argsstring>[20]</argsstring>
+        <name>model</name>
+        <qualifiedname>Car::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="19" column="10" bodyfile="headers/global.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_car_1a28e6925eca319a182388b4d560d9026b" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char gpsTracker[50]</definition>
+        <argsstring>[50]</argsstring>
+        <name>gpsTracker</name>
+        <qualifiedname>Car::gpsTracker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="20" column="10" bodyfile="headers/global.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="headers/global.h" line="12" column="1" bodyfile="headers/global.h" bodystart="12" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_car_1a83cda76233a2b02dcc2b3707fa58e4e8" prot="public" virt="non-virtual"><scope>Car</scope><name>autonomy</name></member>
+      <member refid="struct_car_1a43a6e4be8d45c1a00a55a11d095c0399" prot="public" virt="non-virtual"><scope>Car</scope><name>batteryCapacity</name></member>
+      <member refid="struct_car_1a19d9312fa6559481585c37eec00fdccf" prot="public" virt="non-virtual"><scope>Car</scope><name>brand</name></member>
+      <member refid="struct_car_1aa0fb27feb593e8a6f2c20fa92b2466cf" prot="public" virt="non-virtual"><scope>Car</scope><name>currentBattery</name></member>
+      <member refid="struct_car_1a28e6925eca319a182388b4d560d9026b" prot="public" virt="non-virtual"><scope>Car</scope><name>gpsTracker</name></member>
+      <member refid="struct_car_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="public" virt="non-virtual"><scope>Car</scope><name>id</name></member>
+      <member refid="struct_car_1a407e8645b05b8866c6aae96539051b4d" prot="public" virt="non-virtual"><scope>Car</scope><name>model</name></member>
+      <member refid="struct_car_1a500426aec97889b7572f25ae45c06a8d" prot="public" virt="non-virtual"><scope>Car</scope><name>price</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

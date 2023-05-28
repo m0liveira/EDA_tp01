@@ -5,8 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>EDA_tp_f01: sources/users.c Source File</title>
+<title>Estruturas de Dados Avançadas - trabalho prático: sources/users.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
@@ -16,20 +17,39 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">EDA_tp_f01<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">Estruturas de Dados Avançadas - trabalho prático<span id="projectnumber">&#160;2</span>
    </div>
-   <div id="projectbrief">primeira fase do trabalho pratico para a disciplina de Estruturas de Dados Avançadas</div>
+   <div id="projectbrief">Trabalho prático para a cadeira de Estruturas de Dados Avançadas</div>
   </td>
  </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td></tr>
  </tbody>
 </table>
 </div>
@@ -40,19 +60,7 @@
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
     <div id="nav-tree-contents">
       <div id="nav-sync" class="sync"></div>
@@ -182,84 +190,108 @@ $(document).ready(function(){initNavTree('users_8c_source.html',''); initResizab
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">return</span>(1);</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="users_8h.html#a36ad2b37dc9902e37bb2f143f923bffe">  143</a></span><a class="code hl_struct" href="struct_user_list.html">User</a> *<a class="code hl_function" href="users_8c.html#a36ad2b37dc9902e37bb2f143f923bffe">getUsersFromDatabase</a>(){</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_struct" href="struct_user_list.html">User</a> *users = NULL, *stack = NULL;;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    FILE *fp;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">int</span> id, nif;</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">float</span> balance;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">char</span> name[30], password[30], role[10];</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="users_8h.html#aa3190709fa215b59580f1e98d4d90fb0">  144</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="users_8c.html#aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</a>(<a class="code hl_struct" href="struct_user_list.html">User</a> *startEntry) {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <a class="code hl_struct" href="struct_user_list.html">User</a>* aux = startEntry;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    FILE* fp;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    fp = fopen(<span class="stringliteral">&quot;../databases/users_database.bin&quot;</span>, <span class="stringliteral">&quot;wb&quot;</span>);</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    fp = fopen(<span class="stringliteral">&quot;../databases/users_database.txt&quot;</span>,<span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">if</span> (fp == NULL) <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">if</span> (fp == NULL) <span class="keywordflow">return</span> users;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="global_8h.html#ae7f7fdd55d053ad019b98ea0bd1001f6">isFileEmpty</a>(<span class="stringliteral">&quot;../databases/users_database.txt&quot;</span>) == 1) <span class="keywordflow">return</span> users;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordflow">while</span> (fscanf(fp, <span class="stringliteral">&quot;Id:%d;Name:%[^;];Password:%[^;];Nif:%d;Balance:%f;Role:%[^;\n];\n&quot;</span>, &amp;<span class="keywordtype">id</span>, name, password, &amp;nif, &amp;balance, role) == 6) {</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        stack = <a class="code hl_function" href="users_8c.html#aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</a>(stack, <span class="keywordtype">id</span>, nif, balance, name, password, role);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">while</span> (aux != NULL) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        fwrite(&amp;aux-&gt;<a class="code hl_variable" href="struct_user_list.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>), 1, fp);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        fwrite(aux-&gt;<a class="code hl_variable" href="struct_user_list.html#a72b952e44981373d9737a72616bb317f">name</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), strlen(aux-&gt;<a class="code hl_variable" href="struct_user_list.html#a72b952e44981373d9737a72616bb317f">name</a>) + 1, fp);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        fwrite(aux-&gt;<a class="code hl_variable" href="struct_user_list.html#ae2f06144744aa77e5443babb0f993ec6">password</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), strlen(aux-&gt;<a class="code hl_variable" href="struct_user_list.html#ae2f06144744aa77e5443babb0f993ec6">password</a>) + 1, fp);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        fwrite(&amp;aux-&gt;<a class="code hl_variable" href="struct_user_list.html#ad68c6985dce5a3d709f854778dedee19">nif</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>), 1, fp);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        fwrite(&amp;aux-&gt;<a class="code hl_variable" href="struct_user_list.html#a52a01a1ee7bb0cfab931fc44ec76da87">balance</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>), 1, fp);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        fwrite(aux-&gt;<a class="code hl_variable" href="struct_user_list.html#a8877f22b3d1c2d2dc9f729b8b82291b3">role</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), strlen(aux-&gt;<a class="code hl_variable" href="struct_user_list.html#a8877f22b3d1c2d2dc9f729b8b82291b3">role</a>) + 1, fp);</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    fclose(fp);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordflow">while</span> (stack != NULL) {</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        users = <a class="code hl_function" href="users_8c.html#aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</a>(users, stack-&gt;<a class="code hl_variable" href="struct_user_list.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>, stack-&gt;nif, stack-&gt;balance, stack-&gt;name, stack-&gt;password, stack-&gt;role);</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        stack = stack-&gt;nextEntry;</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">return</span>(users);</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>}</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="users_8h.html#aa7b4e161f2c6c59d4849ce653efd30e5">  179</a></span><a class="code hl_struct" href="struct_user_list.html">User</a> *<a class="code hl_function" href="users_8c.html#aa7b4e161f2c6c59d4849ce653efd30e5">deleteUser</a>(<a class="code hl_struct" href="struct_user_list.html">User</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>){</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <a class="code hl_struct" href="struct_user_list.html">User</a> *previousEntry = startEntry, *currentEntry = startEntry, *aux;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">if</span> (currentEntry == NULL) {</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        printf(<span class="stringliteral">&quot;\nO utilizador indicado nao esta registado!\n\n&quot;</span>);</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span>(NULL);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">if</span> (currentEntry-&gt;id == <span class="keywordtype">id</span>) {</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        aux = currentEntry-&gt;nextEntry;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        free(currentEntry);</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">return</span>(aux);</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    } </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>   </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">while</span> ((currentEntry != NULL) &amp;&amp; (currentEntry-&gt;id != <span class="keywordtype">id</span>)) {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        previousEntry = currentEntry;</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        currentEntry = currentEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a>;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    }</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordflow">if</span> (currentEntry != NULL) {</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        previousEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a> = currentEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a>;</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        free(currentEntry);</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <span class="keywordflow">return</span>(startEntry);</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    printf(<span class="stringliteral">&quot;\nO utilizador indicado nao esta registado!\n\n&quot;</span>);</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordflow">return</span>(startEntry);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>}</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="users_8h.html#ab54a616a3193a2efad78e80b31028430">  217</a></span><a class="code hl_struct" href="struct_user_list.html">User</a> *<a class="code hl_function" href="users_8c.html#ab54a616a3193a2efad78e80b31028430">editUser</a>(<a class="code hl_struct" href="struct_user_list.html">User</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>){</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <a class="code hl_struct" href="struct_user_list.html">User</a> *previousEntry = startEntry, *currentEntry = startEntry;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordflow">if</span> (currentEntry==NULL) {</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        printf(<span class="stringliteral">&quot;\nO utilizador indicado nao esta registado!\n\n&quot;</span>);</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordflow">return</span>(NULL);</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordflow">while</span> ((currentEntry != NULL) &amp;&amp; (currentEntry-&gt;id != <span class="keywordtype">id</span>)) {</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        previousEntry = currentEntry;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        currentEntry = currentEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a>;</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    }</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    </div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordflow">if</span> (currentEntry != NULL) {</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        currentEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#a52a01a1ee7bb0cfab931fc44ec76da87">balance</a> = <a class="code hl_variable" href="global_8h.html#ab725550f6491851805c821cade824e32">session</a>.<a class="code hl_variable" href="struct_session.html#a52a01a1ee7bb0cfab931fc44ec76da87">balance</a>;</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        strcpy(currentEntry-&gt;password, <a class="code hl_variable" href="global_8h.html#ab725550f6491851805c821cade824e32">session</a>.<a class="code hl_variable" href="struct_session.html#ae2f06144744aa77e5443babb0f993ec6">password</a>);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keywordflow">return</span>(startEntry);</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    }</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    printf(<span class="stringliteral">&quot;\nO utilizador indicado nao esta registado!\n\n&quot;</span>);</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keywordflow">return</span>(startEntry);</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>}</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        aux = aux-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    fclose(fp);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>}</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="users_8h.html#a36ad2b37dc9902e37bb2f143f923bffe">  176</a></span><a class="code hl_struct" href="struct_user_list.html">User</a> *<a class="code hl_function" href="users_8c.html#a36ad2b37dc9902e37bb2f143f923bffe">getUsersFromDatabase</a>(){</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <a class="code hl_struct" href="struct_user_list.html">User</a> *users = NULL, *stack = NULL;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    FILE *fp;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordtype">int</span> id, nif;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordtype">float</span> balance;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordtype">char</span> name[30], password[30], role[10];</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    fp = fopen(<span class="stringliteral">&quot;../databases/users_database.txt&quot;</span>,<span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">if</span> (fp == NULL) <span class="keywordflow">return</span> users;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="global_8h.html#ae7f7fdd55d053ad019b98ea0bd1001f6">isFileEmpty</a>(<span class="stringliteral">&quot;../databases/users_database.txt&quot;</span>) == 1) <span class="keywordflow">return</span> users;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keywordflow">while</span> (fscanf(fp, <span class="stringliteral">&quot;Id:%d;Name:%[^;];Password:%[^;];Nif:%d;Balance:%f;Role:%[^;\n];\n&quot;</span>, &amp;<span class="keywordtype">id</span>, name, password, &amp;nif, &amp;balance, role) == 6) {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        stack = <a class="code hl_function" href="users_8c.html#aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</a>(stack, <span class="keywordtype">id</span>, nif, balance, name, password, role);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    }</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    fclose(fp);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">while</span> (stack != NULL) {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        users = <a class="code hl_function" href="users_8c.html#aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</a>(users, stack-&gt;<a class="code hl_variable" href="struct_user_list.html#a7441ef0865bcb3db9b8064dd7375c1ea">id</a>, stack-&gt;nif, stack-&gt;balance, stack-&gt;name, stack-&gt;password, stack-&gt;role);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        stack = stack-&gt;nextEntry;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    }</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordflow">return</span>(users);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>}</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="users_8h.html#aa7b4e161f2c6c59d4849ce653efd30e5">  212</a></span><a class="code hl_struct" href="struct_user_list.html">User</a> *<a class="code hl_function" href="users_8c.html#aa7b4e161f2c6c59d4849ce653efd30e5">deleteUser</a>(<a class="code hl_struct" href="struct_user_list.html">User</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>){</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <a class="code hl_struct" href="struct_user_list.html">User</a> *previousEntry = startEntry, *currentEntry = startEntry, *aux;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">if</span> (currentEntry == NULL) {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        printf(<span class="stringliteral">&quot;\nO utilizador indicado nao esta registado!\n\n&quot;</span>);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">return</span>(NULL);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordflow">if</span> (currentEntry-&gt;id == <span class="keywordtype">id</span>) {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        aux = currentEntry-&gt;nextEntry;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        free(currentEntry);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keywordflow">return</span>(aux);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    } </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>   </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordflow">while</span> ((currentEntry != NULL) &amp;&amp; (currentEntry-&gt;id != <span class="keywordtype">id</span>)) {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        previousEntry = currentEntry;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        currentEntry = currentEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordflow">if</span> (currentEntry != NULL) {</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        previousEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a> = currentEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a>;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        free(currentEntry);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">return</span>(startEntry);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    printf(<span class="stringliteral">&quot;\nO utilizador indicado nao esta registado!\n\n&quot;</span>);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordflow">return</span>(startEntry);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>}</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="users_8h.html#ab54a616a3193a2efad78e80b31028430">  250</a></span><a class="code hl_struct" href="struct_user_list.html">User</a> *<a class="code hl_function" href="users_8c.html#ab54a616a3193a2efad78e80b31028430">editUser</a>(<a class="code hl_struct" href="struct_user_list.html">User</a> *startEntry, <span class="keywordtype">int</span> <span class="keywordtype">id</span>){</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <a class="code hl_struct" href="struct_user_list.html">User</a> *previousEntry = startEntry, *currentEntry = startEntry;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordflow">if</span> (currentEntry==NULL) {</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        printf(<span class="stringliteral">&quot;\nO utilizador indicado nao esta registado!\n\n&quot;</span>);</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordflow">return</span>(NULL);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordflow">while</span> ((currentEntry != NULL) &amp;&amp; (currentEntry-&gt;id != <span class="keywordtype">id</span>)) {</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        previousEntry = currentEntry;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        currentEntry = currentEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</a>;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordflow">if</span> (currentEntry != NULL) {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        currentEntry-&gt;<a class="code hl_variable" href="struct_user_list.html#a52a01a1ee7bb0cfab931fc44ec76da87">balance</a> = <a class="code hl_variable" href="global_8h.html#ab725550f6491851805c821cade824e32">session</a>.<a class="code hl_variable" href="struct_session.html#a52a01a1ee7bb0cfab931fc44ec76da87">balance</a>;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        strcpy(currentEntry-&gt;password, <a class="code hl_variable" href="global_8h.html#ab725550f6491851805c821cade824e32">session</a>.<a class="code hl_variable" href="struct_session.html#ae2f06144744aa77e5443babb0f993ec6">password</a>);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordflow">return</span>(startEntry);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    }</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    printf(<span class="stringliteral">&quot;\nO utilizador indicado nao esta registado!\n\n&quot;</span>);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordflow">return</span>(startEntry);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>}</div>
 <div class="ttc" id="aglobal_8h_html_ab725550f6491851805c821cade824e32"><div class="ttname"><a href="global_8h.html#ab725550f6491851805c821cade824e32">session</a></div><div class="ttdeci">struct Session session</div></div>
 <div class="ttc" id="aglobal_8h_html_ae7f7fdd55d053ad019b98ea0bd1001f6"><div class="ttname"><a href="global_8h.html#ae7f7fdd55d053ad019b98ea0bd1001f6">isFileEmpty</a></div><div class="ttdeci">int isFileEmpty(char dir[])</div><div class="ttdoc">Check File.</div><div class="ttdef"><b>Definition:</b> <a href="global_8c_source.html#l00014">global.c:14</a></div></div>
 <div class="ttc" id="astruct_session_html_a52a01a1ee7bb0cfab931fc44ec76da87"><div class="ttname"><a href="struct_session.html#a52a01a1ee7bb0cfab931fc44ec76da87">Session::balance</a></div><div class="ttdeci">float balance</div><div class="ttdef"><b>Definition:</b> <a href="global_8h_source.html#l00006">global.h:6</a></div></div>
@@ -276,13 +308,14 @@ $(document).ready(function(){initNavTree('users_8c_source.html',''); initResizab
 <div class="ttc" id="astruct_user_list_html_ad68c6985dce5a3d709f854778dedee19"><div class="ttname"><a href="struct_user_list.html#ad68c6985dce5a3d709f854778dedee19">UserList::nif</a></div><div class="ttdeci">int nif</div><div class="ttdef"><b>Definition:</b> <a href="users_8h_source.html#l00005">users.h:5</a></div></div>
 <div class="ttc" id="astruct_user_list_html_ad92c0a209cd3b2943cd2c0c22a5a5522"><div class="ttname"><a href="struct_user_list.html#ad92c0a209cd3b2943cd2c0c22a5a5522">UserList::nextEntry</a></div><div class="ttdeci">struct UserList * nextEntry</div><div class="ttdef"><b>Definition:</b> <a href="users_8h_source.html#l00010">users.h:10</a></div></div>
 <div class="ttc" id="astruct_user_list_html_ae2f06144744aa77e5443babb0f993ec6"><div class="ttname"><a href="struct_user_list.html#ae2f06144744aa77e5443babb0f993ec6">UserList::password</a></div><div class="ttdeci">char password[30]</div><div class="ttdef"><b>Definition:</b> <a href="users_8h_source.html#l00008">users.h:8</a></div></div>
-<div class="ttc" id="ausers_8c_html_a36ad2b37dc9902e37bb2f143f923bffe"><div class="ttname"><a href="users_8c.html#a36ad2b37dc9902e37bb2f143f923bffe">getUsersFromDatabase</a></div><div class="ttdeci">User * getUsersFromDatabase()</div><div class="ttdoc">Get Users.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00143">users.c:143</a></div></div>
+<div class="ttc" id="ausers_8c_html_a36ad2b37dc9902e37bb2f143f923bffe"><div class="ttname"><a href="users_8c.html#a36ad2b37dc9902e37bb2f143f923bffe">getUsersFromDatabase</a></div><div class="ttdeci">User * getUsersFromDatabase()</div><div class="ttdoc">Get Users.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00176">users.c:176</a></div></div>
 <div class="ttc" id="ausers_8c_html_a3eff6244efefa29ff980a2bd706b8e9b"><div class="ttname"><a href="users_8c.html#a3eff6244efefa29ff980a2bd706b8e9b">isUserUnique</a></div><div class="ttdeci">int isUserUnique(User *startEntry, int id)</div><div class="ttdoc">Check user ID.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00015">users.c:15</a></div></div>
 <div class="ttc" id="ausers_8c_html_a9724304f5304c5e18783d58daf1e2ff8"><div class="ttname"><a href="users_8c.html#a9724304f5304c5e18783d58daf1e2ff8">loginUser</a></div><div class="ttdeci">int loginUser(User *startEntry, char name[], char password[])</div><div class="ttdoc">User login.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00088">users.c:88</a></div></div>
+<div class="ttc" id="ausers_8c_html_aa3190709fa215b59580f1e98d4d90fb0"><div class="ttname"><a href="users_8c.html#aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</a></div><div class="ttdeci">int saveUsersOnBinaryDatabase(User *startEntry)</div><div class="ttdoc">Save user on a binary database.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00144">users.c:144</a></div></div>
 <div class="ttc" id="ausers_8c_html_aa658b85d23db66ac2a2873cc9ee1e3de"><div class="ttname"><a href="users_8c.html#aa658b85d23db66ac2a2873cc9ee1e3de">saveUsersOnDatabase</a></div><div class="ttdeci">int saveUsersOnDatabase(User *startEntry)</div><div class="ttdoc">Save user on database.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00116">users.c:116</a></div></div>
-<div class="ttc" id="ausers_8c_html_aa7b4e161f2c6c59d4849ce653efd30e5"><div class="ttname"><a href="users_8c.html#aa7b4e161f2c6c59d4849ce653efd30e5">deleteUser</a></div><div class="ttdeci">User * deleteUser(User *startEntry, int id)</div><div class="ttdoc">Delete user.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00179">users.c:179</a></div></div>
+<div class="ttc" id="ausers_8c_html_aa7b4e161f2c6c59d4849ce653efd30e5"><div class="ttname"><a href="users_8c.html#aa7b4e161f2c6c59d4849ce653efd30e5">deleteUser</a></div><div class="ttdeci">User * deleteUser(User *startEntry, int id)</div><div class="ttdoc">Delete user.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00212">users.c:212</a></div></div>
 <div class="ttc" id="ausers_8c_html_aae43e4ec2bd4a34eaaa402c89d8eccd1"><div class="ttname"><a href="users_8c.html#aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</a></div><div class="ttdeci">User * addUser(User *startEntry, int id, int nif, float balance, char name[], char password[], char role[])</div><div class="ttdoc">Add user.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00053">users.c:53</a></div></div>
-<div class="ttc" id="ausers_8c_html_ab54a616a3193a2efad78e80b31028430"><div class="ttname"><a href="users_8c.html#ab54a616a3193a2efad78e80b31028430">editUser</a></div><div class="ttdeci">User * editUser(User *startEntry, int id)</div><div class="ttdoc">Update user.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00217">users.c:217</a></div></div>
+<div class="ttc" id="ausers_8c_html_ab54a616a3193a2efad78e80b31028430"><div class="ttname"><a href="users_8c.html#ab54a616a3193a2efad78e80b31028430">editUser</a></div><div class="ttdeci">User * editUser(User *startEntry, int id)</div><div class="ttdoc">Update user.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00250">users.c:250</a></div></div>
 <div class="ttc" id="ausers_8c_html_ace2066eafefcb27752a21a5da56efecc"><div class="ttname"><a href="users_8c.html#ace2066eafefcb27752a21a5da56efecc">isNameUnique</a></div><div class="ttdeci">int isNameUnique(User *startEntry, char name[])</div><div class="ttdoc">Check user name.</div><div class="ttdef"><b>Definition:</b> <a href="users_8c_source.html#l00034">users.c:34</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

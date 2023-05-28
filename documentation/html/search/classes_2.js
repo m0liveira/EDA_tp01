@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['session_0',['Session',['../struct_session.html',1,'']]]
+  ['edgelist_0',['EdgeList',['../struct_edge_list.html',1,'']]]
 ];

@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="users_8h" kind="file" language="C++">
+    <compoundname>users.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="main_8c" local="yes">sources/main.c</includedby>
+    <includedby refid="rents_8c" local="yes">sources/rents.c</includedby>
+    <includedby refid="users_8c" local="yes">sources/users.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>headers/users.h</label>
+        <link refid="users_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>headers/users.h</label>
+        <link refid="users_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sources/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="3">
+        <label>sources/rents.c</label>
+        <link refid="rents_8c"/>
+      </node>
+      <node id="4">
+        <label>sources/users.c</label>
+        <link refid="users_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_user_list" prot="public">UserList</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="users_8h_1a5400f33cf0c5c9de937367162462fb55" prot="public" static="no">
+        <type>struct <ref refid="struct_user_list" kindref="compound">UserList</ref></type>
+        <definition>typedef struct UserList User</definition>
+        <argsstring></argsstring>
+        <name>User</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="11" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="users_8h_1a3eff6244efefa29ff980a2bd706b8e9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isUserUnique</definition>
+        <argsstring>(User *startEntry, int id)</argsstring>
+        <name>isUserUnique</name>
+        <param>
+          <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Check user ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the ID is dupped</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>User</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="13" column="5" bodyfile="sources/users.c" bodystart="15" bodyend="23" declfile="headers/users.h" declline="13" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="users_8h_1ace2066eafefcb27752a21a5da56efecc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isNameUnique</definition>
+        <argsstring>(User *startEntry, char name[])</argsstring>
+        <name>isNameUnique</name>
+        <param>
+          <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>name</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Check user name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the user name is dupped</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>User</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>name[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="14" column="5" bodyfile="sources/users.c" bodystart="34" bodyend="42" declfile="headers/users.h" declline="14" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="users_8h_1aae43e4ec2bd4a34eaaa402c89d8eccd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+        <definition>User * addUser</definition>
+        <argsstring>(User *startEntry, int id, int nif, float balance, char name[], char password[], char role[])</argsstring>
+        <name>addUser</name>
+        <param>
+          <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nif</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>balance</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>name</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>password</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>role</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Add user. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a new user entry into a linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>User</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nif</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>balance</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>name[]</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>password[]</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>role[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Added user </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="15" column="6" bodyfile="sources/users.c" bodystart="53" bodyend="77" declfile="headers/users.h" declline="15" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="users_8h_1a9724304f5304c5e18783d58daf1e2ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int loginUser</definition>
+        <argsstring>(User *startEntry, char name[], char password[])</argsstring>
+        <name>loginUser</name>
+        <param>
+          <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>name</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>password</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>User login. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Logins a user into the program</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>User</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>name[]</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>password[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="16" column="5" bodyfile="sources/users.c" bodystart="88" bodyend="105" declfile="headers/users.h" declline="16" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveUsersOnDatabase</definition>
+        <argsstring>(User *startEntry)</argsstring>
+        <name>saveUsersOnDatabase</name>
+        <param>
+          <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Save user on database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves user entrys into a database</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>User</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="17" column="5" bodyfile="sources/users.c" bodystart="116" bodyend="133" declfile="headers/users.h" declline="17" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="users_8h_1aa3190709fa215b59580f1e98d4d90fb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveUsersOnBinaryDatabase</definition>
+        <argsstring>(User *startEntry)</argsstring>
+        <name>saveUsersOnBinaryDatabase</name>
+        <param>
+          <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Save user on a binary database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves user entrys into a binary database</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>User</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="18" column="5" bodyfile="sources/users.c" bodystart="144" bodyend="166" declfile="headers/users.h" declline="18" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="users_8h_1a36ad2b37dc9902e37bb2f143f923bffe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+        <definition>User * getUsersFromDatabase</definition>
+        <argsstring>()</argsstring>
+        <name>getUsersFromDatabase</name>
+        <briefdescription>
+<para>Get Users. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all users from a database</para>
+<para><simplesect kind="return"><para>users </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="19" column="6" bodyfile="sources/users.c" bodystart="176" bodyend="201" declfile="headers/users.h" declline="19" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="users_8h_1aa7b4e161f2c6c59d4849ce653efd30e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+        <definition>User * deleteUser</definition>
+        <argsstring>(User *startEntry, int id)</argsstring>
+        <name>deleteUser</name>
+        <param>
+          <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Delete user. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes an user entry from the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>User</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>users </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="20" column="6" bodyfile="sources/users.c" bodystart="212" bodyend="239" declfile="headers/users.h" declline="20" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="users_8h_1ab54a616a3193a2efad78e80b31028430" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+        <definition>User * editUser</definition>
+        <argsstring>(User *startEntry, int id)</argsstring>
+        <name>editUser</name>
+        <param>
+          <type><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Update user. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates a specified user entry from the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>User</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>users </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/users.h" line="21" column="6" bodyfile="sources/users.c" bodystart="250" bodyend="271" declfile="headers/users.h" declline="21" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="struct_user_list" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_user_list" kindref="compound">UserList</ref><sp/>{</highlight></codeline>
+<codeline lineno="4" refid="struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="5" refid="struct_user_list_1ad68c6985dce5a3d709f854778dedee19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1ad68c6985dce5a3d709f854778dedee19" kindref="member">nif</ref>;</highlight></codeline>
+<codeline lineno="6" refid="struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87" kindref="member">balance</ref>;</highlight></codeline>
+<codeline lineno="7" refid="struct_user_list_1a72b952e44981373d9737a72616bb317f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a72b952e44981373d9737a72616bb317f" kindref="member">name</ref>[30];</highlight></codeline>
+<codeline lineno="8" refid="struct_user_list_1ae2f06144744aa77e5443babb0f993ec6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1ae2f06144744aa77e5443babb0f993ec6" kindref="member">password</ref>[30];</highlight></codeline>
+<codeline lineno="9" refid="struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3" kindref="member">role</ref>[10];</highlight></codeline>
+<codeline lineno="10" refid="struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_user_list" kindref="compound">UserList</ref><sp/>*<ref refid="struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="11" refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" refkind="member"><highlight class="normal">}<sp/><ref refid="users_8h_1a5400f33cf0c5c9de937367162462fb55" kindref="member">User</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="users_8h_1a3eff6244efefa29ff980a2bd706b8e9b" kindref="member">isUserUnique</ref>(<ref refid="struct_user_list" kindref="compound">User</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="users_8h_1ace2066eafefcb27752a21a5da56efecc" kindref="member">isNameUnique</ref>(<ref refid="struct_user_list" kindref="compound">User</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a72b952e44981373d9737a72616bb317f" kindref="member">name</ref>[]);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><ref refid="struct_user_list" kindref="compound">User</ref><sp/>*<ref refid="users_8h_1aae43e4ec2bd4a34eaaa402c89d8eccd1" kindref="member">addUser</ref>(<ref refid="struct_user_list" kindref="compound">User</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1ad68c6985dce5a3d709f854778dedee19" kindref="member">nif</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87" kindref="member">balance</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a72b952e44981373d9737a72616bb317f" kindref="member">name</ref>[],<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1ae2f06144744aa77e5443babb0f993ec6" kindref="member">password</ref>[],<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3" kindref="member">role</ref>[]);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="users_8h_1a9724304f5304c5e18783d58daf1e2ff8" kindref="member">loginUser</ref>(<ref refid="struct_user_list" kindref="compound">User</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1a72b952e44981373d9737a72616bb317f" kindref="member">name</ref>[],<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_list_1ae2f06144744aa77e5443babb0f993ec6" kindref="member">password</ref>[]);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de" kindref="member">saveUsersOnDatabase</ref>(<ref refid="struct_user_list" kindref="compound">User</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="users_8h_1aa3190709fa215b59580f1e98d4d90fb0" kindref="member">saveUsersOnBinaryDatabase</ref>(<ref refid="struct_user_list" kindref="compound">User</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><ref refid="struct_user_list" kindref="compound">User</ref><sp/>*<ref refid="users_8h_1a36ad2b37dc9902e37bb2f143f923bffe" kindref="member">getUsersFromDatabase</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><ref refid="struct_user_list" kindref="compound">User</ref><sp/>*<ref refid="users_8h_1aa7b4e161f2c6c59d4849ce653efd30e5" kindref="member">deleteUser</ref>(<ref refid="struct_user_list" kindref="compound">User</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><ref refid="struct_user_list" kindref="compound">User</ref><sp/>*<ref refid="users_8h_1ab54a616a3193a2efad78e80b31028430" kindref="member">editUser</ref>(<ref refid="struct_user_list" kindref="compound">User</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+    </programlisting>
+    <location file="headers/users.h"/>
+  </compounddef>
+</doxygen>

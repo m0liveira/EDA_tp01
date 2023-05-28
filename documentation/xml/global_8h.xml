@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="global_8h" kind="file" language="C++">
+    <compoundname>global.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="global_8c" local="yes">sources/global.c</includedby>
+    <includedby refid="graphs_8c" local="yes">sources/graphs.c</includedby>
+    <includedby refid="main_8c" local="yes">sources/main.c</includedby>
+    <includedby refid="rents_8c" local="yes">sources/rents.c</includedby>
+    <includedby refid="users_8c" local="yes">sources/users.c</includedby>
+    <includedby refid="vehicles_8c" local="yes">sources/vehicles.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>headers/global.h</label>
+        <link refid="global_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>headers/global.h</label>
+        <link refid="global_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sources/global.c</label>
+        <link refid="global_8c"/>
+      </node>
+      <node id="3">
+        <label>sources/graphs.c</label>
+        <link refid="graphs_8c"/>
+      </node>
+      <node id="4">
+        <label>sources/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="5">
+        <label>sources/rents.c</label>
+        <link refid="rents_8c"/>
+      </node>
+      <node id="6">
+        <label>sources/users.c</label>
+        <link refid="users_8c"/>
+      </node>
+      <node id="7">
+        <label>sources/vehicles.c</label>
+        <link refid="vehicles_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_session" prot="public">Session</innerclass>
+    <innerclass refid="struct_car" prot="public">Car</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="global_8h_1ab725550f6491851805c821cade824e32" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_session" kindref="compound">Session</ref></type>
+        <definition>struct Session session</definition>
+        <argsstring></argsstring>
+        <name>session</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="10" column="9"/>
+      </memberdef>
+      <memberdef kind="variable" id="global_8h_1a3e96a5e238530b20be201de161da2059" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_car" kindref="compound">Car</ref></type>
+        <definition>struct Car car</definition>
+        <argsstring></argsstring>
+        <name>car</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="21" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="global_8h_1ae7f7fdd55d053ad019b98ea0bd1001f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isFileEmpty</definition>
+        <argsstring>(char dir[])</argsstring>
+        <name>isFileEmpty</name>
+        <param>
+          <type>char</type>
+          <declname>dir</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Check File. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if a specified file is empty.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dir[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="23" column="5" bodyfile="sources/global.c" bodystart="14" bodyend="29" declfile="headers/global.h" declline="23" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="global_8h_1adcfc6b65c0eeff972a28d8c602285961" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getLastIdFromDb</definition>
+        <argsstring>(char dir[])</argsstring>
+        <name>getLastIdFromDb</name>
+        <param>
+          <type>char</type>
+          <declname>dir</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Get last ID from database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the last ID saved in a specified database.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dir[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Next ID counting from the last ID at the database </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="24" column="5" bodyfile="sources/global.c" bodystart="40" bodyend="57" declfile="headers/global.h" declline="24" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="global_8h_1a7081b188a1c030ef2747fb1cf160706e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getLastVerticeFromDb</definition>
+        <argsstring>(char dir[])</argsstring>
+        <name>getLastVerticeFromDb</name>
+        <param>
+          <type>char</type>
+          <declname>dir</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/global.h" line="25" column="5" bodyfile="sources/global.c" bodystart="59" bodyend="89" declfile="headers/global.h" declline="25" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="struct_session" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_session" kindref="compound">Session</ref><sp/>{</highlight></codeline>
+<codeline lineno="4" refid="struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="5" refid="struct_session_1ad68c6985dce5a3d709f854778dedee19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_session_1ad68c6985dce5a3d709f854778dedee19" kindref="member">nif</ref>;</highlight></codeline>
+<codeline lineno="6" refid="struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87" kindref="member">balance</ref>;</highlight></codeline>
+<codeline lineno="7" refid="struct_session_1a72b952e44981373d9737a72616bb317f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_session_1a72b952e44981373d9737a72616bb317f" kindref="member">name</ref>[30];</highlight></codeline>
+<codeline lineno="8" refid="struct_session_1ae2f06144744aa77e5443babb0f993ec6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_session_1ae2f06144744aa77e5443babb0f993ec6" kindref="member">password</ref>[30];</highlight></codeline>
+<codeline lineno="9" refid="struct_session_1a8877f22b3d1c2d2dc9f729b8b82291b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_session_1a8877f22b3d1c2d2dc9f729b8b82291b3" kindref="member">role</ref>[10];</highlight></codeline>
+<codeline lineno="10" refid="global_8h_1ab725550f6491851805c821cade824e32" refkind="member"><highlight class="normal">}<sp/><ref refid="global_8h_1ab725550f6491851805c821cade824e32" kindref="member">session</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="struct_car" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_car" kindref="compound">Car</ref><sp/>{</highlight></codeline>
+<codeline lineno="13" refid="struct_car_1a7441ef0865bcb3db9b8064dd7375c1ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_car_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="14" refid="struct_car_1a43a6e4be8d45c1a00a55a11d095c0399" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_car_1a43a6e4be8d45c1a00a55a11d095c0399" kindref="member">batteryCapacity</ref>;</highlight></codeline>
+<codeline lineno="15" refid="struct_car_1aa0fb27feb593e8a6f2c20fa92b2466cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_car_1aa0fb27feb593e8a6f2c20fa92b2466cf" kindref="member">currentBattery</ref>;</highlight></codeline>
+<codeline lineno="16" refid="struct_car_1a83cda76233a2b02dcc2b3707fa58e4e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_car_1a83cda76233a2b02dcc2b3707fa58e4e8" kindref="member">autonomy</ref>;</highlight></codeline>
+<codeline lineno="17" refid="struct_car_1a500426aec97889b7572f25ae45c06a8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_car_1a500426aec97889b7572f25ae45c06a8d" kindref="member">price</ref>;</highlight></codeline>
+<codeline lineno="18" refid="struct_car_1a19d9312fa6559481585c37eec00fdccf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_car_1a19d9312fa6559481585c37eec00fdccf" kindref="member">brand</ref>[20];</highlight></codeline>
+<codeline lineno="19" refid="struct_car_1a407e8645b05b8866c6aae96539051b4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_car_1a407e8645b05b8866c6aae96539051b4d" kindref="member">model</ref>[20];</highlight></codeline>
+<codeline lineno="20" refid="struct_car_1a28e6925eca319a182388b4d560d9026b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_car_1a28e6925eca319a182388b4d560d9026b" kindref="member">gpsTracker</ref>[50];</highlight></codeline>
+<codeline lineno="21" refid="global_8h_1a3e96a5e238530b20be201de161da2059" refkind="member"><highlight class="normal">}<sp/><ref refid="global_8h_1a3e96a5e238530b20be201de161da2059" kindref="member">car</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="global_8h_1ae7f7fdd55d053ad019b98ea0bd1001f6" kindref="member">isFileEmpty</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>dir[]);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="global_8h_1adcfc6b65c0eeff972a28d8c602285961" kindref="member">getLastIdFromDb</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>dir[]);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="global_8h_1a7081b188a1c030ef2747fb1cf160706e" kindref="member">getLastVerticeFromDb</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>dir[]);</highlight></codeline>
+    </programlisting>
+    <location file="headers/global.h"/>
+  </compounddef>
+</doxygen>

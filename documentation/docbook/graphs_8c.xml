@@ -1,0 +1,620 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_graphs_8c" xml:lang="en-US">
+<title>sources/graphs.c File Reference</title>
+<indexterm><primary>sources/graphs.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;time.h&gt;<?linebreak?>#include &lt;limits.h&gt;<?linebreak?>#include &quot;../headers/global.h&quot;<?linebreak?>#include &quot;../headers/graphs.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_graphs_8c_1a0fdb7b933ef091574ff57d1f36dd4167">MAX_VERTICES</link>&#160;&#160;&#160;100</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_graphs_8c_1af94b6595ac77246b48a3f03fe146a6d3">isGraphUnique</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *startEntry, int id)</para>
+
+<para>Check vertices uniqueness. </para>
+</listitem>
+            <listitem><para><link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * <link linkend="_graphs_8c_1ae350462ced1dc7ba74592037e3c9d88d">addVertex</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *startEntry, int id, <link linkend="_graphs_8h_1ae9ab6ee0d1c8faaa44a414ee96431039">Aux</link> vehicle)</para>
+
+<para>Adds vertices. </para>
+</listitem>
+            <listitem><para>float <link linkend="_graphs_8c_1a638753f6469282e3b39c8286813cfd34">generateRandomDistance</link> ()</para>
+
+<para>Generator random distance. </para>
+</listitem>
+            <listitem><para>int <link linkend="_graphs_8c_1adc3948acb11d8597092ee47d0a6e8f7c">doesVertexExist</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *graph, int vertex)</para>
+
+<para>Check vertices existence. </para>
+</listitem>
+            <listitem><para><link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * <link linkend="_graphs_8c_1af72fe49941374d635aff9d7526fc7565">AddEdge</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *graph, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> *startEntry, int startVertex, int endVertex)</para>
+
+<para>Adds edges. </para>
+</listitem>
+            <listitem><para>int <link linkend="_graphs_8c_1a3c2e0335cdd5b4448a77337f76c11022">isEdgePresent</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *graph, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> *edge, int vertexA, int vertexB)</para>
+
+<para>Checks edges. </para>
+</listitem>
+            <listitem><para><link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * <link linkend="_graphs_8c_1a0cb364c7e705c406ebe537678438911a">generateRandomGraph</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *graph, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> *edge, int numVertices, int numEdges)</para>
+
+<para>Generates Graphs. </para>
+</listitem>
+            <listitem><para>void <link linkend="_graphs_8c_1a3ab9e14d9194e69df48f70def6d45370">listGraph</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *startEntry, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> *startEdge)</para>
+
+<para>List graph. </para>
+</listitem>
+            <listitem><para>void <link linkend="_graphs_8c_1aae6d29c48d0d248e16014ef35b50a5ea">listZones</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *startEntry)</para>
+
+<para>List zones. </para>
+</listitem>
+            <listitem><para>void <link linkend="_graphs_8c_1a17abe0cb34456a08730810427bdcf20d">listVehiclesByZone</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *startEntry, int zone)</para>
+
+<para>List cars by zones. </para>
+</listitem>
+            <listitem><para>int <link linkend="_graphs_8c_1aa65bd12637311f31250ec4d793db7574">saveVerticesOnDatabase</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *startEntry)</para>
+
+<para>Save vertices on database. </para>
+</listitem>
+            <listitem><para>int <link linkend="_graphs_8c_1a860928daf7c19aa0b0a0ba64e780f8aa">saveVerticesOnBinaryDatabase</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *startEntry)</para>
+
+<para>Save vertices on a binary database. </para>
+</listitem>
+            <listitem><para><link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * <link linkend="_graphs_8c_1a7b16e36ae5b60ab0f6e1c6e8feaaf381">getVerticesFromDatabase</link> ()</para>
+
+<para>Get vertices. </para>
+</listitem>
+            <listitem><para>void <link linkend="_graphs_8c_1a3e6dbda9bc77b899aa56bd72d5fd5b10">printPath</link> (int *prev, int vertex)</para>
+</listitem>
+            <listitem><para>void <link linkend="_graphs_8c_1a2567f00cf862f6b328838a2adebec53e">getShortestPath</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *graph, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> *edge, int startVertex, int numVertices)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_graphs_8c_1a0fdb7b933ef091574ff57d1f36dd4167"/><section>
+    <title>MAX_VERTICES</title>
+<indexterm><primary>MAX_VERTICES</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>MAX_VERTICES</secondary></indexterm>
+<para><computeroutput>#define MAX_VERTICES&#160;&#160;&#160;100</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8c_source_1l00009">9</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_graphs_8c_1af72fe49941374d635aff9d7526fc7565"/><section>
+    <title>AddEdge()</title>
+<indexterm><primary>AddEdge</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>AddEdge</secondary></indexterm>
+<para><computeroutput><link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * AddEdge (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * graph, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * startEntry, int startVertex, int endVertex)</computeroutput></para><para>
+
+<para>Adds edges. </para>
+</para>
+
+<para>Adds a new edge entry into a linked list to complete a graph</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*graph</para>
+</entry>
+                            </row>
+                            <row>
+<entry>Edge</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>startVertex</para>
+</entry>
+                            </row>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*vehicle </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>edges </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00111">111</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1ae350462ced1dc7ba74592037e3c9d88d"/><section>
+    <title>addVertex()</title>
+<indexterm><primary>addVertex</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>addVertex</secondary></indexterm>
+<para><computeroutput><link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * addVertex (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * startEntry, int id, <link linkend="_graphs_8h_1ae9ab6ee0d1c8faaa44a414ee96431039">Aux</link> vehicle)</computeroutput></para><para>
+
+<para>Adds vertices. </para>
+</para>
+
+<para>Adds a new vertex entry into a linked list that represents a graph</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*graph</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id</para>
+</entry>
+                            </row>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*vehicle </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>vertices </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00039">39</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1adc3948acb11d8597092ee47d0a6e8f7c"/><section>
+    <title>doesVertexExist()</title>
+<indexterm><primary>doesVertexExist</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>doesVertexExist</secondary></indexterm>
+<para><computeroutput>int doesVertexExist (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * graph, int vertex)</computeroutput></para><para>
+
+<para>Check vertices existence. </para>
+</para>
+
+<para>Checks if the given vertex exists</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*graph</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>vertex </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00092">92</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a638753f6469282e3b39c8286813cfd34"/><section>
+    <title>generateRandomDistance()</title>
+<indexterm><primary>generateRandomDistance</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>generateRandomDistance</secondary></indexterm>
+<para><computeroutput>float generateRandomDistance ( )</computeroutput></para><para>
+
+<para>Generator random distance. </para>
+</para>
+
+<para>Generates a random distance that is going to be used as the length of the graph edges</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>distance </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00076">76</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a0cb364c7e705c406ebe537678438911a"/><section>
+    <title>generateRandomGraph()</title>
+<indexterm><primary>generateRandomGraph</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>generateRandomGraph</secondary></indexterm>
+<para><computeroutput><link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * generateRandomGraph (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * graph, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * edge, int numVertices, int numEdges)</computeroutput></para><para>
+
+<para>Generates Graphs. </para>
+</para>
+
+<para>Generates a random graph dynamically from the number of existent vertices</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*graph</para>
+</entry>
+                            </row>
+                            <row>
+<entry>Edge</entry><entry>
+<para>*edge</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>numVertices</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>numEdges </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>edges </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00172">172</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a2567f00cf862f6b328838a2adebec53e"/><section>
+    <title>getShortestPath()</title>
+<indexterm><primary>getShortestPath</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>getShortestPath</secondary></indexterm>
+<para><computeroutput>void getShortestPath (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * graph, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * edge, int startVertex, int numVertices)</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8c_source_1l00445">445</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a7b16e36ae5b60ab0f6e1c6e8feaaf381"/><section>
+    <title>getVerticesFromDatabase()</title>
+<indexterm><primary>getVerticesFromDatabase</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>getVerticesFromDatabase</secondary></indexterm>
+<para><computeroutput><link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * getVerticesFromDatabase ( )</computeroutput></para><para>
+
+<para>Get vertices. </para>
+</para>
+
+<para>Gets all vertices from a database</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>vertices </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00379">379</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a3c2e0335cdd5b4448a77337f76c11022"/><section>
+    <title>isEdgePresent()</title>
+<indexterm><primary>isEdgePresent</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>isEdgePresent</secondary></indexterm>
+<para><computeroutput>int isEdgePresent (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * graph, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * edge, int vertexA, int vertexB)</computeroutput></para><para>
+
+<para>Checks edges. </para>
+</para>
+
+<para>Checks if an edge exists</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*graph</para>
+</entry>
+                            </row>
+                            <row>
+<entry>Edge</entry><entry>
+<para>*edge</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>vertexA</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>vertexB </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00150">150</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1af94b6595ac77246b48a3f03fe146a6d3"/><section>
+    <title>isGraphUnique()</title>
+<indexterm><primary>isGraphUnique</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>isGraphUnique</secondary></indexterm>
+<para><computeroutput>int isGraphUnique (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Check vertices uniqueness. </para>
+</para>
+
+<para>Checks if the vertice is dupped</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00020">20</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a3ab9e14d9194e69df48f70def6d45370"/><section>
+    <title>listGraph()</title>
+<indexterm><primary>listGraph</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>listGraph</secondary></indexterm>
+<para><computeroutput>void listGraph (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * startEntry, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * startEdge)</computeroutput></para><para>
+
+<para>List graph. </para>
+</para>
+
+<para>Outputs graph vertices and edges</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00222">222</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a17abe0cb34456a08730810427bdcf20d"/><section>
+    <title>listVehiclesByZone()</title>
+<indexterm><primary>listVehiclesByZone</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>listVehiclesByZone</secondary></indexterm>
+<para><computeroutput>void listVehiclesByZone (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * startEntry, int zone)</computeroutput></para><para>
+
+<para>List cars by zones. </para>
+</para>
+
+<para>Outputs graph vertices</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00285">285</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1aae6d29c48d0d248e16014ef35b50a5ea"/><section>
+    <title>listZones()</title>
+<indexterm><primary>listZones</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>listZones</secondary></indexterm>
+<para><computeroutput>void listZones (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * startEntry)</computeroutput></para><para>
+
+<para>List zones. </para>
+</para>
+
+<para>Outputs graph vertices</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00262">262</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a3e6dbda9bc77b899aa56bd72d5fd5b10"/><section>
+    <title>printPath()</title>
+<indexterm><primary>printPath</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>printPath</secondary></indexterm>
+<para><computeroutput>void printPath (int * prev, int vertex)</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8c_source_1l00436">436</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1a860928daf7c19aa0b0a0ba64e780f8aa"/><section>
+    <title>saveVerticesOnBinaryDatabase()</title>
+<indexterm><primary>saveVerticesOnBinaryDatabase</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>saveVerticesOnBinaryDatabase</secondary></indexterm>
+<para><computeroutput>int saveVerticesOnBinaryDatabase (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * startEntry)</computeroutput></para><para>
+
+<para>Save vertices on a binary database. </para>
+</para>
+
+<para>Saves vertices entrys into a binary database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00344">344</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+<anchor xml:id="_graphs_8c_1aa65bd12637311f31250ec4d793db7574"/><section>
+    <title>saveVerticesOnDatabase()</title>
+<indexterm><primary>saveVerticesOnDatabase</primary><secondary>graphs.c</secondary></indexterm>
+<indexterm><primary>graphs.c</primary><secondary>saveVerticesOnDatabase</secondary></indexterm>
+<para><computeroutput>int saveVerticesOnDatabase (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * startEntry)</computeroutput></para><para>
+
+<para>Save vertices on database. </para>
+</para>
+
+<para>Saves vertices entrys into a database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_graphs_8c_source_1l00314">314</link> of file <link linkend="_graphs_8c_source">graphs.c</link>.</para>
+</section>
+</section>
+</section>

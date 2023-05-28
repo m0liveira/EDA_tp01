@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_users_8c_source" xml:lang="en-US">
+<title>users.c</title>
+<indexterm><primary>sources/users.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_users_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_users_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;string.h&gt;</emphasis>
+<anchor xml:id="_users_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;../headers/global.h&quot;</emphasis>
+<anchor xml:id="_users_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;../headers/users.h&quot;</emphasis>
+<anchor xml:id="_users_8c_source_1l00005"/>00005 
+<anchor xml:id="_users_8c_source_1l00015"/><link linkend="_users_8h_1a3eff6244efefa29ff980a2bd706b8e9b">00015</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_users_8c_1a3eff6244efefa29ff980a2bd706b8e9b">isUserUnique</link>(<link linkend="_struct_user_list">User</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_users_8c_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_users_8c_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(startEntry-&gt;<link linkend="_struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;==&#32;<emphasis role="keywordtype">id</emphasis>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;(0);
+<anchor xml:id="_users_8c_source_1l00018"/>00018 
+<anchor xml:id="_users_8c_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>;
+<anchor xml:id="_users_8c_source_1l00020"/>00020 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00021"/>00021 
+<anchor xml:id="_users_8c_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(1);
+<anchor xml:id="_users_8c_source_1l00023"/>00023 }
+<anchor xml:id="_users_8c_source_1l00024"/>00024 
+<anchor xml:id="_users_8c_source_1l00034"/><link linkend="_users_8h_1ace2066eafefcb27752a21a5da56efecc">00034</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_users_8c_1ace2066eafefcb27752a21a5da56efecc">isNameUnique</link>(<link linkend="_struct_user_list">User</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">char</emphasis>&#32;name[]){
+<anchor xml:id="_users_8c_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_users_8c_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp(startEntry-&gt;<link linkend="_struct_user_list_1a72b952e44981373d9737a72616bb317f">name</link>,&#32;name)&#32;==&#32;0)&#32;<emphasis role="keywordflow">return</emphasis>&#32;(0);
+<anchor xml:id="_users_8c_source_1l00037"/>00037 
+<anchor xml:id="_users_8c_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>;
+<anchor xml:id="_users_8c_source_1l00039"/>00039 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00040"/>00040 
+<anchor xml:id="_users_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(1);
+<anchor xml:id="_users_8c_source_1l00042"/>00042 }
+<anchor xml:id="_users_8c_source_1l00043"/>00043 
+<anchor xml:id="_users_8c_source_1l00053"/><link linkend="_users_8h_1aae43e4ec2bd4a34eaaa402c89d8eccd1">00053</link> <link linkend="_struct_user_list">User</link>&#32;*<link linkend="_users_8c_1aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</link>(<link linkend="_struct_user_list">User</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,&#32;<emphasis role="keywordtype">int</emphasis>&#32;nif,&#32;<emphasis role="keywordtype">float</emphasis>&#32;balance,&#32;<emphasis role="keywordtype">char</emphasis>&#32;name[],&#32;<emphasis role="keywordtype">char</emphasis>&#32;password[],&#32;<emphasis role="keywordtype">char</emphasis>&#32;role[]){
+<anchor xml:id="_users_8c_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<link linkend="_struct_user_list">User</link>&#32;*newEntry&#32;=&#32;malloc(<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_struct_user_list">UserList</link>));
+<anchor xml:id="_users_8c_source_1l00055"/>00055 
+<anchor xml:id="_users_8c_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_users_8c_1a3eff6244efefa29ff980a2bd706b8e9b">isUserUnique</link>(startEntry,&#32;<emphasis role="keywordtype">id</emphasis>)){
+<anchor xml:id="_users_8c_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Erro:&#32;Este&#32;ID&#32;ja&#32;foi&#32;registado!\n&quot;</emphasis>);
+<anchor xml:id="_users_8c_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(startEntry);
+<anchor xml:id="_users_8c_source_1l00059"/>00059 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00060"/>00060 
+<anchor xml:id="_users_8c_source_1l00061"/>00061 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_users_8c_1ace2066eafefcb27752a21a5da56efecc">isNameUnique</link>(startEntry,&#32;name)){
+<anchor xml:id="_users_8c_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Erro:&#32;Este&#32;nome&#32;(%s)&#32;ja&#32;foi&#32;registado!\n&quot;</emphasis>,&#32;name);
+<anchor xml:id="_users_8c_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(startEntry);
+<anchor xml:id="_users_8c_source_1l00064"/>00064 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00065"/>00065 
+<anchor xml:id="_users_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(newEntry&#32;!=&#32;NULL){
+<anchor xml:id="_users_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;=&#32;id;
+<anchor xml:id="_users_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_user_list_1ad68c6985dce5a3d709f854778dedee19">nif</link>&#32;=&#32;nif;
+<anchor xml:id="_users_8c_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>&#32;=&#32;balance;
+<anchor xml:id="_users_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(newEntry-&gt;<link linkend="_struct_user_list_1a72b952e44981373d9737a72616bb317f">name</link>,&#32;name);
+<anchor xml:id="_users_8c_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(newEntry-&gt;<link linkend="_struct_user_list_1ae2f06144744aa77e5443babb0f993ec6">password</link>,&#32;password);
+<anchor xml:id="_users_8c_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(newEntry-&gt;<link linkend="_struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link>,&#32;role);
+<anchor xml:id="_users_8c_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>&#32;=&#32;startEntry;
+<anchor xml:id="_users_8c_source_1l00074"/>00074 
+<anchor xml:id="_users_8c_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(newEntry);
+<anchor xml:id="_users_8c_source_1l00076"/>00076 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00077"/>00077 }
+<anchor xml:id="_users_8c_source_1l00078"/>00078 
+<anchor xml:id="_users_8c_source_1l00088"/><link linkend="_users_8h_1a9724304f5304c5e18783d58daf1e2ff8">00088</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_users_8c_1a9724304f5304c5e18783d58daf1e2ff8">loginUser</link>(<link linkend="_struct_user_list">User</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">char</emphasis>&#32;name[],&#32;<emphasis role="keywordtype">char</emphasis>&#32;password[]){
+<anchor xml:id="_users_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_users_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp(startEntry-&gt;<link linkend="_struct_user_list_1a72b952e44981373d9737a72616bb317f">name</link>,&#32;name)&#32;==&#32;0&#32;&amp;&amp;&#32;strcmp(startEntry-&gt;<link linkend="_struct_user_list_1ae2f06144744aa77e5443babb0f993ec6">password</link>,&#32;password)&#32;==&#32;0)&#32;{
+<anchor xml:id="_users_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;=&#32;startEntry-&gt;<link linkend="_struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>;
+<anchor xml:id="_users_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1ad68c6985dce5a3d709f854778dedee19">nif</link>&#32;=&#32;startEntry-&gt;<link linkend="_struct_user_list_1ad68c6985dce5a3d709f854778dedee19">nif</link>;
+<anchor xml:id="_users_8c_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>&#32;=&#32;startEntry-&gt;<link linkend="_struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>;
+<anchor xml:id="_users_8c_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a72b952e44981373d9737a72616bb317f">name</link>,&#32;startEntry-&gt;<link linkend="_struct_user_list_1a72b952e44981373d9737a72616bb317f">name</link>);
+<anchor xml:id="_users_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1ae2f06144744aa77e5443babb0f993ec6">password</link>,&#32;startEntry-&gt;<link linkend="_struct_user_list_1ae2f06144744aa77e5443babb0f993ec6">password</link>);
+<anchor xml:id="_users_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link>,&#32;startEntry-&gt;<link linkend="_struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link>);
+<anchor xml:id="_users_8c_source_1l00097"/>00097 
+<anchor xml:id="_users_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(1);
+<anchor xml:id="_users_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00100"/>00100 
+<anchor xml:id="_users_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>;
+<anchor xml:id="_users_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00103"/>00103 
+<anchor xml:id="_users_8c_source_1l00104"/>00104 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_users_8c_source_1l00105"/>00105 }
+<anchor xml:id="_users_8c_source_1l00106"/>00106 
+<anchor xml:id="_users_8c_source_1l00116"/><link linkend="_users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de">00116</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_users_8c_1aa658b85d23db66ac2a2873cc9ee1e3de">saveUsersOnDatabase</link>(<link linkend="_struct_user_list">User</link>&#32;*startEntry){
+<anchor xml:id="_users_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;<link linkend="_struct_user_list">User</link>*&#32;aux&#32;=&#32;startEntry;
+<anchor xml:id="_users_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;FILE*&#32;fp;
+<anchor xml:id="_users_8c_source_1l00119"/>00119 
+<anchor xml:id="_users_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;fp&#32;=&#32;fopen(<emphasis role="stringliteral">&quot;../databases/users_database.txt&quot;</emphasis>,<emphasis role="stringliteral">&quot;w&quot;</emphasis>);
+<anchor xml:id="_users_8c_source_1l00121"/>00121 
+<anchor xml:id="_users_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(fp==NULL)&#32;<emphasis role="keywordflow">return</emphasis>(0);
+<anchor xml:id="_users_8c_source_1l00123"/>00123 
+<anchor xml:id="_users_8c_source_1l00124"/>00124 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(aux&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_users_8c_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(fp,<emphasis role="stringliteral">&quot;Id:%d;Name:%s;Password:%s;Nif:%d;Balance:%.2f;Role:%s;\n&quot;</emphasis>,&#32;aux-&gt;<link linkend="_struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>,&#32;aux-&gt;<link linkend="_struct_user_list_1a72b952e44981373d9737a72616bb317f">name</link>,&#32;aux-&gt;<link linkend="_struct_user_list_1ae2f06144744aa77e5443babb0f993ec6">password</link>,&#32;aux-&gt;<link linkend="_struct_user_list_1ad68c6985dce5a3d709f854778dedee19">nif</link>,&#32;aux-&gt;<link linkend="_struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>,&#32;aux-&gt;<link linkend="_struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link>);
+<anchor xml:id="_users_8c_source_1l00126"/>00126 
+<anchor xml:id="_users_8c_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux&#32;=&#32;aux-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>;
+<anchor xml:id="_users_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00129"/>00129 
+<anchor xml:id="_users_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;fclose(fp);
+<anchor xml:id="_users_8c_source_1l00131"/>00131 
+<anchor xml:id="_users_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(1);
+<anchor xml:id="_users_8c_source_1l00133"/>00133 }
+<anchor xml:id="_users_8c_source_1l00134"/>00134 
+<anchor xml:id="_users_8c_source_1l00144"/><link linkend="_users_8h_1aa3190709fa215b59580f1e98d4d90fb0">00144</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_users_8c_1aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</link>(<link linkend="_struct_user_list">User</link>&#32;*startEntry)&#32;{
+<anchor xml:id="_users_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;<link linkend="_struct_user_list">User</link>*&#32;aux&#32;=&#32;startEntry;
+<anchor xml:id="_users_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;FILE*&#32;fp;
+<anchor xml:id="_users_8c_source_1l00147"/>00147 
+<anchor xml:id="_users_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;fp&#32;=&#32;fopen(<emphasis role="stringliteral">&quot;../databases/users_database.bin&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;wb&quot;</emphasis>);
+<anchor xml:id="_users_8c_source_1l00149"/>00149 
+<anchor xml:id="_users_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(fp&#32;==&#32;NULL)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_users_8c_source_1l00151"/>00151 
+<anchor xml:id="_users_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(aux&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_users_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(&amp;aux-&gt;<link linkend="_struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">int</emphasis>),&#32;1,&#32;fp);
+<anchor xml:id="_users_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(aux-&gt;<link linkend="_struct_user_list_1a72b952e44981373d9737a72616bb317f">name</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>),&#32;strlen(aux-&gt;<link linkend="_struct_user_list_1a72b952e44981373d9737a72616bb317f">name</link>)&#32;+&#32;1,&#32;fp);
+<anchor xml:id="_users_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(aux-&gt;<link linkend="_struct_user_list_1ae2f06144744aa77e5443babb0f993ec6">password</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>),&#32;strlen(aux-&gt;<link linkend="_struct_user_list_1ae2f06144744aa77e5443babb0f993ec6">password</link>)&#32;+&#32;1,&#32;fp);
+<anchor xml:id="_users_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(&amp;aux-&gt;<link linkend="_struct_user_list_1ad68c6985dce5a3d709f854778dedee19">nif</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">int</emphasis>),&#32;1,&#32;fp);
+<anchor xml:id="_users_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(&amp;aux-&gt;<link linkend="_struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">float</emphasis>),&#32;1,&#32;fp);
+<anchor xml:id="_users_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(aux-&gt;<link linkend="_struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>),&#32;strlen(aux-&gt;<link linkend="_struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link>)&#32;+&#32;1,&#32;fp);
+<anchor xml:id="_users_8c_source_1l00159"/>00159 
+<anchor xml:id="_users_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux&#32;=&#32;aux-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>;
+<anchor xml:id="_users_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00162"/>00162 
+<anchor xml:id="_users_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;fclose(fp);
+<anchor xml:id="_users_8c_source_1l00164"/>00164 
+<anchor xml:id="_users_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_users_8c_source_1l00166"/>00166 }
+<anchor xml:id="_users_8c_source_1l00167"/>00167 
+<anchor xml:id="_users_8c_source_1l00176"/><link linkend="_users_8h_1a36ad2b37dc9902e37bb2f143f923bffe">00176</link> <link linkend="_struct_user_list">User</link>&#32;*<link linkend="_users_8c_1a36ad2b37dc9902e37bb2f143f923bffe">getUsersFromDatabase</link>(){
+<anchor xml:id="_users_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;<link linkend="_struct_user_list">User</link>&#32;*users&#32;=&#32;NULL,&#32;*stack&#32;=&#32;NULL;
+<anchor xml:id="_users_8c_source_1l00178"/>00178 &#32;&#32;&#32;&#32;FILE&#32;*fp;
+<anchor xml:id="_users_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;id,&#32;nif;
+<anchor xml:id="_users_8c_source_1l00180"/>00180 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;balance;
+<anchor xml:id="_users_8c_source_1l00181"/>00181 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;name[30],&#32;password[30],&#32;role[10];
+<anchor xml:id="_users_8c_source_1l00182"/>00182 
+<anchor xml:id="_users_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;fp&#32;=&#32;fopen(<emphasis role="stringliteral">&quot;../databases/users_database.txt&quot;</emphasis>,<emphasis role="stringliteral">&quot;r&quot;</emphasis>);
+<anchor xml:id="_users_8c_source_1l00184"/>00184 
+<anchor xml:id="_users_8c_source_1l00185"/>00185 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(fp&#32;==&#32;NULL)&#32;<emphasis role="keywordflow">return</emphasis>&#32;users;
+<anchor xml:id="_users_8c_source_1l00186"/>00186 
+<anchor xml:id="_users_8c_source_1l00187"/>00187 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_global_8h_1ae7f7fdd55d053ad019b98ea0bd1001f6">isFileEmpty</link>(<emphasis role="stringliteral">&quot;../databases/users_database.txt&quot;</emphasis>)&#32;==&#32;1)&#32;<emphasis role="keywordflow">return</emphasis>&#32;users;
+<anchor xml:id="_users_8c_source_1l00188"/>00188 
+<anchor xml:id="_users_8c_source_1l00189"/>00189 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(fscanf(fp,&#32;<emphasis role="stringliteral">&quot;Id:%d;Name:%[^;];Password:%[^;];Nif:%d;Balance:%f;Role:%[^;\n];\n&quot;</emphasis>,&#32;&amp;<emphasis role="keywordtype">id</emphasis>,&#32;name,&#32;password,&#32;&amp;nif,&#32;&amp;balance,&#32;role)&#32;==&#32;6)&#32;{
+<anchor xml:id="_users_8c_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stack&#32;=&#32;<link linkend="_users_8c_1aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</link>(stack,&#32;<emphasis role="keywordtype">id</emphasis>,&#32;nif,&#32;balance,&#32;name,&#32;password,&#32;role);
+<anchor xml:id="_users_8c_source_1l00191"/>00191 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00192"/>00192 
+<anchor xml:id="_users_8c_source_1l00193"/>00193 &#32;&#32;&#32;&#32;fclose(fp);
+<anchor xml:id="_users_8c_source_1l00194"/>00194 
+<anchor xml:id="_users_8c_source_1l00195"/>00195 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(stack&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_users_8c_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;users&#32;=&#32;<link linkend="_users_8c_1aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</link>(users,&#32;stack-&gt;<link linkend="_struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>,&#32;stack-&gt;nif,&#32;stack-&gt;balance,&#32;stack-&gt;name,&#32;stack-&gt;password,&#32;stack-&gt;role);
+<anchor xml:id="_users_8c_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stack&#32;=&#32;stack-&gt;nextEntry;
+<anchor xml:id="_users_8c_source_1l00198"/>00198 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00199"/>00199 &#32;&#32;&#32;&#32;
+<anchor xml:id="_users_8c_source_1l00200"/>00200 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(users);
+<anchor xml:id="_users_8c_source_1l00201"/>00201 }
+<anchor xml:id="_users_8c_source_1l00202"/>00202 
+<anchor xml:id="_users_8c_source_1l00212"/><link linkend="_users_8h_1aa7b4e161f2c6c59d4849ce653efd30e5">00212</link> <link linkend="_struct_user_list">User</link>&#32;*<link linkend="_users_8c_1aa7b4e161f2c6c59d4849ce653efd30e5">deleteUser</link>(<link linkend="_struct_user_list">User</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_users_8c_source_1l00213"/>00213 &#32;&#32;&#32;&#32;<link linkend="_struct_user_list">User</link>&#32;*previousEntry&#32;=&#32;startEntry,&#32;*currentEntry&#32;=&#32;startEntry,&#32;*aux;
+<anchor xml:id="_users_8c_source_1l00214"/>00214 
+<anchor xml:id="_users_8c_source_1l00215"/>00215 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry&#32;==&#32;NULL)&#32;{
+<anchor xml:id="_users_8c_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nO&#32;utilizador&#32;indicado&#32;nao&#32;esta&#32;registado!\n\n&quot;</emphasis>);
+<anchor xml:id="_users_8c_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(NULL);
+<anchor xml:id="_users_8c_source_1l00218"/>00218 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00219"/>00219 &#32;&#32;&#32;&#32;
+<anchor xml:id="_users_8c_source_1l00220"/>00220 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry-&gt;id&#32;==&#32;<emphasis role="keywordtype">id</emphasis>)&#32;{
+<anchor xml:id="_users_8c_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux&#32;=&#32;currentEntry-&gt;nextEntry;
+<anchor xml:id="_users_8c_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free(currentEntry);
+<anchor xml:id="_users_8c_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(aux);
+<anchor xml:id="_users_8c_source_1l00224"/>00224 &#32;&#32;&#32;&#32;}&#32;
+<anchor xml:id="_users_8c_source_1l00225"/>00225 &#32;&#32;&#32;
+<anchor xml:id="_users_8c_source_1l00226"/>00226 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;((currentEntry&#32;!=&#32;NULL)&#32;&amp;&amp;&#32;(currentEntry-&gt;id&#32;!=&#32;<emphasis role="keywordtype">id</emphasis>))&#32;{
+<anchor xml:id="_users_8c_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;previousEntry&#32;=&#32;currentEntry;
+<anchor xml:id="_users_8c_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;currentEntry&#32;=&#32;currentEntry-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>;
+<anchor xml:id="_users_8c_source_1l00229"/>00229 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00230"/>00230 &#32;&#32;&#32;&#32;
+<anchor xml:id="_users_8c_source_1l00231"/>00231 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_users_8c_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;previousEntry-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>&#32;=&#32;currentEntry-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>;
+<anchor xml:id="_users_8c_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free(currentEntry);
+<anchor xml:id="_users_8c_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(startEntry);
+<anchor xml:id="_users_8c_source_1l00235"/>00235 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00236"/>00236 
+<anchor xml:id="_users_8c_source_1l00237"/>00237 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nO&#32;utilizador&#32;indicado&#32;nao&#32;esta&#32;registado!\n\n&quot;</emphasis>);
+<anchor xml:id="_users_8c_source_1l00238"/>00238 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(startEntry);
+<anchor xml:id="_users_8c_source_1l00239"/>00239 }
+<anchor xml:id="_users_8c_source_1l00240"/>00240 
+<anchor xml:id="_users_8c_source_1l00250"/><link linkend="_users_8h_1ab54a616a3193a2efad78e80b31028430">00250</link> <link linkend="_struct_user_list">User</link>&#32;*<link linkend="_users_8c_1ab54a616a3193a2efad78e80b31028430">editUser</link>(<link linkend="_struct_user_list">User</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_users_8c_source_1l00251"/>00251 &#32;&#32;&#32;&#32;<link linkend="_struct_user_list">User</link>&#32;*previousEntry&#32;=&#32;startEntry,&#32;*currentEntry&#32;=&#32;startEntry;
+<anchor xml:id="_users_8c_source_1l00252"/>00252 
+<anchor xml:id="_users_8c_source_1l00253"/>00253 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry==NULL)&#32;{
+<anchor xml:id="_users_8c_source_1l00254"/>00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nO&#32;utilizador&#32;indicado&#32;nao&#32;esta&#32;registado!\n\n&quot;</emphasis>);
+<anchor xml:id="_users_8c_source_1l00255"/>00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(NULL);
+<anchor xml:id="_users_8c_source_1l00256"/>00256 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00257"/>00257 
+<anchor xml:id="_users_8c_source_1l00258"/>00258 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;((currentEntry&#32;!=&#32;NULL)&#32;&amp;&amp;&#32;(currentEntry-&gt;id&#32;!=&#32;<emphasis role="keywordtype">id</emphasis>))&#32;{
+<anchor xml:id="_users_8c_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;previousEntry&#32;=&#32;currentEntry;
+<anchor xml:id="_users_8c_source_1l00260"/>00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;currentEntry&#32;=&#32;currentEntry-&gt;<link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link>;
+<anchor xml:id="_users_8c_source_1l00261"/>00261 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00262"/>00262 &#32;&#32;&#32;&#32;
+<anchor xml:id="_users_8c_source_1l00263"/>00263 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_users_8c_source_1l00264"/>00264 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;currentEntry-&gt;<link linkend="_struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>&#32;=&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link>;
+<anchor xml:id="_users_8c_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(currentEntry-&gt;password,&#32;<link linkend="_global_8h_1ab725550f6491851805c821cade824e32">session</link>.<link linkend="_struct_session_1ae2f06144744aa77e5443babb0f993ec6">password</link>);
+<anchor xml:id="_users_8c_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(startEntry);
+<anchor xml:id="_users_8c_source_1l00267"/>00267 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_users_8c_source_1l00268"/>00268 
+<anchor xml:id="_users_8c_source_1l00269"/>00269 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nO&#32;utilizador&#32;indicado&#32;nao&#32;esta&#32;registado!\n\n&quot;</emphasis>);
+<anchor xml:id="_users_8c_source_1l00270"/>00270 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(startEntry);
+<anchor xml:id="_users_8c_source_1l00271"/>00271 }
+</programlisting></section>

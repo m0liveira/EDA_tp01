@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="struct_rent_list" kind="struct" language="C++" prot="public">
+    <compoundname>RentList</compoundname>
+    <includes refid="rents_8h" local="no">rents.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>RentList::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="4" column="9" bodyfile="headers/rents.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int clientId</definition>
+        <argsstring></argsstring>
+        <name>clientId</name>
+        <qualifiedname>RentList::clientId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="5" column="9" bodyfile="headers/rents.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int vehicleId</definition>
+        <argsstring></argsstring>
+        <name>vehicleId</name>
+        <qualifiedname>RentList::vehicleId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="6" column="9" bodyfile="headers/rents.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char status[10]</definition>
+        <argsstring>[10]</argsstring>
+        <name>status</name>
+        <qualifiedname>RentList::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="7" column="10" bodyfile="headers/rents.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_rent_list" kindref="compound">RentList</ref> *</type>
+        <definition>struct RentList* nextEntry</definition>
+        <argsstring></argsstring>
+        <name>nextEntry</name>
+        <qualifiedname>RentList::nextEntry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="8" column="19" bodyfile="headers/rents.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RentList</label>
+        <link refid="struct_rent_list"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>nextEntry</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="headers/rents.h" line="3" column="1" bodyfile="headers/rents.h" bodystart="3" bodyend="9"/>
+    <listofallmembers>
+      <member refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" prot="public" virt="non-virtual"><scope>RentList</scope><name>clientId</name></member>
+      <member refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="public" virt="non-virtual"><scope>RentList</scope><name>id</name></member>
+      <member refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" prot="public" virt="non-virtual"><scope>RentList</scope><name>nextEntry</name></member>
+      <member refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" prot="public" virt="non-virtual"><scope>RentList</scope><name>status</name></member>
+      <member refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" prot="public" virt="non-virtual"><scope>RentList</scope><name>vehicleId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

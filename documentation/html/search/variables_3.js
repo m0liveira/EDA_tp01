@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gpstracker_0',['gpsTracker',['../struct_car.html#a28e6925eca319a182388b4d560d9026b',1,'Car::gpsTracker()'],['../struct_vehicle_list.html#a28e6925eca319a182388b4d560d9026b',1,'VehicleList::gpsTracker()']]]
+  ['distance_0',['distance',['../struct_edge_list.html#a06f14a9abd47b91465f895d5259cdc1b',1,'EdgeList']]]
 ];

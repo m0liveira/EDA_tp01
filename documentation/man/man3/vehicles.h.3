@@ -1,0 +1,331 @@
+.TH "headers/vehicles.h" 3 "Sun May 28 2023" "Version 2" "Estruturas de Dados Avançadas - trabalho prático" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+headers/vehicles.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBVehicleList\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBVehicleList\fP \fBVehicle\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBisUnique\fP (\fBVehicle\fP *startEntry, int id)"
+.br
+.RI "Check vehicle ID\&. "
+.ti -1c
+.RI "\fBVehicle\fP * \fBaddVehicles\fP (\fBVehicle\fP *startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[])"
+.br
+.RI "Add vehicle\&. "
+.ti -1c
+.RI "void \fBlistVehicles\fP (\fBVehicle\fP *startEntry)"
+.br
+.RI "List vehicles\&. "
+.ti -1c
+.RI "\fBVehicle\fP * \fBdeleteVehicle\fP (\fBVehicle\fP *startEntry, int id)"
+.br
+.RI "Delete vehicle\&. "
+.ti -1c
+.RI "\fBVehicle\fP * \fBeditVehicle\fP (\fBVehicle\fP *startEntry, int id, int currentBattery, char gpsTracker[])"
+.br
+.RI "Update vehicle\&. "
+.ti -1c
+.RI "int \fBsaveVehiclesOnDatabase\fP (\fBVehicle\fP *startEntry)"
+.br
+.RI "Save vehicle on database\&. "
+.ti -1c
+.RI "int \fBsaveVehiclesOnBinaryDatabase\fP (\fBVehicle\fP *startEntry)"
+.br
+.RI "Save vehicle on binary database\&. "
+.ti -1c
+.RI "\fBVehicle\fP * \fBgetVehiclesFromDatabase\fP ()"
+.br
+.RI "Get vehicles\&. "
+.ti -1c
+.RI "void \fBlistVehiclesByAutnonomy\fP (\fBVehicle\fP *startEntry)"
+.br
+.RI "List vehicles by autonomy\&. "
+.ti -1c
+.RI "void \fBlistVehiclesByGPS\fP (\fBVehicle\fP *startEntry, char location[])"
+.br
+.RI "List vehicles by GPS\&. "
+.ti -1c
+.RI "void \fBgetVehicleByID\fP (\fBVehicle\fP *startEntry, int id)"
+.br
+.RI "Get vehicle by ID\&. "
+.ti -1c
+.RI "int \fBvehicleExists\fP (\fBVehicle\fP *startEntry, int id)"
+.br
+.RI "Vehicle exist\&. "
+.ti -1c
+.RI "\fBVehicle\fP * \fBrechargeVehicles\fP (\fBVehicle\fP *startEntry)"
+.br
+.RI "Recharge vehicles\&. "
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBVehicleList\fP \fBVehicle\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBVehicle\fP * addVehicles (\fBVehicle\fP * startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[])"
+
+.PP
+Add vehicle\&. Adds a new vehicle entry into a linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry
+.br
+\fIint\fP id
+.br
+\fIfloat\fP batteryCapacity
+.br
+\fIint\fP currentBattery
+.br
+\fIfloat\fP autonomy
+.br
+\fIfloat\fP price
+.br
+\fIchar\fP brand[]
+.br
+\fIchar\fP model[]
+.br
+\fIchar\fP gpsTracker[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Added vehicle 
+.RE
+.PP
+
+.PP
+Definition at line \fB34\fP of file \fBvehicles\&.c\fP\&.
+.SS "\fBVehicle\fP * deleteVehicle (\fBVehicle\fP * startEntry, int id)"
+
+.PP
+Delete vehicle\&. Deletes a vehicle entry from the linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+vehicles 
+.RE
+.PP
+
+.PP
+Definition at line \fB95\fP of file \fBvehicles\&.c\fP\&.
+.SS "\fBVehicle\fP * editVehicle (\fBVehicle\fP * startEntry, int id, int currentBattery, char gpsTracker[])"
+
+.PP
+Update vehicle\&. Updates a specified vehicle entry from the linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry
+.br
+\fIint\fP id
+.br
+\fIint\fP currentBattery
+.br
+\fIchar\fP gpsTracker[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+vehicles 
+.RE
+.PP
+
+.PP
+Definition at line \fB133\fP of file \fBvehicles\&.c\fP\&.
+.SS "void getVehicleByID (\fBVehicle\fP * startEntry, int id)"
+
+.PP
+Get vehicle by ID\&. Stores a specific vehicle data in a struct
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+
+.PP
+Definition at line \fB346\fP of file \fBvehicles\&.c\fP\&.
+.SS "\fBVehicle\fP * getVehiclesFromDatabase ()"
+
+.PP
+Get vehicles\&. Gets all vehicles from a database
+.PP
+\fBReturns\fP
+.RS 4
+vehicles 
+.RE
+.PP
+
+.PP
+Definition at line \fB227\fP of file \fBvehicles\&.c\fP\&.
+.SS "int isUnique (\fBVehicle\fP * startEntry, int id)"
+
+.PP
+Check vehicle ID\&. Checks if the ID is dupped
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB15\fP of file \fBvehicles\&.c\fP\&.
+.SS "void listVehicles (\fBVehicle\fP * startEntry)"
+
+.PP
+List vehicles\&. Outputs all vehicles
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry 
+.RE
+.PP
+
+.PP
+Definition at line \fB64\fP of file \fBvehicles\&.c\fP\&.
+.SS "void listVehiclesByAutnonomy (\fBVehicle\fP * startEntry)"
+
+.PP
+List vehicles by autonomy\&. Outputs vehicles sorted by autonomy
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry 
+.RE
+.PP
+
+.PP
+Definition at line \fB263\fP of file \fBvehicles\&.c\fP\&.
+.SS "void listVehiclesByGPS (\fBVehicle\fP * startEntry, char location[])"
+
+.PP
+List vehicles by GPS\&. Outputs vehicles in a specific GPS location
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry
+.br
+\fIchar\fP location[] 
+.RE
+.PP
+
+.PP
+Definition at line \fB314\fP of file \fBvehicles\&.c\fP\&.
+.SS "\fBVehicle\fP * rechargeVehicles (\fBVehicle\fP * startEntry)"
+
+.PP
+Recharge vehicles\&. Recharges all vehicles stored in the linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+vehicles 
+.RE
+.PP
+
+.PP
+Definition at line \fB393\fP of file \fBvehicles\&.c\fP\&.
+.SS "int saveVehiclesOnBinaryDatabase (\fBVehicle\fP * startEntry)"
+
+.PP
+Save vehicle on binary database\&. Saves vehicles entrys into a binary database
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB193\fP of file \fBvehicles\&.c\fP\&.
+.SS "int saveVehiclesOnDatabase (\fBVehicle\fP * startEntry)"
+
+.PP
+Save vehicle on database\&. Saves vehicles entrys into a database
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB165\fP of file \fBvehicles\&.c\fP\&.
+.SS "int vehicleExists (\fBVehicle\fP * startEntry, int id)"
+
+.PP
+Vehicle exist\&. Checks if a specified vehicle exists at the linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB374\fP of file \fBvehicles\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Estruturas de Dados Avançadas - trabalho prático from the source code\&.

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_aux_list" xml:lang="en-US">
+<title>AuxList Struct Reference</title>
+<indexterm><primary>AuxList</primary></indexterm>
+<para>
+<computeroutput>#include &lt;graphs.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_aux_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_aux_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_aux_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_aux_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_aux_list_1a500426aec97889b7572f25ae45c06a8d">price</link></para>
+</listitem>
+            <listitem><para>char <link linkend="_struct_aux_list_1a19d9312fa6559481585c37eec00fdccf">brand</link> [20]</para>
+</listitem>
+            <listitem><para>char <link linkend="_struct_aux_list_1a407e8645b05b8866c6aae96539051b4d">model</link> [20]</para>
+</listitem>
+            <listitem><para>char <link linkend="_struct_aux_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link> [50]</para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_aux_list">AuxList</link> * <link linkend="_struct_aux_list_1ae0cb185ade32e7edefa337ba3cc1fbcf">nextEntry</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_graphs_8h_source_1l00003">3</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_aux_list_1a83cda76233a2b02dcc2b3707fa58e4e8"/><section>
+    <title>autonomy</title>
+<indexterm><primary>autonomy</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>autonomy</secondary></indexterm>
+<para><computeroutput>float autonomy</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00007">7</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_aux_list_1a43a6e4be8d45c1a00a55a11d095c0399"/><section>
+    <title>batteryCapacity</title>
+<indexterm><primary>batteryCapacity</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>batteryCapacity</secondary></indexterm>
+<para><computeroutput>float batteryCapacity</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00005">5</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_aux_list_1a19d9312fa6559481585c37eec00fdccf"/><section>
+    <title>brand</title>
+<indexterm><primary>brand</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>brand</secondary></indexterm>
+<para><computeroutput>char brand[20]</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00009">9</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_aux_list_1aa0fb27feb593e8a6f2c20fa92b2466cf"/><section>
+    <title>currentBattery</title>
+<indexterm><primary>currentBattery</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>currentBattery</secondary></indexterm>
+<para><computeroutput>int currentBattery</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00006">6</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_aux_list_1a28e6925eca319a182388b4d560d9026b"/><section>
+    <title>gpsTracker</title>
+<indexterm><primary>gpsTracker</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>gpsTracker</secondary></indexterm>
+<para><computeroutput>char gpsTracker[50]</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00011">11</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_aux_list_1a7441ef0865bcb3db9b8064dd7375c1ea"/><section>
+    <title>id</title>
+<indexterm><primary>id</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>id</secondary></indexterm>
+<para><computeroutput>int id</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00004">4</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_aux_list_1a407e8645b05b8866c6aae96539051b4d"/><section>
+    <title>model</title>
+<indexterm><primary>model</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>model</secondary></indexterm>
+<para><computeroutput>char model[20]</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00010">10</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_aux_list_1ae0cb185ade32e7edefa337ba3cc1fbcf"/><section>
+    <title>nextEntry</title>
+<indexterm><primary>nextEntry</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>nextEntry</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_aux_list">AuxList</link>* nextEntry</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00012">12</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_aux_list_1a500426aec97889b7572f25ae45c06a8d"/><section>
+    <title>price</title>
+<indexterm><primary>price</primary><secondary>AuxList</secondary></indexterm>
+<indexterm><primary>AuxList</primary><secondary>price</secondary></indexterm>
+<para><computeroutput>float price</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00008">8</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+</section>
+</section>

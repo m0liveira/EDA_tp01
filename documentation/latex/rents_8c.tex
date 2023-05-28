@@ -17,6 +17,8 @@ int \textbf{ is\+Rented} (\textbf{ Rent} $\ast$start\+Entry, int vehicle\+Id)
 \begin{DoxyCompactList}\small\item\em Add rent. \end{DoxyCompactList}\item 
 int \textbf{ save\+Rent\+On\+Database} (\textbf{ Rent} $\ast$start\+Entry)
 \begin{DoxyCompactList}\small\item\em Save rent on database. \end{DoxyCompactList}\item 
+int \textbf{ save\+Rent\+On\+Binary\+Database} (\textbf{ Rent} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em Save rent on binary database. \end{DoxyCompactList}\item 
 \textbf{ Rent} $\ast$ \textbf{ get\+Rents\+From\+Database} ()
 \begin{DoxyCompactList}\small\item\em Get rents. \end{DoxyCompactList}\item 
 int \textbf{ rent\+Exists} (\textbf{ Rent} $\ast$start\+Entry, int id)
@@ -81,7 +83,7 @@ rents
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 115} of file \textbf{ rents.\+c}.
+Definition at line \textbf{ 146} of file \textbf{ rents.\+c}.
 
 \mbox{\label{rents_8c_aa0f7ee7426e7e1587fd610380785b522}} 
 \index{rents.c@{rents.c}!isRented@{isRented}}
@@ -154,7 +156,7 @@ Outputs all time rents for the admins
 \end{DoxyParams}
 
 
-Definition at line \textbf{ 250} of file \textbf{ rents.\+c}.
+Definition at line \textbf{ 281} of file \textbf{ rents.\+c}.
 
 \mbox{\label{rents_8c_a7b496d5af10b399af35bc10541d75924}} 
 \index{rents.c@{rents.c}!listUserActiveRents@{listUserActiveRents}}
@@ -175,7 +177,7 @@ Outputs any active rent that a user has
 \end{DoxyParams}
 
 
-Definition at line \textbf{ 225} of file \textbf{ rents.\+c}.
+Definition at line \textbf{ 256} of file \textbf{ rents.\+c}.
 
 \mbox{\label{rents_8c_a5e60f8b2348388851786fc506c8ccf65}} 
 \index{rents.c@{rents.c}!listUserRents@{listUserRents}}
@@ -196,7 +198,7 @@ Outputs all user rents
 \end{DoxyParams}
 
 
-Definition at line \textbf{ 200} of file \textbf{ rents.\+c}.
+Definition at line \textbf{ 231} of file \textbf{ rents.\+c}.
 
 \mbox{\label{rents_8c_ab42f258f4be641f945c7ed83c4a24686}} 
 \index{rents.c@{rents.c}!rentExists@{rentExists}}
@@ -222,7 +224,31 @@ Checks if a specified rent exists at the linked list
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 150} of file \textbf{ rents.\+c}.
+Definition at line \textbf{ 181} of file \textbf{ rents.\+c}.
+
+\mbox{\label{rents_8c_ab420f75e53a50864f431f82565c03925}} 
+\index{rents.c@{rents.c}!saveRentOnBinaryDatabase@{saveRentOnBinaryDatabase}}
+\index{saveRentOnBinaryDatabase@{saveRentOnBinaryDatabase}!rents.c@{rents.c}}
+\doxysubsubsection{saveRentOnBinaryDatabase()}
+{\footnotesize\ttfamily int save\+Rent\+On\+Binary\+Database (\begin{DoxyParamCaption}\item[{\textbf{ Rent} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+Save rent on binary database. 
+
+Saves rent entrys into a binary database
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rent} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 116} of file \textbf{ rents.\+c}.
 
 \mbox{\label{rents_8c_a45e5a92a42235f4a8ffeace2ddb7e4e0}} 
 \index{rents.c@{rents.c}!saveRentOnDatabase@{saveRentOnDatabase}}
@@ -272,5 +298,5 @@ rents
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 169} of file \textbf{ rents.\+c}.
+Definition at line \textbf{ 200} of file \textbf{ rents.\+c}.
 

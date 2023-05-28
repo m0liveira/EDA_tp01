@@ -1,0 +1,402 @@
+\doxysection{sources/graphs.c File Reference}
+\label{graphs_8c}\index{sources/graphs.c@{sources/graphs.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../headers/global.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../headers/graphs.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ MAX\+\_\+\+VERTICES}~100
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ is\+Graph\+Unique} (\textbf{ Graph} $\ast$start\+Entry, int id)
+\begin{DoxyCompactList}\small\item\em Check vertices uniqueness. \end{DoxyCompactList}\item 
+\textbf{ Graph} $\ast$ \textbf{ add\+Vertex} (\textbf{ Graph} $\ast$start\+Entry, int id, \textbf{ Aux} vehicle)
+\begin{DoxyCompactList}\small\item\em Adds vertices. \end{DoxyCompactList}\item 
+float \textbf{ generate\+Random\+Distance} ()
+\begin{DoxyCompactList}\small\item\em Generator random distance. \end{DoxyCompactList}\item 
+int \textbf{ does\+Vertex\+Exist} (\textbf{ Graph} $\ast$graph, int vertex)
+\begin{DoxyCompactList}\small\item\em Check vertices existence. \end{DoxyCompactList}\item 
+\textbf{ Edge} $\ast$ \textbf{ Add\+Edge} (\textbf{ Graph} $\ast$graph, \textbf{ Edge} $\ast$start\+Entry, int start\+Vertex, int end\+Vertex)
+\begin{DoxyCompactList}\small\item\em Adds edges. \end{DoxyCompactList}\item 
+int \textbf{ is\+Edge\+Present} (\textbf{ Graph} $\ast$graph, \textbf{ Edge} $\ast$edge, int vertexA, int vertexB)
+\begin{DoxyCompactList}\small\item\em Checks edges. \end{DoxyCompactList}\item 
+\textbf{ Edge} $\ast$ \textbf{ generate\+Random\+Graph} (\textbf{ Graph} $\ast$graph, \textbf{ Edge} $\ast$edge, int num\+Vertices, int num\+Edges)
+\begin{DoxyCompactList}\small\item\em Generates Graphs. \end{DoxyCompactList}\item 
+void \textbf{ list\+Graph} (\textbf{ Graph} $\ast$start\+Entry, \textbf{ Edge} $\ast$start\+Edge)
+\begin{DoxyCompactList}\small\item\em List graph. \end{DoxyCompactList}\item 
+void \textbf{ list\+Zones} (\textbf{ Graph} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em List zones. \end{DoxyCompactList}\item 
+void \textbf{ list\+Vehicles\+By\+Zone} (\textbf{ Graph} $\ast$start\+Entry, int zone)
+\begin{DoxyCompactList}\small\item\em List cars by zones. \end{DoxyCompactList}\item 
+int \textbf{ save\+Vertices\+On\+Database} (\textbf{ Graph} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em Save vertices on database. \end{DoxyCompactList}\item 
+int \textbf{ save\+Vertices\+On\+Binary\+Database} (\textbf{ Graph} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em Save vertices on a binary database. \end{DoxyCompactList}\item 
+\textbf{ Graph} $\ast$ \textbf{ get\+Vertices\+From\+Database} ()
+\begin{DoxyCompactList}\small\item\em Get vertices. \end{DoxyCompactList}\item 
+void \textbf{ print\+Path} (int $\ast$prev, int vertex)
+\item 
+void \textbf{ get\+Shortest\+Path} (\textbf{ Graph} $\ast$graph, \textbf{ Edge} $\ast$edge, int start\+Vertex, int num\+Vertices)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{graphs_8c_a0fdb7b933ef091574ff57d1f36dd4167}} 
+\index{graphs.c@{graphs.c}!MAX\_VERTICES@{MAX\_VERTICES}}
+\index{MAX\_VERTICES@{MAX\_VERTICES}!graphs.c@{graphs.c}}
+\doxysubsubsection{MAX\_VERTICES}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+VERTICES~100}
+
+
+
+Definition at line \textbf{ 9} of file \textbf{ graphs.\+c}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{graphs_8c_af72fe49941374d635aff9d7526fc7565}} 
+\index{graphs.c@{graphs.c}!AddEdge@{AddEdge}}
+\index{AddEdge@{AddEdge}!graphs.c@{graphs.c}}
+\doxysubsubsection{AddEdge()}
+{\footnotesize\ttfamily \textbf{ Edge} $\ast$ Add\+Edge (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{graph,  }\item[{\textbf{ Edge} $\ast$}]{start\+Entry,  }\item[{int}]{start\+Vertex,  }\item[{int}]{end\+Vertex }\end{DoxyParamCaption})}
+
+
+
+Adds edges. 
+
+Adds a new edge entry into a linked list to complete a graph
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$graph\\
+\hline
+{\em Edge} & $\ast$start\+Entry\\
+\hline
+{\em int} & start\+Vertex\\
+\hline
+{\em Vehicle} & $\ast$vehicle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+edges 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 111} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_ae350462ced1dc7ba74592037e3c9d88d}} 
+\index{graphs.c@{graphs.c}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!graphs.c@{graphs.c}}
+\doxysubsubsection{addVertex()}
+{\footnotesize\ttfamily \textbf{ Graph} $\ast$ add\+Vertex (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{start\+Entry,  }\item[{int}]{id,  }\item[{\textbf{ Aux}}]{vehicle }\end{DoxyParamCaption})}
+
+
+
+Adds vertices. 
+
+Adds a new vertex entry into a linked list that represents a graph
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$graph\\
+\hline
+{\em int} & id\\
+\hline
+{\em Vehicle} & $\ast$vehicle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vertices 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 39} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_adc3948acb11d8597092ee47d0a6e8f7c}} 
+\index{graphs.c@{graphs.c}!doesVertexExist@{doesVertexExist}}
+\index{doesVertexExist@{doesVertexExist}!graphs.c@{graphs.c}}
+\doxysubsubsection{doesVertexExist()}
+{\footnotesize\ttfamily int does\+Vertex\+Exist (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{graph,  }\item[{int}]{vertex }\end{DoxyParamCaption})}
+
+
+
+Check vertices existence. 
+
+Checks if the given vertex exists
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$graph\\
+\hline
+{\em int} & vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 92} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a638753f6469282e3b39c8286813cfd34}} 
+\index{graphs.c@{graphs.c}!generateRandomDistance@{generateRandomDistance}}
+\index{generateRandomDistance@{generateRandomDistance}!graphs.c@{graphs.c}}
+\doxysubsubsection{generateRandomDistance()}
+{\footnotesize\ttfamily float generate\+Random\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generator random distance. 
+
+Generates a random distance that is going to be used as the length of the graph edges
+
+\begin{DoxyReturn}{Returns}
+distance 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 76} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a0cb364c7e705c406ebe537678438911a}} 
+\index{graphs.c@{graphs.c}!generateRandomGraph@{generateRandomGraph}}
+\index{generateRandomGraph@{generateRandomGraph}!graphs.c@{graphs.c}}
+\doxysubsubsection{generateRandomGraph()}
+{\footnotesize\ttfamily \textbf{ Edge} $\ast$ generate\+Random\+Graph (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{graph,  }\item[{\textbf{ Edge} $\ast$}]{edge,  }\item[{int}]{num\+Vertices,  }\item[{int}]{num\+Edges }\end{DoxyParamCaption})}
+
+
+
+Generates Graphs. 
+
+Generates a random graph dynamically from the number of existent vertices
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$graph\\
+\hline
+{\em Edge} & $\ast$edge\\
+\hline
+{\em int} & num\+Vertices\\
+\hline
+{\em int} & num\+Edges \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+edges 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 172} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a2567f00cf862f6b328838a2adebec53e}} 
+\index{graphs.c@{graphs.c}!getShortestPath@{getShortestPath}}
+\index{getShortestPath@{getShortestPath}!graphs.c@{graphs.c}}
+\doxysubsubsection{getShortestPath()}
+{\footnotesize\ttfamily void get\+Shortest\+Path (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{graph,  }\item[{\textbf{ Edge} $\ast$}]{edge,  }\item[{int}]{start\+Vertex,  }\item[{int}]{num\+Vertices }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 445} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a7b16e36ae5b60ab0f6e1c6e8feaaf381}} 
+\index{graphs.c@{graphs.c}!getVerticesFromDatabase@{getVerticesFromDatabase}}
+\index{getVerticesFromDatabase@{getVerticesFromDatabase}!graphs.c@{graphs.c}}
+\doxysubsubsection{getVerticesFromDatabase()}
+{\footnotesize\ttfamily \textbf{ Graph} $\ast$ get\+Vertices\+From\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get vertices. 
+
+Gets all vertices from a database
+
+\begin{DoxyReturn}{Returns}
+vertices 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 379} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a3c2e0335cdd5b4448a77337f76c11022}} 
+\index{graphs.c@{graphs.c}!isEdgePresent@{isEdgePresent}}
+\index{isEdgePresent@{isEdgePresent}!graphs.c@{graphs.c}}
+\doxysubsubsection{isEdgePresent()}
+{\footnotesize\ttfamily int is\+Edge\+Present (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{graph,  }\item[{\textbf{ Edge} $\ast$}]{edge,  }\item[{int}]{vertexA,  }\item[{int}]{vertexB }\end{DoxyParamCaption})}
+
+
+
+Checks edges. 
+
+Checks if an edge exists
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$graph\\
+\hline
+{\em Edge} & $\ast$edge\\
+\hline
+{\em int} & vertexA\\
+\hline
+{\em int} & vertexB \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 150} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_af94b6595ac77246b48a3f03fe146a6d3}} 
+\index{graphs.c@{graphs.c}!isGraphUnique@{isGraphUnique}}
+\index{isGraphUnique@{isGraphUnique}!graphs.c@{graphs.c}}
+\doxysubsubsection{isGraphUnique()}
+{\footnotesize\ttfamily int is\+Graph\+Unique (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{start\+Entry,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Check vertices uniqueness. 
+
+Checks if the vertice is dupped
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$start\+Entry\\
+\hline
+{\em int} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 20} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a3ab9e14d9194e69df48f70def6d45370}} 
+\index{graphs.c@{graphs.c}!listGraph@{listGraph}}
+\index{listGraph@{listGraph}!graphs.c@{graphs.c}}
+\doxysubsubsection{listGraph()}
+{\footnotesize\ttfamily void list\+Graph (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{start\+Entry,  }\item[{\textbf{ Edge} $\ast$}]{start\+Edge }\end{DoxyParamCaption})}
+
+
+
+List graph. 
+
+Outputs graph vertices and edges
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 222} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a17abe0cb34456a08730810427bdcf20d}} 
+\index{graphs.c@{graphs.c}!listVehiclesByZone@{listVehiclesByZone}}
+\index{listVehiclesByZone@{listVehiclesByZone}!graphs.c@{graphs.c}}
+\doxysubsubsection{listVehiclesByZone()}
+{\footnotesize\ttfamily void list\+Vehicles\+By\+Zone (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{start\+Entry,  }\item[{int}]{zone }\end{DoxyParamCaption})}
+
+
+
+List cars by zones. 
+
+Outputs graph vertices
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 285} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_aae6d29c48d0d248e16014ef35b50a5ea}} 
+\index{graphs.c@{graphs.c}!listZones@{listZones}}
+\index{listZones@{listZones}!graphs.c@{graphs.c}}
+\doxysubsubsection{listZones()}
+{\footnotesize\ttfamily void list\+Zones (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+List zones. 
+
+Outputs graph vertices
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 262} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a3e6dbda9bc77b899aa56bd72d5fd5b10}} 
+\index{graphs.c@{graphs.c}!printPath@{printPath}}
+\index{printPath@{printPath}!graphs.c@{graphs.c}}
+\doxysubsubsection{printPath()}
+{\footnotesize\ttfamily void print\+Path (\begin{DoxyParamCaption}\item[{int $\ast$}]{prev,  }\item[{int}]{vertex }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 436} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_a860928daf7c19aa0b0a0ba64e780f8aa}} 
+\index{graphs.c@{graphs.c}!saveVerticesOnBinaryDatabase@{saveVerticesOnBinaryDatabase}}
+\index{saveVerticesOnBinaryDatabase@{saveVerticesOnBinaryDatabase}!graphs.c@{graphs.c}}
+\doxysubsubsection{saveVerticesOnBinaryDatabase()}
+{\footnotesize\ttfamily int save\+Vertices\+On\+Binary\+Database (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+Save vertices on a binary database. 
+
+Saves vertices entrys into a binary database
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 344} of file \textbf{ graphs.\+c}.
+
+\mbox{\label{graphs_8c_aa65bd12637311f31250ec4d793db7574}} 
+\index{graphs.c@{graphs.c}!saveVerticesOnDatabase@{saveVerticesOnDatabase}}
+\index{saveVerticesOnDatabase@{saveVerticesOnDatabase}!graphs.c@{graphs.c}}
+\doxysubsubsection{saveVerticesOnDatabase()}
+{\footnotesize\ttfamily int save\+Vertices\+On\+Database (\begin{DoxyParamCaption}\item[{\textbf{ Graph} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+Save vertices on database. 
+
+Saves vertices entrys into a database
+
+
+\begin{DoxyParams}{Parameters}
+{\em Graph} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 314} of file \textbf{ graphs.\+c}.
+

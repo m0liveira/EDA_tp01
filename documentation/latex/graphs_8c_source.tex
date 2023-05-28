@@ -1,0 +1,397 @@
+\doxysection{graphs.\+c}
+\label{graphs_8c_source}\index{sources/graphs.c@{sources/graphs.c}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../headers/global.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../headers/graphs.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MAX\_VERTICES\ 100}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{int}\ isGraphUnique(Graph\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>vertex\ ==\ \textcolor{keywordtype}{id})\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00028\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00039\ Graph\ *addVertex(Graph\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ Aux\ vehicle)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isGraphUnique(startEntry,\ \textcolor{keywordtype}{id}))\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nErro:\ Este\ vertice\ ja\ foi\ registado!\(\backslash\)n"{}});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (startEntry);}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ Graph\ *newEntry\ =\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ GraphList));}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (newEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ newEntry-\/>vertex\ =\ id;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ newEntry-\/>vehicle\ =\ vehicle;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ newEntry-\/>nextEntry\ =\ NULL;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ newEntry;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ Graph\ *currentEntry\ =\ startEntry;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (currentEntry-\/>nextEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ currentEntry-\/>nextEntry\ =\ newEntry;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ startEntry;}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{float}\ generateRandomDistance()\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Generate\ a\ random\ distance\ between\ 1.0\ and\ 10.0\ (you\ can\ adjust\ the\ range\ as\ needed)}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{float}\ distance\ =\ (float)(rand()\ \%\ 1000)\ /\ 100.0\ +\ 1.0;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ distance;}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{int}\ doesVertexExist(Graph\ *graph,\ \textcolor{keywordtype}{int}\ vertex)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{while}\ (graph\ !=\ NULL)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (graph-\/>vertex\ ==\ vertex)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00095\ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ graph\ =\ graph-\/>nextEntry;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00111\ Edge\ *AddEdge(Graph\ *graph,\ Edge\ *startEntry,\ \textcolor{keywordtype}{int}\ startVertex,\ \textcolor{keywordtype}{int}\ endVertex)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (doesVertexExist(graph,\ startVertex)\ \&\&\ doesVertexExist(graph,\ endVertex))\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ Edge\ *newEntry\ =\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ EdgeList));}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ newEntry-\/>vertexA\ =\ startVertex;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ newEntry-\/>vertexB=\ endVertex;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ newEntry-\/>distance\ =\ generateRandomDistance();}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ newEntry-\/>nextEntry\ =\ NULL;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ newEntry;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Edge\ *currentEntry\ =\ startEntry;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (currentEntry-\/>nextEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentEntry\ =\ currentEntry-\/>nextEntry;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentEntry-\/>nextEntry\ =\ newEntry;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ startEntry;}
+\DoxyCodeLine{00135\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Um\ dos\ vertices\ indicados\ nao\ existe\ \%d\ -\/\ \%d\(\backslash\)n"{}},\ startVertex,\ endVertex);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ startEntry;}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{int}\ isEdgePresent(Graph\ *graph,\ Edge\ *edge,\ \textcolor{keywordtype}{int}\ vertexA,\ \textcolor{keywordtype}{int}\ vertexB)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{while}\ (edge\ !=\ NULL)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((edge-\/>vertexA\ ==\ vertexA\ \&\&\ edge-\/>vertexB\ ==\ vertexB)\ ||}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ (edge-\/>vertexA\ ==\ vertexB\ \&\&\ edge-\/>vertexB\ ==\ vertexA))\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ edge\ =\ edge-\/>nextEntry;}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00161\ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00172\ Edge\ *generateRandomGraph(Graph\ *graph,\ Edge\ *edge,\ \textcolor{keywordtype}{int}\ numVertices,\ \textcolor{keywordtype}{int}\ numEdges)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{if}\ (numVertices\ <=\ 0\ ||\ numEdges\ <=\ 0)\ \textcolor{keywordflow}{return}\ edge;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{if}\ (numEdges\ >\ numVertices\ *\ (numVertices\ -\/\ 1)\ /\ 2)\ \textcolor{keywordflow}{return}\ edge;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{int}\ *vertices\ =\ malloc(numVertices\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertices\ ==\ NULL)\ \textcolor{keywordflow}{return}\ edge;}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numVertices;\ i++)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ vertices[i]\ =\ i\ +\ 1;}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ numVertices\ -\/\ 1;\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ rand()\ \%\ (i\ +\ 1);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ vertices[i];}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ vertices[i]\ =\ vertices[j];}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ vertices[j]\ =\ temp;}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{int}\ remainingEdges\ =\ numEdges;}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numVertices\ -\/\ 1\ \&\&\ numEdges\ >\ 0;\ i++)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ (i\ +\ 1)\ \%\ numVertices;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ edge\ =\ AddEdge(graph,\ edge,\ vertices[i],\ vertices[j]);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ remainingEdges-\/-\/;}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordflow}{while}\ (remainingEdges\ !=\ 0)\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ randomVertexA\ =\ vertices[rand()\ \%\ numVertices];}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ randomVertexB\ =\ vertices[rand()\ \%\ numVertices];}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (randomVertexA\ !=\ randomVertexB\ \&\&\ !isEdgePresent(graph,\ edge,\ randomVertexA,\ randomVertexB))\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ edge\ =\ AddEdge(graph,\ edge,\ randomVertexA,\ randomVertexB);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ remainingEdges-\/-\/;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ free(vertices);}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{return}\ edge;}
+\DoxyCodeLine{00212\ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00222\ \textcolor{keywordtype}{void}\ listGraph(Graph\ *startEntry,\ Edge\ *startEdge)\ \{\ \ \ \ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ vertices\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Mapa!\(\backslash\)n"{}});}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)nZona:\ \%d\(\backslash\)n"{}},\ startEntry-\/>vertex);}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Veiculo:\ \%s\ \%s\(\backslash\)n"{}},\ startEntry-\/>vehicle.brand,\ startEntry-\/>vehicle.model);}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Bateria:\ \%d\%\%\(\backslash\)n"{}},\ startEntry-\/>vehicle.currentBattery);}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ Edge\ *newEdge\ =\ startEdge;}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ hasEdges\ =\ 0;}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (newEdge\ !=\ NULL)\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>vertex\ ==\ newEdge-\/>vertexA\ ||\ startEntry-\/>vertex\ ==\ newEdge-\/>vertexB)\{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Zonas\ conectadas:\ \%d\ -\/\ \%d,\ Distancia:\ \%.2fkm\(\backslash\)n"{}},\ newEdge-\/>vertexA,\ newEdge-\/>vertexB,\ newEdge-\/>distance);}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hasEdges\ =\ 1;}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ newEdge\ =\ newEdge-\/>nextEntry;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasEdges\ ==\ 0)\ printf(\textcolor{stringliteral}{"{}Nao\ esta\ conectado\ a\ outro\ vertice!\(\backslash\)n"{}});}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00251\ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00262\ \textcolor{keywordtype}{void}\ listZones(Graph\ *startEntry)\ \{\ \ \ \ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ vertices\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00266\ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Mapa!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Zona:\ \%d\(\backslash\)n"{}},\ startEntry-\/>vertex);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00274\ \ \ \ \ \}}
+\DoxyCodeLine{00275\ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00285\ \textcolor{keywordtype}{void}\ listVehiclesByZone(Graph\ *startEntry,\ \textcolor{keywordtype}{int}\ zone)\ \{\ \ \ \ }
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry\ ==\ NULL)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nao\ ha\ vertices\ guardados\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00289\ \ \ \ \ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Veiculos\ num\ raio\ de\ \%d\ zonas!\(\backslash\)n\(\backslash\)n"{}},\ zone);}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{while}\ (startEntry\ !=\ NULL)\ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startEntry-\/>vertex\ <=\ zone)\ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Id:\ \%d\(\backslash\)n"{}},\ startEntry-\/>vehicle.id);}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Veiculo:\ \%s\ \%s\(\backslash\)n"{}},\ startEntry-\/>vehicle.brand,\ startEntry-\/>vehicle.model);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Preco:\ \%.2f\ euros\(\backslash\)n"{}},\ startEntry-\/>vehicle.price);}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Bateria:\ \%d\%\%\(\backslash\)n\(\backslash\)n"{}},\ startEntry-\/>vehicle.currentBattery);}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ startEntry\ =\ startEntry-\/>nextEntry;}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ \}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00314\ \textcolor{keywordtype}{int}\ saveVerticesOnDatabase(Graph\ *startEntry)\{}
+\DoxyCodeLine{00315\ \ \ \ \ Graph\ *aux\ =\ startEntry;}
+\DoxyCodeLine{00316\ \ \ \ \ FILE\ *fp;}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/vertices\_database.txt"{}},\textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp==NULL)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}vertex:\%d"{}},\ startEntry-\/>vertex);}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ fprintf(fp,\textcolor{stringliteral}{"{}Vertex:\%d;Id:\%d;BatteryCap:\%.2f;CurrBattery:\%d;Autonomy:\%.2f;Price:\%.2f;Brand:\%s;Model:\%s;GPS:\%s;\(\backslash\)n"{}},\ aux-\/>vertex,\ aux-\/>vehicle.id,\ aux-\/>vehicle.batteryCapacity,\ aux-\/>vehicle.currentBattery,\ aux-\/>vehicle.autonomy,\ aux-\/>vehicle.price,\ aux-\/>vehicle.brand,\ aux-\/>vehicle.model,\ aux-\/>vehicle.gpsTracker);}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>nextEntry;}
+\DoxyCodeLine{00328\ \ \ \ \ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00333\ \}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00344\ \textcolor{keywordtype}{int}\ saveVerticesOnBinaryDatabase(Graph\ *startEntry)\ \{}
+\DoxyCodeLine{00345\ \ \ \ \ Graph\ *aux\ =\ startEntry;}
+\DoxyCodeLine{00346\ \ \ \ \ FILE\ *fp;}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/vertices\_database.bin"{}},\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ fwrite(\&aux-\/>vertex,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ fp);}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ fwrite(\&aux-\/>vehicle.id,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ fp);}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ fwrite(\&aux-\/>vehicle.batteryCapacity,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ 1,\ fp);}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ fwrite(\&aux-\/>vehicle.currentBattery,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),\ 1,\ fp);}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ fwrite(\&aux-\/>vehicle.autonomy,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ 1,\ fp);}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ fwrite(\&aux-\/>vehicle.price,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ 1,\ fp);}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ fwrite(aux-\/>vehicle.brand,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ strlen(aux-\/>vehicle.brand)\ +\ 1,\ fp);}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ fwrite(aux-\/>vehicle.model,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ strlen(aux-\/>vehicle.model)\ +\ 1,\ fp);}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ fwrite(aux-\/>vehicle.gpsTracker,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ strlen(aux-\/>vehicle.gpsTracker)\ +\ 1,\ fp);}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>nextEntry;}
+\DoxyCodeLine{00364\ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00369\ \}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00379\ Graph\ *getVerticesFromDatabase()\ \{}
+\DoxyCodeLine{00380\ \ \ \ \ Graph\ *vertices\ =\ NULL,\ *stack\ =\ NULL;}
+\DoxyCodeLine{00381\ \ \ \ \ Aux\ *car\ =\ NULL;}
+\DoxyCodeLine{00382\ \ \ \ \ FILE\ *fp;}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{int}\ vertex,\ id,\ currentBattery;}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordtype}{float}\ batteryCapacity,\ autonomy,\ price;}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordtype}{char}\ brand[20],\ model[20],\ gpsTracker[50];}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ fp\ =\ fopen(\textcolor{stringliteral}{"{}../databases/vertices\_database.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)\ \textcolor{keywordflow}{return}\ vertices;}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordflow}{if}\ (isFileEmpty(\textcolor{stringliteral}{"{}../databases/vertices\_database.txt"{}})\ ==\ 1)\ \textcolor{keywordflow}{return}\ vertices;}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{while}\ (!feof(fp))\ \{}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ car\ =\ malloc(\textcolor{keyword}{sizeof}(Aux));}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (car\ ==\ NULL)\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (stack\ !=\ NULL)\ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Graph\ *next\ =\ stack-\/>nextEntry;}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free(stack);}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stack\ =\ next;}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ vertices;}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fscanf(fp,\ \textcolor{stringliteral}{"{}Vertex:\%d;Id:\%d;BatteryCap:\%f;CurrBattery:\%d;Autonomy:\%f;Price:\%f;Brand:\%[\string^;];Model:\%[\string^;];GPS:\%[\string^;\(\backslash\)n];\(\backslash\)n"{}},\ \&vertex,\ \&\textcolor{keywordtype}{id},\ \&batteryCapacity,\ \&currentBattery,\ \&autonomy,\ \&price,\ brand,\ model,\ gpsTracker)\ ==\ 9)\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ car-\/>id\ =\ id;}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ car-\/>batteryCapacity\ =\ batteryCapacity;}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ car-\/>currentBattery\ =\ currentBattery;}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ car-\/>autonomy\ =\ autonomy;}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ car-\/>price\ =\ price;}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(car-\/>brand,\ brand);}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(car-\/>model,\ model);}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(car-\/>gpsTracker,\ gpsTracker);}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ stack\ =\ addVertex(stack,\ vertex,\ *car);}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ free(car);}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00423\ \ \ \ \ \}}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordflow}{while}\ (stack\ !=\ NULL)\ \{}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ vertices\ =\ addVertex(vertices,\ stack-\/>vertex,\ stack-\/>vehicle);}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ stack\ =\ stack-\/>nextEntry;}
+\DoxyCodeLine{00431\ \ \ \ \ \}}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{return}\ vertices;}
+\DoxyCodeLine{00434\ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{keywordtype}{void}\ printPath(\textcolor{keywordtype}{int}*\ prev,\ \textcolor{keywordtype}{int}\ vertex)\ \{}
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keywordflow}{if}\ (prev[vertex]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}zona\ \%d"{}},\ vertex);}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00440\ \ \ \ \ \}}
+\DoxyCodeLine{00441\ \ \ \ \ printPath(prev,\ prev[vertex]);}
+\DoxyCodeLine{00442\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ -\/\ zona\ \%d"{}},\ vertex);}
+\DoxyCodeLine{00443\ \}}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \textcolor{keywordtype}{void}\ getShortestPath(Graph*\ graph,\ Edge*\ edge,\ \textcolor{keywordtype}{int}\ startVertex,\ \textcolor{keywordtype}{int}\ numVertices)\ \{}
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keywordtype}{int}\ distances[MAX\_VERTICES];}
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordtype}{int}\ prev[MAX\_VERTICES];}
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordtype}{int}\ visited[MAX\_VERTICES];}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{comment}{//\ Initialize\ distances\ and\ previous\ vertices}}
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numVertices;\ i++)\ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ distances[i]\ =\ INT\_MAX;}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ prev[i]\ =\ -\/1;}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ visited[i]\ =\ 0;}
+\DoxyCodeLine{00455\ \ \ \ \ \}}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{comment}{//\ Set\ distance\ of\ start\ vertex\ to\ 0}}
+\DoxyCodeLine{00458\ \ \ \ \ distances[startVertex]\ =\ 0;}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{comment}{//\ Find\ shortest\ path\ for\ all\ vertices}}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numVertices\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ vertex\ with\ the\ minimum\ distance}}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ minDistance\ =\ INT\_MAX;}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ minVertex\ =\ -\/1;}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ numVertices;\ j++)\ \{}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited[j]\ \&\&\ distances[j]\ <\ minDistance)\ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minDistance\ =\ distances[j];}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minVertex\ =\ j;}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (minVertex\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mark\ the\ minimum\ distance\ vertex\ as\ visited}}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ visited[minVertex]\ =\ 1;}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ distances\ of\ adjacent\ vertices}}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ Edge*\ currentEdge\ =\ edge;\ \ \textcolor{comment}{//\ Use\ a\ separate\ pointer\ to\ traverse\ the\ edges}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (currentEdge\ !=\ NULL)\ \{}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ neighbor\ =\ currentEdge-\/>vertexB;}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ distance\ =\ currentEdge-\/>distance;}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited[neighbor]\ \&\&\ distances[minVertex]\ !=\ INT\_MAX\ \&\&\ distances[minVertex]\ +\ distance\ <\ distances[neighbor])\ \{}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ distances[neighbor]\ =\ distances[minVertex]\ +\ distance;}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prev[neighbor]\ =\ minVertex;}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ currentEdge\ =\ currentEdge-\/>nextEntry;}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00494\ \ \ \ \ \}}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <\ numVertices;\ i++)\ \{}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Rota\ mais\ rapida:\ "{}});}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ printPath(prev,\ i);}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ (\%.2fkm)\(\backslash\)n"{}},\ distances[i]);}
+\DoxyCodeLine{00501\ \ \ \ \ \}}
+\DoxyCodeLine{00502\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00503\ \}}
+
+\end{DoxyCode}

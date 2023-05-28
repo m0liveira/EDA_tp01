@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_rents_8c" xml:lang="en-US">
+<title>sources/rents.c File Reference</title>
+<indexterm><primary>sources/rents.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &quot;../headers/global.h&quot;<?linebreak?>#include &quot;../headers/rents.h&quot;<?linebreak?>#include &quot;../headers/users.h&quot;<?linebreak?>#include &quot;../headers/vehicles.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_rents_8c_1a1b4ab5e40e6d73cd60cf1857822ab89e">isRentUnique</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry, int id)</para>
+
+<para>Check rent ID. </para>
+</listitem>
+            <listitem><para>int <link linkend="_rents_8c_1aa0f7ee7426e7e1587fd610380785b522">isRented</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry, int vehicleId)</para>
+
+<para>Check rented vehicles. </para>
+</listitem>
+            <listitem><para><link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * <link linkend="_rents_8c_1a44ec9a69cef8fe255e7ff26eb2a458e8">addRent</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry, int id, int clientId, int vehicleId, char status[])</para>
+
+<para>Add rent. </para>
+</listitem>
+            <listitem><para>int <link linkend="_rents_8c_1a45e5a92a42235f4a8ffeace2ddb7e4e0">saveRentOnDatabase</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry)</para>
+
+<para>Save rent on database. </para>
+</listitem>
+            <listitem><para>int <link linkend="_rents_8c_1ab420f75e53a50864f431f82565c03925">saveRentOnBinaryDatabase</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry)</para>
+
+<para>Save rent on binary database. </para>
+</listitem>
+            <listitem><para><link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * <link linkend="_rents_8c_1ac50819ca4416fb1ecbbd960a8522f950">getRentsFromDatabase</link> ()</para>
+
+<para>Get rents. </para>
+</listitem>
+            <listitem><para>int <link linkend="_rents_8c_1ab42f258f4be641f945c7ed83c4a24686">rentExists</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry, int id)</para>
+
+<para>Rent exist. </para>
+</listitem>
+            <listitem><para><link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * <link linkend="_rents_8c_1a17d20033ee11b7425b3361017f403896">updateRent</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry, int id)</para>
+
+<para>Update rent. </para>
+</listitem>
+            <listitem><para>void <link linkend="_rents_8c_1a5e60f8b2348388851786fc506c8ccf65">listUserRents</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry)</para>
+
+<para>List user rents. </para>
+</listitem>
+            <listitem><para>void <link linkend="_rents_8c_1a7b496d5af10b399af35bc10541d75924">listUserActiveRents</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry)</para>
+
+<para>List user active rents. </para>
+</listitem>
+            <listitem><para>void <link linkend="_rents_8c_1a2c88dddd80c4dd1dc09a8587ed7d70b2">listRents</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry)</para>
+
+<para>List rents. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_rents_8c_1a44ec9a69cef8fe255e7ff26eb2a458e8"/><section>
+    <title>addRent()</title>
+<indexterm><primary>addRent</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>addRent</secondary></indexterm>
+<para><computeroutput><link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * addRent (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry, int id, int clientId, int vehicleId, char status[])</computeroutput></para><para>
+
+<para>Add rent. </para>
+</para>
+
+<para>Adds a new rent entry into a linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>clientId</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>vehicleId</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>status[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Added rent </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00055">55</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1ac50819ca4416fb1ecbbd960a8522f950"/><section>
+    <title>getRentsFromDatabase()</title>
+<indexterm><primary>getRentsFromDatabase</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>getRentsFromDatabase</secondary></indexterm>
+<para><computeroutput><link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * getRentsFromDatabase ( )</computeroutput></para><para>
+
+<para>Get rents. </para>
+</para>
+
+<para>Gets all rents from a database</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>rents </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00146">146</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1aa0f7ee7426e7e1587fd610380785b522"/><section>
+    <title>isRented()</title>
+<indexterm><primary>isRented</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>isRented</secondary></indexterm>
+<para><computeroutput>int isRented (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry, int vehicleId)</computeroutput></para><para>
+
+<para>Check rented vehicles. </para>
+</para>
+
+<para>Checks if the selected vehicle is already rented</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>vehicleId </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00036">36</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1a1b4ab5e40e6d73cd60cf1857822ab89e"/><section>
+    <title>isRentUnique()</title>
+<indexterm><primary>isRentUnique</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>isRentUnique</secondary></indexterm>
+<para><computeroutput>int isRentUnique (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Check rent ID. </para>
+</para>
+
+<para>Checks if the ID is dupped</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00017">17</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1a2c88dddd80c4dd1dc09a8587ed7d70b2"/><section>
+    <title>listRents()</title>
+<indexterm><primary>listRents</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>listRents</secondary></indexterm>
+<para><computeroutput>void listRents (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry)</computeroutput></para><para>
+
+<para>List rents. </para>
+</para>
+
+<para>Outputs all time rents for the admins</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00281">281</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1a7b496d5af10b399af35bc10541d75924"/><section>
+    <title>listUserActiveRents()</title>
+<indexterm><primary>listUserActiveRents</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>listUserActiveRents</secondary></indexterm>
+<para><computeroutput>void listUserActiveRents (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry)</computeroutput></para><para>
+
+<para>List user active rents. </para>
+</para>
+
+<para>Outputs any active rent that a user has</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00256">256</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1a5e60f8b2348388851786fc506c8ccf65"/><section>
+    <title>listUserRents()</title>
+<indexterm><primary>listUserRents</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>listUserRents</secondary></indexterm>
+<para><computeroutput>void listUserRents (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry)</computeroutput></para><para>
+
+<para>List user rents. </para>
+</para>
+
+<para>Outputs all user rents</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00231">231</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1ab42f258f4be641f945c7ed83c4a24686"/><section>
+    <title>rentExists()</title>
+<indexterm><primary>rentExists</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>rentExists</secondary></indexterm>
+<para><computeroutput>int rentExists (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Rent exist. </para>
+</para>
+
+<para>Checks if a specified rent exists at the linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00181">181</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1ab420f75e53a50864f431f82565c03925"/><section>
+    <title>saveRentOnBinaryDatabase()</title>
+<indexterm><primary>saveRentOnBinaryDatabase</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>saveRentOnBinaryDatabase</secondary></indexterm>
+<para><computeroutput>int saveRentOnBinaryDatabase (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry)</computeroutput></para><para>
+
+<para>Save rent on binary database. </para>
+</para>
+
+<para>Saves rent entrys into a binary database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00116">116</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1a45e5a92a42235f4a8ffeace2ddb7e4e0"/><section>
+    <title>saveRentOnDatabase()</title>
+<indexterm><primary>saveRentOnDatabase</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>saveRentOnDatabase</secondary></indexterm>
+<para><computeroutput>int saveRentOnDatabase (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry)</computeroutput></para><para>
+
+<para>Save rent on database. </para>
+</para>
+
+<para>Saves rent entrys into a database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00088">88</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+<anchor xml:id="_rents_8c_1a17d20033ee11b7425b3361017f403896"/><section>
+    <title>updateRent()</title>
+<indexterm><primary>updateRent</primary><secondary>rents.c</secondary></indexterm>
+<indexterm><primary>rents.c</primary><secondary>updateRent</secondary></indexterm>
+<para><computeroutput><link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * updateRent (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Update rent. </para>
+</para>
+
+<para>Updates a specified rent entry from the linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>rents </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_rents_8c_source_1l00200">200</link> of file <link linkend="_rents_8c_source">rents.c</link>.</para>
+</section>
+</section>
+</section>

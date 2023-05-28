@@ -26,6 +26,8 @@ void \textbf{ list\+Vehicles} (\textbf{ Vehicle} $\ast$start\+Entry)
 \begin{DoxyCompactList}\small\item\em Update vehicle. \end{DoxyCompactList}\item 
 int \textbf{ save\+Vehicles\+On\+Database} (\textbf{ Vehicle} $\ast$start\+Entry)
 \begin{DoxyCompactList}\small\item\em Save vehicle on database. \end{DoxyCompactList}\item 
+int \textbf{ save\+Vehicles\+On\+Binary\+Database} (\textbf{ Vehicle} $\ast$start\+Entry)
+\begin{DoxyCompactList}\small\item\em Save vehicle on binary database. \end{DoxyCompactList}\item 
 \textbf{ Vehicle} $\ast$ \textbf{ get\+Vehicles\+From\+Database} ()
 \begin{DoxyCompactList}\small\item\em Get vehicles. \end{DoxyCompactList}\item 
 void \textbf{ list\+Vehicles\+By\+Autnonomy} (\textbf{ Vehicle} $\ast$start\+Entry)
@@ -167,7 +169,7 @@ Stores a specific vehicle data in a struct
 \end{DoxyParams}
 
 
-Definition at line \textbf{ 311} of file \textbf{ vehicles.\+c}.
+Definition at line \textbf{ 346} of file \textbf{ vehicles.\+c}.
 
 \mbox{\label{vehicles_8h_a369c63f2109ee2575ac9d4417b3c40ea}} 
 \index{vehicles.h@{vehicles.h}!getVehiclesFromDatabase@{getVehiclesFromDatabase}}
@@ -186,7 +188,7 @@ vehicles
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 192} of file \textbf{ vehicles.\+c}.
+Definition at line \textbf{ 227} of file \textbf{ vehicles.\+c}.
 
 \mbox{\label{vehicles_8h_aeed9c0434f4d057d662880ad78fd82f0}} 
 \index{vehicles.h@{vehicles.h}!isUnique@{isUnique}}
@@ -254,7 +256,7 @@ Outputs vehicles sorted by autonomy
 \end{DoxyParams}
 
 
-Definition at line \textbf{ 228} of file \textbf{ vehicles.\+c}.
+Definition at line \textbf{ 263} of file \textbf{ vehicles.\+c}.
 
 \mbox{\label{vehicles_8h_a9687b1204b533bfc36593703b2fd1785}} 
 \index{vehicles.h@{vehicles.h}!listVehiclesByGPS@{listVehiclesByGPS}}
@@ -277,7 +279,7 @@ Outputs vehicles in a specific GPS location
 \end{DoxyParams}
 
 
-Definition at line \textbf{ 279} of file \textbf{ vehicles.\+c}.
+Definition at line \textbf{ 314} of file \textbf{ vehicles.\+c}.
 
 \mbox{\label{vehicles_8h_a88357fa8f47cb44df355643537f88141}} 
 \index{vehicles.h@{vehicles.h}!rechargeVehicles@{rechargeVehicles}}
@@ -301,7 +303,31 @@ vehicles
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 358} of file \textbf{ vehicles.\+c}.
+Definition at line \textbf{ 393} of file \textbf{ vehicles.\+c}.
+
+\mbox{\label{vehicles_8h_a5dae4b1b97ace920cd7262c20c3a9a41}} 
+\index{vehicles.h@{vehicles.h}!saveVehiclesOnBinaryDatabase@{saveVehiclesOnBinaryDatabase}}
+\index{saveVehiclesOnBinaryDatabase@{saveVehiclesOnBinaryDatabase}!vehicles.h@{vehicles.h}}
+\doxysubsubsection{saveVehiclesOnBinaryDatabase()}
+{\footnotesize\ttfamily int save\+Vehicles\+On\+Binary\+Database (\begin{DoxyParamCaption}\item[{\textbf{ Vehicle} $\ast$}]{start\+Entry }\end{DoxyParamCaption})}
+
+
+
+Save vehicle on binary database. 
+
+Saves vehicles entrys into a binary database
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vehicle} & $\ast$start\+Entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 or 0 as true or false 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 193} of file \textbf{ vehicles.\+c}.
 
 \mbox{\label{vehicles_8h_a32c74cac04f5218a5d7eb479fb262f5b}} 
 \index{vehicles.h@{vehicles.h}!saveVehiclesOnDatabase@{saveVehiclesOnDatabase}}
@@ -351,5 +377,5 @@ Checks if a specified vehicle exists at the linked list
 \end{DoxyReturn}
 
 
-Definition at line \textbf{ 339} of file \textbf{ vehicles.\+c}.
+Definition at line \textbf{ 374} of file \textbf{ vehicles.\+c}.
 

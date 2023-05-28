@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_vehicles_8c_source" xml:lang="en-US">
+<title>vehicles.c</title>
+<indexterm><primary>sources/vehicles.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_vehicles_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_vehicles_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;string.h&gt;</emphasis>
+<anchor xml:id="_vehicles_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;../headers/global.h&quot;</emphasis>
+<anchor xml:id="_vehicles_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;../headers/vehicles.h&quot;</emphasis>
+<anchor xml:id="_vehicles_8c_source_1l00005"/>00005 
+<anchor xml:id="_vehicles_8c_source_1l00015"/><link linkend="_vehicles_8h_1aeed9c0434f4d057d662880ad78fd82f0">00015</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_vehicles_8c_1aeed9c0434f4d057d662880ad78fd82f0">isUnique</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_vehicles_8c_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_vehicles_8c_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(startEntry-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;==&#32;<emphasis role="keywordtype">id</emphasis>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;(0);
+<anchor xml:id="_vehicles_8c_source_1l00018"/>00018 
+<anchor xml:id="_vehicles_8c_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00020"/>00020 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00021"/>00021 
+<anchor xml:id="_vehicles_8c_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(1);
+<anchor xml:id="_vehicles_8c_source_1l00023"/>00023 }
+<anchor xml:id="_vehicles_8c_source_1l00024"/>00024 
+<anchor xml:id="_vehicles_8c_source_1l00034"/><link linkend="_vehicles_8h_1a95c50728b4b1feefc4267c588c6f4122">00034</link> <link linkend="_struct_vehicle_list">Vehicle</link>&#32;*<link linkend="_vehicles_8c_1a95c50728b4b1feefc4267c588c6f4122">addVehicles</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,&#32;<emphasis role="keywordtype">float</emphasis>&#32;batteryCapacity,&#32;<emphasis role="keywordtype">int</emphasis>&#32;currentBattery,&#32;<emphasis role="keywordtype">float</emphasis>&#32;autonomy,&#32;<emphasis role="keywordtype">float</emphasis>&#32;price,&#32;<emphasis role="keywordtype">char</emphasis>&#32;brand[],&#32;<emphasis role="keywordtype">char</emphasis>&#32;model[],&#32;<emphasis role="keywordtype">char</emphasis>&#32;gpsTracker[]){
+<anchor xml:id="_vehicles_8c_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_vehicles_8c_1aeed9c0434f4d057d662880ad78fd82f0">isUnique</link>(startEntry,&#32;<emphasis role="keywordtype">id</emphasis>)){
+<anchor xml:id="_vehicles_8c_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nErro:&#32;Este&#32;ID&#32;ja&#32;foi&#32;registado!\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(startEntry);
+<anchor xml:id="_vehicles_8c_source_1l00038"/>00038 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00039"/>00039 
+<anchor xml:id="_vehicles_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*newEntry&#32;=&#32;malloc(<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_struct_vehicle_list">VehicleList</link>));
+<anchor xml:id="_vehicles_8c_source_1l00041"/>00041 
+<anchor xml:id="_vehicles_8c_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(newEntry&#32;!=&#32;NULL){
+<anchor xml:id="_vehicles_8c_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;=&#32;id;
+<anchor xml:id="_vehicles_8c_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>&#32;=&#32;batteryCapacity;
+<anchor xml:id="_vehicles_8c_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>&#32;=&#32;currentBattery;
+<anchor xml:id="_vehicles_8c_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>&#32;=&#32;autonomy;
+<anchor xml:id="_vehicles_8c_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d">price</link>&#32;=&#32;price;
+<anchor xml:id="_vehicles_8c_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(newEntry-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>,&#32;brand);
+<anchor xml:id="_vehicles_8c_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(newEntry-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>,&#32;model);
+<anchor xml:id="_vehicles_8c_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(newEntry-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>,&#32;gpsTracker);
+<anchor xml:id="_vehicles_8c_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;newEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>&#32;=&#32;startEntry;
+<anchor xml:id="_vehicles_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(newEntry);
+<anchor xml:id="_vehicles_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00054"/>00054 }
+<anchor xml:id="_vehicles_8c_source_1l00055"/>00055 
+<anchor xml:id="_vehicles_8c_source_1l00064"/><link linkend="_vehicles_8h_1a174dc3757d7fd308d7824673d9a3849d">00064</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_vehicles_8c_1a174dc3757d7fd308d7824673d9a3849d">listVehicles</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry){
+<anchor xml:id="_vehicles_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(startEntry&#32;==&#32;NULL){
+<anchor xml:id="_vehicles_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Nao&#32;ha&#32;veiculos&#32;guardados\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_vehicles_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00069"/>00069 
+<anchor xml:id="_vehicles_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Lista&#32;de&#32;veiculos!\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00071"/>00071 
+<anchor xml:id="_vehicles_8c_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_vehicles_8c_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Id:&#32;%d&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>);
+<anchor xml:id="_vehicles_8c_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nMarca:&#32;%s&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>);
+<anchor xml:id="_vehicles_8c_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nModelo:&#32;%s&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>);
+<anchor xml:id="_vehicles_8c_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nCapacidade&#32;de&#32;bateria&#32;(Ah):&#32;%.2f&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>);
+<anchor xml:id="_vehicles_8c_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nBateria&#32;atual&#32;(%%):&#32;%d%%&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>);
+<anchor xml:id="_vehicles_8c_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nAutonomia&#32;(Km):&#32;%.2f&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>);
+<anchor xml:id="_vehicles_8c_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nPreco&#32;de&#32;aluguer&#32;(eur):&#32;%.2f&#32;euros&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d">price</link>);
+<anchor xml:id="_vehicles_8c_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nLocalizacao&#32;do&#32;veiculo:&#32;%s\n\n&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>);
+<anchor xml:id="_vehicles_8c_source_1l00081"/>00081 
+<anchor xml:id="_vehicles_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00084"/>00084 }
+<anchor xml:id="_vehicles_8c_source_1l00085"/>00085 
+<anchor xml:id="_vehicles_8c_source_1l00095"/><link linkend="_vehicles_8h_1a939e86a429faf7c0c7bf1647c19dd517">00095</link> <link linkend="_struct_vehicle_list">Vehicle</link>&#32;*<link linkend="_vehicles_8c_1a939e86a429faf7c0c7bf1647c19dd517">deleteVehicle</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_vehicles_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*previousEntry=startEntry,&#32;*currentEntry=startEntry,&#32;*aux;
+<anchor xml:id="_vehicles_8c_source_1l00097"/>00097 
+<anchor xml:id="_vehicles_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry==NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nO&#32;veiculo&#32;indicado&#32;nao&#32;esta&#32;registado!\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(NULL);
+<anchor xml:id="_vehicles_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;
+<anchor xml:id="_vehicles_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry-&gt;id&#32;==&#32;<emphasis role="keywordtype">id</emphasis>)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux&#32;=&#32;currentEntry-&gt;nextEntry;
+<anchor xml:id="_vehicles_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free(currentEntry);
+<anchor xml:id="_vehicles_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(aux);
+<anchor xml:id="_vehicles_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;}&#32;
+<anchor xml:id="_vehicles_8c_source_1l00108"/>00108 &#32;&#32;&#32;
+<anchor xml:id="_vehicles_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;((currentEntry!=NULL)&amp;&amp;(currentEntry-&gt;id!=<emphasis role="keywordtype">id</emphasis>))&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;previousEntry&#32;=&#32;currentEntry;
+<anchor xml:id="_vehicles_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;currentEntry&#32;=&#32;currentEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;
+<anchor xml:id="_vehicles_8c_source_1l00114"/>00114 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry!=NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;previousEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>&#32;=&#32;currentEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free(currentEntry);
+<anchor xml:id="_vehicles_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(startEntry);
+<anchor xml:id="_vehicles_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00119"/>00119 
+<anchor xml:id="_vehicles_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nO&#32;veiculo&#32;indicado&#32;nao&#32;esta&#32;registado!\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(startEntry);
+<anchor xml:id="_vehicles_8c_source_1l00122"/>00122 }
+<anchor xml:id="_vehicles_8c_source_1l00123"/>00123 
+<anchor xml:id="_vehicles_8c_source_1l00133"/><link linkend="_vehicles_8h_1ab7ce1ccb88e5738a39431b0b7cd64f8d">00133</link> <link linkend="_struct_vehicle_list">Vehicle</link>&#32;*<link linkend="_vehicles_8c_1ab7ce1ccb88e5738a39431b0b7cd64f8d">editVehicle</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>,&#32;<emphasis role="keywordtype">int</emphasis>&#32;currentBattery,&#32;<emphasis role="keywordtype">char</emphasis>&#32;gpsTracker[]){
+<anchor xml:id="_vehicles_8c_source_1l00134"/>00134 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*previousEntry=startEntry,&#32;*currentEntry=startEntry;
+<anchor xml:id="_vehicles_8c_source_1l00135"/>00135 
+<anchor xml:id="_vehicles_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry==NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nO&#32;veiculo&#32;indicado&#32;nao&#32;esta&#32;registado!\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(NULL);
+<anchor xml:id="_vehicles_8c_source_1l00139"/>00139 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00140"/>00140 
+<anchor xml:id="_vehicles_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;((currentEntry!=NULL)&amp;&amp;(currentEntry-&gt;id!=<emphasis role="keywordtype">id</emphasis>))&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;previousEntry&#32;=&#32;currentEntry;
+<anchor xml:id="_vehicles_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;currentEntry&#32;=&#32;currentEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;
+<anchor xml:id="_vehicles_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry!=NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;currentEntry-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>&#32;=&#32;currentBattery;
+<anchor xml:id="_vehicles_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(currentEntry-&gt;gpsTracker,&#32;gpsTracker);
+<anchor xml:id="_vehicles_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(startEntry);
+<anchor xml:id="_vehicles_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00151"/>00151 
+<anchor xml:id="_vehicles_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nO&#32;veiculo&#32;indicado&#32;nao&#32;esta&#32;registado!\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(startEntry);
+<anchor xml:id="_vehicles_8c_source_1l00154"/>00154 }
+<anchor xml:id="_vehicles_8c_source_1l00155"/>00155 
+<anchor xml:id="_vehicles_8c_source_1l00165"/><link linkend="_vehicles_8h_1a32c74cac04f5218a5d7eb479fb262f5b">00165</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_vehicles_8c_1a32c74cac04f5218a5d7eb479fb262f5b">saveVehiclesOnDatabase</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry){
+<anchor xml:id="_vehicles_8c_source_1l00166"/>00166 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>*&#32;aux&#32;=&#32;startEntry;
+<anchor xml:id="_vehicles_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;FILE*&#32;fp;
+<anchor xml:id="_vehicles_8c_source_1l00168"/>00168 
+<anchor xml:id="_vehicles_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;fp&#32;=&#32;fopen(<emphasis role="stringliteral">&quot;../databases/vehicles_database.txt&quot;</emphasis>,<emphasis role="stringliteral">&quot;w&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00170"/>00170 
+<anchor xml:id="_vehicles_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(fp==NULL)&#32;<emphasis role="keywordflow">return</emphasis>(0);
+<anchor xml:id="_vehicles_8c_source_1l00172"/>00172 
+<anchor xml:id="_vehicles_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(aux&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(fp,<emphasis role="stringliteral">&quot;Id:%d;BatteryCap:%.2f;CurrBattery:%d;Autonomy:%.2f;Price:%.2f;Brand:%s;Model:%s;GPS:%s;\n&quot;</emphasis>,&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>,&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>,&#32;aux-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>,&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>,&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d">price</link>,&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>,&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>,&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>);
+<anchor xml:id="_vehicles_8c_source_1l00175"/>00175 
+<anchor xml:id="_vehicles_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux&#32;=&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00178"/>00178 
+<anchor xml:id="_vehicles_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;fclose(fp);
+<anchor xml:id="_vehicles_8c_source_1l00180"/>00180 
+<anchor xml:id="_vehicles_8c_source_1l00181"/>00181 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(1);
+<anchor xml:id="_vehicles_8c_source_1l00182"/>00182 }
+<anchor xml:id="_vehicles_8c_source_1l00183"/>00183 
+<anchor xml:id="_vehicles_8c_source_1l00193"/><link linkend="_vehicles_8h_1a5dae4b1b97ace920cd7262c20c3a9a41">00193</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_vehicles_8c_1a5dae4b1b97ace920cd7262c20c3a9a41">saveVehiclesOnBinaryDatabase</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00194"/>00194 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>*&#32;aux&#32;=&#32;startEntry;
+<anchor xml:id="_vehicles_8c_source_1l00195"/>00195 &#32;&#32;&#32;&#32;FILE*&#32;fp;
+<anchor xml:id="_vehicles_8c_source_1l00196"/>00196 
+<anchor xml:id="_vehicles_8c_source_1l00197"/>00197 &#32;&#32;&#32;&#32;fp&#32;=&#32;fopen(<emphasis role="stringliteral">&quot;../databases/vehicles_database.bin&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;wb&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00198"/>00198 
+<anchor xml:id="_vehicles_8c_source_1l00199"/>00199 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(fp&#32;==&#32;NULL)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_vehicles_8c_source_1l00200"/>00200 
+<anchor xml:id="_vehicles_8c_source_1l00201"/>00201 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(aux&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(&amp;aux-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">int</emphasis>),&#32;1,&#32;fp);
+<anchor xml:id="_vehicles_8c_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(&amp;aux-&gt;<link linkend="_struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">float</emphasis>),&#32;1,&#32;fp);
+<anchor xml:id="_vehicles_8c_source_1l00204"/>00204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(&amp;aux-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">int</emphasis>),&#32;1,&#32;fp);
+<anchor xml:id="_vehicles_8c_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(&amp;aux-&gt;<link linkend="_struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">float</emphasis>),&#32;1,&#32;fp);
+<anchor xml:id="_vehicles_8c_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(&amp;aux-&gt;<link linkend="_struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d">price</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">float</emphasis>),&#32;1,&#32;fp);
+<anchor xml:id="_vehicles_8c_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(aux-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>),&#32;strlen(aux-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>)&#32;+&#32;1,&#32;fp);
+<anchor xml:id="_vehicles_8c_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(aux-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>),&#32;strlen(aux-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>)&#32;+&#32;1,&#32;fp);
+<anchor xml:id="_vehicles_8c_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fwrite(aux-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>,&#32;<emphasis role="keyword">sizeof</emphasis>(<emphasis role="keywordtype">char</emphasis>),&#32;strlen(aux-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>)&#32;+&#32;1,&#32;fp);
+<anchor xml:id="_vehicles_8c_source_1l00210"/>00210 
+<anchor xml:id="_vehicles_8c_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;aux&#32;=&#32;aux-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00212"/>00212 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00213"/>00213 
+<anchor xml:id="_vehicles_8c_source_1l00214"/>00214 &#32;&#32;&#32;&#32;fclose(fp);
+<anchor xml:id="_vehicles_8c_source_1l00215"/>00215 
+<anchor xml:id="_vehicles_8c_source_1l00216"/>00216 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_vehicles_8c_source_1l00217"/>00217 }
+<anchor xml:id="_vehicles_8c_source_1l00218"/>00218 
+<anchor xml:id="_vehicles_8c_source_1l00227"/><link linkend="_vehicles_8h_1a369c63f2109ee2575ac9d4417b3c40ea">00227</link> <link linkend="_struct_vehicle_list">Vehicle</link>&#32;*<link linkend="_vehicles_8c_1a369c63f2109ee2575ac9d4417b3c40ea">getVehiclesFromDatabase</link>(){
+<anchor xml:id="_vehicles_8c_source_1l00228"/>00228 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*vehicles&#32;=&#32;NULL,&#32;*stack&#32;=&#32;NULL;
+<anchor xml:id="_vehicles_8c_source_1l00229"/>00229 &#32;&#32;&#32;&#32;FILE&#32;*fp;
+<anchor xml:id="_vehicles_8c_source_1l00230"/>00230 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;id,&#32;currentBattery;
+<anchor xml:id="_vehicles_8c_source_1l00231"/>00231 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;batteryCapacity,&#32;autonomy,&#32;price;
+<anchor xml:id="_vehicles_8c_source_1l00232"/>00232 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;brand[20],&#32;model[20],&#32;gpsTracker[50];
+<anchor xml:id="_vehicles_8c_source_1l00233"/>00233 
+<anchor xml:id="_vehicles_8c_source_1l00234"/>00234 &#32;&#32;&#32;&#32;fp&#32;=&#32;fopen(<emphasis role="stringliteral">&quot;../databases/vehicles_database.txt&quot;</emphasis>,<emphasis role="stringliteral">&quot;r&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00235"/>00235 
+<anchor xml:id="_vehicles_8c_source_1l00236"/>00236 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(fp&#32;==&#32;NULL)&#32;<emphasis role="keywordflow">return</emphasis>&#32;vehicles;
+<anchor xml:id="_vehicles_8c_source_1l00237"/>00237 
+<anchor xml:id="_vehicles_8c_source_1l00238"/>00238 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_global_8h_1ae7f7fdd55d053ad019b98ea0bd1001f6">isFileEmpty</link>(<emphasis role="stringliteral">&quot;../databases/vehicles_database.txt&quot;</emphasis>)&#32;==&#32;1)&#32;<emphasis role="keywordflow">return</emphasis>&#32;vehicles;
+<anchor xml:id="_vehicles_8c_source_1l00239"/>00239 
+<anchor xml:id="_vehicles_8c_source_1l00240"/>00240 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!feof(fp))&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fscanf(fp,<emphasis role="stringliteral">&quot;Id:%d;BatteryCap:%f;CurrBattery:%d;Autonomy:%f;Price:%f;Brand:%[^;];Model:%[^;];GPS:%[^;\n];\n&quot;</emphasis>,&#32;&amp;<emphasis role="keywordtype">id</emphasis>,&#32;&amp;batteryCapacity,&#32;&amp;currentBattery,&#32;&amp;autonomy,&#32;&amp;price,&#32;brand,&#32;model,&#32;gpsTracker);
+<anchor xml:id="_vehicles_8c_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stack&#32;=&#32;<link linkend="_vehicles_8c_1a95c50728b4b1feefc4267c588c6f4122">addVehicles</link>(stack,&#32;<emphasis role="keywordtype">id</emphasis>,&#32;batteryCapacity,&#32;currentBattery,&#32;autonomy,&#32;price,&#32;brand,&#32;model,&#32;gpsTracker);
+<anchor xml:id="_vehicles_8c_source_1l00243"/>00243 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00244"/>00244 
+<anchor xml:id="_vehicles_8c_source_1l00245"/>00245 &#32;&#32;&#32;&#32;fclose(fp);
+<anchor xml:id="_vehicles_8c_source_1l00246"/>00246 
+<anchor xml:id="_vehicles_8c_source_1l00247"/>00247 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(stack&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vehicles&#32;=&#32;<link linkend="_vehicles_8c_1a95c50728b4b1feefc4267c588c6f4122">addVehicles</link>(vehicles,&#32;stack-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>,&#32;stack-&gt;batteryCapacity,&#32;stack-&gt;currentBattery,&#32;stack-&gt;autonomy,&#32;stack-&gt;price,&#32;stack-&gt;brand,&#32;stack-&gt;model,&#32;stack-&gt;gpsTracker);
+<anchor xml:id="_vehicles_8c_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;stack&#32;=&#32;stack-&gt;nextEntry;
+<anchor xml:id="_vehicles_8c_source_1l00250"/>00250 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00251"/>00251 &#32;&#32;&#32;&#32;
+<anchor xml:id="_vehicles_8c_source_1l00252"/>00252 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>(vehicles);
+<anchor xml:id="_vehicles_8c_source_1l00253"/>00253 }
+<anchor xml:id="_vehicles_8c_source_1l00254"/>00254 
+<anchor xml:id="_vehicles_8c_source_1l00263"/><link linkend="_vehicles_8h_1a97e391b18841c2f4a9cd3fd39807d16a">00263</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_vehicles_8c_1a97e391b18841c2f4a9cd3fd39807d16a">listVehiclesByAutnonomy</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00264"/>00264 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(startEntry&#32;==&#32;NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Nao&#32;ha&#32;veiculos&#32;guardados\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_vehicles_8c_source_1l00267"/>00267 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00268"/>00268 
+<anchor xml:id="_vehicles_8c_source_1l00269"/>00269 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;count&#32;=&#32;0;
+<anchor xml:id="_vehicles_8c_source_1l00270"/>00270 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;**array&#32;=&#32;NULL;
+<anchor xml:id="_vehicles_8c_source_1l00271"/>00271 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*current&#32;=&#32;startEntry;
+<anchor xml:id="_vehicles_8c_source_1l00272"/>00272 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(current&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00273"/>00273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;count++;
+<anchor xml:id="_vehicles_8c_source_1l00274"/>00274 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array&#32;=&#32;realloc(array,&#32;count&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*));
+<anchor xml:id="_vehicles_8c_source_1l00275"/>00275 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array[count&#32;-&#32;1]&#32;=&#32;current;
+<anchor xml:id="_vehicles_8c_source_1l00276"/>00276 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current&#32;=&#32;current-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00277"/>00277 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00278"/>00278 
+<anchor xml:id="_vehicles_8c_source_1l00279"/>00279 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;count&#32;-&#32;1;&#32;i++)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00280"/>00280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;j&#32;=&#32;i&#32;+&#32;1;&#32;j&#32;&lt;&#32;count;&#32;j++)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00281"/>00281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(array[i]-&gt;autonomy&#32;&lt;&#32;array[j]-&gt;autonomy)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00282"/>00282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*temp&#32;=&#32;array[i];
+<anchor xml:id="_vehicles_8c_source_1l00283"/>00283 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array[i]&#32;=&#32;array[j];
+<anchor xml:id="_vehicles_8c_source_1l00284"/>00284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array[j]&#32;=&#32;temp;
+<anchor xml:id="_vehicles_8c_source_1l00285"/>00285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00286"/>00286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00287"/>00287 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00288"/>00288 
+<anchor xml:id="_vehicles_8c_source_1l00289"/>00289 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Lista&#32;de&#32;veiculos&#32;por&#32;autonomia!\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00290"/>00290 
+<anchor xml:id="_vehicles_8c_source_1l00291"/>00291 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;count;&#32;i++)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*vehicle&#32;=&#32;array[i];
+<anchor xml:id="_vehicles_8c_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Id:&#32;%d\n&quot;</emphasis>,&#32;vehicle-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>);
+<anchor xml:id="_vehicles_8c_source_1l00294"/>00294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Marca:&#32;%s\n&quot;</emphasis>,&#32;vehicle-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>);
+<anchor xml:id="_vehicles_8c_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Modelo:&#32;%s\n&quot;</emphasis>,&#32;vehicle-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>);
+<anchor xml:id="_vehicles_8c_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Capacidade&#32;de&#32;bateria&#32;(Ah):&#32;%.2f\n&quot;</emphasis>,&#32;vehicle-&gt;<link linkend="_struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>);
+<anchor xml:id="_vehicles_8c_source_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Bateria&#32;atual&#32;(%%):&#32;%d%%\n&quot;</emphasis>,&#32;vehicle-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>);
+<anchor xml:id="_vehicles_8c_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Autonomia&#32;(Km):&#32;%.2f\n&quot;</emphasis>,&#32;vehicle-&gt;<link linkend="_struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>);
+<anchor xml:id="_vehicles_8c_source_1l00299"/>00299 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Preco&#32;de&#32;aluguer&#32;(eur):&#32;%.2f&#32;euros\n&quot;</emphasis>,&#32;vehicle-&gt;<link linkend="_struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d">price</link>);
+<anchor xml:id="_vehicles_8c_source_1l00300"/>00300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Localizacao&#32;do&#32;veiculo:&#32;%s\n\n&quot;</emphasis>,&#32;vehicle-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>);
+<anchor xml:id="_vehicles_8c_source_1l00301"/>00301 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00302"/>00302 
+<anchor xml:id="_vehicles_8c_source_1l00303"/>00303 &#32;&#32;&#32;&#32;free(array);
+<anchor xml:id="_vehicles_8c_source_1l00304"/>00304 }
+<anchor xml:id="_vehicles_8c_source_1l00305"/>00305 
+<anchor xml:id="_vehicles_8c_source_1l00314"/><link linkend="_vehicles_8h_1a9687b1204b533bfc36593703b2fd1785">00314</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_vehicles_8c_1a9687b1204b533bfc36593703b2fd1785">listVehiclesByGPS</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">char</emphasis>&#32;location[]){
+<anchor xml:id="_vehicles_8c_source_1l00315"/>00315 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(startEntry&#32;==&#32;NULL){
+<anchor xml:id="_vehicles_8c_source_1l00316"/>00316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Nao&#32;ha&#32;veiculos&#32;guardados\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00317"/>00317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_vehicles_8c_source_1l00318"/>00318 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00319"/>00319 
+<anchor xml:id="_vehicles_8c_source_1l00320"/>00320 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Lista&#32;de&#32;veiculos&#32;na&#32;area&#32;%s!\n\n&quot;</emphasis>,&#32;location);
+<anchor xml:id="_vehicles_8c_source_1l00321"/>00321 
+<anchor xml:id="_vehicles_8c_source_1l00322"/>00322 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_vehicles_8c_source_1l00323"/>00323 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp(startEntry-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>,&#32;location)&#32;==&#32;0)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00324"/>00324 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Id:&#32;%d&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>);
+<anchor xml:id="_vehicles_8c_source_1l00325"/>00325 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nMarca:&#32;%s&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>);
+<anchor xml:id="_vehicles_8c_source_1l00326"/>00326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nModelo:&#32;%s&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>);
+<anchor xml:id="_vehicles_8c_source_1l00327"/>00327 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nCapacidade&#32;de&#32;bateria&#32;(Ah):&#32;%.2f&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>);
+<anchor xml:id="_vehicles_8c_source_1l00328"/>00328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nBateria&#32;atual&#32;(%%):&#32;%d%%&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>);
+<anchor xml:id="_vehicles_8c_source_1l00329"/>00329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nAutonomia&#32;(Km):&#32;%.2f&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>);
+<anchor xml:id="_vehicles_8c_source_1l00330"/>00330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nPreco&#32;de&#32;aluguer&#32;(eur):&#32;%.2f&#32;euros&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d">price</link>);
+<anchor xml:id="_vehicles_8c_source_1l00331"/>00331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nLocalizacao&#32;do&#32;veiculo:&#32;%s\n\n&quot;</emphasis>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>);
+<anchor xml:id="_vehicles_8c_source_1l00332"/>00332 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00333"/>00333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_vehicles_8c_source_1l00334"/>00334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00335"/>00335 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00336"/>00336 }
+<anchor xml:id="_vehicles_8c_source_1l00337"/>00337 
+<anchor xml:id="_vehicles_8c_source_1l00346"/><link linkend="_vehicles_8h_1a8c8d5c19871b6a26547394e61e49264f">00346</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_vehicles_8c_1a8c8d5c19871b6a26547394e61e49264f">getVehicleByID</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_vehicles_8c_source_1l00347"/>00347 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_vehicles_8c_source_1l00348"/>00348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(startEntry-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;==&#32;<emphasis role="keywordtype">id</emphasis>)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00349"/>00349 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>;
+<anchor xml:id="_vehicles_8c_source_1l00350"/>00350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399">batteryCapacity</link>;
+<anchor xml:id="_vehicles_8c_source_1l00351"/>00351 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>;
+<anchor xml:id="_vehicles_8c_source_1l00352"/>00352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8">autonomy</link>;
+<anchor xml:id="_vehicles_8c_source_1l00353"/>00353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a500426aec97889b7572f25ae45c06a8d">price</link>&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d">price</link>;
+<anchor xml:id="_vehicles_8c_source_1l00354"/>00354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a19d9312fa6559481585c37eec00fdccf">brand</link>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf">brand</link>);
+<anchor xml:id="_vehicles_8c_source_1l00355"/>00355 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a407e8645b05b8866c6aae96539051b4d">model</link>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d">model</link>);
+<anchor xml:id="_vehicles_8c_source_1l00356"/>00356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strcpy(<link linkend="_global_8h_1a3e96a5e238530b20be201de161da2059">car</link>.<link linkend="_struct_car_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>,&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b">gpsTracker</link>);
+<anchor xml:id="_vehicles_8c_source_1l00357"/>00357 
+<anchor xml:id="_vehicles_8c_source_1l00358"/>00358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_vehicles_8c_source_1l00359"/>00359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+<anchor xml:id="_vehicles_8c_source_1l00360"/>00360 
+<anchor xml:id="_vehicles_8c_source_1l00361"/>00361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00362"/>00362 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00363"/>00363 }
+<anchor xml:id="_vehicles_8c_source_1l00364"/>00364 
+<anchor xml:id="_vehicles_8c_source_1l00374"/><link linkend="_vehicles_8h_1ad531955832370c9ea477a920316b6442">00374</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_vehicles_8c_1ad531955832370c9ea477a920316b6442">vehicleExists</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<emphasis role="keywordtype">id</emphasis>){
+<anchor xml:id="_vehicles_8c_source_1l00375"/>00375 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(startEntry&#32;!=&#32;NULL){
+<anchor xml:id="_vehicles_8c_source_1l00376"/>00376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(startEntry-&gt;<link linkend="_struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link>&#32;==&#32;<emphasis role="keywordtype">id</emphasis>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_vehicles_8c_source_1l00377"/>00377 
+<anchor xml:id="_vehicles_8c_source_1l00378"/>00378 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;startEntry&#32;=&#32;startEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00379"/>00379 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00380"/>00380 
+<anchor xml:id="_vehicles_8c_source_1l00381"/>00381 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_vehicles_8c_source_1l00382"/>00382 }
+<anchor xml:id="_vehicles_8c_source_1l00383"/>00383 
+<anchor xml:id="_vehicles_8c_source_1l00393"/><link linkend="_vehicles_8h_1a88357fa8f47cb44df355643537f88141">00393</link> <link linkend="_struct_vehicle_list">Vehicle</link>&#32;*<link linkend="_vehicles_8c_1a88357fa8f47cb44df355643537f88141">rechargeVehicles</link>(<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*startEntry){
+<anchor xml:id="_vehicles_8c_source_1l00394"/>00394 &#32;&#32;&#32;&#32;<link linkend="_struct_vehicle_list">Vehicle</link>&#32;*currentEntry&#32;=&#32;startEntry;
+<anchor xml:id="_vehicles_8c_source_1l00395"/>00395 
+<anchor xml:id="_vehicles_8c_source_1l00396"/>00396 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry&#32;==&#32;NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00397"/>00397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;\nNao&#32;ha&#32;veiculos&#32;registados!\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00398"/>00398 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;NULL;
+<anchor xml:id="_vehicles_8c_source_1l00399"/>00399 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00400"/>00400 
+<anchor xml:id="_vehicles_8c_source_1l00401"/>00401 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(currentEntry&#32;!=&#32;NULL)&#32;{
+<anchor xml:id="_vehicles_8c_source_1l00402"/>00402 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(currentEntry-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>&#32;&lt;=&#32;50)&#32;currentEntry-&gt;<link linkend="_struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf">currentBattery</link>&#32;=&#32;100;
+<anchor xml:id="_vehicles_8c_source_1l00403"/>00403 
+<anchor xml:id="_vehicles_8c_source_1l00404"/>00404 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;currentEntry&#32;=&#32;currentEntry-&gt;<link linkend="_struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9">nextEntry</link>;
+<anchor xml:id="_vehicles_8c_source_1l00405"/>00405 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_vehicles_8c_source_1l00406"/>00406 &#32;&#32;&#32;&#32;
+<anchor xml:id="_vehicles_8c_source_1l00407"/>00407 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Todos&#32;os&#32;veiculos&#32;com&#32;bateria&#32;&lt;=&#32;a&#32;50/100&#32;foram&#32;recarregados!\n\n&quot;</emphasis>);
+<anchor xml:id="_vehicles_8c_source_1l00408"/>00408 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;startEntry;
+<anchor xml:id="_vehicles_8c_source_1l00409"/>00409 }
+</programlisting></section>

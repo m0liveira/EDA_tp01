@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_user_list" xml:lang="en-US">
+<title>UserList Struct Reference</title>
+<indexterm><primary>UserList</primary></indexterm>
+<para>
+<computeroutput>#include &lt;users.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_user_list_1ad68c6985dce5a3d709f854778dedee19">nif</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87">balance</link></para>
+</listitem>
+            <listitem><para>char <link linkend="_struct_user_list_1a72b952e44981373d9737a72616bb317f">name</link> [30]</para>
+</listitem>
+            <listitem><para>char <link linkend="_struct_user_list_1ae2f06144744aa77e5443babb0f993ec6">password</link> [30]</para>
+</listitem>
+            <listitem><para>char <link linkend="_struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3">role</link> [10]</para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_user_list">UserList</link> * <link linkend="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522">nextEntry</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_users_8h_source_1l00003">3</link> of file <link linkend="_users_8h_source">users.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_user_list_1a52a01a1ee7bb0cfab931fc44ec76da87"/><section>
+    <title>balance</title>
+<indexterm><primary>balance</primary><secondary>UserList</secondary></indexterm>
+<indexterm><primary>UserList</primary><secondary>balance</secondary></indexterm>
+<para><computeroutput>float balance</computeroutput></para><para>
+Definition at line <link linkend="_users_8h_source_1l00006">6</link> of file <link linkend="_users_8h_source">users.h</link>.</para>
+</section>
+<anchor xml:id="_struct_user_list_1a7441ef0865bcb3db9b8064dd7375c1ea"/><section>
+    <title>id</title>
+<indexterm><primary>id</primary><secondary>UserList</secondary></indexterm>
+<indexterm><primary>UserList</primary><secondary>id</secondary></indexterm>
+<para><computeroutput>int id</computeroutput></para><para>
+Definition at line <link linkend="_users_8h_source_1l00004">4</link> of file <link linkend="_users_8h_source">users.h</link>.</para>
+</section>
+<anchor xml:id="_struct_user_list_1a72b952e44981373d9737a72616bb317f"/><section>
+    <title>name</title>
+<indexterm><primary>name</primary><secondary>UserList</secondary></indexterm>
+<indexterm><primary>UserList</primary><secondary>name</secondary></indexterm>
+<para><computeroutput>char name[30]</computeroutput></para><para>
+Definition at line <link linkend="_users_8h_source_1l00007">7</link> of file <link linkend="_users_8h_source">users.h</link>.</para>
+</section>
+<anchor xml:id="_struct_user_list_1ad92c0a209cd3b2943cd2c0c22a5a5522"/><section>
+    <title>nextEntry</title>
+<indexterm><primary>nextEntry</primary><secondary>UserList</secondary></indexterm>
+<indexterm><primary>UserList</primary><secondary>nextEntry</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_user_list">UserList</link>* nextEntry</computeroutput></para><para>
+Definition at line <link linkend="_users_8h_source_1l00010">10</link> of file <link linkend="_users_8h_source">users.h</link>.</para>
+</section>
+<anchor xml:id="_struct_user_list_1ad68c6985dce5a3d709f854778dedee19"/><section>
+    <title>nif</title>
+<indexterm><primary>nif</primary><secondary>UserList</secondary></indexterm>
+<indexterm><primary>UserList</primary><secondary>nif</secondary></indexterm>
+<para><computeroutput>int nif</computeroutput></para><para>
+Definition at line <link linkend="_users_8h_source_1l00005">5</link> of file <link linkend="_users_8h_source">users.h</link>.</para>
+</section>
+<anchor xml:id="_struct_user_list_1ae2f06144744aa77e5443babb0f993ec6"/><section>
+    <title>password</title>
+<indexterm><primary>password</primary><secondary>UserList</secondary></indexterm>
+<indexterm><primary>UserList</primary><secondary>password</secondary></indexterm>
+<para><computeroutput>char password[30]</computeroutput></para><para>
+Definition at line <link linkend="_users_8h_source_1l00008">8</link> of file <link linkend="_users_8h_source">users.h</link>.</para>
+</section>
+<anchor xml:id="_struct_user_list_1a8877f22b3d1c2d2dc9f729b8b82291b3"/><section>
+    <title>role</title>
+<indexterm><primary>role</primary><secondary>UserList</secondary></indexterm>
+<indexterm><primary>UserList</primary><secondary>role</secondary></indexterm>
+<para><computeroutput>char role[10]</computeroutput></para><para>
+Definition at line <link linkend="_users_8h_source_1l00009">9</link> of file <link linkend="_users_8h_source">users.h</link>.</para>
+</section>
+</section>
+</section>

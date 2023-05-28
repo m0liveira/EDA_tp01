@@ -1,0 +1,676 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="vehicles_8h" kind="file" language="C++">
+    <compoundname>vehicles.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="main_8c" local="yes">sources/main.c</includedby>
+    <includedby refid="rents_8c" local="yes">sources/rents.c</includedby>
+    <includedby refid="vehicles_8c" local="yes">sources/vehicles.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>headers/vehicles.h</label>
+        <link refid="vehicles_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>headers/vehicles.h</label>
+        <link refid="vehicles_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sources/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="3">
+        <label>sources/rents.c</label>
+        <link refid="rents_8c"/>
+      </node>
+      <node id="4">
+        <label>sources/vehicles.c</label>
+        <link refid="vehicles_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_vehicle_list" prot="public">VehicleList</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="vehicles_8h_1a882096ca2318e46deaab7178285cb883" prot="public" static="no">
+        <type>struct <ref refid="struct_vehicle_list" kindref="compound">VehicleList</ref></type>
+        <definition>typedef struct VehicleList Vehicle</definition>
+        <argsstring></argsstring>
+        <name>Vehicle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="13" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="vehicles_8h_1aeed9c0434f4d057d662880ad78fd82f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isUnique</definition>
+        <argsstring>(Vehicle *startEntry, int id)</argsstring>
+        <name>isUnique</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Check vehicle ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the ID is dupped</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="15" column="5" bodyfile="sources/vehicles.c" bodystart="15" bodyend="23" declfile="headers/vehicles.h" declline="15" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a95c50728b4b1feefc4267c588c6f4122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+        <definition>Vehicle * addVehicles</definition>
+        <argsstring>(Vehicle *startEntry, int id, float batteryCapacity, int currentBattery, float autonomy, float price, char brand[], char model[], char gpsTracker[])</argsstring>
+        <name>addVehicles</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>batteryCapacity</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentBattery</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>autonomy</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>price</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>brand</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>model</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>gpsTracker</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Add vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a new vehicle entry into a linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>batteryCapacity</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>currentBattery</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>autonomy</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>price</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>brand[]</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>model[]</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>gpsTracker[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Added vehicle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="16" column="9" bodyfile="sources/vehicles.c" bodystart="34" bodyend="54" declfile="headers/vehicles.h" declline="16" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a174dc3757d7fd308d7824673d9a3849d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listVehicles</definition>
+        <argsstring>(Vehicle *startEntry)</argsstring>
+        <name>listVehicles</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>List vehicles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs all vehicles</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="17" column="6" bodyfile="sources/vehicles.c" bodystart="64" bodyend="84" declfile="headers/vehicles.h" declline="17" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a939e86a429faf7c0c7bf1647c19dd517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+        <definition>Vehicle * deleteVehicle</definition>
+        <argsstring>(Vehicle *startEntry, int id)</argsstring>
+        <name>deleteVehicle</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Delete vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes a vehicle entry from the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>vehicles </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="18" column="9" bodyfile="sources/vehicles.c" bodystart="95" bodyend="122" declfile="headers/vehicles.h" declline="18" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1ab7ce1ccb88e5738a39431b0b7cd64f8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+        <definition>Vehicle * editVehicle</definition>
+        <argsstring>(Vehicle *startEntry, int id, int currentBattery, char gpsTracker[])</argsstring>
+        <name>editVehicle</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentBattery</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>gpsTracker</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Update vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates a specified vehicle entry from the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>currentBattery</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>gpsTracker[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>vehicles </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="19" column="9" bodyfile="sources/vehicles.c" bodystart="133" bodyend="154" declfile="headers/vehicles.h" declline="19" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a32c74cac04f5218a5d7eb479fb262f5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveVehiclesOnDatabase</definition>
+        <argsstring>(Vehicle *startEntry)</argsstring>
+        <name>saveVehiclesOnDatabase</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Save vehicle on database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves vehicles entrys into a database</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="20" column="5" bodyfile="sources/vehicles.c" bodystart="165" bodyend="182" declfile="headers/vehicles.h" declline="20" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a5dae4b1b97ace920cd7262c20c3a9a41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveVehiclesOnBinaryDatabase</definition>
+        <argsstring>(Vehicle *startEntry)</argsstring>
+        <name>saveVehiclesOnBinaryDatabase</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Save vehicle on binary database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves vehicles entrys into a binary database</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="21" column="5" bodyfile="sources/vehicles.c" bodystart="193" bodyend="217" declfile="headers/vehicles.h" declline="21" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a369c63f2109ee2575ac9d4417b3c40ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+        <definition>Vehicle * getVehiclesFromDatabase</definition>
+        <argsstring>()</argsstring>
+        <name>getVehiclesFromDatabase</name>
+        <briefdescription>
+<para>Get vehicles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all vehicles from a database</para>
+<para><simplesect kind="return"><para>vehicles </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="22" column="9" bodyfile="sources/vehicles.c" bodystart="227" bodyend="253" declfile="headers/vehicles.h" declline="22" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a97e391b18841c2f4a9cd3fd39807d16a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listVehiclesByAutnonomy</definition>
+        <argsstring>(Vehicle *startEntry)</argsstring>
+        <name>listVehiclesByAutnonomy</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>List vehicles by autonomy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs vehicles sorted by autonomy</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="23" column="6" bodyfile="sources/vehicles.c" bodystart="263" bodyend="304" declfile="headers/vehicles.h" declline="23" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a9687b1204b533bfc36593703b2fd1785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listVehiclesByGPS</definition>
+        <argsstring>(Vehicle *startEntry, char location[])</argsstring>
+        <name>listVehiclesByGPS</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>location</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>List vehicles by GPS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs vehicles in a specific GPS location</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>location[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="24" column="6" bodyfile="sources/vehicles.c" bodystart="314" bodyend="336" declfile="headers/vehicles.h" declline="24" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a8c8d5c19871b6a26547394e61e49264f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getVehicleByID</definition>
+        <argsstring>(Vehicle *startEntry, int id)</argsstring>
+        <name>getVehicleByID</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get vehicle by ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores a specific vehicle data in a struct</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="25" column="6" bodyfile="sources/vehicles.c" bodystart="346" bodyend="363" declfile="headers/vehicles.h" declline="25" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1ad531955832370c9ea477a920316b6442" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int vehicleExists</definition>
+        <argsstring>(Vehicle *startEntry, int id)</argsstring>
+        <name>vehicleExists</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Vehicle exist. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if a specified vehicle exists at the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="26" column="5" bodyfile="sources/vehicles.c" bodystart="374" bodyend="382" declfile="headers/vehicles.h" declline="26" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="vehicles_8h_1a88357fa8f47cb44df355643537f88141" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+        <definition>Vehicle * rechargeVehicles</definition>
+        <argsstring>(Vehicle *startEntry)</argsstring>
+        <name>rechargeVehicles</name>
+        <param>
+          <type><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Recharge vehicles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Recharges all vehicles stored in the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Vehicle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>vehicles </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="27" column="9" bodyfile="sources/vehicles.c" bodystart="393" bodyend="409" declfile="headers/vehicles.h" declline="27" declcolumn="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="struct_vehicle_list" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_vehicle_list" kindref="compound">VehicleList</ref><sp/>{</highlight></codeline>
+<codeline lineno="4" refid="struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="5" refid="struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399" kindref="member">batteryCapacity</ref>;</highlight></codeline>
+<codeline lineno="6" refid="struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf" kindref="member">currentBattery</ref>;</highlight></codeline>
+<codeline lineno="7" refid="struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8" kindref="member">autonomy</ref>;</highlight></codeline>
+<codeline lineno="8" refid="struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d" kindref="member">price</ref>;</highlight></codeline>
+<codeline lineno="9" refid="struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf" kindref="member">brand</ref>[20];</highlight></codeline>
+<codeline lineno="10" refid="struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d" kindref="member">model</ref>[20];</highlight></codeline>
+<codeline lineno="11" refid="struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b" kindref="member">gpsTracker</ref>[50];</highlight></codeline>
+<codeline lineno="12" refid="struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_vehicle_list" kindref="compound">VehicleList</ref>*<sp/><ref refid="struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="13" refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" refkind="member"><highlight class="normal">}<sp/><ref refid="vehicles_8h_1a882096ca2318e46deaab7178285cb883" kindref="member">Vehicle</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="vehicles_8h_1aeed9c0434f4d057d662880ad78fd82f0" kindref="member">isUnique</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*<ref refid="vehicles_8h_1a95c50728b4b1feefc4267c588c6f4122" kindref="member">addVehicles</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399" kindref="member">batteryCapacity</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf" kindref="member">currentBattery</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8" kindref="member">autonomy</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d" kindref="member">price</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf" kindref="member">brand</ref>[],<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d" kindref="member">model</ref>[],<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b" kindref="member">gpsTracker</ref>[]);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicles_8h_1a174dc3757d7fd308d7824673d9a3849d" kindref="member">listVehicles</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*<ref refid="vehicles_8h_1a939e86a429faf7c0c7bf1647c19dd517" kindref="member">deleteVehicle</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*<ref refid="vehicles_8h_1ab7ce1ccb88e5738a39431b0b7cd64f8d" kindref="member">editVehicle</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf" kindref="member">currentBattery</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b" kindref="member">gpsTracker</ref>[]);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="vehicles_8h_1a32c74cac04f5218a5d7eb479fb262f5b" kindref="member">saveVehiclesOnDatabase</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="vehicles_8h_1a5dae4b1b97ace920cd7262c20c3a9a41" kindref="member">saveVehiclesOnBinaryDatabase</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*<ref refid="vehicles_8h_1a369c63f2109ee2575ac9d4417b3c40ea" kindref="member">getVehiclesFromDatabase</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicles_8h_1a97e391b18841c2f4a9cd3fd39807d16a" kindref="member">listVehiclesByAutnonomy</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicles_8h_1a9687b1204b533bfc36593703b2fd1785" kindref="member">listVehiclesByGPS</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>location[]);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicles_8h_1a8c8d5c19871b6a26547394e61e49264f" kindref="member">getVehicleByID</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="vehicles_8h_1ad531955832370c9ea477a920316b6442" kindref="member">vehicleExists</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*<ref refid="vehicles_8h_1a88357fa8f47cb44df355643537f88141" kindref="member">rechargeVehicles</ref>(<ref refid="struct_vehicle_list" kindref="compound">Vehicle</ref><sp/>*startEntry);</highlight></codeline>
+    </programlisting>
+    <location file="headers/vehicles.h"/>
+  </compounddef>
+</doxygen>

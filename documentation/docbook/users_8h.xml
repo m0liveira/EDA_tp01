@@ -1,0 +1,462 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_users_8h" xml:lang="en-US">
+<title>headers/users.h File Reference</title>
+<indexterm><primary>headers/users.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_user_list">UserList</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct <link linkend="_struct_user_list">UserList</link> <link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_users_8h_1a3eff6244efefa29ff980a2bd706b8e9b">isUserUnique</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *startEntry, int id)</para>
+
+<para>Check user ID. </para>
+</listitem>
+            <listitem><para>int <link linkend="_users_8h_1ace2066eafefcb27752a21a5da56efecc">isNameUnique</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *startEntry, char name[])</para>
+
+<para>Check user name. </para>
+</listitem>
+            <listitem><para><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * <link linkend="_users_8h_1aae43e4ec2bd4a34eaaa402c89d8eccd1">addUser</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *startEntry, int id, int nif, float balance, char name[], char password[], char role[])</para>
+
+<para>Add user. </para>
+</listitem>
+            <listitem><para>int <link linkend="_users_8h_1a9724304f5304c5e18783d58daf1e2ff8">loginUser</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *startEntry, char name[], char password[])</para>
+
+<para>User login. </para>
+</listitem>
+            <listitem><para>int <link linkend="_users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de">saveUsersOnDatabase</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *startEntry)</para>
+
+<para>Save user on database. </para>
+</listitem>
+            <listitem><para>int <link linkend="_users_8h_1aa3190709fa215b59580f1e98d4d90fb0">saveUsersOnBinaryDatabase</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *startEntry)</para>
+
+<para>Save user on a binary database. </para>
+</listitem>
+            <listitem><para><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * <link linkend="_users_8h_1a36ad2b37dc9902e37bb2f143f923bffe">getUsersFromDatabase</link> ()</para>
+
+<para>Get Users. </para>
+</listitem>
+            <listitem><para><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * <link linkend="_users_8h_1aa7b4e161f2c6c59d4849ce653efd30e5">deleteUser</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *startEntry, int id)</para>
+
+<para>Delete user. </para>
+</listitem>
+            <listitem><para><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * <link linkend="_users_8h_1ab54a616a3193a2efad78e80b31028430">editUser</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *startEntry, int id)</para>
+
+<para>Update user. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_users_8h_1a5400f33cf0c5c9de937367162462fb55"/><section>
+    <title>User</title>
+<indexterm><primary>User</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>User</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_struct_user_list">UserList</link> <link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link></computeroutput></para></section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_users_8h_1aae43e4ec2bd4a34eaaa402c89d8eccd1"/><section>
+    <title>addUser()</title>
+<indexterm><primary>addUser</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>addUser</secondary></indexterm>
+<para><computeroutput><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * addUser (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * startEntry, int id, int nif, float balance, char name[], char password[], char role[])</computeroutput></para><para>
+
+<para>Add user. </para>
+</para>
+
+<para>Adds a new user entry into a linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>nif</para>
+</entry>
+                            </row>
+                            <row>
+<entry>float</entry><entry>
+<para>balance</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>name[]</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>password[]</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>role[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Added user </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00053">53</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+<anchor xml:id="_users_8h_1aa7b4e161f2c6c59d4849ce653efd30e5"/><section>
+    <title>deleteUser()</title>
+<indexterm><primary>deleteUser</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>deleteUser</secondary></indexterm>
+<para><computeroutput><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * deleteUser (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Delete user. </para>
+</para>
+
+<para>Deletes an user entry from the linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>users </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00212">212</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+<anchor xml:id="_users_8h_1ab54a616a3193a2efad78e80b31028430"/><section>
+    <title>editUser()</title>
+<indexterm><primary>editUser</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>editUser</secondary></indexterm>
+<para><computeroutput><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * editUser (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Update user. </para>
+</para>
+
+<para>Updates a specified user entry from the linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>users </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00250">250</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+<anchor xml:id="_users_8h_1a36ad2b37dc9902e37bb2f143f923bffe"/><section>
+    <title>getUsersFromDatabase()</title>
+<indexterm><primary>getUsersFromDatabase</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>getUsersFromDatabase</secondary></indexterm>
+<para><computeroutput><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * getUsersFromDatabase ( )</computeroutput></para><para>
+
+<para>Get Users. </para>
+</para>
+
+<para>Gets all users from a database</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>users </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00176">176</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+<anchor xml:id="_users_8h_1ace2066eafefcb27752a21a5da56efecc"/><section>
+    <title>isNameUnique()</title>
+<indexterm><primary>isNameUnique</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>isNameUnique</secondary></indexterm>
+<para><computeroutput>int isNameUnique (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * startEntry, char name[])</computeroutput></para><para>
+
+<para>Check user name. </para>
+</para>
+
+<para>Checks if the user name is dupped</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>name[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00034">34</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+<anchor xml:id="_users_8h_1a3eff6244efefa29ff980a2bd706b8e9b"/><section>
+    <title>isUserUnique()</title>
+<indexterm><primary>isUserUnique</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>isUserUnique</secondary></indexterm>
+<para><computeroutput>int isUserUnique (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * startEntry, int id)</computeroutput></para><para>
+
+<para>Check user ID. </para>
+</para>
+
+<para>Checks if the ID is dupped</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00015">15</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+<anchor xml:id="_users_8h_1a9724304f5304c5e18783d58daf1e2ff8"/><section>
+    <title>loginUser()</title>
+<indexterm><primary>loginUser</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>loginUser</secondary></indexterm>
+<para><computeroutput>int loginUser (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * startEntry, char name[], char password[])</computeroutput></para><para>
+
+<para>User login. </para>
+</para>
+
+<para>Logins a user into the program</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>name[]</para>
+</entry>
+                            </row>
+                            <row>
+<entry>char</entry><entry>
+<para>password[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00088">88</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+<anchor xml:id="_users_8h_1aa3190709fa215b59580f1e98d4d90fb0"/><section>
+    <title>saveUsersOnBinaryDatabase()</title>
+<indexterm><primary>saveUsersOnBinaryDatabase</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>saveUsersOnBinaryDatabase</secondary></indexterm>
+<para><computeroutput>int saveUsersOnBinaryDatabase (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * startEntry)</computeroutput></para><para>
+
+<para>Save user on a binary database. </para>
+</para>
+
+<para>Saves user entrys into a binary database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00144">144</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+<anchor xml:id="_users_8h_1aa658b85d23db66ac2a2873cc9ee1e3de"/><section>
+    <title>saveUsersOnDatabase()</title>
+<indexterm><primary>saveUsersOnDatabase</primary><secondary>users.h</secondary></indexterm>
+<indexterm><primary>users.h</primary><secondary>saveUsersOnDatabase</secondary></indexterm>
+<para><computeroutput>int saveUsersOnDatabase (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * startEntry)</computeroutput></para><para>
+
+<para>Save user on database. </para>
+</para>
+
+<para>Saves user entrys into a database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*startEntry </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 or 0 as true or false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_users_8c_source_1l00116">116</link> of file <link linkend="_users_8c_source">users.c</link>.</para>
+</section>
+</section>
+</section>

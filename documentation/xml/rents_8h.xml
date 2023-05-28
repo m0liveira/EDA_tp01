@@ -1,0 +1,503 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="rents_8h" kind="file" language="C++">
+    <compoundname>rents.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="main_8c" local="yes">sources/main.c</includedby>
+    <includedby refid="rents_8c" local="yes">sources/rents.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>headers/rents.h</label>
+        <link refid="rents_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>headers/rents.h</label>
+        <link refid="rents_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sources/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+      <node id="3">
+        <label>sources/rents.c</label>
+        <link refid="rents_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_rent_list" prot="public">RentList</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" prot="public" static="no">
+        <type>struct <ref refid="struct_rent_list" kindref="compound">RentList</ref></type>
+        <definition>typedef struct RentList Rent</definition>
+        <argsstring></argsstring>
+        <name>Rent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="9" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="rents_8h_1a1b4ab5e40e6d73cd60cf1857822ab89e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isRentUnique</definition>
+        <argsstring>(Rent *startEntry, int id)</argsstring>
+        <name>isRentUnique</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Check rent ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the ID is dupped</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="11" column="5" bodyfile="sources/rents.c" bodystart="17" bodyend="25" declfile="headers/rents.h" declline="11" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1aa0f7ee7426e7e1587fd610380785b522" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int isRented</definition>
+        <argsstring>(Rent *startEntry, int vehicleId)</argsstring>
+        <name>isRented</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>vehicleId</declname>
+        </param>
+        <briefdescription>
+<para>Check rented vehicles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the selected vehicle is already rented</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vehicleId </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="12" column="5" bodyfile="sources/rents.c" bodystart="36" bodyend="44" declfile="headers/rents.h" declline="12" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1a44ec9a69cef8fe255e7ff26eb2a458e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+        <definition>Rent * addRent</definition>
+        <argsstring>(Rent *startEntry, int id, int clientId, int vehicleId, char status[])</argsstring>
+        <name>addRent</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>clientId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>vehicleId</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>status</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Add rent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a new rent entry into a linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>clientId</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vehicleId</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>status[] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Added rent </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="13" column="6" bodyfile="sources/rents.c" bodystart="55" bodyend="77" declfile="headers/rents.h" declline="13" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1a45e5a92a42235f4a8ffeace2ddb7e4e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveRentOnDatabase</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>saveRentOnDatabase</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Save rent on database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves rent entrys into a database</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="14" column="5" bodyfile="sources/rents.c" bodystart="88" bodyend="105" declfile="headers/rents.h" declline="14" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1ab420f75e53a50864f431f82565c03925" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int saveRentOnBinaryDatabase</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>saveRentOnBinaryDatabase</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>Save rent on binary database. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves rent entrys into a binary database</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="15" column="5" bodyfile="sources/rents.c" bodystart="116" bodyend="136" declfile="headers/rents.h" declline="15" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1ac50819ca4416fb1ecbbd960a8522f950" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+        <definition>Rent * getRentsFromDatabase</definition>
+        <argsstring>()</argsstring>
+        <name>getRentsFromDatabase</name>
+        <briefdescription>
+<para>Get rents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all rents from a database</para>
+<para><simplesect kind="return"><para>rents </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="16" column="6" bodyfile="sources/rents.c" bodystart="146" bodyend="170" declfile="headers/rents.h" declline="16" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1a17d20033ee11b7425b3361017f403896" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+        <definition>Rent * updateRent</definition>
+        <argsstring>(Rent *startEntry, int id)</argsstring>
+        <name>updateRent</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Update rent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates a specified rent entry from the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>rents </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="17" column="6" bodyfile="sources/rents.c" bodystart="200" bodyend="221" declfile="headers/rents.h" declline="17" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1a5e60f8b2348388851786fc506c8ccf65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listUserRents</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>listUserRents</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>List user rents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs all user rents</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="18" column="6" bodyfile="sources/rents.c" bodystart="231" bodyend="246" declfile="headers/rents.h" declline="18" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1a7b496d5af10b399af35bc10541d75924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listUserActiveRents</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>listUserActiveRents</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>List user active rents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs any active rent that a user has</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="19" column="6" bodyfile="sources/rents.c" bodystart="256" bodyend="271" declfile="headers/rents.h" declline="19" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1ab42f258f4be641f945c7ed83c4a24686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rentExists</definition>
+        <argsstring>(Rent *startEntry, int id)</argsstring>
+        <name>rentExists</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Rent exist. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if a specified rent exists at the linked list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 or 0 as true or false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="20" column="5" bodyfile="sources/rents.c" bodystart="181" bodyend="189" declfile="headers/rents.h" declline="20" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="rents_8h_1a2c88dddd80c4dd1dc09a8587ed7d70b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void listRents</definition>
+        <argsstring>(Rent *startEntry)</argsstring>
+        <name>listRents</name>
+        <param>
+          <type><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref> *</type>
+          <declname>startEntry</declname>
+        </param>
+        <briefdescription>
+<para>List rents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs all time rents for the admins</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Rent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>*startEntry </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/rents.h" line="21" column="6" bodyfile="sources/rents.c" bodystart="281" bodyend="294" declfile="headers/rents.h" declline="21" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="struct_rent_list" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_rent_list" kindref="compound">RentList</ref><sp/>{</highlight></codeline>
+<codeline lineno="4" refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list_1a7441ef0865bcb3db9b8064dd7375c1ea" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="5" refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kindref="member">clientId</ref>;</highlight></codeline>
+<codeline lineno="6" refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref>;</highlight></codeline>
+<codeline lineno="7" refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>[10];</highlight></codeline>
+<codeline lineno="8" refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_rent_list" kindref="compound">RentList</ref><sp/>*<ref refid="struct_rent_list_1a0c963cab07613dac8d174a2e3b802a1c" kindref="member">nextEntry</ref>;</highlight></codeline>
+<codeline lineno="9" refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" refkind="member"><highlight class="normal">}<sp/><ref refid="rents_8h_1ae036e116f3c1cfdb51890cd66988476c" kindref="member">Rent</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8h_1a1b4ab5e40e6d73cd60cf1857822ab89e" kindref="member">isRentUnique</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8h_1aa0f7ee7426e7e1587fd610380785b522" kindref="member">isRented</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref>);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*<ref refid="rents_8h_1a44ec9a69cef8fe255e7ff26eb2a458e8" kindref="member">addRent</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list_1a835ae48cfee11c9ce3a4bc4727993119" kindref="member">clientId</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list_1a1abc35da9e85cec6d537ec8e7cb06bdf" kindref="member">vehicleId</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_rent_list_1a437bf11ad5f99fb4b8d1530bb2158f66" kindref="member">status</ref>[]);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8h_1a45e5a92a42235f4a8ffeace2ddb7e4e0" kindref="member">saveRentOnDatabase</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8h_1ab420f75e53a50864f431f82565c03925" kindref="member">saveRentOnBinaryDatabase</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*<ref refid="rents_8h_1ac50819ca4416fb1ecbbd960a8522f950" kindref="member">getRentsFromDatabase</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*<ref refid="rents_8h_1a17d20033ee11b7425b3361017f403896" kindref="member">updateRent</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rents_8h_1a5e60f8b2348388851786fc506c8ccf65" kindref="member">listUserRents</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rents_8h_1a7b496d5af10b399af35bc10541d75924" kindref="member">listUserActiveRents</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="rents_8h_1ab42f258f4be641f945c7ed83c4a24686" kindref="member">rentExists</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rents_8h_1a2c88dddd80c4dd1dc09a8587ed7d70b2" kindref="member">listRents</ref>(<ref refid="struct_rent_list" kindref="compound">Rent</ref><sp/>*startEntry);</highlight></codeline>
+    </programlisting>
+    <location file="headers/rents.h"/>
+  </compounddef>
+</doxygen>

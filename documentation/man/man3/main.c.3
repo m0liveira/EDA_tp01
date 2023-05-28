@@ -1,0 +1,261 @@
+.TH "sources/main.c" 3 "Sun May 28 2023" "Version 2" "Estruturas de Dados Avançadas - trabalho prático" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/main.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include '\&.\&./headers/global\&.h'\fP
+.br
+\fC#include '\&.\&./headers/vehicles\&.h'\fP
+.br
+\fC#include '\&.\&./headers/users\&.h'\fP
+.br
+\fC#include '\&.\&./headers/rents\&.h'\fP
+.br
+\fC#include '\&.\&./headers/graphs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBclearConsole\fP ()"
+.br
+.RI "Clear console\&. "
+.ti -1c
+.RI "void \fBmainMenu\fP ()"
+.br
+.RI "Main menu\&. "
+.ti -1c
+.RI "void \fBloginMenu\fP ()"
+.br
+.RI "Login menu\&. "
+.ti -1c
+.RI "\fBVehicle\fP * \fBnewVehicle\fP (\fBVehicle\fP *vehicles, int id)"
+.br
+.RI "New vehicle\&. "
+.ti -1c
+.RI "\fBUser\fP * \fBnewUser\fP (\fBUser\fP *users, int id)"
+.br
+.RI "New user\&. "
+.ti -1c
+.RI "\fBRent\fP * \fBnewRent\fP (\fBRent\fP *rents, \fBVehicle\fP *vehicles, \fBUser\fP *users, int id)"
+.br
+.RI "New rent\&. "
+.ti -1c
+.RI "int \fBgetId\fP (char phrase[])"
+.br
+.RI "Get ID\&. "
+.ti -1c
+.RI "void \fBdepositBalance\fP ()"
+.br
+.RI "Deposit balance\&. "
+.ti -1c
+.RI "void \fBgetProfits\fP (\fBRent\fP *startEntry, \fBVehicle\fP *entrys)"
+.br
+.RI "Get profit\&. "
+.ti -1c
+.RI "int \fBgetLinkedListLength\fP (\fBGraph\fP *graph)"
+.br
+.RI "Get linked lists length\&. "
+.ti -1c
+.RI "int \fBgenerateRandomNumber\fP (int min, int max)"
+.br
+.RI "Generate random number\&. "
+.ti -1c
+.RI "\fBEdge\fP * \fBbuildGraph\fP (\fBGraph\fP *graphs, \fBEdge\fP *edges)"
+.br
+.RI "Build graph\&. "
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBEdge\fP * buildGraph (\fBGraph\fP * graphs, \fBEdge\fP * edges)"
+
+.PP
+Build graph\&. Builds the graph by using other functions throughout the code
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *graphs
+.br
+\fIEdge\fP *edges 
+.RE
+.PP
+
+.PP
+Definition at line \fB290\fP of file \fBmain\&.c\fP\&.
+.SS "void clearConsole ()"
+
+.PP
+Clear console\&. Clears the console outputs\&. 
+.PP
+Definition at line \fB17\fP of file \fBmain\&.c\fP\&.
+.SS "void depositBalance ()"
+
+.PP
+Deposit balance\&. Ask for input for the user to add balance 
+.PP
+Definition at line \fB215\fP of file \fBmain\&.c\fP\&.
+.SS "int generateRandomNumber (int min, int max)"
+
+.PP
+Generate random number\&. Generates a random number betwwen two values
+.PP
+\fBParameters\fP
+.RS 4
+\fIint\fP min
+.br
+\fIint\fP max 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+number 
+.RE
+.PP
+
+.PP
+Definition at line \fB278\fP of file \fBmain\&.c\fP\&.
+.SS "int getId (char phrase[])"
+
+.PP
+Get ID\&. Gets an ID
+.PP
+\fBParameters\fP
+.RS 4
+\fIchar\fP phrase[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ID 
+.RE
+.PP
+
+.PP
+Definition at line \fB200\fP of file \fBmain\&.c\fP\&.
+.SS "int getLinkedListLength (\fBGraph\fP * graph)"
+
+.PP
+Get linked lists length\&. Gets the lenght of a linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *graph 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+length 
+.RE
+.PP
+
+.PP
+Definition at line \fB258\fP of file \fBmain\&.c\fP\&.
+.SS "void getProfits (\fBRent\fP * startEntry, \fBVehicle\fP * entrys)"
+
+.PP
+Get profit\&. Outputs the income made from the vehicles renting
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry
+.br
+\fIVehicle\fP *entrys 
+.RE
+.PP
+
+.PP
+Definition at line \fB232\fP of file \fBmain\&.c\fP\&.
+.SS "void loginMenu ()"
+
+.PP
+Login menu\&. Outputs a menu so the user can login into the app and create an account\&. 
+.PP
+Definition at line \fB63\fP of file \fBmain\&.c\fP\&.
+.SS "int main ()"
+
+.PP
+Definition at line \fB300\fP of file \fBmain\&.c\fP\&.
+.SS "void mainMenu ()"
+
+.PP
+Main menu\&. Outputs a different menu for each user role\&. 
+.PP
+Definition at line \fB27\fP of file \fBmain\&.c\fP\&.
+.SS "\fBRent\fP * newRent (\fBRent\fP * rents, \fBVehicle\fP * vehicles, \fBUser\fP * users, int id)"
+
+.PP
+New rent\&. Outputs and ask for input for the user to rent a vehicle Deducts the cost of the vehicle from the user balance
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *vehicles
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Added vehicle 
+.RE
+.PP
+
+.PP
+Definition at line \fB157\fP of file \fBmain\&.c\fP\&.
+.SS "\fBUser\fP * newUser (\fBUser\fP * users, int id)"
+
+.PP
+New user\&. Outputs and ask for input for the user to create an account
+.PP
+\fBParameters\fP
+.RS 4
+\fIUser\fP *users
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Added user 
+.RE
+.PP
+
+.PP
+Definition at line \fB121\fP of file \fBmain\&.c\fP\&.
+.SS "\fBVehicle\fP * newVehicle (\fBVehicle\fP * vehicles, int id)"
+
+.PP
+New vehicle\&. Outputs and ask for input for the admin to add a new vehicle
+.PP
+\fBParameters\fP
+.RS 4
+\fIVehicle\fP *vehicles
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Added vehicle 
+.RE
+.PP
+
+.PP
+Definition at line \fB80\fP of file \fBmain\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Estruturas de Dados Avançadas - trabalho prático from the source code\&.

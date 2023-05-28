@@ -1,0 +1,49 @@
+\doxysection{graphs.\+h}
+\label{graphs_8h_source}\index{headers/graphs.h@{headers/graphs.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }AuxList\ \{}
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordtype}{float}\ batteryCapacity;}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{int}\ currentBattery;}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{float}\ autonomy;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{float}\ price;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{char}\ brand[20];}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{char}\ model[20];}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{char}\ gpsTracker[50];}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }AuxList*\ nextEntry;}
+\DoxyCodeLine{00013\ \}\ Aux;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }EdgeList\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ vertexA;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ vertexB;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ distance;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{struct\ }EdgeList*\ nextEntry;}
+\DoxyCodeLine{00021\ \}\ Edge;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }GraphList\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ vertex;}
+\DoxyCodeLine{00025\ \ \ \ \ Aux\ vehicle;}
+\DoxyCodeLine{00026\ \ \ \ \ Edge*\ edge;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }GraphList*\ nextEntry;}
+\DoxyCodeLine{00028\ \}\ Graph;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{int}\ isGraphUnique(Graph\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00031\ Graph\ *addVertex(Graph\ *startEntry,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ Aux\ vehicle);}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{float}\ generateRandomDistance();}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ doesVertexExist(Graph\ *graph,\ \textcolor{keywordtype}{int}\ vertex);}
+\DoxyCodeLine{00034\ Edge\ *AddEdge(Graph\ *graph,\ Edge\ *startEntry,\ \textcolor{keywordtype}{int}\ startVertex,\ \textcolor{keywordtype}{int}\ endVertex);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ isEdgePresent(Graph\ *graph,\ Edge\ *edge,\ \textcolor{keywordtype}{int}\ vertexA,\ \textcolor{keywordtype}{int}\ vertexB);}
+\DoxyCodeLine{00036\ Edge\ *generateRandomGraph(Graph\ *graph,\ Edge\ *edge,\ \textcolor{keywordtype}{int}\ numVertices,\ \textcolor{keywordtype}{int}\ numEdges);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ listGraph(Graph\ *startEntry,\ Edge\ *startEdge);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ listZones(Graph\ *startEntry);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ listVehiclesByZone(Graph\ *startEntry,\ \textcolor{keywordtype}{int}\ zone);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ saveVerticesOnDatabase(Graph\ *startEntry);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{int}\ saveVerticesOnBinaryDatabase(Graph\ *startEntry);}
+\DoxyCodeLine{00042\ Graph\ *getVerticesFromDatabase();}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ getShortestPath(Graph\ *startEntry,\ Edge\ *edge,\ \textcolor{keywordtype}{int}\ startVertex,\ \textcolor{keywordtype}{int}\ numOfVertices);}
+
+\end{DoxyCode}

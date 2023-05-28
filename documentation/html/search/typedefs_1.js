@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['user_0',['User',['../users_8h.html#a5400f33cf0c5c9de937367162462fb55',1,'users.h']]]
+  ['edge_0',['Edge',['../graphs_8h.html#a1e1861e76bc30ba26d89c654b520ae16',1,'graphs.h']]]
 ];

@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="struct_graph_list" kind="struct" language="C++" prot="public">
+    <compoundname>GraphList</compoundname>
+    <includes refid="graphs_8h" local="no">graphs.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_graph_list_1a7b6a73a9ea2850e455702ad082701c9d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int vertex</definition>
+        <argsstring></argsstring>
+        <name>vertex</name>
+        <qualifiedname>GraphList::vertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="24" column="9" bodyfile="headers/graphs.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_graph_list_1a5095800e7feb0f0af9903d03529c8b72" prot="public" static="no" mutable="no">
+        <type><ref refid="graphs_8h_1ae9ab6ee0d1c8faaa44a414ee96431039" kindref="member">Aux</ref></type>
+        <definition>Aux vehicle</definition>
+        <argsstring></argsstring>
+        <name>vehicle</name>
+        <qualifiedname>GraphList::vehicle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="25" column="9" bodyfile="headers/graphs.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_graph_list_1a4d8765cd8f9ea719658270501587af37" prot="public" static="no" mutable="no">
+        <type><ref refid="graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16" kindref="member">Edge</ref> *</type>
+        <definition>Edge* edge</definition>
+        <argsstring></argsstring>
+        <name>edge</name>
+        <qualifiedname>GraphList::edge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="26" column="10" bodyfile="headers/graphs.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_graph_list_1adb45c91a9338152d0e202d886d30d001" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_graph_list" kindref="compound">GraphList</ref> *</type>
+        <definition>struct GraphList* nextEntry</definition>
+        <argsstring></argsstring>
+        <name>nextEntry</name>
+        <qualifiedname>GraphList::nextEntry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/graphs.h" line="27" column="21" bodyfile="headers/graphs.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>AuxList</label>
+        <link refid="struct_aux_list"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>nextEntry</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EdgeList</label>
+        <link refid="struct_edge_list"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>nextEntry</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GraphList</label>
+        <link refid="struct_graph_list"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vehicle</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>edge</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>nextEntry</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="headers/graphs.h" line="23" column="1" bodyfile="headers/graphs.h" bodystart="23" bodyend="28"/>
+    <listofallmembers>
+      <member refid="struct_graph_list_1a4d8765cd8f9ea719658270501587af37" prot="public" virt="non-virtual"><scope>GraphList</scope><name>edge</name></member>
+      <member refid="struct_graph_list_1adb45c91a9338152d0e202d886d30d001" prot="public" virt="non-virtual"><scope>GraphList</scope><name>nextEntry</name></member>
+      <member refid="struct_graph_list_1a5095800e7feb0f0af9903d03529c8b72" prot="public" virt="non-virtual"><scope>GraphList</scope><name>vehicle</name></member>
+      <member refid="struct_graph_list_1a7b6a73a9ea2850e455702ad082701c9d" prot="public" virt="non-virtual"><scope>GraphList</scope><name>vertex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

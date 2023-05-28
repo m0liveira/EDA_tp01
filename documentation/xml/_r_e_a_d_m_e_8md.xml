@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>EDA_tp01</highlight></codeline>
+<codeline><highlight class="normal">Trabalho<sp/>prático<sp/>de<sp/>Estrutura<sp/>de<sp/>Dados<sp/>Avançada</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>see<sp/>documentation<sp/>go<sp/>either<sp/>to<sp/>the<sp/>folder:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>documentation<sp/>&gt;<sp/>html<sp/>&gt;<sp/>[index.html](./documentation/html/index.html)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>documentation<sp/>&gt;<sp/>rtf<sp/>&gt;<sp/>[refman.rtf](./documentation/rtf/refman.rtf)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Roadmap</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Vehicles<sp/>roadmap</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Add<sp/>vehicle<sp/>to<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>List<sp/>vehicles<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Delete<sp/>vehicles<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Update<sp/>vehicles<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Save<sp/>vehicles<sp/>to<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Save<sp/>vehicles<sp/>to<sp/>a<sp/>binary<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Get<sp/>vehicles<sp/>from<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>List<sp/>vehicles<sp/>by<sp/>autonomy<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>List<sp/>vehicles<sp/>by<sp/>gps<sp/>location<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Get<sp/>vehicle<sp/>by<sp/>ID<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Recharge<sp/>vehicles<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Users<sp/>roadmap</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Add<sp/>user<sp/>to<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Login<sp/>user<sp/>to<sp/>program</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Save<sp/>user<sp/>to<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Save<sp/>user<sp/>to<sp/>a<sp/>binary<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Get<sp/>user<sp/>from<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Delete<sp/>user<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Update<sp/>update<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Rents<sp/>roadmap</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Add<sp/>rent<sp/>to<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Save<sp/>rents<sp/>to<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Save<sp/>rents<sp/>to<sp/>a<sp/>binary<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Get<sp/>rents<sp/>from<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Update<sp/>rent<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>List<sp/>user<sp/>rents<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>List<sp/>user<sp/>active<sp/>rents<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>List<sp/>all<sp/>rents<sp/>from<sp/>linked<sp/>list</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Graphs<sp/>roadmap</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Add<sp/>vertex<sp/>to<sp/>a<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Add<sp/>edges<sp/>to<sp/>a<sp/>linked<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Create<sp/>random<sp/>and<sp/>dynamic<sp/>graphs</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>List<sp/>graphs</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Save<sp/>vertices<sp/>to<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Save<sp/>vertices<sp/>to<sp/>a<sp/>binary<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>Get<sp/>vertices<sp/>from<sp/>database</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[x]<sp/>List<sp/>vehicles<sp/>in<sp/>a<sp/>given<sp/>radius<sp/>from<sp/>the<sp/>client</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[<sp/>]<sp/>Calculate<sp/>the<sp/>shortest<sp/>route<sp/>to<sp/>retrieve<sp/>all<sp/>vehicles<sp/>with<sp/>a<sp/>battery<sp/>lower<sp/>than<sp/>50%</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="struct_vehicle_list" kind="struct" language="C++" prot="public">
+    <compoundname>VehicleList</compoundname>
+    <includes refid="vehicles_8h" local="no">vehicles.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>VehicleList::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="4" column="9" bodyfile="headers/vehicles.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float batteryCapacity</definition>
+        <argsstring></argsstring>
+        <name>batteryCapacity</name>
+        <qualifiedname>VehicleList::batteryCapacity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="5" column="11" bodyfile="headers/vehicles.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int currentBattery</definition>
+        <argsstring></argsstring>
+        <name>currentBattery</name>
+        <qualifiedname>VehicleList::currentBattery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="6" column="9" bodyfile="headers/vehicles.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float autonomy</definition>
+        <argsstring></argsstring>
+        <name>autonomy</name>
+        <qualifiedname>VehicleList::autonomy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="7" column="11" bodyfile="headers/vehicles.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float price</definition>
+        <argsstring></argsstring>
+        <name>price</name>
+        <qualifiedname>VehicleList::price</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="8" column="11" bodyfile="headers/vehicles.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char brand[20]</definition>
+        <argsstring>[20]</argsstring>
+        <name>brand</name>
+        <qualifiedname>VehicleList::brand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="9" column="10" bodyfile="headers/vehicles.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char model[20]</definition>
+        <argsstring>[20]</argsstring>
+        <name>model</name>
+        <qualifiedname>VehicleList::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="10" column="10" bodyfile="headers/vehicles.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char gpsTracker[50]</definition>
+        <argsstring>[50]</argsstring>
+        <name>gpsTracker</name>
+        <qualifiedname>VehicleList::gpsTracker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="11" column="10" bodyfile="headers/vehicles.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_vehicle_list" kindref="compound">VehicleList</ref> *</type>
+        <definition>struct VehicleList* nextEntry</definition>
+        <argsstring></argsstring>
+        <name>nextEntry</name>
+        <qualifiedname>VehicleList::nextEntry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="headers/vehicles.h" line="12" column="23" bodyfile="headers/vehicles.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>VehicleList</label>
+        <link refid="struct_vehicle_list"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>nextEntry</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="headers/vehicles.h" line="3" column="1" bodyfile="headers/vehicles.h" bodystart="3" bodyend="13"/>
+    <listofallmembers>
+      <member refid="struct_vehicle_list_1a83cda76233a2b02dcc2b3707fa58e4e8" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>autonomy</name></member>
+      <member refid="struct_vehicle_list_1a43a6e4be8d45c1a00a55a11d095c0399" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>batteryCapacity</name></member>
+      <member refid="struct_vehicle_list_1a19d9312fa6559481585c37eec00fdccf" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>brand</name></member>
+      <member refid="struct_vehicle_list_1aa0fb27feb593e8a6f2c20fa92b2466cf" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>currentBattery</name></member>
+      <member refid="struct_vehicle_list_1a28e6925eca319a182388b4d560d9026b" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>gpsTracker</name></member>
+      <member refid="struct_vehicle_list_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>id</name></member>
+      <member refid="struct_vehicle_list_1a407e8645b05b8866c6aae96539051b4d" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>model</name></member>
+      <member refid="struct_vehicle_list_1a34e680d3d5ef10fc2c55e625aa74b5e9" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>nextEntry</name></member>
+      <member refid="struct_vehicle_list_1a500426aec97889b7572f25ae45c06a8d" prot="public" virt="non-virtual"><scope>VehicleList</scope><name>price</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

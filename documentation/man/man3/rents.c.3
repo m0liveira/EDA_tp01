@@ -1,0 +1,268 @@
+.TH "sources/rents.c" 3 "Sun May 28 2023" "Version 2" "Estruturas de Dados Avançadas - trabalho prático" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/rents.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include '\&.\&./headers/global\&.h'\fP
+.br
+\fC#include '\&.\&./headers/rents\&.h'\fP
+.br
+\fC#include '\&.\&./headers/users\&.h'\fP
+.br
+\fC#include '\&.\&./headers/vehicles\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBisRentUnique\fP (\fBRent\fP *startEntry, int id)"
+.br
+.RI "Check rent ID\&. "
+.ti -1c
+.RI "int \fBisRented\fP (\fBRent\fP *startEntry, int vehicleId)"
+.br
+.RI "Check rented vehicles\&. "
+.ti -1c
+.RI "\fBRent\fP * \fBaddRent\fP (\fBRent\fP *startEntry, int id, int clientId, int vehicleId, char status[])"
+.br
+.RI "Add rent\&. "
+.ti -1c
+.RI "int \fBsaveRentOnDatabase\fP (\fBRent\fP *startEntry)"
+.br
+.RI "Save rent on database\&. "
+.ti -1c
+.RI "int \fBsaveRentOnBinaryDatabase\fP (\fBRent\fP *startEntry)"
+.br
+.RI "Save rent on binary database\&. "
+.ti -1c
+.RI "\fBRent\fP * \fBgetRentsFromDatabase\fP ()"
+.br
+.RI "Get rents\&. "
+.ti -1c
+.RI "int \fBrentExists\fP (\fBRent\fP *startEntry, int id)"
+.br
+.RI "Rent exist\&. "
+.ti -1c
+.RI "\fBRent\fP * \fBupdateRent\fP (\fBRent\fP *startEntry, int id)"
+.br
+.RI "Update rent\&. "
+.ti -1c
+.RI "void \fBlistUserRents\fP (\fBRent\fP *startEntry)"
+.br
+.RI "List user rents\&. "
+.ti -1c
+.RI "void \fBlistUserActiveRents\fP (\fBRent\fP *startEntry)"
+.br
+.RI "List user active rents\&. "
+.ti -1c
+.RI "void \fBlistRents\fP (\fBRent\fP *startEntry)"
+.br
+.RI "List rents\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBRent\fP * addRent (\fBRent\fP * startEntry, int id, int clientId, int vehicleId, char status[])"
+
+.PP
+Add rent\&. Adds a new rent entry into a linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry
+.br
+\fIint\fP id
+.br
+\fIint\fP clientId
+.br
+\fIint\fP vehicleId
+.br
+\fIchar\fP status[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Added rent 
+.RE
+.PP
+
+.PP
+Definition at line \fB55\fP of file \fBrents\&.c\fP\&.
+.SS "\fBRent\fP * getRentsFromDatabase ()"
+
+.PP
+Get rents\&. Gets all rents from a database
+.PP
+\fBReturns\fP
+.RS 4
+rents 
+.RE
+.PP
+
+.PP
+Definition at line \fB146\fP of file \fBrents\&.c\fP\&.
+.SS "int isRented (\fBRent\fP * startEntry, int vehicleId)"
+
+.PP
+Check rented vehicles\&. Checks if the selected vehicle is already rented
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry
+.br
+\fIint\fP vehicleId 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB36\fP of file \fBrents\&.c\fP\&.
+.SS "int isRentUnique (\fBRent\fP * startEntry, int id)"
+
+.PP
+Check rent ID\&. Checks if the ID is dupped
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB17\fP of file \fBrents\&.c\fP\&.
+.SS "void listRents (\fBRent\fP * startEntry)"
+
+.PP
+List rents\&. Outputs all time rents for the admins
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry 
+.RE
+.PP
+
+.PP
+Definition at line \fB281\fP of file \fBrents\&.c\fP\&.
+.SS "void listUserActiveRents (\fBRent\fP * startEntry)"
+
+.PP
+List user active rents\&. Outputs any active rent that a user has
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry 
+.RE
+.PP
+
+.PP
+Definition at line \fB256\fP of file \fBrents\&.c\fP\&.
+.SS "void listUserRents (\fBRent\fP * startEntry)"
+
+.PP
+List user rents\&. Outputs all user rents
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry 
+.RE
+.PP
+
+.PP
+Definition at line \fB231\fP of file \fBrents\&.c\fP\&.
+.SS "int rentExists (\fBRent\fP * startEntry, int id)"
+
+.PP
+Rent exist\&. Checks if a specified rent exists at the linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB181\fP of file \fBrents\&.c\fP\&.
+.SS "int saveRentOnBinaryDatabase (\fBRent\fP * startEntry)"
+
+.PP
+Save rent on binary database\&. Saves rent entrys into a binary database
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB116\fP of file \fBrents\&.c\fP\&.
+.SS "int saveRentOnDatabase (\fBRent\fP * startEntry)"
+
+.PP
+Save rent on database\&. Saves rent entrys into a database
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB88\fP of file \fBrents\&.c\fP\&.
+.SS "\fBRent\fP * updateRent (\fBRent\fP * startEntry, int id)"
+
+.PP
+Update rent\&. Updates a specified rent entry from the linked list
+.PP
+\fBParameters\fP
+.RS 4
+\fIRent\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+rents 
+.RE
+.PP
+
+.PP
+Definition at line \fB200\fP of file \fBrents\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Estruturas de Dados Avançadas - trabalho prático from the source code\&.

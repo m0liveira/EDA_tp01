@@ -1,0 +1,346 @@
+.TH "sources/graphs.c" 3 "Sun May 28 2023" "Version 2" "Estruturas de Dados Avançadas - trabalho prático" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/graphs.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include <limits\&.h>\fP
+.br
+\fC#include '\&.\&./headers/global\&.h'\fP
+.br
+\fC#include '\&.\&./headers/graphs\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_VERTICES\fP   100"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBisGraphUnique\fP (\fBGraph\fP *startEntry, int id)"
+.br
+.RI "Check vertices uniqueness\&. "
+.ti -1c
+.RI "\fBGraph\fP * \fBaddVertex\fP (\fBGraph\fP *startEntry, int id, \fBAux\fP vehicle)"
+.br
+.RI "Adds vertices\&. "
+.ti -1c
+.RI "float \fBgenerateRandomDistance\fP ()"
+.br
+.RI "Generator random distance\&. "
+.ti -1c
+.RI "int \fBdoesVertexExist\fP (\fBGraph\fP *graph, int vertex)"
+.br
+.RI "Check vertices existence\&. "
+.ti -1c
+.RI "\fBEdge\fP * \fBAddEdge\fP (\fBGraph\fP *graph, \fBEdge\fP *startEntry, int startVertex, int endVertex)"
+.br
+.RI "Adds edges\&. "
+.ti -1c
+.RI "int \fBisEdgePresent\fP (\fBGraph\fP *graph, \fBEdge\fP *edge, int vertexA, int vertexB)"
+.br
+.RI "Checks edges\&. "
+.ti -1c
+.RI "\fBEdge\fP * \fBgenerateRandomGraph\fP (\fBGraph\fP *graph, \fBEdge\fP *edge, int numVertices, int numEdges)"
+.br
+.RI "Generates Graphs\&. "
+.ti -1c
+.RI "void \fBlistGraph\fP (\fBGraph\fP *startEntry, \fBEdge\fP *startEdge)"
+.br
+.RI "List graph\&. "
+.ti -1c
+.RI "void \fBlistZones\fP (\fBGraph\fP *startEntry)"
+.br
+.RI "List zones\&. "
+.ti -1c
+.RI "void \fBlistVehiclesByZone\fP (\fBGraph\fP *startEntry, int zone)"
+.br
+.RI "List cars by zones\&. "
+.ti -1c
+.RI "int \fBsaveVerticesOnDatabase\fP (\fBGraph\fP *startEntry)"
+.br
+.RI "Save vertices on database\&. "
+.ti -1c
+.RI "int \fBsaveVerticesOnBinaryDatabase\fP (\fBGraph\fP *startEntry)"
+.br
+.RI "Save vertices on a binary database\&. "
+.ti -1c
+.RI "\fBGraph\fP * \fBgetVerticesFromDatabase\fP ()"
+.br
+.RI "Get vertices\&. "
+.ti -1c
+.RI "void \fBprintPath\fP (int *prev, int vertex)"
+.br
+.ti -1c
+.RI "void \fBgetShortestPath\fP (\fBGraph\fP *graph, \fBEdge\fP *edge, int startVertex, int numVertices)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MAX_VERTICES   100"
+
+.PP
+Definition at line \fB9\fP of file \fBgraphs\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBEdge\fP * AddEdge (\fBGraph\fP * graph, \fBEdge\fP * startEntry, int startVertex, int endVertex)"
+
+.PP
+Adds edges\&. Adds a new edge entry into a linked list to complete a graph
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *graph
+.br
+\fIEdge\fP *startEntry
+.br
+\fIint\fP startVertex
+.br
+\fIVehicle\fP *vehicle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+edges 
+.RE
+.PP
+
+.PP
+Definition at line \fB111\fP of file \fBgraphs\&.c\fP\&.
+.SS "\fBGraph\fP * addVertex (\fBGraph\fP * startEntry, int id, \fBAux\fP vehicle)"
+
+.PP
+Adds vertices\&. Adds a new vertex entry into a linked list that represents a graph
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *graph
+.br
+\fIint\fP id
+.br
+\fIVehicle\fP *vehicle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+vertices 
+.RE
+.PP
+
+.PP
+Definition at line \fB39\fP of file \fBgraphs\&.c\fP\&.
+.SS "int doesVertexExist (\fBGraph\fP * graph, int vertex)"
+
+.PP
+Check vertices existence\&. Checks if the given vertex exists
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *graph
+.br
+\fIint\fP vertex 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB92\fP of file \fBgraphs\&.c\fP\&.
+.SS "float generateRandomDistance ()"
+
+.PP
+Generator random distance\&. Generates a random distance that is going to be used as the length of the graph edges
+.PP
+\fBReturns\fP
+.RS 4
+distance 
+.RE
+.PP
+
+.PP
+Definition at line \fB76\fP of file \fBgraphs\&.c\fP\&.
+.SS "\fBEdge\fP * generateRandomGraph (\fBGraph\fP * graph, \fBEdge\fP * edge, int numVertices, int numEdges)"
+
+.PP
+Generates Graphs\&. Generates a random graph dynamically from the number of existent vertices
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *graph
+.br
+\fIEdge\fP *edge
+.br
+\fIint\fP numVertices
+.br
+\fIint\fP numEdges 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+edges 
+.RE
+.PP
+
+.PP
+Definition at line \fB172\fP of file \fBgraphs\&.c\fP\&.
+.SS "void getShortestPath (\fBGraph\fP * graph, \fBEdge\fP * edge, int startVertex, int numVertices)"
+
+.PP
+Definition at line \fB445\fP of file \fBgraphs\&.c\fP\&.
+.SS "\fBGraph\fP * getVerticesFromDatabase ()"
+
+.PP
+Get vertices\&. Gets all vertices from a database
+.PP
+\fBReturns\fP
+.RS 4
+vertices 
+.RE
+.PP
+
+.PP
+Definition at line \fB379\fP of file \fBgraphs\&.c\fP\&.
+.SS "int isEdgePresent (\fBGraph\fP * graph, \fBEdge\fP * edge, int vertexA, int vertexB)"
+
+.PP
+Checks edges\&. Checks if an edge exists
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *graph
+.br
+\fIEdge\fP *edge
+.br
+\fIint\fP vertexA
+.br
+\fIint\fP vertexB 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB150\fP of file \fBgraphs\&.c\fP\&.
+.SS "int isGraphUnique (\fBGraph\fP * startEntry, int id)"
+
+.PP
+Check vertices uniqueness\&. Checks if the vertice is dupped
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *startEntry
+.br
+\fIint\fP id 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB20\fP of file \fBgraphs\&.c\fP\&.
+.SS "void listGraph (\fBGraph\fP * startEntry, \fBEdge\fP * startEdge)"
+
+.PP
+List graph\&. Outputs graph vertices and edges
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *startEntry 
+.RE
+.PP
+
+.PP
+Definition at line \fB222\fP of file \fBgraphs\&.c\fP\&.
+.SS "void listVehiclesByZone (\fBGraph\fP * startEntry, int zone)"
+
+.PP
+List cars by zones\&. Outputs graph vertices
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *startEntry 
+.RE
+.PP
+
+.PP
+Definition at line \fB285\fP of file \fBgraphs\&.c\fP\&.
+.SS "void listZones (\fBGraph\fP * startEntry)"
+
+.PP
+List zones\&. Outputs graph vertices
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *startEntry 
+.RE
+.PP
+
+.PP
+Definition at line \fB262\fP of file \fBgraphs\&.c\fP\&.
+.SS "void printPath (int * prev, int vertex)"
+
+.PP
+Definition at line \fB436\fP of file \fBgraphs\&.c\fP\&.
+.SS "int saveVerticesOnBinaryDatabase (\fBGraph\fP * startEntry)"
+
+.PP
+Save vertices on a binary database\&. Saves vertices entrys into a binary database
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB344\fP of file \fBgraphs\&.c\fP\&.
+.SS "int saveVerticesOnDatabase (\fBGraph\fP * startEntry)"
+
+.PP
+Save vertices on database\&. Saves vertices entrys into a database
+.PP
+\fBParameters\fP
+.RS 4
+\fIGraph\fP *startEntry 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB314\fP of file \fBgraphs\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Estruturas de Dados Avançadas - trabalho prático from the source code\&.

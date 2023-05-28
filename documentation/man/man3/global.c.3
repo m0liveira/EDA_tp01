@@ -1,0 +1,75 @@
+.TH "sources/global.c" 3 "Sun May 28 2023" "Version 2" "Estruturas de Dados Avançadas - trabalho prático" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/global.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include '\&.\&./headers/global\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBisFileEmpty\fP (char dir[])"
+.br
+.RI "Check File\&. "
+.ti -1c
+.RI "int \fBgetLastIdFromDb\fP (char dir[])"
+.br
+.RI "Get last ID from database\&. "
+.ti -1c
+.RI "int \fBgetLastVerticeFromDb\fP (char dir[])"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int getLastIdFromDb (char dir[])"
+
+.PP
+Get last ID from database\&. Gets the last ID saved in a specified database\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIchar\fP dir[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Next ID counting from the last ID at the database 
+.RE
+.PP
+
+.PP
+Definition at line \fB40\fP of file \fBglobal\&.c\fP\&.
+.SS "int getLastVerticeFromDb (char dir[])"
+
+.PP
+Definition at line \fB59\fP of file \fBglobal\&.c\fP\&.
+.SS "int isFileEmpty (char dir[])"
+
+.PP
+Check File\&. Checks if a specified file is empty\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIchar\fP dir[] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0 as true or false 
+.RE
+.PP
+
+.PP
+Definition at line \fB14\fP of file \fBglobal\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Estruturas de Dados Avançadas - trabalho prático from the source code\&.

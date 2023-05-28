@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8c" xml:lang="en-US">
+<title>sources/main.c File Reference</title>
+<indexterm><primary>sources/main.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;time.h&gt;<?linebreak?>#include &quot;../headers/global.h&quot;<?linebreak?>#include &quot;../headers/vehicles.h&quot;<?linebreak?>#include &quot;../headers/users.h&quot;<?linebreak?>#include &quot;../headers/rents.h&quot;<?linebreak?>#include &quot;../headers/graphs.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_main_8c_1aff6c831918692405e75fc55c43424304">clearConsole</link> ()</para>
+
+<para>Clear console. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1ab3002fe8e0074c9e2ecb5b835e5e819f">mainMenu</link> ()</para>
+
+<para>Main menu. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1aa4b05059bd16c14911cab100f55a0aed">loginMenu</link> ()</para>
+
+<para>Login menu. </para>
+</listitem>
+            <listitem><para><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * <link linkend="_main_8c_1a36aef823407f8b3eee622a17b91720fb">newVehicle</link> (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *vehicles, int id)</para>
+
+<para>New vehicle. </para>
+</listitem>
+            <listitem><para><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * <link linkend="_main_8c_1a9742f8c7cea9a697ed24eb781050ccba">newUser</link> (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *users, int id)</para>
+
+<para>New user. </para>
+</listitem>
+            <listitem><para><link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * <link linkend="_main_8c_1ab54416b48a45ef4a84272086eb5e5095">newRent</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *rents, <link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *vehicles, <link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> *users, int id)</para>
+
+<para>New rent. </para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1ac516657fe58fb5a62c4e645fdce6267e">getId</link> (char phrase[])</para>
+
+<para>Get ID. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1a01f266ac9f0352cc537f05c04587dda2">depositBalance</link> ()</para>
+
+<para>Deposit balance. </para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8c_1abf47c7ca2632d1ada529631841f944b2">getProfits</link> (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> *startEntry, <link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> *entrys)</para>
+
+<para>Get profit. </para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1a4052b7dc485f97b116d075ff197db010">getLinkedListLength</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *graph)</para>
+
+<para>Get linked lists length. </para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1a8738fde2cefb820cd40c39cd0862ad2c">generateRandomNumber</link> (int min, int max)</para>
+
+<para>Generate random number. </para>
+</listitem>
+            <listitem><para><link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * <link linkend="_main_8c_1a87f94611394406cd61017570b650d9d3">buildGraph</link> (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> *graphs, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> *edges)</para>
+
+<para>Build graph. </para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4">main</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_main_8c_1a87f94611394406cd61017570b650d9d3"/><section>
+    <title>buildGraph()</title>
+<indexterm><primary>buildGraph</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>buildGraph</secondary></indexterm>
+<para><computeroutput><link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * buildGraph (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * graphs, <link linkend="_graphs_8h_1a1e1861e76bc30ba26d89c654b520ae16">Edge</link> * edges)</computeroutput></para><para>
+
+<para>Build graph. </para>
+</para>
+
+<para>Builds the graph by using other functions throughout the code</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*graphs</para>
+</entry>
+                            </row>
+                            <row>
+<entry>Edge</entry><entry>
+<para>*edges </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00290">290</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1aff6c831918692405e75fc55c43424304"/><section>
+    <title>clearConsole()</title>
+<indexterm><primary>clearConsole</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>clearConsole</secondary></indexterm>
+<para><computeroutput>void clearConsole ( )</computeroutput></para><para>
+
+<para>Clear console. </para>
+</para>
+
+<para>Clears the console outputs. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00017">17</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a01f266ac9f0352cc537f05c04587dda2"/><section>
+    <title>depositBalance()</title>
+<indexterm><primary>depositBalance</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>depositBalance</secondary></indexterm>
+<para><computeroutput>void depositBalance ( )</computeroutput></para><para>
+
+<para>Deposit balance. </para>
+</para>
+
+<para>Ask for input for the user to add balance </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00215">215</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a8738fde2cefb820cd40c39cd0862ad2c"/><section>
+    <title>generateRandomNumber()</title>
+<indexterm><primary>generateRandomNumber</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>generateRandomNumber</secondary></indexterm>
+<para><computeroutput>int generateRandomNumber (int min, int max)</computeroutput></para><para>
+
+<para>Generate random number. </para>
+</para>
+
+<para>Generates a random number betwwen two values</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>
+<para>min</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>max </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>number </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00278">278</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1ac516657fe58fb5a62c4e645fdce6267e"/><section>
+    <title>getId()</title>
+<indexterm><primary>getId</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>getId</secondary></indexterm>
+<para><computeroutput>int getId (char phrase[])</computeroutput></para><para>
+
+<para>Get ID. </para>
+</para>
+
+<para>Gets an ID</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>char</entry><entry>
+<para>phrase[] </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>ID </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00200">200</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a4052b7dc485f97b116d075ff197db010"/><section>
+    <title>getLinkedListLength()</title>
+<indexterm><primary>getLinkedListLength</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>getLinkedListLength</secondary></indexterm>
+<para><computeroutput>int getLinkedListLength (<link linkend="_graphs_8h_1af8faa00bf97d63050ab962a459d43e1c">Graph</link> * graph)</computeroutput></para><para>
+
+<para>Get linked lists length. </para>
+</para>
+
+<para>Gets the lenght of a linked list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Graph</entry><entry>
+<para>*graph </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>length </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00258">258</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1abf47c7ca2632d1ada529631841f944b2"/><section>
+    <title>getProfits()</title>
+<indexterm><primary>getProfits</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>getProfits</secondary></indexterm>
+<para><computeroutput>void getProfits (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * startEntry, <link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * entrys)</computeroutput></para><para>
+
+<para>Get profit. </para>
+</para>
+
+<para>Outputs the income made from the vehicles renting</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Rent</entry><entry>
+<para>*startEntry</para>
+</entry>
+                            </row>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*entrys </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00232">232</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1aa4b05059bd16c14911cab100f55a0aed"/><section>
+    <title>loginMenu()</title>
+<indexterm><primary>loginMenu</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>loginMenu</secondary></indexterm>
+<para><computeroutput>void loginMenu ( )</computeroutput></para><para>
+
+<para>Login menu. </para>
+</para>
+
+<para>Outputs a menu so the user can login into the app and create an account. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00063">63</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main ( )</computeroutput></para><para>
+Definition at line <link linkend="_main_8c_source_1l00300">300</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1ab3002fe8e0074c9e2ecb5b835e5e819f"/><section>
+    <title>mainMenu()</title>
+<indexterm><primary>mainMenu</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>mainMenu</secondary></indexterm>
+<para><computeroutput>void mainMenu ( )</computeroutput></para><para>
+
+<para>Main menu. </para>
+</para>
+
+<para>Outputs a different menu for each user role. </para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00027">27</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1ab54416b48a45ef4a84272086eb5e5095"/><section>
+    <title>newRent()</title>
+<indexterm><primary>newRent</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>newRent</secondary></indexterm>
+<para><computeroutput><link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * newRent (<link linkend="_rents_8h_1ae036e116f3c1cfdb51890cd66988476c">Rent</link> * rents, <link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * vehicles, <link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * users, int id)</computeroutput></para><para>
+
+<para>New rent. </para>
+</para>
+
+<para>Outputs and ask for input for the user to rent a vehicle Deducts the cost of the vehicle from the user balance</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*vehicles</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Added vehicle </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00157">157</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a9742f8c7cea9a697ed24eb781050ccba"/><section>
+    <title>newUser()</title>
+<indexterm><primary>newUser</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>newUser</secondary></indexterm>
+<para><computeroutput><link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * newUser (<link linkend="_users_8h_1a5400f33cf0c5c9de937367162462fb55">User</link> * users, int id)</computeroutput></para><para>
+
+<para>New user. </para>
+</para>
+
+<para>Outputs and ask for input for the user to create an account</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>User</entry><entry>
+<para>*users</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Added user </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00121">121</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+<anchor xml:id="_main_8c_1a36aef823407f8b3eee622a17b91720fb"/><section>
+    <title>newVehicle()</title>
+<indexterm><primary>newVehicle</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>newVehicle</secondary></indexterm>
+<para><computeroutput><link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * newVehicle (<link linkend="_vehicles_8h_1a882096ca2318e46deaab7178285cb883">Vehicle</link> * vehicles, int id)</computeroutput></para><para>
+
+<para>New vehicle. </para>
+</para>
+
+<para>Outputs and ask for input for the admin to add a new vehicle</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Vehicle</entry><entry>
+<para>*vehicles</para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>
+<para>id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Added vehicle </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_main_8c_source_1l00080">80</link> of file <link linkend="_main_8c_source">main.c</link>.</para>
+</section>
+</section>
+</section>

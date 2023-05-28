@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_edge_list" xml:lang="en-US">
+<title>EdgeList Struct Reference</title>
+<indexterm><primary>EdgeList</primary></indexterm>
+<para>
+<computeroutput>#include &lt;graphs.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_edge_list_1a7441ef0865bcb3db9b8064dd7375c1ea">id</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_edge_list_1aff105884864d9eb93769b4323f180562">vertexA</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_edge_list_1a8af3b87d94b267ef0e237180b1ab5c8b">vertexB</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_edge_list_1a06f14a9abd47b91465f895d5259cdc1b">distance</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_edge_list">EdgeList</link> * <link linkend="_struct_edge_list_1a1b8105521e3a6a5e9f85c915e3746581">nextEntry</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_graphs_8h_source_1l00015">15</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_edge_list_1a06f14a9abd47b91465f895d5259cdc1b"/><section>
+    <title>distance</title>
+<indexterm><primary>distance</primary><secondary>EdgeList</secondary></indexterm>
+<indexterm><primary>EdgeList</primary><secondary>distance</secondary></indexterm>
+<para><computeroutput>float distance</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00019">19</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_edge_list_1a7441ef0865bcb3db9b8064dd7375c1ea"/><section>
+    <title>id</title>
+<indexterm><primary>id</primary><secondary>EdgeList</secondary></indexterm>
+<indexterm><primary>EdgeList</primary><secondary>id</secondary></indexterm>
+<para><computeroutput>int id</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00016">16</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_edge_list_1a1b8105521e3a6a5e9f85c915e3746581"/><section>
+    <title>nextEntry</title>
+<indexterm><primary>nextEntry</primary><secondary>EdgeList</secondary></indexterm>
+<indexterm><primary>EdgeList</primary><secondary>nextEntry</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_edge_list">EdgeList</link>* nextEntry</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00020">20</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_edge_list_1aff105884864d9eb93769b4323f180562"/><section>
+    <title>vertexA</title>
+<indexterm><primary>vertexA</primary><secondary>EdgeList</secondary></indexterm>
+<indexterm><primary>EdgeList</primary><secondary>vertexA</secondary></indexterm>
+<para><computeroutput>int vertexA</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00017">17</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+<anchor xml:id="_struct_edge_list_1a8af3b87d94b267ef0e237180b1ab5c8b"/><section>
+    <title>vertexB</title>
+<indexterm><primary>vertexB</primary><secondary>EdgeList</secondary></indexterm>
+<indexterm><primary>EdgeList</primary><secondary>vertexB</secondary></indexterm>
+<para><computeroutput>int vertexB</computeroutput></para><para>
+Definition at line <link linkend="_graphs_8h_source_1l00018">18</link> of file <link linkend="_graphs_8h_source">graphs.h</link>.</para>
+</section>
+</section>
+</section>

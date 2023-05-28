@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__r_e_a_d_m_e" xml:lang="en-US">
+
+<para>Trabalho prático de Estrutura de Dados Avançada</para>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1">
+<title>Documentation</title>
+
+<para>To see documentation go either to the folder:<itemizedlist>
+<listitem>
+<para>documentation &gt; html &gt; <link xlink:href="./documentation/html/index.html">index.html</link></para>
+</listitem><listitem>
+<para>documentation &gt; rtf &gt; <link xlink:href="./documentation/rtf/refman.rtf">refman.rtf</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md2">
+<title>Roadmap</title>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md3">
+<title>Vehicles roadmap</title>
+
+<para><itemizedlist>
+<listitem>
+<para>[x] Add vehicle to linked list</para>
+</listitem><listitem>
+<para>[x] List vehicles from linked list</para>
+</listitem><listitem>
+<para>[x] Delete vehicles from linked list</para>
+</listitem><listitem>
+<para>[x] Update vehicles from linked list</para>
+</listitem><listitem>
+<para>[x] Save vehicles to database</para>
+</listitem><listitem>
+<para>[x] Save vehicles to a binary database</para>
+</listitem><listitem>
+<para>[x] Get vehicles from database</para>
+</listitem><listitem>
+<para>[x] List vehicles by autonomy from linked list</para>
+</listitem><listitem>
+<para>[x] List vehicles by gps location from linked list</para>
+</listitem><listitem>
+<para>[x] Get vehicle by ID from linked list</para>
+</listitem><listitem>
+<para>[x] Recharge vehicles from linked list</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md4">
+<title>Users roadmap</title>
+
+<para><itemizedlist>
+<listitem>
+<para>[x] Add user to linked list</para>
+</listitem><listitem>
+<para>[x] Login user to program</para>
+</listitem><listitem>
+<para>[x] Save user to database</para>
+</listitem><listitem>
+<para>[x] Save user to a binary database</para>
+</listitem><listitem>
+<para>[x] Get user from database</para>
+</listitem><listitem>
+<para>[x] Delete user from linked list</para>
+</listitem><listitem>
+<para>[x] Update update from linked list</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md5">
+<title>Rents roadmap</title>
+
+<para><itemizedlist>
+<listitem>
+<para>[x] Add rent to linked list</para>
+</listitem><listitem>
+<para>[x] Save rents to database</para>
+</listitem><listitem>
+<para>[x] Save rents to a binary database</para>
+</listitem><listitem>
+<para>[x] Get rents from database</para>
+</listitem><listitem>
+<para>[x] Update rent from linked list</para>
+</listitem><listitem>
+<para>[x] List user rents from linked list</para>
+</listitem><listitem>
+<para>[x] List user active rents from linked list</para>
+</listitem><listitem>
+<para>[x] List all rents from linked list</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md6">
+<title>Graphs roadmap</title>
+
+<para><itemizedlist>
+<listitem>
+<para>[x] Add vertex to a linked list</para>
+</listitem><listitem>
+<para>[x] Add edges to a linked list</para>
+</listitem><listitem>
+<para>[x] Create random and dynamic graphs</para>
+</listitem><listitem>
+<para>[x] List graphs</para>
+</listitem><listitem>
+<para>[x] Save vertices to database</para>
+</listitem><listitem>
+<para>[x] Save vertices to a binary database</para>
+</listitem><listitem>
+<para>[x] Get vertices from database</para>
+</listitem><listitem>
+<para>[x] List vehicles in a given radius from the client</para>
+</listitem><listitem>
+<para>[ ] Calculate the shortest route to retrieve all vehicles with a battery lower than 50% </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+</section>

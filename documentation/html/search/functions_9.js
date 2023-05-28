@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['rechargevehicles_0',['rechargeVehicles',['../vehicles_8h.html#a88357fa8f47cb44df355643537f88141',1,'rechargeVehicles(Vehicle *startEntry):&#160;vehicles.c'],['../vehicles_8c.html#a88357fa8f47cb44df355643537f88141',1,'rechargeVehicles(Vehicle *startEntry):&#160;vehicles.c']]],
-  ['rentexists_1',['rentExists',['../rents_8h.html#ab42f258f4be641f945c7ed83c4a24686',1,'rentExists(Rent *startEntry, int id):&#160;rents.c'],['../rents_8c.html#ab42f258f4be641f945c7ed83c4a24686',1,'rentExists(Rent *startEntry, int id):&#160;rents.c']]]
+  ['newrent_0',['newRent',['../main_8c.html#ab54416b48a45ef4a84272086eb5e5095',1,'main.c']]],
+  ['newuser_1',['newUser',['../main_8c.html#a9742f8c7cea9a697ed24eb781050ccba',1,'main.c']]],
+  ['newvehicle_2',['newVehicle',['../main_8c.html#a36aef823407f8b3eee622a17b91720fb',1,'main.c']]]
 ];

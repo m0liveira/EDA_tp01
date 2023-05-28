@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['model_0',['model',['../struct_car.html#a407e8645b05b8866c6aae96539051b4d',1,'Car::model()'],['../struct_vehicle_list.html#a407e8645b05b8866c6aae96539051b4d',1,'VehicleList::model()']]]
+  ['gpstracker_0',['gpsTracker',['../struct_car.html#a28e6925eca319a182388b4d560d9026b',1,'Car::gpsTracker()'],['../struct_aux_list.html#a28e6925eca319a182388b4d560d9026b',1,'AuxList::gpsTracker()'],['../struct_vehicle_list.html#a28e6925eca319a182388b4d560d9026b',1,'VehicleList::gpsTracker()']]]
 ];
