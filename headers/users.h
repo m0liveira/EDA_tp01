@@ -15,6 +15,7 @@ int isNameUnique(User *startEntry, char name[]);
 User *addUser(User *startEntry, int id, int nif, float balance, char name[], char password[], char role[]);
 int loginUser(User *startEntry, char name[], char password[]);
 int saveUsersOnDatabase(User *startEntry);
+int saveUsersOnBinaryDatabase(User *startEntry);
 User *getUsersFromDatabase();
 User *deleteUser(User *startEntry, int id);
 User *editUser(User *startEntry, int id);

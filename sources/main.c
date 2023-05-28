@@ -183,6 +183,7 @@ Rent *newRent(Rent *rents, Vehicle *vehicles, User *users, int id){
     session.balance -= car.price;
     users = editUser(users, session.id);
     saveUsersOnDatabase(users);
+    saveUsersOnBinaryDatabase(users);
 
     return rents;
 }
@@ -350,6 +351,7 @@ int main(){
 
                 // saveVerticesOnBinaryDatabase(graphs);
                 // saveRentOnBinaryDatabase(rents);
+                // saveUsersOnBinaryDatabase(users);
 
                 do {
                     mainMenu();
@@ -430,6 +432,7 @@ int main(){
                                 depositBalance();
                                 users = editUser(users, session.id);
                                 saveUsersOnDatabase(users);
+                                saveUsersOnBinaryDatabase(users);
                             break;
 
                             case 7:
@@ -439,12 +442,14 @@ int main(){
                                 fflush(stdin);
                                 users = editUser(users, session.id);
                                 saveUsersOnDatabase(users);
+                                saveUsersOnBinaryDatabase(users);
                             break;
 
                             case 8:
                                 clearConsole();
 	   		                    users = deleteUser(users, session.id);
                                 saveUsersOnDatabase(users);
+                                saveUsersOnBinaryDatabase(users);
                                 printf("A encerrar programa...");
                                 input = 0;
                             break;
@@ -550,6 +555,7 @@ int main(){
                 clearConsole();
                 users = newUser(users, userId);
                 saveUsersOnDatabase(users);
+                saveUsersOnBinaryDatabase(users);
                 userId = getLastIdFromDb("../databases/users_database.txt");
             break;
 
