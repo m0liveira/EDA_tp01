@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <limits.h>
 #include "../headers/global.h"
 #include "../headers/graphs.h"
+
+#define MAX_VERTICES 100
 
 /*!
     * @brief Check vertices uniqueness
@@ -222,11 +225,12 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
         return;
     }
 
-    printf("Grafo!");
+    printf("Mapa!\n");
 
     while (startEntry != NULL) {
-        printf("\n\nZona: %d\n", startEntry->vertex);
+        printf("\nZona: %d\n", startEntry->vertex);
         printf("Veiculo: %s %s\n", startEntry->vehicle.brand, startEntry->vehicle.model);
+        printf("Bateria: %d%%\n", startEntry->vehicle.currentBattery);
         
         Edge *newEdge = startEdge;
 
@@ -234,7 +238,7 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
 
         while (newEdge != NULL) {
             if (startEntry->vertex == newEdge->vertexA || startEntry->vertex == newEdge->vertexB){
-                printf("Arestas conectadas: %d - %d, Distancia: %.2fkm\n", newEdge->vertexA, newEdge->vertexB, newEdge->distance);
+                printf("Zonas conectadas: %d - %d, Distancia: %.2fkm\n", newEdge->vertexA, newEdge->vertexB, newEdge->distance);
                 hasEdges = 1;
             }
             
@@ -329,6 +333,42 @@ int saveVerticesOnDatabase(Graph *startEntry){
 }
 
 /*!
+    * @brief Save vertices on a binary database
+    *
+    * Saves vertices entrys into a binary database
+    *
+    * @param Graph *startEntry
+    * @return 1 or 0 as true or false
+*/
+
+int saveVerticesOnBinaryDatabase(Graph *startEntry) {
+    Graph *aux = startEntry;
+    FILE *fp;
+
+    fp = fopen("../databases/vertices_database.bin", "wb");
+
+    if (fp == NULL) return 0;
+
+    while (aux != NULL) {
+        fwrite(&aux->vertex, sizeof(int), 1, fp);
+        fwrite(&aux->vehicle.id, sizeof(int), 1, fp);
+        fwrite(&aux->vehicle.batteryCapacity, sizeof(float), 1, fp);
+        fwrite(&aux->vehicle.currentBattery, sizeof(int), 1, fp);
+        fwrite(&aux->vehicle.autonomy, sizeof(float), 1, fp);
+        fwrite(&aux->vehicle.price, sizeof(float), 1, fp);
+        fwrite(aux->vehicle.brand, sizeof(char), strlen(aux->vehicle.brand) + 1, fp);
+        fwrite(aux->vehicle.model, sizeof(char), strlen(aux->vehicle.model) + 1, fp);
+        fwrite(aux->vehicle.gpsTracker, sizeof(char), strlen(aux->vehicle.gpsTracker) + 1, fp);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return 1;
+}
+
+/*!
     * @brief Get vertices
     *
     * Gets all vertices from a database
@@ -386,8 +426,78 @@ Graph *getVerticesFromDatabase() {
 
     while (stack != NULL) {
         vertices = addVertex(vertices, stack->vertex, stack->vehicle);
+
         stack = stack->nextEntry;
     }
 
     return vertices;
+}
+
+void printPath(int* prev, int vertex) {
+    if (prev[vertex] == -1) {
+        printf("zona %d", vertex);
+        return;
+    }
+    printPath(prev, prev[vertex]);
+    printf(" - zona %d", vertex);
+}
+
+void getShortestPath(Graph* graph, Edge* edge, int startVertex, int numVertices) {
+    int distances[MAX_VERTICES];
+    int prev[MAX_VERTICES];
+    int visited[MAX_VERTICES];
+
+    // Initialize distances and previous vertices
+    for (int i = 0; i < numVertices; i++) {
+        distances[i] = INT_MAX;
+        prev[i] = -1;
+        visited[i] = 0;
+    }
+
+    // Set distance of start vertex to 0
+    distances[startVertex] = 0;
+
+    // Find shortest path for all vertices
+    for (int i = 0; i < numVertices - 1; i++) {
+        // Find the vertex with the minimum distance
+        int minDistance = INT_MAX;
+        int minVertex = -1;
+
+        for (int j = 0; j < numVertices; j++) {
+            if (!visited[j] && distances[j] < minDistance) {
+                minDistance = distances[j];
+                minVertex = j;
+            }
+        }
+
+        if (minVertex == -1) {
+            break;
+        }
+
+        // Mark the minimum distance vertex as visited
+        visited[minVertex] = 1;
+
+        // Update distances of adjacent vertices
+        Edge* currentEdge = edge;  // Use a separate pointer to traverse the edges
+
+        while (currentEdge != NULL) {
+            int neighbor = currentEdge->vertexB;
+            float distance = currentEdge->distance;
+
+            if (!visited[neighbor] && distances[minVertex] != INT_MAX && distances[minVertex] + distance < distances[neighbor]) {
+                distances[neighbor] = distances[minVertex] + distance;
+                prev[neighbor] = minVertex;
+            }
+
+            currentEdge = currentEdge->nextEntry;
+        }
+    }
+
+    printf("\n\n");
+    for (int i = 2; i < numVertices; i++) {
+        printf("Rota mais rapida: ");
+        printPath(prev, i);
+        printf(" (%.2fkm)\n", distances[i]);
+    }
+    printf("\n\n");
 }

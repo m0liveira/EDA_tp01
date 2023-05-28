@@ -364,10 +364,11 @@ Vehicle *rechargeVehicles(Vehicle *startEntry){
     }
 
     while (currentEntry != NULL) {
-        currentEntry->currentBattery = 100;
+        if (currentEntry->currentBattery <= 50) currentEntry->currentBattery = 100;
+
         currentEntry = currentEntry->nextEntry;
     }
     
-    printf("Todos os veiculos foram recarregados!\n\n");
+    printf("Todos os veiculos com bateria <= a 50/100 foram recarregados!\n\n");
     return startEntry;
 }

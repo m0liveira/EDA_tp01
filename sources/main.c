@@ -49,6 +49,7 @@ void mainMenu(){
     printf("6: Remover veiculos\n");
     printf("7: Listar alugueres\n");
     printf("8: Listar ganhos\n");
+    printf("9: calcular percurso mais rapido para recolha de veiculos\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -285,14 +286,14 @@ int generateRandomNumber(int min, int max) {
     * @param Graph *graphs @param Edge *edges
 */
 
-void buildGraph(Graph *graphs, Edge *edges){
+Edge *buildGraph(Graph *graphs, Edge *edges){
     srand(time(NULL));
 
     int numVertices = getLinkedListLength(graphs);
     int maxPossibleEdges = numVertices * (numVertices - 1) / 2;
     int rnd = generateRandomNumber(numVertices - 1, maxPossibleEdges);
 
-    edges = generateRandomGraph(graphs, edges, numVertices, rnd);
+    return edges = generateRandomGraph(graphs, edges, numVertices, rnd);
 }
 
 int main(){
@@ -345,7 +346,9 @@ int main(){
 
                 graphs = getVerticesFromDatabase();
                 verticesId = getLastVerticeFromDb("../databases/vertices_database.txt");
-                buildGraph(graphs, edges);
+                edges = buildGraph(graphs, edges);
+
+                // saveVerticesOnBinaryDatabase(graphs);
 
                 do {
                     mainMenu();
@@ -474,6 +477,7 @@ int main(){
 
                                 graphs = addVertex(graphs, verticesId, *aux);
                                 saveVerticesOnDatabase(graphs);
+                                saveVerticesOnBinaryDatabase(graphs);
                                 verticesId = getLastVerticeFromDb("../databases/vertices_database.txt");
                             break;
 
@@ -501,6 +505,11 @@ int main(){
 	   		                    vehicles = rechargeVehicles(vehicles);
                                 saveVehiclesOnDatabase(vehicles);
                                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+
+                                graphs = addVertex(graphs, verticesId, *aux);
+                                saveVerticesOnDatabase(graphs);
+                                saveVerticesOnBinaryDatabase(graphs);
+                                verticesId = getLastVerticeFromDb("../databases/vertices_database.txt");
                             break;
 
                             case 6:
@@ -517,6 +526,12 @@ int main(){
                             case 8:
                                 clearConsole();
                                 getProfits(rents, vehicles);
+                            break;
+
+                            case 9:
+                                clearConsole();
+                                listGraph(graphs, edges);
+                                getShortestPath(graphs, edges, graphs->vertex, getLinkedListLength(graphs));
                             break;
 
                             default:

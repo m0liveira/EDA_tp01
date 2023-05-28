@@ -9,6 +9,7 @@ typedef struct AuxList {
     char brand[20];
     char model[20];
     char gpsTracker[50];
+    struct AuxList* nextEntry;
 } Aux;
 
 typedef struct EdgeList {
@@ -22,6 +23,7 @@ typedef struct EdgeList {
 typedef struct GraphList {
     int vertex;
     Aux vehicle;
+    Edge* edge;
     struct GraphList* nextEntry;
 } Graph;
 
@@ -36,4 +38,6 @@ void listGraph(Graph *startEntry, Edge *startEdge);
 void listZones(Graph *startEntry);
 void listVehiclesByZone(Graph *startEntry, int zone);
 int saveVerticesOnDatabase(Graph *startEntry);
+int saveVerticesOnBinaryDatabase(Graph *startEntry);
 Graph *getVerticesFromDatabase();
+void getShortestPath(Graph *startEntry, Edge *edge, int startVertex, int numOfVertices);
