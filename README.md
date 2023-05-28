@@ -16,6 +16,7 @@ To see documentation go either to the folder:
 - [x] Delete vehicles from linked list
 - [x] Update vehicles from linked list
 - [x] Save vehicles to database
+- [x] Save vehicles to a binary database
 - [x] Get vehicles from database
 - [x] List vehicles by autonomy from linked list
 - [x] List vehicles by gps location from linked list
@@ -27,6 +28,7 @@ To see documentation go either to the folder:
 - [x] Add user to linked list
 - [x] Login user to program
 - [x] Save user to database
+- [x] Save user to a binary database
 - [x] Get user from database
 - [x] Delete user from linked list
 - [x] Update update from linked list
@@ -35,6 +37,7 @@ To see documentation go either to the folder:
 
 - [x] Add rent to linked list
 - [x] Save rents to database
+- [x] Save rents to a binary database
 - [x] Get rents from database
 - [x] Update rent from linked list
 - [x] List user rents from linked list
@@ -47,7 +50,8 @@ To see documentation go either to the folder:
 - [x] Add edges to a linked list
 - [x] Create random and dynamic graphs
 - [x] List graphs
-- [ ] Save vertices to database
-- [ ] Get vertices from database
-- [ ] List vehicles in a given radius from the client
+- [x] Save vertices to database
+- [x] Save vertices to a binary database
+- [x] Get vertices from database
+- [x] List vehicles in a given radius from the client
 - [ ] Calculate the shortest route to retrieve all vehicles with a battery lower than 50%

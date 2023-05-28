@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
+#include <limits.h>
 #include "../headers/global.h"
 #include "../headers/graphs.h"
+
+#define MAX_VERTICES 100
 
 /*!
     * @brief Check vertices uniqueness
@@ -221,11 +225,12 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
         return;
     }
 
-    printf("Grafo!");
+    printf("Mapa!\n");
 
     while (startEntry != NULL) {
-        printf("\n\nVertice: %d\n", startEntry->vertex);
-        printf("veiculo: %s %s\n", startEntry->vehicle.brand, startEntry->vehicle.model);
+        printf("\nZona: %d\n", startEntry->vertex);
+        printf("Veiculo: %s %s\n", startEntry->vehicle.brand, startEntry->vehicle.model);
+        printf("Bateria: %d%%\n", startEntry->vehicle.currentBattery);
         
         Edge *newEdge = startEdge;
 
@@ -233,7 +238,7 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
 
         while (newEdge != NULL) {
             if (startEntry->vertex == newEdge->vertexA || startEntry->vertex == newEdge->vertexB){
-                printf("Arestas conectadas: %d - %d, Distancia: %.2fkm\n", newEdge->vertexA, newEdge->vertexB, newEdge->distance);
+                printf("Zonas conectadas: %d - %d, Distancia: %.2fkm\n", newEdge->vertexA, newEdge->vertexB, newEdge->distance);
                 hasEdges = 1;
             }
             
@@ -244,4 +249,255 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
 
         startEntry = startEntry->nextEntry;
     }
+}
+
+/*!
+    * @brief List zones
+    *
+    * Outputs graph vertices
+    *
+    * @param Graph *startEntry
+*/
+
+void listZones(Graph *startEntry) {    
+    if (startEntry == NULL) {
+        printf("Nao ha vertices guardados\n\n");
+        return;
+    }
+
+    printf("Mapa!\n\n");
+
+    while (startEntry != NULL) {
+        printf("Zona: %d\n", startEntry->vertex);
+
+        startEntry = startEntry->nextEntry;
+    }
+}
+
+/*!
+    * @brief List cars by zones
+    *
+    * Outputs graph vertices
+    *
+    * @param Graph *startEntry
+*/
+
+void listVehiclesByZone(Graph *startEntry, int zone) {    
+    if (startEntry == NULL) {
+        printf("Nao ha vertices guardados\n\n");
+        return;
+    }
+
+    printf("Veiculos num raio de %d zonas!\n\n", zone);
+
+    while (startEntry != NULL) {
+        if (startEntry->vertex <= zone) {
+            printf("Id: %d\n", startEntry->vehicle.id);
+            printf("Veiculo: %s %s\n", startEntry->vehicle.brand, startEntry->vehicle.model);
+            printf("Preco: %.2f euros\n", startEntry->vehicle.price);
+            printf("Bateria: %d%%\n\n", startEntry->vehicle.currentBattery);
+        }
+
+        startEntry = startEntry->nextEntry;
+    }
+}
+
+/*!
+    * @brief Save vertices on database
+    *
+    * Saves vertices entrys into a database
+    *
+    * @param Graph *startEntry
+    * @return 1 or 0 as true or false
+*/
+
+int saveVerticesOnDatabase(Graph *startEntry){
+    Graph *aux = startEntry;
+    FILE *fp;
+
+    fp = fopen("../databases/vertices_database.txt","w");
+
+    if (fp==NULL) return 0;
+
+    while (aux != NULL) {
+        printf("vertex:%d", startEntry->vertex);
+
+        fprintf(fp,"Vertex:%d;Id:%d;BatteryCap:%.2f;CurrBattery:%d;Autonomy:%.2f;Price:%.2f;Brand:%s;Model:%s;GPS:%s;\n", aux->vertex, aux->vehicle.id, aux->vehicle.batteryCapacity, aux->vehicle.currentBattery, aux->vehicle.autonomy, aux->vehicle.price, aux->vehicle.brand, aux->vehicle.model, aux->vehicle.gpsTracker);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return 1;
+}
+
+/*!
+    * @brief Save vertices on a binary database
+    *
+    * Saves vertices entrys into a binary database
+    *
+    * @param Graph *startEntry
+    * @return 1 or 0 as true or false
+*/
+
+int saveVerticesOnBinaryDatabase(Graph *startEntry) {
+    Graph *aux = startEntry;
+    FILE *fp;
+
+    fp = fopen("../databases/vertices_database.bin", "wb");
+
+    if (fp == NULL) return 0;
+
+    while (aux != NULL) {
+        fwrite(&aux->vertex, sizeof(int), 1, fp);
+        fwrite(&aux->vehicle.id, sizeof(int), 1, fp);
+        fwrite(&aux->vehicle.batteryCapacity, sizeof(float), 1, fp);
+        fwrite(&aux->vehicle.currentBattery, sizeof(int), 1, fp);
+        fwrite(&aux->vehicle.autonomy, sizeof(float), 1, fp);
+        fwrite(&aux->vehicle.price, sizeof(float), 1, fp);
+        fwrite(aux->vehicle.brand, sizeof(char), strlen(aux->vehicle.brand) + 1, fp);
+        fwrite(aux->vehicle.model, sizeof(char), strlen(aux->vehicle.model) + 1, fp);
+        fwrite(aux->vehicle.gpsTracker, sizeof(char), strlen(aux->vehicle.gpsTracker) + 1, fp);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return 1;
+}
+
+/*!
+    * @brief Get vertices
+    *
+    * Gets all vertices from a database
+    *
+    * @return vertices
+*/
+
+Graph *getVerticesFromDatabase() {
+    Graph *vertices = NULL, *stack = NULL;
+    Aux *car = NULL;
+    FILE *fp;
+    int vertex, id, currentBattery;
+    float batteryCapacity, autonomy, price;
+    char brand[20], model[20], gpsTracker[50];
+
+    fp = fopen("../databases/vertices_database.txt", "r");
+
+    if (fp == NULL) return vertices;
+
+    if (isFileEmpty("../databases/vertices_database.txt") == 1) return vertices;
+
+    while (!feof(fp)) {
+        car = malloc(sizeof(Aux));
+
+        if (car == NULL) {
+            while (stack != NULL) {
+                Graph *next = stack->nextEntry;
+                free(stack);
+                stack = next;
+            }
+
+            fclose(fp);
+
+            return vertices;
+        }
+
+        if (fscanf(fp, "Vertex:%d;Id:%d;BatteryCap:%f;CurrBattery:%d;Autonomy:%f;Price:%f;Brand:%[^;];Model:%[^;];GPS:%[^;\n];\n", &vertex, &id, &batteryCapacity, &currentBattery, &autonomy, &price, brand, model, gpsTracker) == 9) {
+            car->id = id;
+            car->batteryCapacity = batteryCapacity;
+            car->currentBattery = currentBattery;
+            car->autonomy = autonomy;
+            car->price = price;
+            strcpy(car->brand, brand);
+            strcpy(car->model, model);
+            strcpy(car->gpsTracker, gpsTracker);
+
+            stack = addVertex(stack, vertex, *car);
+        } else {
+            free(car);
+            break;
+        }
+    }
+
+    fclose(fp);
+
+    while (stack != NULL) {
+        vertices = addVertex(vertices, stack->vertex, stack->vehicle);
+
+        stack = stack->nextEntry;
+    }
+
+    return vertices;
+}
+
+void printPath(int* prev, int vertex) {
+    if (prev[vertex] == -1) {
+        printf("zona %d", vertex);
+        return;
+    }
+    printPath(prev, prev[vertex]);
+    printf(" - zona %d", vertex);
+}
+
+void getShortestPath(Graph* graph, Edge* edge, int startVertex, int numVertices) {
+    int distances[MAX_VERTICES];
+    int prev[MAX_VERTICES];
+    int visited[MAX_VERTICES];
+
+    // Initialize distances and previous vertices
+    for (int i = 0; i < numVertices; i++) {
+        distances[i] = INT_MAX;
+        prev[i] = -1;
+        visited[i] = 0;
+    }
+
+    // Set distance of start vertex to 0
+    distances[startVertex] = 0;
+
+    // Find shortest path for all vertices
+    for (int i = 0; i < numVertices - 1; i++) {
+        // Find the vertex with the minimum distance
+        int minDistance = INT_MAX;
+        int minVertex = -1;
+
+        for (int j = 0; j < numVertices; j++) {
+            if (!visited[j] && distances[j] < minDistance) {
+                minDistance = distances[j];
+                minVertex = j;
+            }
+        }
+
+        if (minVertex == -1) {
+            break;
+        }
+
+        // Mark the minimum distance vertex as visited
+        visited[minVertex] = 1;
+
+        // Update distances of adjacent vertices
+        Edge* currentEdge = edge;  // Use a separate pointer to traverse the edges
+
+        while (currentEdge != NULL) {
+            int neighbor = currentEdge->vertexB;
+            float distance = currentEdge->distance;
+
+            if (!visited[neighbor] && distances[minVertex] != INT_MAX && distances[minVertex] + distance < distances[neighbor]) {
+                distances[neighbor] = distances[minVertex] + distance;
+                prev[neighbor] = minVertex;
+            }
+
+            currentEdge = currentEdge->nextEntry;
+        }
+    }
+
+    printf("\n\n");
+    for (int i = 2; i < numVertices; i++) {
+        printf("Rota mais rapida: ");
+        printPath(prev, i);
+        printf(" (%.2fkm)\n", distances[i]);
+    }
+    printf("\n\n");
 }

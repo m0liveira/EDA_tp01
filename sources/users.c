@@ -133,6 +133,39 @@ int saveUsersOnDatabase(User *startEntry){
 }
 
 /*!
+    * @brief Save user on a binary database
+    *
+    * Saves user entrys into a binary database
+    *
+    * @param User *startEntry
+    * @return 1 or 0 as true or false
+*/
+
+int saveUsersOnBinaryDatabase(User *startEntry) {
+    User* aux = startEntry;
+    FILE* fp;
+
+    fp = fopen("../databases/users_database.bin", "wb");
+
+    if (fp == NULL) return 0;
+
+    while (aux != NULL) {
+        fwrite(&aux->id, sizeof(int), 1, fp);
+        fwrite(aux->name, sizeof(char), strlen(aux->name) + 1, fp);
+        fwrite(aux->password, sizeof(char), strlen(aux->password) + 1, fp);
+        fwrite(&aux->nif, sizeof(int), 1, fp);
+        fwrite(&aux->balance, sizeof(float), 1, fp);
+        fwrite(aux->role, sizeof(char), strlen(aux->role) + 1, fp);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return 1;
+}
+
+/*!
     * @brief Get Users
     *
     * Gets all users from a database
@@ -141,7 +174,7 @@ int saveUsersOnDatabase(User *startEntry){
 */
 
 User *getUsersFromDatabase(){
-    User *users = NULL, *stack = NULL;;
+    User *users = NULL, *stack = NULL;
     FILE *fp;
     int id, nif;
     float balance;

@@ -28,13 +28,14 @@ void mainMenu(){
     printf("Menu Fase 1");
 
     if (strcmp(session.role, "client") == 0) {
-        printf("\n\n1: Alugar transporte\n");
+        printf("\n\n1: Alugar veiculo\n");
         printf("2: Entregar veiculo\n");
         printf("3: Consultar alugueres\n");
-        printf("4: Consultar saldo\n");
-        printf("5: Carregar saldo\n");
-        printf("6: Alterar palavra-passe\n");
-        printf("7: Apagar conta\n");
+        printf("4: Consultar veiculos numa area\n");
+        printf("5: Consultar saldo\n");
+        printf("6: Carregar saldo\n");
+        printf("7: Alterar palavra-passe\n");
+        printf("8: Apagar conta\n");
         printf("0: Sair");
         printf("\n\nOpcao: "); 
         return;
@@ -48,6 +49,7 @@ void mainMenu(){
     printf("6: Remover veiculos\n");
     printf("7: Listar alugueres\n");
     printf("8: Listar ganhos\n");
+    printf("9: calcular percurso mais rapido para recolha de veiculos\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -62,7 +64,6 @@ void loginMenu(){
     printf("Login Menu");
     printf("\n\n1: Entrar\n");
     printf("2: Criar conta\n");
-    printf("3: testes\n");
     printf("0: Sair");
     printf("\n\nOpcao: ");
 }
@@ -182,6 +183,7 @@ Rent *newRent(Rent *rents, Vehicle *vehicles, User *users, int id){
     session.balance -= car.price;
     users = editUser(users, session.id);
     saveUsersOnDatabase(users);
+    saveUsersOnBinaryDatabase(users);
 
     return rents;
 }
@@ -277,13 +279,32 @@ int generateRandomNumber(int min, int max) {
     return min + rand() % (max - min + 1);
 }
 
+/*!
+    * @brief Build graph.
+    *
+    * Builds the graph by using other functions throughout the code
+    *
+    * @param Graph *graphs @param Edge *edges
+*/
+
+Edge *buildGraph(Graph *graphs, Edge *edges){
+    srand(time(NULL));
+
+    int numVertices = getLinkedListLength(graphs);
+    int maxPossibleEdges = numVertices * (numVertices - 1) / 2;
+    int rnd = generateRandomNumber(numVertices - 1, maxPossibleEdges);
+
+    return edges = generateRandomGraph(graphs, edges, numVertices, rnd);
+}
+
 int main(){
     Vehicle *vehicles = NULL;
     User *users = NULL;
     Rent *rents = NULL;
     Graph *graphs = NULL;
     Edge *edges = NULL;
-    int input = -1, vehicleId = 1, userId = 1, rentId = 1, updateRentId = 0, vehicleBattery = 0;
+    Aux *aux = NULL;
+    int input = -1, verticesId = 1, vehicleId = 1, userId = 1, rentId = 1, updateRentId = 0, vehicleBattery = 0, zone = 0;
     char location[50];
 
     users = getUsersFromDatabase();
@@ -324,6 +345,10 @@ int main(){
                 rents = getRentsFromDatabase();
                 rentId = getLastIdFromDb("../databases/rents_database.txt");
 
+                graphs = getVerticesFromDatabase();
+                verticesId = getLastVerticeFromDb("../databases/vertices_database.txt");
+                edges = buildGraph(graphs, edges);
+
                 do {
                     mainMenu();
                     scanf("%d", &input);
@@ -342,6 +367,7 @@ int main(){
 
                                 rents = newRent(rents, vehicles, users, rentId);
                                 saveRentOnDatabase(rents);
+                                saveRentOnBinaryDatabase(rents);
                                 rentId = getLastIdFromDb("../databases/rents_database.txt");
                             break;
 
@@ -364,10 +390,12 @@ int main(){
                                 if (rentExists(rents, updateRentId)){
                                     updateRent(rents, updateRentId);
                                     saveRentOnDatabase(rents);
+                                    saveRentOnBinaryDatabase(rents);
                                     rentId = getLastIdFromDb("../databases/rents_database.txt");
 
                                     vehicles = editVehicle(vehicles, car.id, vehicleBattery, location);
                                     saveVehiclesOnDatabase(vehicles);
+                                    saveVehiclesOnBinaryDatabase(vehicles);
                                     vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
                                 }else{
                                     printf("Erro: Este aluguer nao existe!\n\n");
@@ -381,29 +409,44 @@ int main(){
 
                             case 4:
                                 clearConsole();
-                                printf("Saldo: %.2f euros\n\n", session.balance);
+                                listZones(graphs);
+
+                                printf("\nPesquisar num raio de (zonas): ");
+                                scanf("%d", &zone);
+                                fflush(stdin);
+
+                                clearConsole();
+                                listVehiclesByZone(graphs, zone);
                             break;
 
                             case 5:
                                 clearConsole();
-                                depositBalance();
-                                users = editUser(users, session.id);
-                                saveUsersOnDatabase(users);
+                                printf("Saldo: %.2f euros\n\n", session.balance);
                             break;
 
                             case 6:
+                                clearConsole();
+                                depositBalance();
+                                users = editUser(users, session.id);
+                                saveUsersOnDatabase(users);
+                                saveUsersOnBinaryDatabase(users);
+                            break;
+
+                            case 7:
                                 clearConsole();
 	   		                    printf("Nova palavra-passe: ");
                                 scanf("%s", &session.password);
                                 fflush(stdin);
                                 users = editUser(users, session.id);
                                 saveUsersOnDatabase(users);
+                                saveUsersOnBinaryDatabase(users);
                             break;
 
-                            case 7:
+                            case 8:
                                 clearConsole();
 	   		                    users = deleteUser(users, session.id);
                                 saveUsersOnDatabase(users);
+                                saveUsersOnBinaryDatabase(users);
                                 printf("A encerrar programa...");
                                 input = 0;
                             break;
@@ -424,7 +467,24 @@ int main(){
                                 clearConsole();
                                 vehicles = newVehicle(vehicles, vehicleId);
                                 saveVehiclesOnDatabase(vehicles);
+                                saveVehiclesOnBinaryDatabase(vehicles);
                                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+
+                                aux = malloc(sizeof(Aux));
+
+                                aux->id = vehicles->id;
+                                aux->batteryCapacity = vehicles->batteryCapacity;
+                                aux->currentBattery = vehicles->currentBattery;
+                                aux->autonomy = vehicles->autonomy;
+                                aux->price = vehicles->price;
+                                strcpy(aux->brand, vehicles->brand);
+                                strcpy(aux->model, vehicles->model);
+                                strcpy(aux->gpsTracker, vehicles->gpsTracker);
+
+                                graphs = addVertex(graphs, verticesId, *aux);
+                                saveVerticesOnDatabase(graphs);
+                                saveVerticesOnBinaryDatabase(graphs);
+                                verticesId = getLastVerticeFromDb("../databases/vertices_database.txt");
                             break;
 
                             case 2:
@@ -450,13 +510,20 @@ int main(){
                                 clearConsole();
 	   		                    vehicles = rechargeVehicles(vehicles);
                                 saveVehiclesOnDatabase(vehicles);
+                                saveVehiclesOnBinaryDatabase(vehicles);
                                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
+
+                                graphs = addVertex(graphs, verticesId, *aux);
+                                saveVerticesOnDatabase(graphs);
+                                saveVerticesOnBinaryDatabase(graphs);
+                                verticesId = getLastVerticeFromDb("../databases/vertices_database.txt");
                             break;
 
                             case 6:
                                 clearConsole();
 	   		                    vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
                                 saveVehiclesOnDatabase(vehicles);
+                                saveVehiclesOnBinaryDatabase(vehicles);
                             break;
 
                             case 7:
@@ -467,6 +534,12 @@ int main(){
                             case 8:
                                 clearConsole();
                                 getProfits(rents, vehicles);
+                            break;
+
+                            case 9:
+                                clearConsole();
+                                listGraph(graphs, edges);
+                                getShortestPath(graphs, edges, graphs->vertex, getLinkedListLength(graphs));
                             break;
 
                             default:
@@ -482,37 +555,9 @@ int main(){
                 clearConsole();
                 users = newUser(users, userId);
                 saveUsersOnDatabase(users);
+                saveUsersOnBinaryDatabase(users);
                 userId = getLastIdFromDb("../databases/users_database.txt");
             break;
-
-            case 3: {
-                int counter = 1;
-
-                srand(time(NULL));
-                
-                clearConsole();
-                vehicles = getVehiclesFromDatabase();
-                vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
-
-                while (vehicles != NULL) {
-                    Aux *car = (Aux *)vehicles;
-                    graphs = addVertex(graphs, counter, *car);
-                    vehicles = vehicles->nextEntry;
-                    counter++;
-                }
-
-                int numVertices = getLinkedListLength(graphs);
-                
-                int maxPossibleEdges = numVertices * (numVertices - 1) / 2;
-
-                int rnd = generateRandomNumber(numVertices - 1, maxPossibleEdges);
-
-                printf("vertices: %d\narestas max: %d\nrandom number: %d\n\n", numVertices, maxPossibleEdges, rnd);
-
-                edges = generateRandomGraph(graphs, edges, numVertices, rnd);
-
-                listGraph(graphs, edges);
-            } break;
 
             default:
                 clearConsole();
