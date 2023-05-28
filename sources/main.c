@@ -349,10 +349,6 @@ int main(){
                 verticesId = getLastVerticeFromDb("../databases/vertices_database.txt");
                 edges = buildGraph(graphs, edges);
 
-                // saveVerticesOnBinaryDatabase(graphs);
-                // saveRentOnBinaryDatabase(rents);
-                // saveUsersOnBinaryDatabase(users);
-
                 do {
                     mainMenu();
                     scanf("%d", &input);
@@ -399,6 +395,7 @@ int main(){
 
                                     vehicles = editVehicle(vehicles, car.id, vehicleBattery, location);
                                     saveVehiclesOnDatabase(vehicles);
+                                    saveVehiclesOnBinaryDatabase(vehicles);
                                     vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
                                 }else{
                                     printf("Erro: Este aluguer nao existe!\n\n");
@@ -470,6 +467,7 @@ int main(){
                                 clearConsole();
                                 vehicles = newVehicle(vehicles, vehicleId);
                                 saveVehiclesOnDatabase(vehicles);
+                                saveVehiclesOnBinaryDatabase(vehicles);
                                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
                                 aux = malloc(sizeof(Aux));
@@ -512,6 +510,7 @@ int main(){
                                 clearConsole();
 	   		                    vehicles = rechargeVehicles(vehicles);
                                 saveVehiclesOnDatabase(vehicles);
+                                saveVehiclesOnBinaryDatabase(vehicles);
                                 vehicleId = getLastIdFromDb("../databases/vehicles_database.txt");
 
                                 graphs = addVertex(graphs, verticesId, *aux);
@@ -524,6 +523,7 @@ int main(){
                                 clearConsole();
 	   		                    vehicles = deleteVehicle(vehicles, getId("Codigo do veiculo a remover: "));
                                 saveVehiclesOnDatabase(vehicles);
+                                saveVehiclesOnBinaryDatabase(vehicles);
                             break;
 
                             case 7:

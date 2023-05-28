@@ -182,6 +182,41 @@ int saveVehiclesOnDatabase(Vehicle *startEntry){
 }
 
 /*!
+    * @brief Save vehicle on binary database
+    *
+    * Saves vehicles entrys into a binary database
+    *
+    * @param Vehicle *startEntry
+    * @return 1 or 0 as true or false
+*/
+
+int saveVehiclesOnBinaryDatabase(Vehicle *startEntry) {
+    Vehicle* aux = startEntry;
+    FILE* fp;
+
+    fp = fopen("../databases/vehicles_database.bin", "wb");
+
+    if (fp == NULL) return 0;
+
+    while (aux != NULL) {
+        fwrite(&aux->id, sizeof(int), 1, fp);
+        fwrite(&aux->batteryCapacity, sizeof(float), 1, fp);
+        fwrite(&aux->currentBattery, sizeof(int), 1, fp);
+        fwrite(&aux->autonomy, sizeof(float), 1, fp);
+        fwrite(&aux->price, sizeof(float), 1, fp);
+        fwrite(aux->brand, sizeof(char), strlen(aux->brand) + 1, fp);
+        fwrite(aux->model, sizeof(char), strlen(aux->model) + 1, fp);
+        fwrite(aux->gpsTracker, sizeof(char), strlen(aux->gpsTracker) + 1, fp);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return 1;
+}
+
+/*!
     * @brief Get vehicles
     *
     * Gets all vehicles from a database
