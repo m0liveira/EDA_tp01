@@ -349,6 +349,7 @@ int main(){
                 edges = buildGraph(graphs, edges);
 
                 // saveVerticesOnBinaryDatabase(graphs);
+                // saveRentOnBinaryDatabase(rents);
 
                 do {
                     mainMenu();
@@ -368,6 +369,7 @@ int main(){
 
                                 rents = newRent(rents, vehicles, users, rentId);
                                 saveRentOnDatabase(rents);
+                                saveRentOnBinaryDatabase(rents);
                                 rentId = getLastIdFromDb("../databases/rents_database.txt");
                             break;
 
@@ -390,6 +392,7 @@ int main(){
                                 if (rentExists(rents, updateRentId)){
                                     updateRent(rents, updateRentId);
                                     saveRentOnDatabase(rents);
+                                    saveRentOnBinaryDatabase(rents);
                                     rentId = getLastIdFromDb("../databases/rents_database.txt");
 
                                     vehicles = editVehicle(vehicles, car.id, vehicleBattery, location);

@@ -105,6 +105,37 @@ int saveRentOnDatabase(Rent *startEntry){
 }
 
 /*!
+    * @brief Save rent on binary database
+    *
+    * Saves rent entrys into a binary database
+    *
+    * @param Rent *startEntry
+    * @return 1 or 0 as true or false
+*/
+
+int saveRentOnBinaryDatabase(Rent *startEntry) {
+    Rent* aux = startEntry;
+    FILE* fp;
+
+    fp = fopen("../databases/rents_database.bin", "wb");
+
+    if (fp == NULL) return 0;
+
+    while (aux != NULL) {
+        fwrite(&aux->id, sizeof(int), 1, fp);
+        fwrite(&aux->clientId, sizeof(int), 1, fp);
+        fwrite(&aux->vehicleId, sizeof(int), 1, fp);
+        fwrite(aux->status, sizeof(char), strlen(aux->status) + 1, fp);
+
+        aux = aux->nextEntry;
+    }
+
+    fclose(fp);
+
+    return 1;
+}
+
+/*!
     * @brief Get rents
     *
     * Gets all rents from a database
