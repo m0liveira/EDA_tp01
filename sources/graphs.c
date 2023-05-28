@@ -225,8 +225,8 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
     printf("Grafo!");
 
     while (startEntry != NULL) {
-        printf("\n\nVertice: %d\n", startEntry->vertex);
-        printf("veiculo: %s %s\n", startEntry->vehicle.brand, startEntry->vehicle.model);
+        printf("\n\nZona: %d\n", startEntry->vertex);
+        printf("Veiculo: %s %s\n", startEntry->vehicle.brand, startEntry->vehicle.model);
         
         Edge *newEdge = startEdge;
 
@@ -248,6 +248,57 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
 }
 
 /*!
+    * @brief List zones
+    *
+    * Outputs graph vertices
+    *
+    * @param Graph *startEntry
+*/
+
+void listZones(Graph *startEntry) {    
+    if (startEntry == NULL) {
+        printf("Nao ha vertices guardados\n\n");
+        return;
+    }
+
+    printf("Mapa!\n\n");
+
+    while (startEntry != NULL) {
+        printf("Zona: %d\n", startEntry->vertex);
+
+        startEntry = startEntry->nextEntry;
+    }
+}
+
+/*!
+    * @brief List cars by zones
+    *
+    * Outputs graph vertices
+    *
+    * @param Graph *startEntry
+*/
+
+void listVehiclesByZone(Graph *startEntry, int zone) {    
+    if (startEntry == NULL) {
+        printf("Nao ha vertices guardados\n\n");
+        return;
+    }
+
+    printf("Veiculos num raio de %d zonas!\n\n", zone);
+
+    while (startEntry != NULL) {
+        if (startEntry->vertex <= zone) {
+            printf("Id: %d\n", startEntry->vehicle.id);
+            printf("Veiculo: %s %s\n", startEntry->vehicle.brand, startEntry->vehicle.model);
+            printf("Preco: %.2f euros\n", startEntry->vehicle.price);
+            printf("Bateria: %d%%\n\n", startEntry->vehicle.currentBattery);
+        }
+
+        startEntry = startEntry->nextEntry;
+    }
+}
+
+/*!
     * @brief Save vertices on database
     *
     * Saves vertices entrys into a database
@@ -257,14 +308,16 @@ void listGraph(Graph *startEntry, Edge *startEdge) {
 */
 
 int saveVerticesOnDatabase(Graph *startEntry){
-    Graph* aux = startEntry;
-    FILE* fp;
+    Graph *aux = startEntry;
+    FILE *fp;
 
     fp = fopen("../databases/vertices_database.txt","w");
 
     if (fp==NULL) return 0;
 
     while (aux != NULL) {
+        printf("vertex:%d", startEntry->vertex);
+
         fprintf(fp,"Vertex:%d;Id:%d;BatteryCap:%.2f;CurrBattery:%d;Autonomy:%.2f;Price:%.2f;Brand:%s;Model:%s;GPS:%s;\n", aux->vertex, aux->vehicle.id, aux->vehicle.batteryCapacity, aux->vehicle.currentBattery, aux->vehicle.autonomy, aux->vehicle.price, aux->vehicle.brand, aux->vehicle.model, aux->vehicle.gpsTracker);
 
         aux = aux->nextEntry;

@@ -1,5 +1,8 @@
-Vertex:1;Id:5;BatteryCap:14000.00;CurrBattery:100;Autonomy:659900.00;Price:899.45;Brand:porsche;Model:911;GPS:origem.rios.asa;
-Vertex:2;Id:4;BatteryCap:11000.00;CurrBattery:100;Autonomy:400000.00;Price:538.52;Brand:mazda;Model:mx5;GPS:origem.rias.camelo;
-Vertex:3;Id:3;BatteryCap:17000.00;CurrBattery:100;Autonomy:705000.00;Price:1085.99;Brand:audi;Model:r8;GPS:origem.rias.pontos;
-Vertex:4;Id:2;BatteryCap:10000.00;CurrBattery:100;Autonomy:377450.00;Price:379.00;Brand:toyota;Model:celica;GPS:origem.rias.cao;
-Vertex:5;Id:1;BatteryCap:12000.00;CurrBattery:100;Autonomy:574000.00;Price:574.69;Brand:bmw;Model:serie1;GPS:origem.rias.pontos;
+Vertex:1;Id:1;BatteryCap:20000.00;CurrBattery:100;Autonomy:1000000.00;Price:1350.00;Brand:mazda;Model:rx7;GPS:origem.rias.pontos;
+Vertex:2;Id:2;BatteryCap:15000.00;CurrBattery:100;Autonomy:390000.00;Price:350.00;Brand:honda;Model:crx;GPS:origem.rias.pontos;
+Vertex:3;Id:3;BatteryCap:13000.00;CurrBattery:100;Autonomy:357000.00;Price:100.00;Brand:renault;Model:clio;GPS:origem.rias.pontos;
+Vertex:4;Id:4;BatteryCap:14000.00;CurrBattery:100;Autonomy:659900.00;Price:899.45;Brand:porsche;Model:911;GPS:origem.rios.asa;
+Vertex:5;Id:5;BatteryCap:11000.00;CurrBattery:100;Autonomy:400000.00;Price:538.52;Brand:mazda;Model:mx5;GPS:origem.rias.camelo;
+Vertex:6;Id:6;BatteryCap:17000.00;CurrBattery:100;Autonomy:705000.00;Price:1085.99;Brand:audi;Model:r8;GPS:origem.rias.pontos;
+Vertex:7;Id:7;BatteryCap:10000.00;CurrBattery:100;Autonomy:377450.00;Price:379.00;Brand:toyota;Model:celica;GPS:origem.rias.cao;
+Vertex:8;Id:8;BatteryCap:12000.00;CurrBattery:100;Autonomy:574000.00;Price:574.69;Brand:bmw;Model:serie1;GPS:origem.rias.pontos;

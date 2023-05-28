@@ -22,3 +22,4 @@ struct Car {
 
 int isFileEmpty(char dir[]);
 int getLastIdFromDb(char dir[]);
+int getLastVerticeFromDb(char dir[]);

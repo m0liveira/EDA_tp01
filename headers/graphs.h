@@ -33,5 +33,7 @@ Edge *AddEdge(Graph *graph, Edge *startEntry, int startVertex, int endVertex);
 int isEdgePresent(Graph *graph, Edge *edge, int vertexA, int vertexB);
 Edge *generateRandomGraph(Graph *graph, Edge *edge, int numVertices, int numEdges);
 void listGraph(Graph *startEntry, Edge *startEdge);
+void listZones(Graph *startEntry);
+void listVehiclesByZone(Graph *startEntry, int zone);
 int saveVerticesOnDatabase(Graph *startEntry);
 Graph *getVerticesFromDatabase();

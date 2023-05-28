@@ -55,3 +55,36 @@ int getLastIdFromDb(char dir[]){
 
     return lastId + 1;
 }
+
+int getLastVerticeFromDb(char dir[]) {
+    FILE* fp;
+    char line[256];
+    int vertex = 1, lastVertex = 0, count = 0;
+
+    fp = fopen(dir, "r");
+    if (fp == NULL) return 1;
+
+    if (isFileEmpty(dir) == 1) {
+        fclose(fp);
+        return 1;
+    }
+
+    while (fgets(line, sizeof(line), fp) != NULL) {
+        count++;
+    }
+
+    fseek(fp, 0, SEEK_SET);
+
+    for (int i = 0; i < count; i++) {
+        if (fgets(line, sizeof(line), fp) != NULL) {
+            sscanf(line, "Vertex:%d;", &vertex);
+
+            if (vertex > lastVertex) lastVertex = vertex;
+        }
+    }
+
+    fclose(fp);
+
+    return lastVertex + 1;
+}
+

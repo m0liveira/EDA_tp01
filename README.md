@@ -49,5 +49,5 @@ To see documentation go either to the folder:
 - [x] List graphs
 - [x] Save vertices to database
 - [x] Get vertices from database
-- [ ] List vehicles in a given radius from the client
+- [x] List vehicles in a given radius from the client
 - [ ] Calculate the shortest route to retrieve all vehicles with a battery lower than 50%
